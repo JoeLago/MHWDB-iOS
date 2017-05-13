@@ -2092,7 +2092,6 @@
 			isa = PBXGroup;
 			children = (
 				14A249701EA9D05300755F6A /* Assets.xcassets */,
-				14A249711EA9D05300755F6A /* LaunchScreen.storyboard */,
 				14A249731EA9D05300755F6A /* databases */,
 				14A249751EA9D05300755F6A /* icons_armor */,
 				14A249B51EA9D05300755F6A /* icons_items */,
@@ -2101,6 +2100,7 @@
 				14A24C391EA9D05400755F6A /* icons_monster_info */,
 				14A24C601EA9D05400755F6A /* icons_weapons */,
 				14A24D0C1EA9D05400755F6A /* Info.plist */,
+				14A249711EA9D05300755F6A /* LaunchScreen.storyboard */,
 			);
 			name = Assets;
 			path = MHGDB/Assets;
