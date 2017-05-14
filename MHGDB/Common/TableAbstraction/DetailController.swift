@@ -40,7 +40,14 @@ class DetailController: UITableViewController {
         //tableView.sectionHeaderHeight = UITableViewAutomaticDimension
         //tableView.estimatedSectionHeaderHeight = 100
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            image: UIImage(named: "home"), style: .plain, target: self, action: #selector(popToRoot))
+        
         addLongPressGesture()
+    }
+    
+    func popToRoot() {
+        self.navigationController?.popToRootViewController(animated: true)
     }
     
     func push(_ vc: UIViewController) {
