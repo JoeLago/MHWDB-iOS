@@ -22,7 +22,7 @@ extension UIView {
     func matchParent(top: Float? = 0, left: Float? = 0, bottom: Float? = 0, right: Float? = 0,
                      priority: Float = UILayoutPriorityRequired, relatedBy: NSLayoutRelation = .equal) {
         guard let superView = superview else {
-            Log("matchParent: No parent view")
+            Log(error: "matchParent: No parent view")
             return
         }
         

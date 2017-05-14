@@ -11,7 +11,14 @@ var loggers = [Logger]()
 
 protocol Logger {
     func log(_ text: String)
+    func log(error: String)
     func log(page: String, event: String?, details: String?, metadata: [String: Any]?)
+}
+
+func Log(error: String) {
+    for logger in loggers {
+        logger.log(error)
+    }
 }
 
 func Log(_ text: String) {
@@ -45,6 +52,10 @@ class ConsoleLogger: Logger {
     
     func log(_ text: String) {
         print("Log [" + ConsoleLogger.dateFormatter.string(from: Date()) + "] " + text)
+    }
+    
+    func log(error: String) {
+        log("*ERROR* " + error)
     }
     
     func log(page: String, event: String?, details: String?, metadata: [String: Any]?) {

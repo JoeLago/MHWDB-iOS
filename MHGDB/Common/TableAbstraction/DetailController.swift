@@ -52,7 +52,7 @@ class DetailController: UITableViewController {
         
         let page = String.init(describing: type(of: self))
         if let ic = self as? DetailScreen {
-            Log(page: page, event: "Shown", details: "\(ic.id)")
+            Log(page: page, event: "View", details: "\(ic.id)")
         } else {
             Log(page: page)
         }

@@ -32,7 +32,7 @@ extension NSMutableAttributedString {
     func appendImage(named: String) {
         let image = UIImage(named: named)
         if (image == nil) {
-            Log("Attributed string image not found: %@")
+            Log(error: "Attributed string image not found: %@")
         }
         append(image: image, rect: CGRect(x: 2, y: -3, width: 15, height: 15))
     }

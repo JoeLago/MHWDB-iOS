@@ -49,7 +49,7 @@ class SubSection: DetailSection {
             currRow += totalRows(subSection: subSection)
         }
         
-        Log(page: "App", event: "SubSection", details: "Row Does Not Exist")
+        Log(error: "Missing subsection row")
         return SubsectionRow(section:subSections[0], row: 0)
     }
     
