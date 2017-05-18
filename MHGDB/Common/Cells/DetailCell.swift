@@ -47,14 +47,23 @@ class DetailCell: UITableViewCell {
     }
     
     private func populateCell() {
-        setIcon(named: model?.imageName)
-        primaryTextLabel.text = model?.primary
-        subtitleTextLabel.text = model?.subtitle
-        secondaryTextLabel.text = model?.secondary
+        guard let model = model else {
+            Log(error: "DetailCell model not set")
+            return
+        }
+        
+        setIcon(named: model.imageName)
+        primaryTextLabel.text = model.primary
+        subtitleTextLabel.text = model.subtitle
+        secondaryTextLabel.text = model.secondary
     }
     
     func setIcon(named: String?) {
-        let image = UIImage(named: named ?? "")
+        guard let named = named else {
+            return
+        }
+        
+        let image = UIImage(named: named)
         if (image != nil) {
             iconImageView.image = image
             imageWidthConstraint?.constant = 40

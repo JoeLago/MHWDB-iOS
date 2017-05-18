@@ -59,14 +59,19 @@ class Armor: RowConvertible {
         }
     }
     
-    var id: Int
-    var name: String
-    var icon: String?
-    var defense: Int
-    var defenseMax: Int
-    var buy: Int
-    var sell: Int
-    var slots: Int
+    let id: Int
+    let name: String
+    var icon: String {
+        let imageName = "\(slot?.rawValue.lowercased() ?? "")\(rarity).png"
+        return imageName
+    }
+    let defense: Int
+    let defenseMax: Int
+    let buy: Int
+    let sell: Int
+    let slots: Int
+    let rarity: Int
+    let slot: Slot?
     
     // gender?
     // hunter type?
@@ -90,12 +95,13 @@ class Armor: RowConvertible {
     required init(row: Row) {
         id = row => "_id"
         name = row => "name"
-        icon = row => "icon_name"
         defense = row => "defense"
         defenseMax = row => "max_defense"
         buy = row => "buy"
         sell = row => "sell"
         slots = row => "num_slots"
+        rarity = row => "rarity"
+        slot = Slot.forString(row => "slot")
         resistances = Resistances(row: row)
     }
 }
