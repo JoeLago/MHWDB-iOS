@@ -32,6 +32,26 @@ class Weapon: RowConvertible {
                     .bow]
         }
         
+        var imagePrefix: String {
+            switch self {
+            case .greatSword: return "great_sword"
+            case .longSword: return "long_sword"
+            case .swordAndShield: return "sword_and_shield"
+            case .dualBlades: return "dual_blades"
+            case .hammer: return "hammer"
+            case .huntingHorm: return "hunting_horn"
+            case .lance: return "lance"
+            case .gunlance: return "gunlance"
+            case .switchAxe: return "switch_axe"
+            case .chargeBlade: return "charge_blade"
+            case .insectGlaive: return "insect_glaive"
+            case .lightBowgun: return "light_bowgun"
+            case .heavyBowgun: return "heavy_bowgun"
+            case .bow: return "bow"
+            case .unknown: return ""
+            }
+        }
+        
         var imageName: String {
             switch self {
             case .greatSword: return "great_sword8.png"
@@ -56,7 +76,9 @@ class Weapon: RowConvertible {
     var id: Int
     var parentId: Int?
     var name: String
-    var icon: String?
+    var icon: String? {
+        return "\(type.imagePrefix)\(rarity).png"
+    }
     var type: WType
     var depths: [Bool]?
     var children = [Weapon]()
@@ -72,6 +94,7 @@ class Weapon: RowConvertible {
     var upgradeCost: Int?
     var sell: Int?
     var affinity: Int?
+    var rarity: Int
     
     // specific to weapon type
     var recoil: String?
@@ -99,10 +122,10 @@ class Weapon: RowConvertible {
         id = row => "_id"
         parentId = row => "parent_id"
         name = row => "name"
-        icon = row => "icon_name"
         attack = row => "attack"
         defense = row => "def"
         numSlots = row => "num_slots"
+        rarity = row => "rarity"
         creationCost = row => "creation_cost"
         upgradeCost = row => "upgrade_cost"
         sell = row => "sell"
