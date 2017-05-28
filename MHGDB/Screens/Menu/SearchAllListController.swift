@@ -13,8 +13,6 @@ class SearchAllController: UISearchController {
         searchListController.mainViewController = mainViewController
         super.init(searchResultsController: searchListController)
         searchResultsUpdater = searchListController
-        delegate = searchListController
-        searchBar.delegate = searchListController
         dimsBackgroundDuringPresentation = true
         hidesNavigationBarDuringPresentation = true
     }
@@ -33,7 +31,7 @@ class SearchAllListController: DetailController  {
     var mainViewController: UIViewController?
     var searchText: String? = nil
     var deferredSearch: String? = nil
-    var isSearching = false
+    var searchRequest: SearchRequest? = nil
     
     override public func push(_ viewController: UIViewController) {
         self.mainViewController?.navigationController?.pushViewController(viewController,
@@ -41,55 +39,48 @@ class SearchAllListController: DetailController  {
     }
     
     public func update(searchText: String?) {
-        guard let searchText = searchText else { return }
+        guard let searchText = searchText, searchText.characters.count > 0 else { return }
         
-        if isSearching {
+        if searchRequest != nil {
             deferredSearch = searchText
+            searchRequest?.cancel()
             return
         }
         
-        isSearching = true
+        self.sections.removeAll()
+        self.reloadData()
         
-        DispatchQueue.global(qos: .background).async {
-            
-            let monsters = Database.shared.monsters(searchText)
-            let items = Database.shared.items(searchText)
-            let weapons = Database.shared.weapons(searchText)
-            let armor = Database.shared.armor(searchText)
-            let quests = Database.shared.quests(searchText)[0]
-            let locations = Database.shared.locations(searchText)
-            let skills = Database.shared.skillTrees(searchText)
-            let palico = Database.shared.palicoWeapons(searchText)
-            
-            DispatchQueue.main.async {
+        searchRequest = SearchRequest(searchText)
+            .then { [unowned self] in
                 self.searchText = searchText
-                self.sections.removeAll()
-                
-                self.addSearchSection(data: monsters, title: "Monsters") { MonsterDetails(id: $0.id) }
-                self.addSearchSection(data: items, title: "Items") { ItemDetails(item: $0) }
-                self.addSearchSection(data: weapons, title: "Weapons") { WeaponDetails(id: $0.id) }
-                self.addSearchSection(data: armor, title: "Armor") { ArmorDetails(id: $0.id) }
-                self.addSearchSection(data: quests, title: "Quests") { QuestDetails(quest: $0) }
-                self.addSearchSection(data: locations, title: "Locations") { LocationDetails(location: $0) }
-                self.addSearchSection(data: skills, title: "Skills") { SkillDetails(id: $0.id) }
-                let palicoSection = self.addCustomSection(title: "Palico Weapons", data: palico, cellType: PalicoWeaponCell.self)
-                { PalicoWeaponDetails(id: $0.id) }
-                palicoSection.defaultCollapseCount = 5
-                
-                self.reloadData()
-                
-                self.isSearching = false
-                if self.deferredSearch != nil {
-                    self.update(searchText: self.deferredSearch)
-                    self.deferredSearch = nil
-                }
+                self.searchRequest = nil
+                //Log(searchText) // Verbose debugging
+                self.updateTable(response: $0)
             }
+            .canceled { [unowned self] in
+                self.searchRequest = nil
+                self.update(searchText: self.deferredSearch)
+                self.deferredSearch = nil
         }
+    }
+    
+    func updateTable(response: SearchResponse) {
+        addSearchSection(data: response.monsters, title: "Monsters") { MonsterDetails(id: $0.id) }
+        addSearchSection(data: response.items, title: "Items") { ItemDetails(item: $0) }
+        addSearchSection(data: response.weapons, title: "Weapons") { WeaponDetails(id: $0.id) }
+        addSearchSection(data: response.armor, title: "Armor") { ArmorDetails(id: $0.id) }
+        addSearchSection(data: response.quests, title: "Quests") { QuestDetails(quest: $0) }
+        addSearchSection(data: response.locations, title: "Locations") { LocationDetails(location: $0) }
+        addSearchSection(data: response.skills, title: "Skills") { SkillDetails(id: $0.id) }
+        let palicoSection = addCustomSection(title: "Palico Weapons", data: response.palico, cellType: PalicoWeaponCell.self)
+        { PalicoWeaponDetails(id: $0.id) }
+        palicoSection.defaultCollapseCount = 5
+        reloadData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        Log(search: searchText ?? "no text")
+        Log(search: searchText ?? "No Text")
     }
     
     func addSearchSection<T: DetailCellModel>(data: [T], title: String? = nil,
@@ -102,16 +93,6 @@ class SearchAllListController: DetailController  {
 extension Weapon: DetailCellModel {
     var primary: String? { return name }
     var imageName: String? { return icon }
-}
-
-extension SearchAllListController: UISearchControllerDelegate {
-    
-}
-
-extension SearchAllListController: UISearchBarDelegate  {
-    public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        update(searchText: searchText)
-    }
 }
 
 extension SearchAllListController: UISearchResultsUpdating {

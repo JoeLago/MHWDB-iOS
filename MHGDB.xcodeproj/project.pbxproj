@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		140A133C1EDB57B9002FD025 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140A133B1EDB57B9002FD025 /* Search.swift */; };
 		14612B131EB8EEA000DB7F64 /* PalicoWeaponDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14612B121EB8EEA000DB7F64 /* PalicoWeaponDetail.swift */; };
 		14612B171EB9B49900DB7F64 /* PalicoWeaponDetailSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14612B161EB9B49900DB7F64 /* PalicoWeaponDetailSection.swift */; };
 		14612B1A1EBA3EC800DB7F64 /* PalicoWeaponCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14612B191EBA3EC800DB7F64 /* PalicoWeaponCell.swift */; };
@@ -1013,6 +1014,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		140A133B1EDB57B9002FD025 /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		145495641EA9CEC5004FA5FA /* MHGDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MHGDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		145495781EA9CEC5004FA5FA /* MHGDBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MHGDBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		14612B121EB8EEA000DB7F64 /* PalicoWeaponDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PalicoWeaponDetail.swift; sourceTree = "<group>"; };
@@ -3305,6 +3307,7 @@
 				14A24D3F1EA9D05400755F6A /* Sharpness.swift */,
 				14A24D401EA9D05400755F6A /* SkillTree.swift */,
 				14A24D411EA9D05400755F6A /* Weapon.swift */,
+				140A133B1EDB57B9002FD025 /* Search.swift */,
 			);
 			name = Model;
 			path = MHGDB/Model;
@@ -4642,6 +4645,7 @@
 				14612B1A1EBA3EC800DB7F64 /* PalicoWeaponCell.swift in Sources */,
 				14E2B5051EAD2229002A2A89 /* WeaponCell.swift in Sources */,
 				14A251101EA9D05400755F6A /* DetailController.swift in Sources */,
+				140A133C1EDB57B9002FD025 /* Search.swift in Sources */,
 				14A251141EA9D05400755F6A /* MultiCellSection.swift in Sources */,
 				14A2511E1EA9D05400755F6A /* Decoration.swift in Sources */,
 				14C36CD81EBCD1D900A41C6E /* SubSection.swift in Sources */,
