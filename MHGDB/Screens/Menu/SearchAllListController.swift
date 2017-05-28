@@ -31,6 +31,9 @@ class SearchAllController: UISearchController {
 
 class SearchAllListController: DetailController  {
     var mainViewController: UIViewController?
+    var searchText: String? = nil
+    var deferredSearch: String? = nil
+    var isSearching = false
     
     override public func push(_ viewController: UIViewController) {
         self.mainViewController?.navigationController?.pushViewController(viewController,
@@ -40,21 +43,53 @@ class SearchAllListController: DetailController  {
     public func update(searchText: String?) {
         guard let searchText = searchText else { return }
         
-        sections.removeAll()
+        if isSearching {
+            deferredSearch = searchText
+            return
+        }
         
-        addSearchSection(data: Database.shared.monsters(searchText), title: "Monsters") { MonsterDetails(id: $0.id) }
-        addSearchSection(data: Database.shared.items(searchText), title: "Items") { ItemDetails(item: $0) }
-        addSearchSection(data: Database.shared.weapons(searchText), title: "Weapons") { WeaponDetails(id: $0.id) }
-        addSearchSection(data: Database.shared.armor(searchText), title: "Armor") { ArmorDetails(id: $0.id) }
-        addSearchSection(data: Database.shared.quests(searchText)[0], title: "Quests") { QuestDetails(quest: $0) }
-        addSearchSection(data: Database.shared.locations(searchText), title: "Locations") { LocationDetails(location: $0) }
-        addSearchSection(data: Database.shared.skillTrees(searchText), title: "Skills") { SkillDetails(id: $0.id) }
-        let palicoSection = addCustomSection(
-            title: "Palico Weapons", data: Database.shared.palicoWeapons(searchText),
-            cellType: PalicoWeaponCell.self) { PalicoWeaponDetails(id: $0.id) }
-        palicoSection.defaultCollapseCount = 5
+        isSearching = true
         
-        reloadData()
+        DispatchQueue.global(qos: .background).async {
+            
+            let monsters = Database.shared.monsters(searchText)
+            let items = Database.shared.items(searchText)
+            let weapons = Database.shared.weapons(searchText)
+            let armor = Database.shared.armor(searchText)
+            let quests = Database.shared.quests(searchText)[0]
+            let locations = Database.shared.locations(searchText)
+            let skills = Database.shared.skillTrees(searchText)
+            let palico = Database.shared.palicoWeapons(searchText)
+            
+            DispatchQueue.main.async {
+                self.searchText = searchText
+                self.sections.removeAll()
+                
+                self.addSearchSection(data: monsters, title: "Monsters") { MonsterDetails(id: $0.id) }
+                self.addSearchSection(data: items, title: "Items") { ItemDetails(item: $0) }
+                self.addSearchSection(data: weapons, title: "Weapons") { WeaponDetails(id: $0.id) }
+                self.addSearchSection(data: armor, title: "Armor") { ArmorDetails(id: $0.id) }
+                self.addSearchSection(data: quests, title: "Quests") { QuestDetails(quest: $0) }
+                self.addSearchSection(data: locations, title: "Locations") { LocationDetails(location: $0) }
+                self.addSearchSection(data: skills, title: "Skills") { SkillDetails(id: $0.id) }
+                let palicoSection = self.addCustomSection(title: "Palico Weapons", data: palico, cellType: PalicoWeaponCell.self)
+                { PalicoWeaponDetails(id: $0.id) }
+                palicoSection.defaultCollapseCount = 5
+                
+                self.reloadData()
+                
+                self.isSearching = false
+                if self.deferredSearch != nil {
+                    self.update(searchText: self.deferredSearch)
+                    self.deferredSearch = nil
+                }
+            }
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        Log(search: searchText ?? "no text")
     }
     
     func addSearchSection<T: DetailCellModel>(data: [T], title: String? = nil,
