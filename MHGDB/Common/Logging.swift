@@ -11,6 +11,7 @@ var loggers = [Logger]()
 
 protocol Logger {
     func log(_ text: String)
+    func log(search: String)
     func log(error: String)
     func log(page: String, event: String?, details: String?, metadata: [String: Any]?)
 }
@@ -24,6 +25,12 @@ func Log(error: String) {
 func Log(_ text: String) {
     for logger in loggers {
         logger.log(text)
+    }
+}
+
+func Log(search: String) {
+    for logger in loggers {
+        logger.log(search: search)
     }
 }
 
@@ -54,6 +61,10 @@ class ConsoleLogger: Logger {
         print("Log [" + ConsoleLogger.dateFormatter.string(from: Date()) + "] " + text)
     }
     
+    func log(search: String) {
+        Log("Search: \(search)")
+    }
+    
     func log(error: String) {
         log("*ERROR* " + error)
     }
@@ -63,3 +74,4 @@ class ConsoleLogger: Logger {
         log(text)
     }
 }
+
