@@ -107,6 +107,7 @@ class Weapon: RowConvertible {
     var coatings: String?
     var charges: String?
     var phial: String?
+    var phialAttack: Int?
     var shellingType: String?
     var notes: String?
     
@@ -149,23 +150,26 @@ class Weapon: RowConvertible {
         shellingType = row => "shelling_type"
         notes = row => "horn_notes"
         
-        if elementAttack ?? 0 > 0,
-            let elementString: String = row => "element" {
+        if elementAttack ?? 0 > 0, let elementString: String = row => "element" {
             element = Element(rawValue: elementString)
         }
         
+        if type == .switchAxe, element == nil, elementAttack ?? 0 > 0 {
+            phialAttack = elementAttack
+            elementAttack = nil
+        }
+        
         let sharpnessesString: String? = row => "sharpness"
-        if sharpnessesString != nil {
-            let sharpnessesStrings = sharpnessesString!.components(separatedBy: " ")
-            if (sharpnessesStrings.count > 1) {
-                sharpnesses = [Sharpness]()
-                sharpnesses!.append(Sharpness(string: sharpnessesStrings[0]))
-                sharpnesses!.append(Sharpness(string: sharpnessesStrings[1]))
-                sharpnesses!.append(Sharpness(string: sharpnessesStrings[2]))
+        if let sharpnessesString = sharpnessesString {
+            let sharpnessStrings = sharpnessesString.components(separatedBy: " ")
+            if sharpnessStrings.count >= 3 {
+                sharpnesses = [Sharpness(string: sharpnessStrings[0]),
+                               Sharpness(string: sharpnessStrings[1]),
+                               Sharpness(string: sharpnessStrings[2])]
             }
         }
     }
-    
+
     var noteImageNames: [String]? {
         if let notes = notes {
             return notes.characters.flatMap({ (c: Character) -> String? in

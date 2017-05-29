@@ -34,7 +34,10 @@ class WeaponDetailSection: MultiCellSection {
         }
         
         addDetail(label: "Shelling Type", text: weapon.shellingType)
-        addDetail(label: "Phial", text: weapon.phial)
+        
+        if let phial = weapon.phial {
+            addDetail(label: "Phial", text:"\(phial)\(weapon.phialAttack != nil ? " \(weapon.phialAttack ?? 0)": "")")
+        }
         
         if let notes = weapon.noteImageNames {
             let model = ImageLabelCellModel(values: notes.flatMap { ImageLabelModel($0) }, label: "Notes")
