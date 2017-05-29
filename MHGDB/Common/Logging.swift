@@ -18,7 +18,7 @@ protocol Logger {
 
 func Log(error: String) {
     for logger in loggers {
-        logger.log(error)
+        logger.log(error: error)
     }
 }
 
