@@ -32,11 +32,16 @@ class SearchAllListController: DetailController  {
     var searchText: String? = nil
     var deferredSearch: String? = nil
     var searchRequest: SearchRequest? = nil
+    let spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
     
-    override public func push(_ viewController: UIViewController) {
-        Log(search: searchText ?? "No Text")
-        self.mainViewController?.navigationController?.pushViewController(viewController,
-                                                                          animated: true)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        let transform: CGAffineTransform = CGAffineTransform(scaleX: 2, y: 2)
+        spinner.transform = transform
+        view.addSubview(spinner)
+        spinner.translatesAutoresizingMaskIntoConstraints = false
+        view.addMatchingConstraint(item: view, toItem: spinner, attribute: .centerX)
+        view.addMatchingConstraint(item: view, toItem: spinner, attribute: .centerY, offset: 100)
     }
     
     public func update(searchText: String?) {
@@ -50,12 +55,14 @@ class SearchAllListController: DetailController  {
         
         self.sections.removeAll()
         self.reloadData()
+        spinner.startAnimating()
         
         searchRequest = SearchRequest(searchText)
             .then { [unowned self] in
-                self.searchText = searchText
-                self.searchRequest = nil
                 //Log(searchText) // Verbose debugging
+                self.searchRequest = nil
+                self.spinner.stopAnimating()
+                self.searchText = searchText
                 self.updateTable(response: $0)
             }
             .canceled { [unowned self] in
@@ -83,6 +90,12 @@ class SearchAllListController: DetailController  {
                           selectionBlock: ((T) -> UIViewController)? = nil) {
         add(section: SimpleDetailSection(data: data, title: title, defaultCollapseCount: 5,
                                          selectionBlock: getPushBlock(selectionBlock)))
+    }
+    
+    override public func push(_ viewController: UIViewController) {
+        Log(search: searchText ?? "No Text")
+        self.mainViewController?.navigationController?.pushViewController(viewController,
+                                                                          animated: true)
     }
 }
 
