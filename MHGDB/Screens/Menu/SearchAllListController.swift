@@ -34,6 +34,7 @@ class SearchAllListController: DetailController  {
     var searchRequest: SearchRequest? = nil
     
     override public func push(_ viewController: UIViewController) {
+        Log(search: searchText ?? "No Text")
         self.mainViewController?.navigationController?.pushViewController(viewController,
                                                                           animated: true)
     }
@@ -76,11 +77,6 @@ class SearchAllListController: DetailController  {
         { PalicoWeaponDetails(id: $0.id) }
         palicoSection.defaultCollapseCount = 5
         reloadData()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        Log(search: searchText ?? "No Text")
     }
     
     func addSearchSection<T: DetailCellModel>(data: [T], title: String? = nil,
