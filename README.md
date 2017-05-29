@@ -1,10 +1,10 @@
 Monster Hunter Generations Database for iOS
 =======================
 
-[Based on Android App](https://github.com/gatheringhallstudios/MHGenDatabase)
+[On App Store](https://itunes.apple.com/us/app/monster-hunter-generations-database/id1236584902)
 
-[![Download from Google Play](http://www.android.com/images/brand/android_app_on_play_large.png "Download from Google Play")](https://play.google.com/store/apps/details?id=com.ghstudios.android.mhgendatabase&hl=en)
+[Based on Android App](https://github.com/gatheringhallstudios/MHGenDatabase) - [On Google Play Store](https://play.google.com/store/apps/details?id=com.ghstudios.android.mhgendatabase&hl=en)
 
-List of To-Dos can be found on our [Trello Board](https://trello.com/b/niLhyHAe/ios-mhgdb)
+List of priorities can be found on our [Trello Board](https://trello.com/b/niLhyHAe/ios-mhgdb)
 
 Join our team on [Slack](gatheringhallstudios.slack.com). Request a slack invitation via <jayson.p.delacruz@gmail.com>
