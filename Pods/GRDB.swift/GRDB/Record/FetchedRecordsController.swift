@@ -1,4 +1,5 @@
 import Foundation
+
 #if os(iOS)
     import UIKit
 #endif
@@ -37,7 +38,7 @@ public final class FetchedRecordsController<Record: RowConvertible> {
     ///         This function should return true if the two records have the
     ///         same identity. For example, they have the same id.
     public convenience init(_ databaseWriter: DatabaseWriter, sql: String, arguments: StatementArguments? = nil, adapter: RowAdapter? = nil, queue: DispatchQueue = .main, isSameRecord: ((Record, Record) -> Bool)? = nil) throws {
-        try self.init(databaseWriter, request: SQLRequest(sql, arguments: arguments, adapter: adapter).bound(to: Record.self), queue: queue, isSameRecord: isSameRecord)
+        try self.init(databaseWriter, request: SQLRequest(sql, arguments: arguments, adapter: adapter).asRequest(of: Record.self), queue: queue, isSameRecord: isSameRecord)
     }
     
     /// Creates a fetched records controller initialized from a fetch request
@@ -156,7 +157,7 @@ public final class FetchedRecordsController<Record: RowConvertible> {
     /// This method must be used from the controller's dispatch queue (the
     /// main queue unless stated otherwise in the controller's initializer).
     public func setRequest(sql: String, arguments: StatementArguments? = nil, adapter: RowAdapter? = nil) throws {
-        try setRequest(SQLRequest(sql, arguments: arguments, adapter: adapter).bound(to: Record.self))
+        try setRequest(SQLRequest(sql, arguments: arguments, adapter: adapter).asRequest(of: Record.self))
     }
     
     /// Registers changes notification callbacks.
@@ -176,9 +177,9 @@ public final class FetchedRecordsController<Record: RowConvertible> {
     {
         trackChanges(
             fetchAlongside: { _ in },
-            willChange: willChange.flatMap { callback in { (controller, _) in callback(controller) } },
+            willChange: willChange.map { callback in { (controller, _) in callback(controller) } },
             onChange: onChange,
-            didChange: didChange.flatMap { callback in { (controller, _) in callback(controller) } })
+            didChange: didChange.map { callback in { (controller, _) in callback(controller) } })
     }
 
     /// Registers changes notification callbacks.
@@ -373,7 +374,7 @@ extension FetchedRecordsController where Record: TableMapping {
     ///         notified of changes in this queue. The controller itself must be
     ///         used from this queue.
     public convenience init(_ databaseWriter: DatabaseWriter, sql: String, arguments: StatementArguments? = nil, adapter: RowAdapter? = nil, queue: DispatchQueue = .main) throws {
-        try self.init(databaseWriter, request: SQLRequest(sql, arguments: arguments, adapter: adapter).bound(to: Record.self), queue: queue)
+        try self.init(databaseWriter, request: SQLRequest(sql, arguments: arguments, adapter: adapter).asRequest(of: Record.self), queue: queue)
     }
     
     /// Creates a fetched records controller initialized from a fetch request
@@ -435,8 +436,7 @@ private final class FetchedRecordsObserver<Record: RowConvertible> : Transaction
     }
     
     func observes(eventsOfKind eventKind: DatabaseEventKind) -> Bool {
-        // If impact is unknown, assume true
-        return eventKind.impacts(selectionInfo) ?? true
+        return eventKind.impacts(selectionInfo)
     }
     
     #if SQLITE_ENABLE_PREUPDATE_HOOK
@@ -522,7 +522,7 @@ fileprivate func makeFetchFunction<Record, T>(
         var result: Result<(fetchedItems: [Item<Record>], fetchedAlongside: T)>? = nil
         do {
             try databaseWriter.readFromCurrentState { db in
-                result = Result.wrap { try (
+                result = Result { try (
                     fetchedItems: request.fetchAll(db),
                     fetchedAlongside: fetchAlongside(db)) }
                 semaphore.signal()
@@ -949,11 +949,7 @@ private final class Item<T: RowConvertible> : RowConvertible, Equatable {
     let row: Row
     
     // Records are lazily loaded
-    lazy var record: T = {
-        var record = T(row: self.row)
-        record.awakeFromFetch(row: self.row)
-        return record
-    }()
+    lazy var record: T = T(row: self.row)
     
     init(row: Row) {
         self.row = row.copy()

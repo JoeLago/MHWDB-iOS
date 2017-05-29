@@ -46,11 +46,11 @@ public final class Row {
         return impl.copy(self)
     }
     
-    
     // MARK: - Not Public
     
     let impl: RowImpl
     
+    /// Returns true if and only if the row was fetched from a database.
     var isFetched: Bool {
         return impl.isFetched
     }
@@ -155,7 +155,7 @@ extension Row {
     /// fail, a fatal error is raised.
     public func value<Value: DatabaseValueConvertible>(atIndex index: Int) -> Value? {
         GRDBPrecondition(index >= 0 && index < count, "row index out of range")
-        return Value.convertOptional(from: impl.databaseValue(atUncheckedIndex: index))
+        return impl.databaseValue(atUncheckedIndex: index).losslessConvert()
     }
     
     /// Returns the value at given index, converted to the requested type.
@@ -173,7 +173,7 @@ extension Row {
     public func value<Value: DatabaseValueConvertible & StatementColumnConvertible>(atIndex index: Int) -> Value? {
         GRDBPrecondition(index >= 0 && index < count, "row index out of range")
         guard let sqliteStatement = sqliteStatement else {
-            return Value.convertOptional(from: impl.databaseValue(atUncheckedIndex: index))
+            return impl.databaseValue(atUncheckedIndex: index).losslessConvert()
         }
         return Row.statementColumnConvertible(atUncheckedIndex: index, in: sqliteStatement)
     }
@@ -187,7 +187,7 @@ extension Row {
     /// SQLite value can not be converted to `Value`.
     public func value<Value: DatabaseValueConvertible>(atIndex index: Int) -> Value {
         GRDBPrecondition(index >= 0 && index < count, "row index out of range")
-        return Value.convert(from: impl.databaseValue(atUncheckedIndex: index))
+        return impl.databaseValue(atUncheckedIndex: index).losslessConvert()
     }
     
     /// Returns the value at given index, converted to the requested type.
@@ -204,7 +204,7 @@ extension Row {
     public func value<Value: DatabaseValueConvertible & StatementColumnConvertible>(atIndex index: Int) -> Value {
         GRDBPrecondition(index >= 0 && index < count, "row index out of range")
         guard let sqliteStatement = sqliteStatement else {
-            return Value.convert(from: impl.databaseValue(atUncheckedIndex: index))
+            return impl.databaseValue(atUncheckedIndex: index).losslessConvert()
         }
         return Row.statementColumnConvertible(atUncheckedIndex: index, in: sqliteStatement)
     }
@@ -242,7 +242,7 @@ extension Row {
         guard let index = impl.index(ofColumn: columnName) else {
             return nil
         }
-        return Value.convertOptional(from: impl.databaseValue(atUncheckedIndex: index))
+        return impl.databaseValue(atUncheckedIndex: index).losslessConvert()
     }
     
     /// Returns the value at given column, converted to the requested type.
@@ -262,7 +262,7 @@ extension Row {
             return nil
         }
         guard let sqliteStatement = sqliteStatement else {
-            return Value.convertOptional(from: impl.databaseValue(atUncheckedIndex: index))
+            return impl.databaseValue(atUncheckedIndex: index).losslessConvert()
         }
         return Row.statementColumnConvertible(atUncheckedIndex: index, in: sqliteStatement)
     }
@@ -281,7 +281,7 @@ extension Row {
             // Programmer error
             fatalError("no such column: \(columnName)")
         }
-        return Value.convert(from: impl.databaseValue(atUncheckedIndex: index))
+        return impl.databaseValue(atUncheckedIndex: index).losslessConvert()
     }
     
     /// Returns the value at given column, converted to the requested type.
@@ -303,7 +303,7 @@ extension Row {
             fatalError("no such column: \(columnName)")
         }
         guard let sqliteStatement = sqliteStatement else {
-            return Value.convert(from: impl.databaseValue(atUncheckedIndex: index))
+            return impl.databaseValue(atUncheckedIndex: index).losslessConvert()
         }
         return Row.statementColumnConvertible(atUncheckedIndex: index, in: sqliteStatement)
     }
@@ -527,7 +527,7 @@ extension Row {
     public static func fetchCursor(_ statement: SelectStatement, arguments: StatementArguments? = nil, adapter: RowAdapter? = nil) throws -> DatabaseCursor<Row> {
         // Reuse a single mutable row for performance
         let row = try Row(statement: statement).adapted(with: adapter, layout: statement)
-        return statement.fetchCursor(arguments: arguments) { row }
+        return statement.cursor(arguments: arguments, next: { row })
     }
     
     /// Returns an array of rows fetched from a prepared statement.
@@ -559,7 +559,7 @@ extension Row {
     /// - throws: A DatabaseError is thrown whenever an SQLite error occurs.
     public static func fetchOne(_ statement: SelectStatement, arguments: StatementArguments? = nil, adapter: RowAdapter? = nil) throws -> Row? {
         // The cursor reuses a single mutable row. Return an immutable copy.
-        return try fetchCursor(statement, arguments: arguments, adapter: adapter).next().flatMap { $0.copy() }
+        return try fetchCursor(statement, arguments: arguments, adapter: adapter).next().map { $0.copy() }
     }
 }
 
@@ -874,7 +874,7 @@ private struct ArrayRowImpl : RowImpl {
     }
     
     func dataNoCopy(atUncheckedIndex index:Int) -> Data? {
-        return Data.convertOptional(from: databaseValue(atUncheckedIndex: index))
+        return databaseValue(atUncheckedIndex: index).losslessConvert()
     }
     
     func databaseValue(atUncheckedIndex index: Int) -> DatabaseValue {
@@ -926,7 +926,7 @@ private struct StatementCopyRowImpl : RowImpl {
     }
     
     func dataNoCopy(atUncheckedIndex index:Int) -> Data? {
-        return Data.convertOptional(from: databaseValue(atUncheckedIndex: index))
+        return databaseValue(atUncheckedIndex: index).losslessConvert()
     }
     
     func databaseValue(atUncheckedIndex index: Int) -> DatabaseValue {

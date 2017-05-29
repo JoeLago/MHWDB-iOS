@@ -214,7 +214,86 @@ private func int64EqualDouble(_ i: Int64, _ d: Double) -> Bool {
 }
 
 
-// MARK: - DatabaseValueConvertible
+// MARK: - Lossless conversions
+
+extension DatabaseValue {
+    /// Converts the database value to the type T.
+    ///
+    ///     let dbv = "foo".databaseValue
+    ///     let string = dbv.losslessConvert() as String // "foo"
+    ///
+    /// Conversion is successful if and only if T.fromDatabaseValue returns a
+    /// non-nil value.
+    ///
+    /// This method crashes with a fatal error when conversion fails.
+    ///
+    ///     let dbv = "foo".databaseValue
+    ///     let int = dbv.losslessConvert() as Int // fatalError
+    ///
+    /// - parameters:
+    ///     - sql: Optional SQL statement that enhances the eventual
+    ///       conversion error
+    ///     - arguments: Optional statement arguments that enhances the eventual
+    ///       conversion error
+    public func losslessConvert<T>(sql: String? = nil, arguments: StatementArguments? = nil) -> T where T : DatabaseValueConvertible {
+        if let value = T.fromDatabaseValue(self) {
+            return value
+        }
+        // Failed conversion: this is data loss, a programmer error.
+        var error = "could not convert database value \(self) to \(T.self)"
+        if let sql = sql {
+            error += " with statement `\(sql)`"
+        }
+        if let arguments = arguments, !arguments.isEmpty {
+            error += " arguments \(arguments)"
+        }
+        fatalError(error)
+    }
+    
+    /// Converts the database value to the type Optional<T>.
+    ///
+    ///     let dbv = "foo".databaseValue
+    ///     let string = dbv.losslessConvert() as String? // "foo"
+    ///     let null = DatabaseValue.null.losslessConvert() as String? // nil
+    ///
+    /// Conversion is successful if and only if T.fromDatabaseValue returns a
+    /// non-nil value.
+    ///
+    /// This method crashes with a fatal error when conversion fails.
+    ///
+    ///     let dbv = "foo".databaseValue
+    ///     let int = dbv.losslessConvert() as Int? // fatalError
+    ///
+    /// - parameters:
+    ///     - sql: Optional SQL statement that enhances the eventual
+    ///       conversion error
+    ///     - arguments: Optional statement arguments that enhances the eventual
+    ///       conversion error
+    public func losslessConvert<T>(sql: String? = nil, arguments: StatementArguments? = nil) -> T? where T : DatabaseValueConvertible {
+        // Use fromDatabaseValue first: this allows DatabaseValue to convert NULL to .null.
+        if let value = T.fromDatabaseValue(self) {
+            return value
+        }
+        if isNull {
+            // Failed conversion from null: ok
+            return nil
+        } else {
+            // Failed conversion from a non-null database value: this is data
+            // loss, a programmer error.
+            var error = "could not convert database value \(self) to \(T.self)"
+            if let sql = sql {
+                error += " with statement `\(sql)`"
+            }
+            if let arguments = arguments, !arguments.isEmpty {
+                error += " arguments \(arguments)"
+            }
+            fatalError(error)
+        }
+    }
+}
+
+
+// MARK: - DatabaseValueConvertible & SQLExpressible & SQLExpression
 
 /// DatabaseValue adopts DatabaseValueConvertible.
 extension DatabaseValue : DatabaseValueConvertible {
@@ -227,6 +306,9 @@ extension DatabaseValue : DatabaseValueConvertible {
     public static func fromDatabaseValue(_ databaseValue: DatabaseValue) -> DatabaseValue? {
         return databaseValue
     }
+}
+
+extension DatabaseValue : SQLExpressible {
     
     /// This property is an implementation detail of the query interface.
     /// Do not use it directly.
@@ -241,6 +323,48 @@ extension DatabaseValue : DatabaseValueConvertible {
     }
 }
 
+/// DatabaseValue adopts SQLExpression.
+extension DatabaseValue : SQLExpression {
+    public func expressionSQL(_ arguments: inout StatementArguments?) -> String {
+        // fast path for NULL
+        if isNull {
+            return "NULL"
+        }
+        
+        if arguments != nil {
+            arguments!.values.append(self)
+            return "?"
+        } else {
+            // Correctness above all: use SQLite to quote the value.
+            // Assume that the Quote function always succeeds
+            return DatabaseQueue().inDatabase { try! String.fetchOne($0, "SELECT QUOTE(?)", arguments: [self])! }
+        }
+    }
+    
+    public var negated: SQLExpression {
+        switch storage {
+        case .null:
+            // SELECT NOT NULL -- NULL
+            return DatabaseValue.null
+        case .int64(let int64):
+            return (int64 == 0).sqlExpression
+        case .double(let double):
+            return (double == 0.0).sqlExpression
+        case .string:
+            // We can't assume all strings are true, and return false:
+            //
+            // SELECT NOT '1' -- 0 (because '1' is turned into the integer 1, which is negated into 0)
+            // SELECT NOT '0' -- 1 (because '0' is turned into the integer 0, which is negated into 1)
+            return SQLExpressionNot(self)
+        case .blob:
+            // We can't assume all blobs are true, and return false:
+            //
+            // SELECT NOT X'31' -- 0 (because X'31' is turned into the string '1', then into integer 1, which is negated into 0)
+            // SELECT NOT X'30' -- 1 (because X'30' is turned into the string '0', then into integer 0, which is negated into 1)
+            return SQLExpressionNot(self)
+        }
+    }
+}
 
 // MARK: - CustomStringConvertible
 

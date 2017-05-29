@@ -45,14 +45,15 @@ extension Request {
     /// The returned request can fetch if the type T is fetchable (Row,
     /// value, record).
     ///
+    ///     // minHeight in Double?
     ///     let minHeight = Person
     ///         .select(min(heightColumn))
-    ///         .bound(to: Double.self)    // <--
+    ///         .asRequest(of: Double.self)    // <--
     ///         .fetchOne(db)
     ///
     /// - parameter type: The fetched type T
     /// - returns: A typed request bound to type T.
-    public func bound<T>(to type: T.Type) -> AnyTypedRequest<T> {
+    public func asRequest<T>(of type: T.Type) -> AnyTypedRequest<T> {
         return AnyTypedRequest { try self.prepare($0) }
     }
     
@@ -101,16 +102,46 @@ public struct SQLRequest : Request {
     ///
     ///     let request = SQLRequest("SELECT * FROM persons")
     ///     let request = SQLRequest("SELECT * FROM persons WHERE id = ?", arguments: [1])
-    public init(_ sql: String, arguments: StatementArguments? = nil, adapter: RowAdapter? = nil) {
+    ///
+    /// - parameters:
+    ///     - sql: An SQL query.
+    ///     - arguments: Optional statement arguments.
+    ///     - adapter: Optional RowAdapter.
+    ///     - cached: Defaults to false. If true, the request reuses a cached
+    ///       prepared statement.
+    /// - returns: A SQLRequest
+    public init(_ sql: String, arguments: StatementArguments? = nil, adapter: RowAdapter? = nil, cached: Bool = false) {
+        self.init(sql, arguments: arguments, adapter: adapter, fromCache: cached ? .user : nil)
+    }
+    
+    /// Creates a new request from an SQL string, optional arguments, and
+    /// optional row adapter.
+    ///
+    ///     let request = SQLRequest("SELECT * FROM persons")
+    ///     let request = SQLRequest("SELECT * FROM persons WHERE id = ?", arguments: [1])
+    ///
+    /// - parameters:
+    ///     - sql: An SQL query.
+    ///     - arguments: Optional statement arguments.
+    ///     - adapter: Optional RowAdapter.
+    ///     - statementCacheName: Optional statement cache name.
+    /// - returns: A SQLRequest
+    init(_ sql: String, arguments: StatementArguments? = nil, adapter: RowAdapter? = nil, fromCache statementCacheName: Database.StatementCacheName?) {
         self.sql = sql
         self.arguments = arguments
         self.adapter = adapter
+        self.statementCacheName = statementCacheName
     }
     
     /// A tuple that contains a prepared statement that is ready to be
     /// executed, and an eventual row adapter.
     public func prepare(_ db: Database) throws -> (SelectStatement, RowAdapter?) {
-        let statement = try db.makeSelectStatement(sql)
+        let statement: SelectStatement
+        if let statementCacheName = statementCacheName {
+            statement = try db.selectStatement(sql, fromCache: statementCacheName)
+        } else {
+            statement = try db.makeSelectStatement(sql)
+        }
         if let arguments = arguments {
             try statement.setArgumentsWithValidation(arguments)
         }
@@ -120,6 +151,7 @@ public struct SQLRequest : Request {
     private let sql: String
     private let arguments: StatementArguments?
     private let adapter: RowAdapter?
+    private let statementCacheName: Database.StatementCacheName?
 }
 
 /// The protocol for all types that define a way to fetch values from
