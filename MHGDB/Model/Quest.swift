@@ -99,8 +99,12 @@ class Quest: RowConvertible {
     }
     
     class func titleForStars(count: Int) -> String {
+        if count == 0 {
+            return "Training"
+        }
+        
         var title = ""
-        for _ in 0 ... count {
+        for _ in 0 ... count - 1 {
             title += "\u{2605}"
         }
         return title
