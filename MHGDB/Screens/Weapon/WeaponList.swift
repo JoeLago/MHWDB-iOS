@@ -10,7 +10,7 @@ class WeaponList: DetailController {
     
     init(weaponType: Weapon.WType) {
         super.init()
-        title = "Weapons"
+        title = weaponType.rawValue
         let weapons = TreeSection<Weapon, WeaponView>(tree: Database.shared.weaponTree(type: weaponType)!) {
             self.push(WeaponDetails(id: $0.id))
         }
