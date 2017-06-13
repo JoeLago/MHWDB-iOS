@@ -59,18 +59,18 @@ class DetailCell: UITableViewCell {
     }
     
     func setIcon(named: String?) {
-        guard let named = named else {
+        guard let named = named, let image = UIImage(named: named) else {
+            hideImage()
             return
         }
         
-        let image = UIImage(named: named)
-        if (image != nil) {
-            iconImageView.image = image
-            imageWidthConstraint?.constant = 40
-        } else {
-            // TODO: Fix margins
-            imageWidthConstraint?.constant = 0
-        }
+        iconImageView.image = image
+        imageWidthConstraint?.constant = 40
+    }
+    
+    func hideImage() {
+        // TODO: Fix margins
+        imageWidthConstraint?.constant = 0
     }
     
     func addViews() {
