@@ -27,5 +27,9 @@ ALTER TABLE items ADD COLUMN min_guild_rank INTEGER;
 ALTER TABLE components ADD COLUMN min_caravan_rank INTEGER;
 ALTER TABLE components ADD COLUMN min_guild_rank INTEGER;
 
+ALTER TABLE combining ADD COLUMN min_caravan_rank1 INTEGER;
+ALTER TABLE combining ADD COLUMN min_caravan_rank2 INTEGER;
 ALTER TABLE combining ADD COLUMN min_caravan_rank INTEGER;
+ALTER TABLE combining ADD COLUMN min_guild_rank1 INTEGER;
+ALTER TABLE combining ADD COLUMN min_guild_rank2 INTEGER;
 ALTER TABLE combining ADD COLUMN min_guild_rank INTEGER;

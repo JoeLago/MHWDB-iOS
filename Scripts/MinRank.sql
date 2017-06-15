@@ -44,7 +44,7 @@ UPDATE hunting_rewards set min_guild_rank = (SELECT min(min_guild_low) FROM mons
 UPDATE quest_rewards set min_village_rank = (SELECT quests.stars FROM quests WHERE quests._id = quest_rewards.quest_id AND quests.hub == 'Village');
 UPDATE quest_rewards set min_guild_rank = (SELECT quests.stars FROM quests WHERE quests._id = quest_rewards.quest_id AND quests.hub == 'Guild');
 
-/* Helper data in place time to update items */
+/* Min source ranks poulated, now min component item ranks */
 
 UPDATE items SET min_village_rank = null, min_guild_rank = null;
 
@@ -65,11 +65,14 @@ UPDATE items SET min_guild_rank = (SELECT MIN(quest_rewards.min_guild_rank) FROM
 
 /* Combining */
 
-UPDATE combining SET min_village_rank = (SELECT MIN(items.min_village_rank) FROM items WHERE combining.item_1_id = items._id) WHERE combining.min_village_rank IS NULL OR EXISTS (SELECT items.min_village_rank FROM items WHERE combining.item_1_id = items._id AND items.min_village_rank < combining.min_village_rank);
-UPDATE combining SET min_village_rank = (SELECT MIN(items.min_village_rank) FROM items WHERE combining.item_2_id = items._id) WHERE combining.min_village_rank IS NULL OR EXISTS (SELECT items.min_village_rank FROM items WHERE combining.item_2_id = items._id AND items.min_village_rank < combining.min_village_rank);
+UPDATE combining SET min_village_rank1 = (SELECT MIN(items.min_village_rank) FROM items WHERE combining.item_1_id = items._id);
+UPDATE combining SET min_village_rank2 = (SELECT MIN(items.min_village_rank) FROM items WHERE combining.item_2_id = items._id);
 
-UPDATE combining SET min_guild_rank = (SELECT MIN(items.min_guild_rank) FROM items WHERE combining.item_1_id = items._id) WHERE combining.min_guild_rank IS NULL OR EXISTS (SELECT items.min_guild_rank FROM items WHERE combining.item_1_id = items._id AND items.min_guild_rank < combining.min_guild_rank);
-UPDATE combining SET min_guild_rank = (SELECT MIN(items.min_guild_rank) FROM items WHERE combining.item_2_id = items._id) WHERE combining.min_guild_rank IS NULL OR EXISTS (SELECT items.min_guild_rank FROM items WHERE combining.item_2_id = items._id AND items.min_guild_rank < combining.min_guild_rank);
+UPDATE combining SET min_guild_rank1 = (SELECT MIN(items.min_guild_rank) FROM items WHERE combining.item_1_id = items._id);
+UPDATE combining SET min_guild_rank2 = (SELECT MIN(items.min_guild_rank) FROM items WHERE combining.item_2_id = items._id);
+
+UPDATE combining SET min_village_rank = MAX(min_village_rank1, min_village_rank2);
+UPDATE combining SET min_guild_rank = MAX(min_guild_rank1, min_guild_rank2);
 
 /* Combining Result Item */
 
@@ -77,23 +80,25 @@ UPDATE items SET min_village_rank = (SELECT MIN(combining.min_village_rank) FROM
 
 UPDATE items SET min_guild_rank = (SELECT MIN(combining.min_guild_rank) FROM combining WHERE combining.item_1_id = items._id OR combining.item_2_id = items._id) WHERE items.min_guild_rank IS NULL OR EXISTS (SELECT combining.min_guild_rank FROM combining WHERE (combining.item_1_id = items._id OR combining.item_2_id = items._id) AND combining.min_guild_rank < items.min_guild_rank);
 
-/* Components */
+/* Component items min rank set, now update components table */
 
 UPDATE components set min_village_rank = (SELECT MIN(min_village_rank) FROM items WHERE components.component_item_id = items._id);
 UPDATE components set min_guild_rank = (SELECT MIN(min_guild_rank) FROM items WHERE components.component_item_id = items._id);
 
-/* This is bad but we are missing things like veggie elder */
-UPDATE components set min_village_rank = 0, min_guild_rank = 0 WHERE min_village_rank IS NULL AND min_guild_rank IS NULL; 
+/* This is bad but we are missing things like veggie elder 
+UPDATE components set min_village_rank = 0, min_guild_rank = 0 WHERE min_village_rank IS NULL AND min_guild_rank IS NULL; */
 
-/*UPDATE components set min_village_rank = 0, min_guild_rank = 0 WHERE EXISTS (SELECT weapons._id FROM weapons WHERE weapons._id = components.component_item_id);*/
+UPDATE components set min_village_rank = 0, min_guild_rank = 0 WHERE EXISTS (SELECT weapons._id FROM weapons WHERE weapons._id = components.component_item_id);
 
-/* Armor, Weapons, Decorations */
+/* Final destination, Armor, Weapons, Decorations */
 
-UPDATE items SET min_village_rank = (SELECT MAX(components.min_village_rank) FROM components WHERE components.created_item_id = items._id AND components.min_village_rank IS NOT NULL) WHERE items.min_village_rank IS NULL OR EXISTS (SELECT components.min_village_rank FROM components WHERE components.created_item_id = items._id AND components.min_village_rank > items.min_village_rank  AND components.min_village_rank IS NOT NULL);
+UPDATE items SET min_village_rank = (SELECT MAX(components.min_village_rank) FROM components WHERE components.created_item_id = items._id AND components.min_village_rank IS NOT NULL) WHERE items.min_village_rank IS NULL OR EXISTS (SELECT components.min_village_rank FROM components WHERE components.created_item_id = items._id AND components.min_village_rank > items.min_village_rank AND components.min_village_rank IS NOT NULL);
 
-UPDATE items SET min_guild_rank = (SELECT MAX(components.min_guild_rank) FROM components WHERE components.created_item_id = items._id AND components.min_guild_rank IS NOT NULL) WHERE items.min_guild_rank IS NULL OR EXISTS (SELECT components.min_guild_rank FROM components WHERE components.created_item_id = items._id AND components.min_guild_rank > items.min_guild_rank  AND components.min_guild_rank IS NOT NULL);
+UPDATE items SET min_guild_rank = (SELECT MAX(components.min_guild_rank) FROM components WHERE components.created_item_id = items._id AND components.min_guild_rank IS NOT NULL) WHERE items.min_guild_rank IS NULL OR EXISTS (SELECT components.min_guild_rank FROM components WHERE components.created_item_id = items._id AND components.min_guild_rank > items.min_guild_rank AND components.min_guild_rank IS NOT NULL);
 
 /* Clear Armor/Weapon/Decoration minimum rank where a component isn't obtainable */
 
-UPDATE items SET min_village_rank = NULL WHERE items.sub_type != '' AND EXISTS (SELECT components.created_item_id FROM components WHERE components.created_item_id = items._id AND components.min_village_rank IS NULL);
+/*UPDATE items SET min_village_rank = NULL WHERE items.sub_type != '' AND EXISTS (SELECT components.created_item_id FROM components WHERE components.created_item_id = items._id AND components.min_village_rank IS NULL);
 UPDATE items SET min_guild_rank = NULL WHERE items.sub_type != '' AND EXISTS (SELECT components.created_item_id FROM components WHERE components.created_item_id = items._id AND components.min_guild_rank IS NULL);
+*/
+
