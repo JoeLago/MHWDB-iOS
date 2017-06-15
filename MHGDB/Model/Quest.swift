@@ -169,12 +169,21 @@ class QuestReward: RowConvertible {
 class QuestMonster: RowConvertible {
     let monsterId: Int
     let name: String
+    var startArea: String?
+    var moveArea: String?
+    var restArea: String?
+    var locations: String {
+        return [startArea, moveArea, restArea].flatMap{ $0 }.joined(separator: " > ")
+    }
     let icon: String?
     
     required init(row: Row) {
         monsterId = row => "monsterid"
         name = row => "monstername"
         icon = row => "monstericon"
+        startArea = row => "start_area"
+        moveArea = row => "move_area"
+        restArea = row => "rest_area"
     }
 }
 
@@ -247,6 +256,7 @@ extension Database {
     }
     
     func monsters(questId: Int) -> [QuestMonster] {
+        // The monster_habitat night locations use day counterpart id 100 off
         let query = "SELECT *,"
             + " monsters._id AS monsterid,"
             + " monsters.name AS monstername,"
@@ -254,6 +264,8 @@ extension Database {
             + " FROM monster_to_quest"
             + " LEFT JOIN quests on monster_to_quest.quest_id = quests._id"
             + " LEFT JOIN monsters on monster_to_quest.monster_id = monsters._id"
+            + " LEFT JOIN monster_habitat on monster_habitat.monster_id = monsters._id"
+            + " AND (monster_habitat.location_id = quests.location_id OR monster_habitat.location_id = quests.location_id - 100)"
             + " WHERE quests._id == \(questId)"
         return fetch(query)
     }

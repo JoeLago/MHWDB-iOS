@@ -176,20 +176,18 @@ class MonsterHabitat : RowConvertible {
     var locationId: Int
     var location: String?
     var startArea: String?
-    var moneArea: String?
+    var moveArea: String?
     var restArea: String?
     
     var string: String {
-        return "\(startArea ?? "")"
-            + " > " + (moneArea ?? "")
-            + " > \(restArea ?? "")"
+        return [startArea, moveArea, restArea].flatMap{ $0 }.joined(separator: " > ")
     }
     
     required init(row: Row) {
         locationId = row => "locationid"
         location = row => "locationname"
         startArea = row => "start_area"
-        moneArea = row => "move_area"
+        moveArea = row => "move_area"
         restArea = row => "rest_area"
     }
 }

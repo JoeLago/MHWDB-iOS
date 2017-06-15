@@ -35,6 +35,7 @@ class QuestDetails: DetailController, DetailScreen {
 
 extension QuestMonster: DetailCellModel {
     var primary: String? { return name }
+    var subtitle: String? { return locations }
     var imageName: String? { return icon }
 }
 
