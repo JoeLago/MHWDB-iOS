@@ -155,12 +155,16 @@ class MonsterQuest: RowConvertible {
     var questName: String?
     var questIcon: String?
     var goal: String?
+    var hub: String
+    var stars: Int
     var goalType: Quest.Goal?
     var progression: Quest.Progression?
     
     required init(row: Row) {
         questId = row => "questid"
         questName = row => "questname"
+        stars = row => "stars"
+        hub = row => "hub"
         questIcon = row => "icon_name"
         goal = row => "goal"
         goalType = Quest.Goal(row => "goal_type")

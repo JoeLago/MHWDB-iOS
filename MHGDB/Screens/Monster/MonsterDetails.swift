@@ -24,10 +24,10 @@ class MonsterDetails: DetailController, DetailScreen {
         addCustomSection(title: "Weaknesses", data: monster.weaknesses, cellType: ImageLabelCell.self)
         addCustomSection(title: "Damage", data: monster.damageByPart, cellType: MonsterDamagesCell.self, showCount: false)
         addCustomSection(title: "Status Effects", data: [monster], cellType: MonsterStatusesCell.self)
+        addSimpleSection(data: monster.quests, title: "Quests") { QuestDetails(id: $0.questId) }
         addRewardSection(monster: monster, rank: .low, title: "Low Rank Rewards")
         addRewardSection(monster: monster, rank: .high, title: "High Rank Rewards")
         addRewardSection(monster: monster, rank: .g, title: "G Rank Rewards")
-        addSimpleSection(data: monster.quests, title: "Quests") { QuestDetails(id: $0.questId) }
     }
     
     func addRewardSection(monster: Monster, rank: Quest.Rank, title: String) {
@@ -57,8 +57,7 @@ extension MonsterHabitat: DetailCellModel {
 
 extension MonsterQuest: DetailCellModel {
     var primary: String? { return questName }
-    var subtitle: String? { return goal }
-    var secondary: String? { return progression?.text }
+    var subtitle: String? { return "\(stars)\u{2605} \(hub)" }
 }
 
 extension Weaknesses: ImageLabelCellProtocol {
