@@ -114,6 +114,10 @@ class Quest: RowConvertible {
         return Database.shared.rewards(questId: self.id)
     }()
     
+    lazy var prereqQuests: [Quest] = {
+        return Database.shared.prereqQuests(questId: self.id)
+    }()
+    
     lazy var rewardsBySlot: [String: [QuestReward]] = {
         let allRewards = Database.shared.rewards(questId: self.id)
         var rewardsBySlot = [String: [QuestReward]]()
@@ -267,6 +271,13 @@ extension Database {
             + " LEFT JOIN monster_habitat on monster_habitat.monster_id = monsters._id"
             + " AND (monster_habitat.location_id = quests.location_id OR monster_habitat.location_id = quests.location_id - 100)"
             + " WHERE quests._id == \(questId)"
+        return fetch(query)
+    }
+    
+    func prereqQuests(questId: Int) -> [Quest] {
+        let query = "SELECT *, quest_prereqs.prereq_id as _id FROM quest_prereqs"
+            + " LEFT JOIN quests ON quests._id = quest_prereqs.prereq_id"
+            + " WHERE quest_id == \(questId)"
         return fetch(query)
     }
 }
