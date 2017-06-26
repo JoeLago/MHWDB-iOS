@@ -19,8 +19,8 @@ class QuestDetails: DetailController, DetailScreen {
         title = quest.name
         addSimpleSection(data: [quest])
         add(section: QuestDetailSection(quest: quest))
-        addSimpleSection(data: quest.monsters, title: "Monsters") { MonsterDetails(id: $0.monsterId) }
         addSimpleSection(data: quest.prereqQuests, title: "Prerequisite Quests") { QuestDetails(id: $0.id) }
+        addSimpleSection(data: quest.monsters, title: "Monsters") { MonsterDetails(id: $0.monsterId) }
         
         let rewardsBySlot = quest.rewardsBySlot
         for slot in rewardsBySlot.keys.sorted() {

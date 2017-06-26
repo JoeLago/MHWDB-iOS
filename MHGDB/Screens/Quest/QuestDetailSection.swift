@@ -17,6 +17,7 @@ class QuestDetailSection: MultiCellSection {
     
     override func populateCells() {
         addCell(MultiDetailCell(details: [
+            SingleDetailLabel(label: "Hub", value: "\(quest.stars)\(String.star) \(quest.hub ?? "")"),
             SingleDetailLabel(label: "Fee", value: quest.fee),
             SingleDetailLabel(label: "Reward", value: quest.reward),
             SingleDetailLabel(label: "HRP", value: quest.hrp)

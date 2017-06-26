@@ -38,7 +38,7 @@ class ItemDetails: DetailController, DetailScreen {
 
 extension ItemQuest: DetailCellModel {
     var primary: String? { return "\(name) - \(slot)" }
-    var subtitle: String? { return "\(stars)\u{2605} \(hub)" }
+    var subtitle: String? { return "\(stars)\(String.star) \(hub)" }
     var secondary: String? { return "\(quantity > 1 ? "x\(quantity) " : "") \(Int(chance))%" }
     var imageName: String? { return icon }
 }

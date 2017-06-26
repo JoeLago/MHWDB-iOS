@@ -57,7 +57,7 @@ extension MonsterHabitat: DetailCellModel {
 
 extension MonsterQuest: DetailCellModel {
     var primary: String? { return questName }
-    var subtitle: String? { return "\(stars)\u{2605} \(hub)" }
+    var subtitle: String? { return "\(stars)\(String.star) \(hub)" }
 }
 
 extension Weaknesses: ImageLabelCellProtocol {

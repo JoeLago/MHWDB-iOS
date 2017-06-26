@@ -121,3 +121,9 @@ extension String {
         }
     }
 }
+
+// MARK - Special characters
+
+extension String {
+    static var star: String { return "\u{2605}" }
+}

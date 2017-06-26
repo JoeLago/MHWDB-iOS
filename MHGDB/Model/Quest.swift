@@ -10,6 +10,7 @@ import GRDB
 class Quest: RowConvertible {
     var id: Int!
     var name: String?
+    var hub: String? // Switch to enum
     var icon: String?
     var goal: String?
     var goalType: Quest.Goal?
@@ -105,7 +106,7 @@ class Quest: RowConvertible {
         
         var title = ""
         for _ in 0 ... count - 1 {
-            title += "\u{2605}"
+            title += String.star
         }
         return title
     }
@@ -139,6 +140,7 @@ class Quest: RowConvertible {
         icon = row => "icon_name"
         goal = row => "goal"
         goalType = Quest.Goal(row => "goal_type") // TODO enum inferrence
+        hub = row => "hub"
         progression = Quest.Progression(Int(row => "type" as String)) // TODO enum inferrence
         stars = row => "stars"
         reward = row => "reward"

@@ -79,6 +79,7 @@ class QuestList: DetailController {
 }
 
 extension Quest: DetailCellModel {
+    //var primary: String? { return "\(id ?? 0): \(name ?? "")" }
     var primary: String? { return name }
     var subtitle: String? { return goal }
     var secondary: String? { return progression?.text == "Normal" ? "" : progression?.text }
