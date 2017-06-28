@@ -149,13 +149,9 @@ class ItemComponent: RowConvertible {
 
 extension Database {
     func items(_ search: String? = nil) -> [Item] {
-        var filter = "sub_type == '' AND type == ''"
-        if let search = search, search.characters.count > 0 {
-            filter += " AND name LIKE '%" + search + "%'"
-        }
-        
-        let query = "SELECT * FROM items WHERE " + filter + "ORDER BY _id ASC"
-        return fetch(query)
+        let query = "SELECT * FROM items"
+        let order = "ORDER BY _id ASC"
+        return fetch(select: query, order: order, filter: "sub_type == '' AND type == ''", search: search)
     }
     
     func item(id: Int) -> Item {

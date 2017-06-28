@@ -142,7 +142,7 @@ extension Database {
     }
     
     func armor(_ search: String? = nil, hunterType: Armor.HunterType? = nil, slot: Armor.Slot? = nil) -> [Armor] {
-        let from = "armor LEFT JOIN items on armor._id = items._id"
+        let query = "SELECT * FROM armor LEFT JOIN items on armor._id = items._id"
         var filter = ""
         
         let finalHunterType = hunterType == .all ? nil : hunterType
@@ -154,21 +154,7 @@ extension Database {
             filter += (finalHunterType != nil ? " AND " : "") + "slot == '\(slot.rawValue)'"
         }
         
-        if let search = search,
-            search.characters.count > 0 {
-            if filter.characters.count > 0 {
-                filter += " AND "
-            }
-            filter += "name LIKE '%" + search + "%'"
-        }
-        
-        var query = "SELECT * FROM " + from
-        
-        if filter.characters.count > 0 {
-            query +=  " WHERE " + filter
-        }
-        
-        return fetch(query)
+        return fetch(select: query, filter: filter, search: search)
     }
     
     func armorSkills(itemId: Int) -> [ArmorSkill] {

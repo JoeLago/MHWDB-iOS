@@ -307,25 +307,19 @@ extension Database {
     }
     
     func monsters(_ search: String? = nil, size: Monster.Size? = nil) -> [Monster] {
-        var query = ""
+        let query = "SELECT * FROM monsters"
+        let order = "ORDER BY sort_name"
         
-        if size == nil {
-            var filter = ""
-            if let search = search, search.characters.count > 0 {
-                filter += "WHERE name LIKE '%" + search + "%'"
-            }
-            
-            query = "SELECT * FROM monsters " + filter + " ORDER BY sort_name"
-        } else {
-            switch size! {
+        if let size = size {
+            switch size {
             case .small:
-                query = "SELECT * FROM monsters WHERE class = 1 ORDER BY sort_name"
+                return fetch(select: query, order: order, filter: "class = 1")
             case .large:
-                query = "SELECT * FROM monsters WHERE class = 0 ORDER BY sort_name"
+                return fetch(select: query, order: order, filter: "class = 0")
             }
+        } else {
+            return fetch(select: query, order: order, search: search)
         }
-        
-        return fetch(query)
     }
     
     func monsterStatus(monsterId: Int) -> [MonsterStatus] {

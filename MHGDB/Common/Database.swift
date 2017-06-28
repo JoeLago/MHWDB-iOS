@@ -29,10 +29,15 @@ class Database {
         }
     }
     
-    func fetch<T: RowConvertible>(_ query: String) -> [T] {
+    func fetch<T: RowConvertible>(_ query: String, params: [DatabaseValueConvertible?]? = nil) -> [T] {
         do {
             return try dbQueue.inDatabase { db in
-                return try T.fetchAll(db, query)
+                var arguments: StatementArguments? = nil
+                if let params = params {
+                    arguments = StatementArguments(params)
+                }
+                
+                return try T.fetchAll(db, query, arguments: arguments, adapter: nil)
             }
         } catch let error as DatabaseError {
             print(error.description)
@@ -51,6 +56,29 @@ class Database {
         let rows = fetch(query) as [RowString]
         let values = rows.flatMap { $0.value }
         return values
+    }
+    
+    func fetch<T: RowConvertible>(select: String, order: String? = nil, filter: String? = nil, search: String? = nil) -> [T] {
+        var params = [DatabaseValueConvertible?]()
+        let hasFilter = filter != nil && filter!.characters.count > 0
+        
+        var finalFilter = ""
+        if hasFilter || search != nil {
+            finalFilter += "WHERE "
+        }
+        
+        if let filter = filter {
+            finalFilter += filter
+        }
+        
+        if let search = search, search.characters.count > 0 {
+            finalFilter += (hasFilter ? " AND " : "") + "name LIKE ?"
+            params.append("%\(search)%")
+        }
+        
+        let query = "\(select) \(finalFilter) \(order ?? "")"
+        
+        return fetch(query, params: params)
     }
 }
 

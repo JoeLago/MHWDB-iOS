@@ -73,11 +73,9 @@ extension Database {
     }
     
     func skillTrees(_ search: String?) -> [SkillTree] {
-        guard let search = search, search.characters.count > 0 else {
-            return [SkillTree]()
-        }
-        let query = "SELECT * FROM skill_trees WHERE name like '%\(search)%' ORDER BY name ASC"
-        return fetch(query)
+        let query = "SELECT * FROM skill_trees"
+        let order = "ORDER BY name ASC"
+        return fetch(select: query, order: order, search: search)
     }
     
     func skills(skillTreeId: Int) -> [Skill] {

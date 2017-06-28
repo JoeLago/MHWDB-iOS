@@ -107,13 +107,9 @@ extension Database {
     }
     
     func locations(_ search: String? = nil) -> [Location] {
-        var filter = ""
-        if let search = search, search.characters.count > 0 {
-            filter += "WHERE name LIKE '%" + search + "%'"
-        }
-        
-        let query = "SELECT * FROM locations " + filter + " ORDER BY name"
-        return fetch(query)
+        let query = "SELECT * FROM locations "
+        let order = "ORDER BY name"
+        return fetch(select: query, order: order, search: search)
     }
     
     func locationMonsters(locationId: Int) -> [LocationMonster] {

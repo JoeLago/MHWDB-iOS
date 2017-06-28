@@ -362,13 +362,9 @@ extension Database {
     }
     
     func weapons(_ search: String) -> [Weapon] {
-        if search.characters.count < 1 {
-            return [Weapon]()
-        }
-        
         let query = "SELECT * FROM weapons LEFT JOIN items on weapons._id = items._id"
-            + " WHERE weapons.wtype IS NOT NULL AND name LIKE '%\(search)%'"
-        return fetch(query)
+        let filter =  "weapons.wtype IS NOT NULL"
+        return fetch(select: query, filter: filter, search: search)
     }
     
     func weaponQuery(type: Weapon.WType) -> String {

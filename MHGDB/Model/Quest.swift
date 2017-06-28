@@ -202,23 +202,20 @@ extension Database {
     
     func quests(_ search: String? = nil, keyOnly: Bool = false, hub: String = "Village",
                 stars: Int? = nil) -> [[Quest]] {
-        var query = "SELECT * FROM quests WHERE hub == '\(hub)'"
+        let query = "SELECT * FROM quests"
+        let order = "ORDER BY stars"
+        
+        var filter = "hub == '\(hub)'"
         
         if let stars = stars {
-            query += " AND stars == \(stars)"
-        }
-        
-        if let search = search {
-            query += " AND name LIKE '%\(search)%'"
+            filter += " AND stars == \(stars)"
         }
         
         if (keyOnly) {
-            query += " AND type != 0"
+            filter += " AND type != 0"
         }
         
-        query += " ORDER BY stars"
-        
-        let quests = fetch(query) as [Quest]
+        let quests = fetch(select: query, order: order, filter: filter, search: search) as [Quest]
         
         if search != nil {
             return [quests]

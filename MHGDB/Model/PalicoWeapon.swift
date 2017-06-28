@@ -96,12 +96,7 @@ extension Database {
     }
     
     func palicoWeapons(_ search: String) -> [PalicoWeapon] {
-        if search.characters.count < 1 {
-            return [PalicoWeapon]()
-        }
-        
         let query = "SELECT * FROM palico_weapons LEFT JOIN items on palico_weapons._id = items._id"
-            + " WHERE name LIKE '%\(search)%'"
-        return fetch(query)
+        return fetch(select: query, search: search)
     }
 }

@@ -47,7 +47,7 @@ class SearchRequest {
             if self.isCanceled { return }
             let armor = Database.shared.armor(searchText)
             if self.isCanceled { return }
-            let quests = Database.shared.quests(searchText)[0]
+            let quests = Database.shared.quests(searchText)[0] // Only returning Village
             if self.isCanceled { return }
             let locations = Database.shared.locations(searchText)
             if self.isCanceled { return }
