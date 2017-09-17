@@ -22,7 +22,7 @@ struct SearchResponse {
 class SearchRequest {
     let searchText: String
     var isCanceled = false
-    var cancelBlock: ((Void) -> Void)?
+    var cancelBlock: (() -> Void)?
     
     init(_ text: String) {
         self.searchText = text
@@ -73,7 +73,7 @@ class SearchRequest {
     }
     
     @discardableResult
-    func canceled(_ cancelBlock: @escaping (Void) -> Void) -> SearchRequest {
+    func canceled(_ cancelBlock: @escaping () -> Void) -> SearchRequest {
         self.cancelBlock = cancelBlock
         return self
     }

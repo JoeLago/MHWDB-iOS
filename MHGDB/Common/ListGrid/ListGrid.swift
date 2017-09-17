@@ -64,13 +64,13 @@ class ListGrid: UICollectionViewController {
         collectionView?.reloadData()
     }
     
-    func addCell(text: String?, imageName: String?, viewControllerBlock: @escaping (Void) -> UIViewController) {
+    func addCell(text: String?, imageName: String?, viewControllerBlock: @escaping () -> UIViewController) {
         cellModels.append(SimpleCellModel(text: text, imageName: imageName) {
             self.navigationController?.pushViewController(viewControllerBlock(), animated: true)
         })
     }
     
-    func addCell(text: String?, imageName: String?, selectedBlock: @escaping (Void) -> Void = {}) {
+    func addCell(text: String?, imageName: String?, selectedBlock: @escaping () -> Void = {}) {
         cellModels.append(SimpleCellModel(text: text, imageName: imageName, selectedBlock: selectedBlock))
     }
     

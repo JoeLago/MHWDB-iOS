@@ -10,9 +10,9 @@ import UIKit
 class SimpleCellModel {
     var text: String?
     var imageName: String?
-    var selectedBlock: (Void) -> Void = {}
+    var selectedBlock: () -> Void = {}
     
-    init(text: String?, imageName: String?, selectedBlock: @escaping (Void) -> Void = {}) {
+    init(text: String?, imageName: String?, selectedBlock: @escaping () -> Void = {}) {
         self.text = text
         self.imageName = imageName
         self.selectedBlock = selectedBlock
@@ -30,13 +30,13 @@ class SimpleTableViewController: UITableViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func addCell(text: String?, imageName: String?, viewControllerBlock: @escaping (Void) -> UIViewController) {
+    func addCell(text: String?, imageName: String?, viewControllerBlock: @escaping () -> UIViewController) {
         cellModels.append(SimpleCellModel(text: text, imageName: imageName) {
             self.push(viewController: viewControllerBlock())
         })
     }
     
-    func addCell(text: String?, imageName: String?, selectedBlock: @escaping (Void) -> Void = {}) {
+    func addCell(text: String?, imageName: String?, selectedBlock: @escaping () -> Void = {}) {
         cellModels.append(SimpleCellModel(text: text,
                                           imageName: imageName,
                                           selectedBlock: selectedBlock))
