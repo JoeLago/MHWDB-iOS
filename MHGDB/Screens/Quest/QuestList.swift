@@ -56,7 +56,7 @@ class QuestList: DetailController {
                     self.push(QuestDetails(quest: model as! Quest))
             })
             
-            questSection.isCollapsed = true
+            questSection.isCollapsed = questsPerStar.count > 4
             add(section: questSection)
         }
         

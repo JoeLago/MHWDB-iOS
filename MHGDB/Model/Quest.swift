@@ -104,7 +104,7 @@ class Quest: RowConvertible {
             return "Training"
         }
         
-        var title = ""
+        var title = "\(count) "
         for _ in 0 ... count - 1 {
             title += String.star
         }
@@ -237,6 +237,8 @@ extension Database {
                 questsPerStar.append(quest)
             }
         }
+        
+        questGroups.append(questsPerStar)
         
         return questGroups
     }
