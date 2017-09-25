@@ -275,7 +275,7 @@ class AmmoType: StyledText {
     convenience init(_ values: [String], _ index: Int) {
         let stringValue = values[index]
         if let index = stringValue.range(of: "*") {
-            self.init(text: stringValue.substring(to: index.lowerBound), isBold: true)
+            self.init(text: String(stringValue[..<index.lowerBound]), isBold: true)
         }
         else {
             self.init(text: stringValue)
