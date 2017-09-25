@@ -13,7 +13,15 @@ class ListMenu: SimpleTableViewController {
         super.loadView()
         title = "MHGDB"
         
+        definesPresentationContext = true
         searchController = SearchAllController(mainViewController: self)
+        
+        if #available(iOS 11, *) {
+            navigationItem.searchController = searchController
+            navigationItem.hidesSearchBarWhenScrolling = false
+        } else {
+            tableView.tableHeaderView = searchController.searchBar
+        }
         
         addCell(text: "Quests", imageName: "Quest-Icon-Red.png") { QuestList() }
         addCell(text: "Monsters", imageName: "Rathalos.png") { MonsterList() }
@@ -25,8 +33,5 @@ class ListMenu: SimpleTableViewController {
         addCell(text: "Decorations", imageName: "Jewel-Cyan.png") { DecorationList() }
         addCell(text: "Skills", imageName: "Monster-Jewel-Teal.png") { SkillList() }
         addCell(text: "Palico", imageName: "cutting3.png") { PalicoList() }
-        
-        tableView.tableHeaderView = searchController.searchBar
-        definesPresentationContext = true
     }
 }
