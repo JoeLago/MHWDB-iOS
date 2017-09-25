@@ -28,12 +28,12 @@ class Decoration: RowConvertible {
     }
     
     required init(row: Row) {
-        id = row => "_id"
-        name = row => "name"
-        icon = row => "icon_name"
-        slots = row => "num_slots"
-        buy = row => "buy"
-        sell = row => "sell"
+        id = row["_id"]
+        name = row["name"]
+        icon = row["icon_name"]
+        slots = row["num_slots"]
+        buy = row["buy"]
+        sell = row["sell"]
     }
 }
 
@@ -43,9 +43,9 @@ class DecorationSkillTree: RowConvertible {
     var points: Int
     
     required init(row: Row) {
-        skillId = row => "skillid"
-        name = row => "skillname"
-        points = row => "point_value"
+        skillId = row["skillid"]
+        name = row["skillname"]
+        points = row["point_value"]
     }
 }
 
@@ -57,11 +57,11 @@ class DecorationComponent: RowConvertible {
     var quantity: Int
     
     required init(row: Row) {
-        componentId = row => "componentid"
-        name = row => "componentname"
-        icon = row => "componenticon"
-        type = row => "componenttype"
-        quantity = row => "quantity"
+        componentId = row["componentid"]
+        name = row["componentname"]
+        icon = row["componenticon"]
+        type = row["componenttype"]
+        quantity = row["quantity"]
     }
 }
 

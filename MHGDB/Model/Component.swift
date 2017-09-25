@@ -15,11 +15,11 @@ class Component: RowConvertible {
     let quantity: Int
     
     required init(row: Row) {
-        id = row => "cid"
-        name = row => "cname"
-        icon = row => "cicon_name"
-        type = row => "ctype"
-        quantity = row => "quantity"
+        id = row["cid"]
+        name = row["cname"]
+        icon = row["cicon_name"]
+        type = row["ctype"]
+        quantity = row["quantity"]
     }
 }
 

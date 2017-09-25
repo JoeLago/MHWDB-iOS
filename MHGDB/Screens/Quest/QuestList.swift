@@ -71,7 +71,7 @@ class QuestList: DetailController {
         keyQuestButton.style = onlyKeyQuests ? .done : .plain
     }
     
-    func toggleKeyQuests() {
+    @objc func toggleKeyQuests() {
         onlyKeyQuests = !onlyKeyQuests
         keyQuestButton.style = onlyKeyQuests ? .done : .plain
         populateSections()

@@ -93,15 +93,15 @@ class Armor: RowConvertible {
     var resistances: Resistances
     
     required init(row: Row) {
-        id = row => "_id"
-        name = row => "name"
-        defense = row => "defense"
-        defenseMax = row => "max_defense"
-        buy = row => "buy"
-        sell = row => "sell"
-        slots = row => "num_slots"
-        rarity = row => "rarity"
-        slot = Slot.forString(row => "slot")
+        id = row["id"]
+        name = row["name"]
+        defense = row["defense"]
+        defenseMax = row["max_defense"]
+        buy = row["buy"]
+        sell = row["sell"]
+        slots = row["num_slots"]
+        rarity = row["rarity"]
+        slot = Slot.forString(row["slot"])
         resistances = Resistances(row: row)
     }
 }
@@ -112,9 +112,9 @@ class ArmorSkill: RowConvertible {
     var value: Int
     
     required init(row: Row) {
-        skillId = row => "skillid"
-        name = row => "skillname"
-        value = row => "point_value"
+        skillId = row["skillid"]
+        name = row["skillname"]
+        value = row["point_value"]
     }
 }
 
@@ -126,11 +126,11 @@ class ArmorComponent: RowConvertible {
     var quantity: Int?
     
     required init(row: Row) {
-        itemId = row => "componentid"
-        name = row => "componentname"
-        icon = row => "componenticon"
-        type = row => "componenttype"
-        quantity = row => "quantity"
+        itemId = row["componentid"]
+        name = row["componentname"]
+        icon = row["componenticon"]
+        type = row["componenttype"]
+        quantity = row["quantity"]
     }
 }
 

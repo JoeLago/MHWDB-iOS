@@ -2,12 +2,7 @@
 
 extension SQLExpression {
     
-    /// This property is an implementation detail of the query interface.
-    /// Do not use it directly.
-    ///
-    /// See https://github.com/groue/GRDB.swift/#the-query-interface
-    ///
-    /// # Low Level Query Interface
+    /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
     ///
     /// Converts an expression to an SQLExpressionLiteral
     public var literal: SQLExpressionLiteral {
@@ -27,12 +22,7 @@ extension SQLExpression {
 
 // MARK: - SQLExpressionLiteral
 
-/// This type is an implementation detail of the query interface.
-/// Do not use it directly.
-///
-/// See https://github.com/groue/GRDB.swift/#the-query-interface
-///
-/// # Low Level Query Interface
+/// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
 ///
 /// SQLExpressionLiteral is an expression built from a raw SQL snippet.
 ///
@@ -43,13 +33,19 @@ extension SQLExpression {
 ///     SQLExpressionLiteral("? + ?", arguments: [1, 2])
 ///     SQLExpressionLiteral(":one + :two", arguments: ["one": 1, "two": 2])
 public struct SQLExpressionLiteral : SQLExpression {
+    /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
+    ///
     /// The SQL literal
     public let sql: String
     
+    /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
+    ///
     /// Eventual arguments that feed the `?` and colon-prefixed tokens in the
     /// SQL literal
     public let arguments: StatementArguments?
     
+    /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
+    ///
     /// Creates an SQL literal expression.
     ///
     ///     SQLExpressionLiteral("1 + 2")
@@ -60,14 +56,7 @@ public struct SQLExpressionLiteral : SQLExpression {
         self.arguments = arguments
     }
     
-    /// This function is an implementation detail of the query interface.
-    /// Do not use it directly.
-    ///
-    /// See https://github.com/groue/GRDB.swift/#the-query-interface
-    ///
-    /// # Low Level Query Interface
-    ///
-    /// See SQLExpression.expressionSQL(_:arguments:)
+    /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
     public func expressionSQL(_ arguments: inout StatementArguments?) -> String {
         if let literalArguments = self.arguments {
             guard arguments != nil else {
@@ -83,21 +72,22 @@ public struct SQLExpressionLiteral : SQLExpression {
 
 // MARK: - SQLExpressionUnary
 
-/// This type is an implementation detail of the query interface.
-/// Do not use it directly.
-///
-/// See https://github.com/groue/GRDB.swift/#the-query-interface
-///
-/// # Low Level Query Interface
+/// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
 ///
 /// SQLUnaryOperator is a SQLite unary operator.
 public struct SQLUnaryOperator : Hashable {
+    /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
+    ///
     /// The SQL operator
     public let sql: String
     
+    /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
+    ///
     /// If true GRDB puts a white space between the operator and the operand.
     public let needsRightSpace: Bool
     
+    /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
+    ///
     /// Creates an unary operator
     ///
     ///     SQLUnaryOperator("~", needsRightSpace: false)
@@ -106,33 +96,36 @@ public struct SQLUnaryOperator : Hashable {
         self.needsRightSpace = needsRightSpace
     }
     
+    /// The hash value
     public var hashValue: Int {
         return sql.hashValue
     }
     
+    /// Equality operator
     public static func == (lhs: SQLUnaryOperator, rhs: SQLUnaryOperator) -> Bool {
         return lhs.sql == rhs.sql
     }
 }
 
-/// This type is an implementation detail of the query interface.
-/// Do not use it directly.
-///
-/// See https://github.com/groue/GRDB.swift/#the-query-interface
-///
-/// # Low Level Query Interface
+/// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
 ///
 /// SQLExpressionUnary is an expression made of an unary operator and
 /// an operand expression.
 ///
 ///     SQLExpressionUnary(.not, Column("favorite"))
 public struct SQLExpressionUnary : SQLExpression {
+    /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
+    ///
     /// The unary operator
     public let op: SQLUnaryOperator
     
+    /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
+    ///
     /// The operand
     public let expression: SQLExpression
     
+    /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
+    ///
     /// Creates an expression made of an unary operator and
     /// an operand expression.
     ///
@@ -143,14 +136,7 @@ public struct SQLExpressionUnary : SQLExpression {
         self.expression = value.sqlExpression
     }
     
-    /// This function is an implementation detail of the query interface.
-    /// Do not use it directly.
-    ///
-    /// See https://github.com/groue/GRDB.swift/#the-query-interface
-    ///
-    /// # Low Level Query Interface
-    ///
-    /// See SQLExpression.expressionSQL(_:arguments:)
+    /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
     public func expressionSQL(_ arguments: inout StatementArguments?) -> String {
         return op.sql + (op.needsRightSpace ? " " : "") + expression.expressionSQL(&arguments)
     }
@@ -158,21 +144,22 @@ public struct SQLExpressionUnary : SQLExpression {
 
 // MARK: - SQLExpressionBinary
 
-/// This type is an implementation detail of the query interface.
-/// Do not use it directly.
-///
-/// See https://github.com/groue/GRDB.swift/#the-query-interface
-///
-/// # Low Level Query Interface
+/// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
 ///
 /// SQLBinaryOperator is a SQLite binary operator.
 public struct SQLBinaryOperator : Hashable {
+    /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
+    ///
     /// The SQL operator
     public let sql: String
     
+    /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
+    ///
     /// The SQL for the negated operator, if any
     public let negatedSQL: String?
     
+    /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
+    ///
     /// Creates a binary operator
     ///
     ///     SQLBinaryOperator("+")
@@ -182,10 +169,8 @@ public struct SQLBinaryOperator : Hashable {
         self.negatedSQL = negated
     }
     
-    public var hashValue: Int {
-        return sql.hashValue
-    }
-    
+    /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
+    ///
     /// Returns the negated binary operator, if any
     ///
     ///     let operator = SQLBinaryOperator("IS", negated: "IS NOT")
@@ -197,32 +182,65 @@ public struct SQLBinaryOperator : Hashable {
         return SQLBinaryOperator(negatedSQL, negated: sql)
     }
     
+    /// The hash value
+    public var hashValue: Int {
+        return sql.hashValue
+    }
+    
+    /// Equality operator
     public static func == (lhs: SQLBinaryOperator, rhs: SQLBinaryOperator) -> Bool {
         return lhs.sql == rhs.sql
     }
+    
+    // TODO: make it an extension of Sequence (like joined(separator:)) when Swift can better handle existentials
+    // TODO: make it public eventually
+    /// Return nil if expressions is empty.
+    func join(_ expressions: [SQLExpression]) -> SQLExpression? {
+        switch expressions.count {
+        case 0:
+            return nil
+        case 1:
+            return expressions[0]
+        default:
+            let literals = expressions.map { $0.literal }
+            let firstLiteral = literals[0]
+            var sql = firstLiteral.sql
+            var arguments = firstLiteral.arguments ?? StatementArguments()
+            for literal in literals.suffix(from: 1) {
+                sql += " \(self.sql) \(literal.sql)"
+                if let args = literal.arguments {
+                    arguments += args
+                }
+            }
+            return SQLExpressionLiteral("(\(sql))", arguments: arguments.isEmpty ? nil : arguments)
+        }
+    }
 }
 
-/// This type is an implementation detail of the query interface.
-/// Do not use it directly.
-///
-/// See https://github.com/groue/GRDB.swift/#the-query-interface
-///
-/// # Low Level Query Interface
+/// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
 ///
 /// SQLExpressionBinary is an expression made of two expressions joined with a
 /// binary operator.
 ///
 ///     SQLExpressionBinary(.multiply, Column("length"), Column("width"))
 public struct SQLExpressionBinary : SQLExpression {
+    /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
+    ///
     /// The left operand
     public let lhs: SQLExpression
     
+    /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
+    ///
     /// The operator
     public let op: SQLBinaryOperator
     
+    /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
+    ///
     /// The right operand
     public let rhs: SQLExpression
     
+    /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
+    ///
     /// Creates an expression made of two expressions joined with a
     /// binary operator.
     ///
@@ -234,26 +252,12 @@ public struct SQLExpressionBinary : SQLExpression {
         self.rhs = rhs.sqlExpression
     }
     
-    /// This function is an implementation detail of the query interface.
-    /// Do not use it directly.
-    ///
-    /// See https://github.com/groue/GRDB.swift/#the-query-interface
-    ///
-    /// # Low Level Query Interface
-    ///
-    /// See SQLExpression.expressionSQL(_:arguments:)
+    /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
     public func expressionSQL(_ arguments: inout StatementArguments?) -> String {
         return "(" + lhs.expressionSQL(&arguments) + " " + op.sql + " " + rhs.expressionSQL(&arguments) + ")"
     }
     
-    /// This property is an implementation detail of the query interface.
-    /// Do not use it directly.
-    ///
-    /// See https://github.com/groue/GRDB.swift/#the-query-interface
-    ///
-    /// # Low Level Query Interface
-    ///
-    /// See SQLExpression.negated
+    /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
     public var negated: SQLExpression {
         if let negatedOp = op.negated {
            return SQLExpressionBinary(negatedOp, lhs, rhs)
@@ -294,59 +298,6 @@ struct SQLExpressionContains : SQLExpression {
     }
 }
 
-// MARK: - SQLExpressionExists
-
-/// This type is an implementation detail of the query interface.
-/// Do not use it directly.
-///
-/// See https://github.com/groue/GRDB.swift/#the-query-interface
-///
-/// # Low Level Query Interface
-///
-/// SQLExpressionExists is an expression that checks if a subquery would return
-/// rows or not with the `EXISTS` operator.
-public struct SQLExpressionExists : SQLExpression {
-    /// The query
-    public let query: SQLSelectQuery
-    
-    /// If true, uses `NOT EXISTS` instead of `EXISTS` operator
-    public let isNegated: Bool
-    
-    /// Creates an expression that checks if a subquery would return rows
-    /// or not with the `EXISTS` operator.
-    public init(_ query: SQLSelectQuery, negated: Bool = false) {
-        self.query = query
-        self.isNegated = negated
-    }
-    
-    /// This function is an implementation detail of the query interface.
-    /// Do not use it directly.
-    ///
-    /// See https://github.com/groue/GRDB.swift/#the-query-interface
-    ///
-    /// # Low Level Query Interface
-    ///
-    /// See SQLExpression.expressionSQL(_:arguments:)
-    public func expressionSQL(_ arguments: inout StatementArguments?) -> String {
-        return "(" +
-            (isNegated ? "NOT EXISTS (" : "EXISTS (") +
-            query.selectQuerySQL(&arguments)
-            + "))"
-    }
-    
-    /// This property is an implementation detail of the query interface.
-    /// Do not use it directly.
-    ///
-    /// See https://github.com/groue/GRDB.swift/#the-query-interface
-    ///
-    /// # Low Level Query Interface
-    ///
-    /// See SQLExpression.negated
-    public var negated: SQLExpression {
-        return SQLExpressionExists(query, negated: !isNegated)
-    }
-}
-
 // MARK: - SQLExpressionBetween
 
 /// SQLExpressionBetween is an expression that checks if a values is included
@@ -384,18 +335,17 @@ struct SQLExpressionBetween : SQLExpression {
 
 // MARK: - SQLExpressionFunction
 
-/// This type is an implementation detail of the query interface.
-/// Do not use it directly.
-///
-/// See https://github.com/groue/GRDB.swift/#the-query-interface
-///
-/// # Low Level Query Interface
+/// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
 ///
 /// SQLFunctionName is an SQL function name.
 public struct SQLFunctionName : Hashable {
+    /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
+    ///
     /// The SQL function name
     public let sql: String
     
+    /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
+    ///
     /// Creates a function name
     ///
     ///     SQLFunctionName("ABS")
@@ -403,33 +353,36 @@ public struct SQLFunctionName : Hashable {
         self.sql = sql
     }
     
+    /// The hash value
     public var hashValue: Int {
         return sql.hashValue
     }
     
+    /// Equality operator
     public static func == (lhs: SQLFunctionName, rhs: SQLFunctionName) -> Bool {
         return lhs.sql == rhs.sql
     }
 }
 
-/// This type is an implementation detail of the query interface.
-/// Do not use it directly.
-///
-/// See https://github.com/groue/GRDB.swift/#the-query-interface
-///
-/// # Low Level Query Interface
+/// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
 ///
 /// SQLExpressionFunction is an SQL function call.
 ///
 ///     // ABS(-1)
 ///     SQLExpressionFunction(.abs, [-1.databaseValue])
 public struct SQLExpressionFunction : SQLExpression {
+    /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
+    ///
     /// The function name
     public let functionName: SQLFunctionName
     
+    /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
+    ///
     /// The function arguments
     public let arguments: [SQLExpression]
     
+    /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
+    ///
     /// Creates an SQL function call
     ///
     ///     // ABS(-1)
@@ -439,6 +392,8 @@ public struct SQLExpressionFunction : SQLExpression {
         self.arguments = arguments
     }
     
+    /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
+    ///
     /// Creates an SQL function call
     ///
     ///     // ABS(-1)
@@ -447,14 +402,7 @@ public struct SQLExpressionFunction : SQLExpression {
         self.init(functionName, arguments: arguments.map { $0.sqlExpression })
     }
     
-    /// This function is an implementation detail of the query interface.
-    /// Do not use it directly.
-    ///
-    /// See https://github.com/groue/GRDB.swift/#the-query-interface
-    ///
-    /// # Low Level Query Interface
-    ///
-    /// See SQLExpression.expressionSQL(_:arguments:)
+    /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
     public func expressionSQL(_ arguments: inout StatementArguments?) -> String {
         return functionName.sql + "(" + (self.arguments.map { $0.expressionSQL(&arguments) } as [String]).joined(separator: ", ")  + ")"
     }

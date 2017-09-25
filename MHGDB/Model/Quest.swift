@@ -135,21 +135,21 @@ class Quest: RowConvertible {
     }()
     
     required init(row: Row) {
-        id = row => "_id"
-        name = row => "name"
-        icon = row => "icon_name"
-        goal = row => "goal"
-        goalType = Quest.Goal(row => "goal_type") // TODO enum inferrence
-        hub = row => "hub"
-        progression = Quest.Progression(Int(row => "type" as String)) // TODO enum inferrence
-        stars = row => "stars"
-        reward = row => "reward"
-        hrp = row => "hrp"
-        subQuest = row => "sub_goal"
-        subReward = row => "sub_reward"
-        subHrp = row => "sub_hrp"
-        description = row => "flavor"
-        fee = row => "fee"
+        id = row["_id"]
+        name = row["name"]
+        icon = row["icon_name"]
+        goal = row["goal"]
+        goalType = Quest.Goal(row["goal_type"]) // TODO enum inferrence
+        hub = row["hub"]
+        progression = Quest.Progression(Int(row["type"] as String)) // TODO enum inferrence
+        stars = row["stars"]
+        reward = row["reward"]
+        hrp = row["hrp"]
+        subQuest = row["sub_goal"]
+        subReward = row["sub_reward"]
+        subHrp = row["sub_hrp"]
+        description = row["flavor"]
+        fee = row["fee"]
         hasSubQuest = subQuest != "None"
     }
 }
@@ -163,12 +163,12 @@ class QuestReward: RowConvertible {
     var slot: String
     
     required init(row: Row) {
-        itemId = row => "itemid"
-        name = row => "itemname"
-        icon = row => "itemicon"
-        quantity = row => "quantity" ?? 0
-        chance = row => "percentage" ?? 0
-        slot = row => "reward_slot"
+        itemId = row["itemid"]
+        name = row["itemname"]
+        icon = row["itemicon"]
+        quantity = row["quantity"] ?? 0
+        chance = row["percentage"] ?? 0
+        slot = row["reward_slot"]
     }
 }
 
@@ -184,12 +184,12 @@ class QuestMonster: RowConvertible {
     let icon: String?
     
     required init(row: Row) {
-        monsterId = row => "monsterid"
-        name = row => "monstername"
-        icon = row => "monstericon"
-        startArea = row => "start_area"
-        moveArea = row => "move_area"
-        restArea = row => "rest_area"
+        monsterId = row["monsterid"]
+        name = row["monstername"]
+        icon = row["monstericon"]
+        startArea = row["start_area"]
+        moveArea = row["move_area"]
+        restArea = row["rest_area"]
     }
 }
 

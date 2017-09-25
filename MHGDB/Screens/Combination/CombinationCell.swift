@@ -42,7 +42,7 @@ class IconImage: StackView {
         self.selected = selected
     }
     
-    func handleTap(sender: UITapGestureRecognizer) {
+    @objc func handleTap(sender: UITapGestureRecognizer) {
         if let id = id {
             selected?(id)
         }

@@ -45,13 +45,13 @@ class Item: RowConvertible {
     }()
     
     required init(row: Row) {
-        id = row => "_id"
-        name = row => "name"
-        description = row => "description"
-        icon = row => "icon_name"
-        stack = row => "carry_capacity"
-        buy = row => "buy"
-        sell = row => "sell"
+        id = row["_id"]
+        name = row["name"]
+        description = row["description"]
+        icon = row["icon_name"]
+        stack = row["carry_capacity"]
+        buy = row["buy"]
+        sell = row["sell"]
     }
 }
 
@@ -66,14 +66,14 @@ class ItemQuest: RowConvertible {
     let hub: String
     
     required init(row: Row) {
-        questId = row => "questid"
+        questId = row["questid"]
         icon = nil
-        name = row => "questname"
-        quantity = row => "stack_size"
-        chance = row => "percentage"
-        slot = row => "reward_slot"
-        stars = row => "stars"
-        hub = row => "hub"
+        name = row["questname"]
+        quantity = row["stack_size"]
+        chance = row["percentage"]
+        slot = row["reward_slot"]
+        stars = row["stars"]
+        hub = row["hub"]
     }
 }
 
@@ -95,17 +95,17 @@ class ItemLocation: RowConvertible {
     }
     
     required init(row: Row) {
-        id = row => "location_id"
-        name = row => "locationname"
-        icon = row => "map"
-        rank = row => "rank"
-        area = row => "area"
-        site = row => "site"
-        chance = row => "percentage"
-        stack = row => "quantity"
-        group = row => "group_num"
-        isFixed = (row => "fixed" ?? false)
-        isRare = (row => "rare" ?? false)
+        id = row["location_id"]
+        name = row["locationname"]
+        icon = row["map"]
+        rank = row["rank"]
+        area = row["area"]
+        site = row["site"]
+        chance = row["percentage"]
+        stack = row["quantity"]
+        group = row["group_num"]
+        isFixed = (row["fixed"] ?? false)
+        isRare = (row["rare"] ?? false)
     }
 }
 
@@ -120,14 +120,14 @@ class ItemMonster: RowConvertible {
     let chance: Int
     
     required init(row: Row) {
-        id = row => "_id"
-        monsterId = row => "monsterid"
-        name = row => "monstername"
-        icon = row => "monstericon"
-        condition = row => "condition"
-        rank = (row => "rank" as String) == "LR" ? .low : .high
-        stack = row => "stack_size"
-        chance = row => "percentage"
+        id = row["_id"]
+        monsterId = row["monsterid"]
+        name = row["monstername"]
+        icon = row["monstericon"]
+        condition = row["condition"]
+        rank = (row["rank"] as String == "LR") ? .low : .high
+        stack = row["stack_size"]
+        chance = row["percentage"]
     }
 }
 
@@ -139,11 +139,11 @@ class ItemComponent: RowConvertible {
     var quantity: Int
     
     required init(row: Row) {
-        id = row => "itemid"
-        producedId = row => "itemid"
-        name = row => "createdname"
-        icon = row => "createdicon"
-        quantity = row => "quantity"
+        id = row["itemid"]
+        producedId = row["itemid"]
+        name = row["createdname"]
+        icon = row["createdicon"]
+        quantity = row["quantity"]
     }
 }
 

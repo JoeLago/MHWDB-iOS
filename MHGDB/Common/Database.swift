@@ -86,11 +86,11 @@ class RowString: RowConvertible {
     static var column = "value"
     let value: String?
     required init(row: Row) {
-        value = row => RowString.column
+        value = row[RowString.column]
     }
 }
 
-precedencegroup GRDBPrecedence {
+/*precedencegroup GRDBPrecedence {
     associativity: right
     higherThan: CastingPrecedence
 }
@@ -98,12 +98,12 @@ precedencegroup GRDBPrecedence {
 infix operator =>: GRDBPrecedence
 
 public func => <Value: DatabaseValueConvertible>(row: Row, column: String) -> Value {
-    return row.value(named: column)
+    return row.value[column]
 }
 
 public func => <Value: DatabaseValueConvertible>(row: Row, column: String) -> Value? {
-    return row.value(named: column)
-}
+    return row.value[column]
+}*/
 
 /* Not supported till Swift 4
  subscript<Value: DatabaseValueConvertible>(row: Row, column: String) -> Value? {

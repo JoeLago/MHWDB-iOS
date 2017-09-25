@@ -46,7 +46,7 @@ class DetailController: UITableViewController {
         addLongPressGesture()
     }
     
-    func popToRoot() {
+    @objc func popToRoot() {
         self.navigationController?.popToRootViewController(animated: true)
     }
     
@@ -92,7 +92,7 @@ class DetailController: UITableViewController {
     }
     
     // Placeholder for segment action
-    func reloadData() {
+    @objc func reloadData() {
         tableView.reloadData()
     }
 }
@@ -170,7 +170,7 @@ extension DetailController: UIGestureRecognizerDelegate {
         return headerView
     }
     
-    func longPressGesture(gestureRecognizer: UILongPressGestureRecognizer) {
+    @objc func longPressGesture(gestureRecognizer: UILongPressGestureRecognizer) {
         let point = gestureRecognizer.location(in: tableView)
         if let indexPath = tableView.indexPathForRow(at: point),
             gestureRecognizer.state == .began {
@@ -183,7 +183,7 @@ extension DetailController: UIGestureRecognizerDelegate {
         sections[indexPath.section].longPress(row: indexPath.row)
     }
     
-    func headerTapped(gestureRecognizer: UIGestureRecognizer) {
+    @objc func headerTapped(gestureRecognizer: UIGestureRecognizer) {
         if let headerView = gestureRecognizer.view as? HeaderView {
             let section = sections[headerView.section ?? 0]
             toggleSection(section)

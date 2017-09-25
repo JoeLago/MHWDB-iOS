@@ -1,14 +1,36 @@
-// MARK: - SQLStar
+// MARK: - AllColumns
 
-struct SQLStar : SQLSelectable {
-    func resultColumnSQL(_ arguments: inout StatementArguments?) -> String {
+/// AllColumns is the `*` in `SELECT *`.
+///
+/// You use AllColumns in your custom implementation of
+/// TableMapping.databaseSelection.
+///
+/// For example:
+///
+///     struct Player : TableMapping {
+///         static var databaseTableName = "players"
+///         static let databaseSelection: [SQLSelectable] = [AllColumns(), Column.rowID]
+///     }
+///
+///     // SELECT *, rowid FROM players
+///     let request = Player.all()
+public struct AllColumns {
+    ///
+    public init() { }
+}
+
+extension AllColumns : SQLSelectable {
+    /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
+    public func resultColumnSQL(_ arguments: inout StatementArguments?) -> String {
         return "*"
     }
     
-    func countedSQL(_ arguments: inout StatementArguments?) -> String {
+    /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
+    public func countedSQL(_ arguments: inout StatementArguments?) -> String {
         return "*"
     }
     
+    /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
     public func count(distinct: Bool) -> SQLCount? {
         // SELECT DISTINCT * FROM tableName ...
         guard !distinct else {
@@ -18,7 +40,7 @@ struct SQLStar : SQLSelectable {
         // SELECT * FROM tableName ...
         // ->
         // SELECT COUNT(*) FROM tableName ...
-        return .star
+        return .all
     }
 }
 
@@ -42,7 +64,7 @@ struct SQLAliasedExpression : SQLSelectable {
         return expression.countedSQL(&arguments)
     }
     
-    public func count(distinct: Bool) -> SQLCount? {
+    func count(distinct: Bool) -> SQLCount? {
         return expression.count(distinct: distinct)
     }
 }

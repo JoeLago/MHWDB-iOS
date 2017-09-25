@@ -70,8 +70,8 @@ public final class DatabaseQueue {
     /// Synchronously executes a block in a protected dispatch queue, and
     /// returns its result.
     ///
-    ///     let persons = try dbQueue.inDatabase { db in
-    ///         try Person.fetchAll(...)
+    ///     let players = try dbQueue.inDatabase { db in
+    ///         try Player.fetchAll(...)
     ///     }
     ///
     /// This method is *not* reentrant.
@@ -189,7 +189,7 @@ public final class DatabaseQueue {
     // > behavior is undefined.
     //
     // This is why we use a serialized database:
-    fileprivate var serializedDatabase: SerializedDatabase
+    private var serializedDatabase: SerializedDatabase
 }
 
 
@@ -217,8 +217,8 @@ extension DatabaseQueue : DatabaseReader {
     /// Synchronously executes a read-only block in a protected dispatch queue,
     /// and returns its result.
     ///
-    ///     let persons = try dbQueue.read { db in
-    ///         try Person.fetchAll(...)
+    ///     let players = try dbQueue.read { db in
+    ///         try Player.fetchAll(...)
     ///     }
     ///
     /// This method is *not* reentrant.
@@ -248,14 +248,26 @@ extension DatabaseQueue : DatabaseReader {
         return try inDatabase(block)
     }
     
+    /// Synchronously executes a block in a protected dispatch queue, and
+    /// returns its result.
+    ///
+    ///     try dbQueue.unsafeReentrantRead { db in
+    ///         try db.execute(...)
+    ///     }
+    ///
+    /// This method is reentrant. It should be avoided because it fosters
+    /// dangerous concurrency practices.
+    public func unsafeReentrantRead<T>(_ block: (Database) throws -> T) throws -> T {
+        return try serializedDatabase.reentrantSync(block)
+    }
+    
     
     // MARK: - Functions
     
     /// Add or redefine an SQL function.
     ///
-    ///     let fn = DatabaseFunction("succ", argumentCount: 1) { databaseValues in
-    ///         let dbv = databaseValues.first!
-    ///         guard let int = dbv.value() as Int? else {
+    ///     let fn = DatabaseFunction("succ", argumentCount: 1) { dbValues in
+    ///         guard let int = Int.fromDatabaseValue(dbValues[0]) else {
     ///             return nil
     ///         }
     ///         return int + 1
@@ -333,7 +345,7 @@ extension DatabaseQueue : DatabaseWriter {
     /// Synchronously executes a block in a protected dispatch queue, and
     /// returns its result.
     ///
-    ///     let persons = try dbQueue.unsafeReentrantWrite { db in
+    ///     try dbQueue.unsafeReentrantWrite { db in
     ///         try db.execute(...)
     ///     }
     ///

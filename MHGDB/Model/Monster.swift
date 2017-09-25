@@ -71,12 +71,12 @@ class Monster: RowConvertible {
         
         var statuses = [MonsterStatusValues]()
         
-        /*status = row => "status"
-        initial = row => "initial"
-        increase = row => "increase"
-        max = row => "max"
-        duration = row => "duration"
-        damage = row => "damage"*/
+        /*status = row["status"]
+        initial = row["initial"]
+        increase = row["increase"]
+        max = row["max"]
+        duration = row["duration"]
+        damage = row["damage"]*/
         
         statuses.append(MonsterStatusValues(values: rows, column: "initial"))
         statuses.append(MonsterStatusValues(values: rows, column: "increase"))
@@ -113,10 +113,10 @@ class Monster: RowConvertible {
     }
     
     required init(row: Row) {
-        id = row => "_id"
-        name = row => "name"
-        icon = row => "icon_name"
-        size = Size(Int(row => "class" as String))
+        id = row["_id"]
+        name = row["name"]
+        icon = row["icon_name"]
+        size = Size(Int(row["class"] as String))
     }
 }
 
@@ -132,21 +132,21 @@ class Weaknesses: Elements, RowConvertible {
     
     required init(row: Row) {
         super.init()
-        state = row => "state"
-        fire = row => "fire"
-        water = row => "water"
-        thunder = row => "thunder"
-        ice = row => "ice"
-        dragon = row => "dragon"
-        poison = row => "poison"
-        paralysis = row => "paralysis"
-        sleep = row => "sleep"
-        pitfallTrap = row => "pitfall_trap"
-        shockTrap = row => "shock_trap"
-        flashBomb = row => "flash_bomb"
-        sonicBomb = row => "sonic_bomb"
-        dungBomb = row => "dung_bomb"
-        meat = row => "meat"
+        state = row["state"]
+        fire = row["fire"]
+        water = row["water"]
+        thunder = row["thunder"]
+        ice = row["ice"]
+        dragon = row["dragon"]
+        poison = row["poison"]
+        paralysis = row["paralysis"]
+        sleep = row["sleep"]
+        pitfallTrap = row["pitfall_trap"]
+        shockTrap = row["shock_trap"]
+        flashBomb = row["flash_bomb"]
+        sonicBomb = row["sonic_bomb"]
+        dungBomb = row["dung_bomb"]
+        meat = row["meat"]
     }
 }
 
@@ -161,14 +161,14 @@ class MonsterQuest: RowConvertible {
     var progression: Quest.Progression?
     
     required init(row: Row) {
-        questId = row => "questid"
-        questName = row => "questname"
-        stars = row => "stars"
-        hub = row => "hub"
-        questIcon = row => "icon_name"
-        goal = row => "goal"
-        goalType = Quest.Goal(row => "goal_type")
-        progression = Quest.Progression(Int(row => "type" as String))
+        questId = row["questid"]
+        questName = row["questname"]
+        stars = row["stars"]
+        hub = row["hub"]
+        questIcon = row["icon_name"]
+        goal = row["goal"]
+        goalType = Quest.Goal(row["goal_type"])
+        progression = Quest.Progression(Int(row["type"] as String))
     }
 }
 
@@ -184,11 +184,11 @@ class MonsterHabitat : RowConvertible {
     }
     
     required init(row: Row) {
-        locationId = row => "locationid"
-        location = row => "locationname"
-        startArea = row => "start_area"
-        moveArea = row => "move_area"
-        restArea = row => "rest_area"
+        locationId = row["locationid"]
+        location = row["locationname"]
+        startArea = row["start_area"]
+        moveArea = row["move_area"]
+        restArea = row["rest_area"]
     }
 }
 
@@ -206,13 +206,13 @@ class MonsterReward: RowConvertible {
     var chance: Int?
     
     required init(row: Row) {
-        itemId = row => "itemid"
-        name = row => "name"
-        icon = row => "icon_name"
-        condition = row => "condition"
-        rank = (row => "rank" as String) == "LR" ? .low : .high
-        stackSize = row => "stack_size"
-        chance = row => "percentage"
+        itemId = row["itemid"]
+        name = row["name"]
+        icon = row["icon_name"]
+        condition = row["condition"]
+        rank = (row["rank"] as String == "LR") ? .low : .high
+        stackSize = row["stack_size"]
+        chance = row["percentage"]
     }
 }
 
@@ -234,16 +234,16 @@ class MonsterDamage: RowConvertible {
     var ko: Int
     
     required init(row: Row) {
-        bodyPart = row => "body_part"
-        cut = row => "cut"
-        impact = row => "impact"
-        shot = row => "shot"
-        fire = row => "fire"
-        water = row => "water"
-        ice = row => "ice"
-        thunder = row => "thunder"
-        dragon = row => "dragon"
-        ko = row => "ko"
+        bodyPart = row["body_part"]
+        cut = row["cut"]
+        impact = row["impact"]
+        shot = row["shot"]
+        fire = row["fire"]
+        water = row["water"]
+        ice = row["ice"]
+        thunder = row["thunder"]
+        dragon = row["dragon"]
+        ko = row["ko"]
     }
 }
 
@@ -258,12 +258,12 @@ class MonsterStatus: RowConvertible {
     
     required init(row: Row) {
         self.row = row.copy()
-        status = row => "status"
-        initial = row => "initial"
-        increase = row => "increase"
-        max = row => "max"
-        duration = row => "duration"
-        damage = row => "damage"
+        status = row["status"]
+        initial = row["initial"]
+        increase = row["increase"]
+        max = row["max"]
+        duration = row["duration"]
+        damage = row["damage"]
     }
 }
 
@@ -293,7 +293,7 @@ class MonsterStatusValues {
     
     class func getValue(values: [String: Row], column: String, stat: String) -> Int {
         if let row = values[stat] {
-            return row => column ?? -1
+            return row[column] ?? -1
         } else {
             return 0
         }

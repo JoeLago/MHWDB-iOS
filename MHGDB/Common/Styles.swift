@@ -45,7 +45,7 @@ struct Font {
     
     static let header = UIFont.systemFont(ofSize: Size.header)
     static let title = UIFont.systemFont(ofSize: Size.title)
-    static let titleMedium = UIFont.systemFont(ofSize: Size.title, weight: UIFontWeightMedium)
+    static let titleMedium = UIFont.systemFont(ofSize: Size.title, weight: UIFont.Weight.medium)
     static let titleBold = UIFont.boldSystemFont(ofSize: Size.title)
     static let subTitle = UIFont.systemFont(ofSize: Size.subTitle)
 }

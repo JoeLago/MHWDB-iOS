@@ -20,10 +20,10 @@ class Elements {
 class Resistances: Elements, RowConvertible {
     required init(row: Row) {
         super.init()
-        fire = row => "fire_res"
-        water = row => "water_res"
-        thunder = row => "thunder_res"
-        ice = row => "ice_res"
-        dragon = row => "dragon_res"
+        fire = row["fire_res"]
+        water = row["water_res"]
+        thunder = row["thunder_res"]
+        ice = row["ice_res"]
+        dragon = row["dragon_res"]
     }
 }

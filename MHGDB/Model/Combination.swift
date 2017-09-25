@@ -32,16 +32,16 @@ class Combination: RowConvertible {
     }()
     
     required init(row: Row) {
-        id = row => "combineid"
-        createdId = row => "createid"
-        createdName = row => "createname"
-        createdIcon = row => "createicon"
-        firstId = row => "item1id"
-        firstName = row => "item1name"
-        firstIcon = row => "item1icon"
-        secondId = row => "item2id"
-        secondName = row => "item2name"
-        secondIcon = row => "item2icon"
+        id = row["combineid"]
+        createdId = row["createid"]
+        createdName = row["createname"]
+        createdIcon = row["createicon"]
+        firstId = row["item1id"]
+        firstName = row["item1name"]
+        firstIcon = row["item1icon"]
+        secondId = row["item2id"]
+        secondName = row["item2name"]
+        secondIcon = row["item2icon"]
     }
 }
 

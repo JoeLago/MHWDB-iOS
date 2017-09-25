@@ -1,7 +1,8 @@
 import Foundation
-
 #if SWIFT_PACKAGE
     import CSQLite
+#elseif !GRDBCUSTOMSQLITE && !GRDBCIPHER
+    import SQLite3
 #endif
 
 // MARK: - DatabaseValue
@@ -94,9 +95,6 @@ public struct DatabaseValue {
     // MARK: - Not Public
     
     init(storage: Storage) {
-        // This initializer is not public because Storage is not a safe type:
-        // one can create a Storage of zero-length Data, which is invalid
-        // because SQLite can't store zero-length blobs.
         self.storage = storage
     }
     
@@ -112,9 +110,12 @@ public struct DatabaseValue {
         case SQLITE_TEXT:
             storage = .string(String(cString: sqlite3_value_text(sqliteValue)!))
         case SQLITE_BLOB:
-            let bytes = unsafeBitCast(sqlite3_value_blob(sqliteValue), to: UnsafePointer<UInt8>.self)
-            let count = Int(sqlite3_value_bytes(sqliteValue))
-            storage = .blob(Data(bytes: bytes, count: count)) // copy bytes
+            if let bytes = sqlite3_value_blob(sqliteValue) {
+                let count = Int(sqlite3_value_bytes(sqliteValue))
+                storage = .blob(Data(bytes: bytes, count: count)) // copy bytes
+            } else {
+                storage = .blob(Data())
+            }
         case let type:
             // Assume a GRDB bug: there is no point throwing any error.
             fatalError("Unexpected SQLite value type: \(type)")
@@ -133,9 +134,12 @@ public struct DatabaseValue {
         case SQLITE_TEXT:
             storage = .string(String(cString: sqlite3_column_text(sqliteStatement, Int32(index))))
         case SQLITE_BLOB:
-            let bytes = unsafeBitCast(sqlite3_column_blob(sqliteStatement, Int32(index)), to: UnsafePointer<UInt8>.self)
-            let count = Int(sqlite3_column_bytes(sqliteStatement, Int32(index)))
-            storage = .blob(Data(bytes: bytes, count: count)) // copy bytes
+            if let bytes = sqlite3_column_blob(sqliteStatement, Int32(index)) {
+                let count = Int(sqlite3_column_bytes(sqliteStatement, Int32(index)))
+                storage = .blob(Data(bytes: bytes, count: count)) // copy bytes
+            } else {
+                storage = .blob(Data())
+            }
         case let type:
             // Assume a GRDB bug: there is no point throwing any error.
             fatalError("Unexpected SQLite column type: \(type)")
@@ -190,9 +194,9 @@ extension DatabaseValue : Hashable {
         case (.double(let lhs), .double(let rhs)):
             return lhs == rhs
         case (.int64(let lhs), .double(let rhs)):
-            return int64EqualDouble(lhs, rhs)
+            return Int64(exactly: rhs) == lhs
         case (.double(let lhs), .int64(let rhs)):
-            return int64EqualDouble(rhs, lhs)
+            return rhs == Int64(exactly: lhs)
         case (.string(let lhs), .string(let rhs)):
             return lhs == rhs
         case (.blob(let lhs), .blob(let rhs)):
@@ -203,32 +207,22 @@ extension DatabaseValue : Hashable {
     }
 }
 
-/// Returns true if i and d hold exactly the same value, and if converting one
-/// type to the other does not lose any information.
-private func int64EqualDouble(_ i: Int64, _ d: Double) -> Bool {
-    // See http://stackoverflow.com/questions/33719132/how-to-test-for-lossless-double-integer-conversion/33784296#33784296
-    return (d >= Double(Int64.min))
-        && (d < Double(Int64.max))
-        && (round(d) == d)
-        && (i == Int64(d))
-}
-
 
 // MARK: - Lossless conversions
 
 extension DatabaseValue {
     /// Converts the database value to the type T.
     ///
-    ///     let dbv = "foo".databaseValue
-    ///     let string = dbv.losslessConvert() as String // "foo"
+    ///     let dbValue = "foo".databaseValue
+    ///     let string = dbValue.losslessConvert() as String // "foo"
     ///
     /// Conversion is successful if and only if T.fromDatabaseValue returns a
     /// non-nil value.
     ///
     /// This method crashes with a fatal error when conversion fails.
     ///
-    ///     let dbv = "foo".databaseValue
-    ///     let int = dbv.losslessConvert() as Int // fatalError
+    ///     let dbValue = "foo".databaseValue
+    ///     let int = dbValue.losslessConvert() as Int // fatalError
     ///
     /// - parameters:
     ///     - sql: Optional SQL statement that enhances the eventual
@@ -252,8 +246,8 @@ extension DatabaseValue {
     
     /// Converts the database value to the type Optional<T>.
     ///
-    ///     let dbv = "foo".databaseValue
-    ///     let string = dbv.losslessConvert() as String? // "foo"
+    ///     let dbValue = "foo".databaseValue
+    ///     let string = dbValue.losslessConvert() as String? // "foo"
     ///     let null = DatabaseValue.null.losslessConvert() as String? // nil
     ///
     /// Conversion is successful if and only if T.fromDatabaseValue returns a
@@ -261,8 +255,8 @@ extension DatabaseValue {
     ///
     /// This method crashes with a fatal error when conversion fails.
     ///
-    ///     let dbv = "foo".databaseValue
-    ///     let int = dbv.losslessConvert() as Int? // fatalError
+    ///     let dbValue = "foo".databaseValue
+    ///     let int = dbValue.losslessConvert() as Int? // fatalError
     ///
     /// - parameters:
     ///     - sql: Optional SQL statement that enhances the eventual
@@ -302,22 +296,15 @@ extension DatabaseValue : DatabaseValueConvertible {
         return self
     }
     
-    /// Returns `databaseValue`
-    public static func fromDatabaseValue(_ databaseValue: DatabaseValue) -> DatabaseValue? {
-        return databaseValue
+    /// Returns the database value
+    public static func fromDatabaseValue(_ dbValue: DatabaseValue) -> DatabaseValue? {
+        return dbValue
     }
 }
 
 extension DatabaseValue : SQLExpressible {
     
-    /// This property is an implementation detail of the query interface.
-    /// Do not use it directly.
-    ///
-    /// See https://github.com/groue/GRDB.swift/#the-query-interface
-    ///
-    /// # Low Level Query Interface
-    ///
-    /// See SQLExpression.sqlExpression
+    /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
     public var sqlExpression: SQLExpression {
         return self
     }
@@ -325,6 +312,7 @@ extension DatabaseValue : SQLExpressible {
 
 /// DatabaseValue adopts SQLExpression.
 extension DatabaseValue : SQLExpression {
+    /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
     public func expressionSQL(_ arguments: inout StatementArguments?) -> String {
         // fast path for NULL
         if isNull {
@@ -341,6 +329,7 @@ extension DatabaseValue : SQLExpression {
         }
     }
     
+    /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
     public var negated: SQLExpression {
         switch storage {
         case .null:

@@ -10,7 +10,7 @@ extension UIView {
     
     @discardableResult
     func addMatchingConstraint(item: UIView, toItem: UIView?, attribute: NSLayoutAttribute,
-                               offset: Float = 0, priority: Float = UILayoutPriorityRequired,
+                               offset: Float = 0, priority: UILayoutPriority = UILayoutPriority.required,
                                relatedBy: NSLayoutRelation = .equal) -> NSLayoutConstraint {
         let constraint = NSLayoutConstraint(item: item, attribute: attribute, relatedBy: relatedBy,
             toItem: toItem, attribute: attribute, multiplier: 1, constant: CGFloat(offset))
@@ -20,7 +20,7 @@ extension UIView {
     }
     
     func matchParent(top: Float? = 0, left: Float? = 0, bottom: Float? = 0, right: Float? = 0,
-                     priority: Float = UILayoutPriorityRequired, relatedBy: NSLayoutRelation = .equal) {
+                     priority: UILayoutPriority = UILayoutPriority.required, relatedBy: NSLayoutRelation = .equal) {
         guard let superView = superview else {
             Log(error: "matchParent: No parent view")
             return

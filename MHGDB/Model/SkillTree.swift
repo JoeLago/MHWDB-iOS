@@ -28,8 +28,8 @@ class SkillTree: RowConvertible {
     }
     
     required init(row: Row) {
-        id = row => "_id"
-        name = row => "name"
+        id = row["_id"]
+        name = row["name"]
     }
 }
 
@@ -39,9 +39,9 @@ class Skill: RowConvertible {
     let points: Int
     
     required init(row: Row) {
-        name = row => "name"
-        description = row => "description"
-        points = row => "required_skill_tree_points"
+        name = row["name"]
+        description = row["description"]
+        points = row["required_skill_tree_points"]
     }
 }
 
@@ -53,10 +53,10 @@ class SkillItem: RowConvertible {
     let points: Int
     
     required init(row: Row) {
-        itemId = row => "itemid"
-        name = row => "itemname"
-        icon = row => "itemicon"
-        points = row => "point_value"
+        itemId = row["itemid"]
+        name = row["itemname"]
+        icon = row["itemicon"]
+        points = row["point_value"]
     }
 }
 

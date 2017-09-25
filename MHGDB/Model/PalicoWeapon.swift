@@ -62,22 +62,22 @@ class PalicoWeapon: RowConvertible {
     }()
     
     required init(row: Row) {
-        id = row => "_id"
-        name = row => "name"
-        icon = row => "icon_name"
-        description = row => "description"
-        attackMelee = row => "attack_melee"
-        attackRanged = row => "attack_ranged"
-        balanceValue = row => "balance"
-        elementString = row => "element"
-        elementMelee = row => "element_melee"
-        elementRanged = row => "element_ranged"
-        defense = row => "defense"
-        sharpnessValue = row => "sharpness"
-        affinityMelee = row => "affinity_melee"
-        affinityRanged = row => "affinity_ranged"
-        isBlunt = row => "blunt"
-        creationCost = row => "creation_cost"
+        id = row["_id"]
+        name = row["name"]
+        icon = row["icon_name"]
+        description = row["description"]
+        attackMelee = row["attack_melee"]
+        attackRanged = row["attack_ranged"]
+        balanceValue = row["balance"]
+        elementString = row["element"]
+        elementMelee = row["element_melee"]
+        elementRanged = row["element_ranged"]
+        defense = row["defense"]
+        sharpnessValue = row["sharpness"]
+        affinityMelee = row["affinity_melee"]
+        affinityRanged = row["affinity_ranged"]
+        isBlunt = row["blunt"]
+        creationCost = row["creation_cost"]
     }
 }
 

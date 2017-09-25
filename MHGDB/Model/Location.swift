@@ -33,9 +33,9 @@ class Location: RowConvertible {
     }
     
     required init(row: Row) {
-        id = row => "_id"
-        name = row => "name"
-        icon = row => "map"
+        id = row["_id"]
+        name = row["name"]
+        icon = row["map"]
     }
 }
 
@@ -54,12 +54,12 @@ class LocationMonster : RowConvertible {
     }
     
     required init(row: Row) {
-        monsterId = row => "monsterid"
-        monster = row => "monstername"
-        icon = row => "monstericon"
-        startArea = row => "start_area"
-        moneArea = row => "move_area"
-        restArea = row => "rest_area"
+        monsterId = row["monsterid"]
+        monster = row["monstername"]
+        icon = row["monstericon"]
+        startArea = row["start_area"]
+        moneArea = row["move_area"]
+        restArea = row["rest_area"]
     }
 }
 
@@ -85,17 +85,17 @@ class LocationItem : RowConvertible {
     }
     
     required init(row: Row) {
-        itemId = row => "itemid"
-        name = row => "itemname"
-        icon = row => "itemicon"
-        rank = row => "rank"
-        area = row => "area"
-        site = row => "site"
-        group = row => "group_num"
-        chance = row => "percentage"
-        stack = row => "quantity"
-        isFixed = (row => "fixed" ?? false)
-        isRare = (row => "rare" ?? false)
+        itemId = row["itemid"]
+        name = row["itemname"]
+        icon = row["itemicon"]
+        rank = row["rank"]
+        area = row["area"]
+        site = row["site"]
+        group = row["group_num"]
+        chance = row["percentage"]
+        stack = row["quantity"]
+        isFixed = (row["fixed"] ?? false)
+        isRare = (row["rare"] ?? false)
     }
 }
 

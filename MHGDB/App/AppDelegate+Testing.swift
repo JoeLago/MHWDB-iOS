@@ -22,7 +22,7 @@ extension AppDelegate {
         window?.rootViewController?.present(nc, animated: false, completion: nil)
     }
     
-    func popTestController() {
+    @objc func popTestController() {
         window?.rootViewController?.dismiss(animated: true, completion: nil)
     }
 }

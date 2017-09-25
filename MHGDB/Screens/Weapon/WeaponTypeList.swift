@@ -16,7 +16,7 @@ class WeaponTypeList: SimpleTableViewController {
     }
     
     func addWeapon(weaponType: Weapon.WType) {
-        addCell(text: weaponType.rawValue, imageName: weaponType.imageName, selectedBlock: { (Void) in
+        addCell(text: weaponType.rawValue, imageName: weaponType.imageName, selectedBlock: { () in
             self.push(viewController: WeaponList(weaponType: weaponType))
         })
     }

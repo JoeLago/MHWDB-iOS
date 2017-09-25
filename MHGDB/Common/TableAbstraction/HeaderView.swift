@@ -47,9 +47,9 @@ class HeaderView: UIView {
         addSubview(indicator)
         addSubview(seperator)
         
-        label.matchParent(top: 8, left: 15, bottom: 5, right: 15, priority: UILayoutPriorityDefaultHigh)
-        indicator.matchParent(top: 8, left: nil, bottom: 5, right: 15, priority: UILayoutPriorityDefaultHigh)
-        seperator.matchParent(top: nil, left: 0, bottom: 0, right: 0, priority: UILayoutPriorityDefaultHigh)
+        label.matchParent(top: 8, left: 15, bottom: 5, right: 15, priority: UILayoutPriority.defaultHigh)
+        indicator.matchParent(top: 8, left: nil, bottom: 5, right: 15, priority: UILayoutPriority.defaultHigh)
+        seperator.matchParent(top: nil, left: 0, bottom: 0, right: 0, priority: UILayoutPriority.defaultHigh)
         seperator.heightConstraint(1)
     }
     

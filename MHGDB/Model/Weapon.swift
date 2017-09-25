@@ -120,37 +120,37 @@ class Weapon: RowConvertible {
     }
     
     required init(row: Row) {
-        id = row => "_id"
-        parentId = row => "parent_id"
-        name = row => "name"
-        attack = row => "attack"
-        defense = row => "def"
-        numSlots = row => "num_slots"
-        rarity = row => "rarity"
-        creationCost = row => "creation_cost"
-        upgradeCost = row => "upgrade_cost"
-        sell = row => "sell"
-        elementAttack = row => "element_attack"
-        recoil = row => "recoil"
-        reloadSpeed = row => "reload_speed"
-        rapidFire = row => "rapid_fire"
-        deviation = row => "deviation"
-        ammoString = row => "ammo"
+        id = row["_id"]
+        parentId = row["parent_id"]
+        name = row["name"]
+        attack = row["attack"]
+        defense = row["def"]
+        numSlots = row["num_slots"]
+        rarity = row["rarity"]
+        creationCost = row["creation_cost"]
+        upgradeCost = row["upgrade_cost"]
+        sell = row["sell"]
+        elementAttack = row["element_attack"]
+        recoil = row["recoil"]
+        reloadSpeed = row["reload_speed"]
+        rapidFire = row["rapid_fire"]
+        deviation = row["deviation"]
+        ammoString = row["ammo"]
         
-        type = WType(rawValue: row => "wtype") ?? .unknown
+        type = WType(rawValue: row["wtype"]) ?? .unknown
         
         if let ammoString = ammoString {
             ammo = Ammo(string: ammoString)
         }
         
-        specialAmmo = row => "special_ammo"
-        coatings = row => "coatings"
-        charges = row => "charges"
-        phial = row => "phial"
-        shellingType = row => "shelling_type"
-        notes = row => "horn_notes"
+        specialAmmo = row["special_ammo"]
+        coatings = row["coatings"]
+        charges = row["charges"]
+        phial = row["phial"]
+        shellingType = row["shelling_type"]
+        notes = row["horn_notes"]
         
-        if elementAttack ?? 0 > 0, let elementString: String = row => "element" {
+        if elementAttack ?? 0 > 0, let elementString: String = row["element"] {
             element = Element(rawValue: elementString)
         }
         
@@ -159,7 +159,7 @@ class Weapon: RowConvertible {
             elementAttack = nil
         }
         
-        let sharpnessesString: String? = row => "sharpness"
+        let sharpnessesString: String? = row["sharpness"]
         if let sharpnessesString = sharpnessesString {
             let sharpnessStrings = sharpnessesString.components(separatedBy: " ")
             if sharpnessStrings.count >= 3 {
