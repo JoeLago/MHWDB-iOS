@@ -34,4 +34,12 @@ class ListMenu: SimpleTableViewController {
         addCell(text: "Skills", imageName: "Monster-Jewel-Teal.png") { SkillList() }
         addCell(text: "Palico", imageName: "cutting3.png") { PalicoList() }
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if #available(iOS 10.3, *) {
+            ReviewManager.presentReviewControllerIfElligible()
+        }
+    }
 }

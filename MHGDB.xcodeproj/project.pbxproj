@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		140A133C1EDB57B9002FD025 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140A133B1EDB57B9002FD025 /* Search.swift */; };
+		1452DB1E1F71061F006A11D7 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1452DB1D1F71061F006A11D7 /* UserDefaults.swift */; };
+		1452DB201F7108F8006A11D7 /* Int+TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1452DB1F1F7108F8006A11D7 /* Int+TimeInterval.swift */; };
+		145FEA771F78A6C100BF9237 /* ReviewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145FEA761F78A6C100BF9237 /* ReviewManager.swift */; };
+		145FEA7A1F78A85200BF9237 /* ReviewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145FEA781F78A82400BF9237 /* ReviewTests.swift */; };
 		14612B131EB8EEA000DB7F64 /* PalicoWeaponDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14612B121EB8EEA000DB7F64 /* PalicoWeaponDetail.swift */; };
 		14612B171EB9B49900DB7F64 /* PalicoWeaponDetailSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14612B161EB9B49900DB7F64 /* PalicoWeaponDetailSection.swift */; };
 		14612B1A1EBA3EC800DB7F64 /* PalicoWeaponCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14612B191EBA3EC800DB7F64 /* PalicoWeaponCell.swift */; };
@@ -1015,8 +1019,12 @@
 
 /* Begin PBXFileReference section */
 		140A133B1EDB57B9002FD025 /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		1452DB1D1F71061F006A11D7 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		1452DB1F1F7108F8006A11D7 /* Int+TimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+TimeInterval.swift"; sourceTree = "<group>"; };
 		145495641EA9CEC5004FA5FA /* MHGDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MHGDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		145495781EA9CEC5004FA5FA /* MHGDBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MHGDBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		145FEA761F78A6C100BF9237 /* ReviewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewManager.swift; sourceTree = "<group>"; };
+		145FEA781F78A82400BF9237 /* ReviewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTests.swift; sourceTree = "<group>"; };
 		14612B121EB8EEA000DB7F64 /* PalicoWeaponDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PalicoWeaponDetail.swift; sourceTree = "<group>"; };
 		14612B161EB9B49900DB7F64 /* PalicoWeaponDetailSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PalicoWeaponDetailSection.swift; sourceTree = "<group>"; };
 		14612B191EBA3EC800DB7F64 /* PalicoWeaponCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PalicoWeaponCell.swift; sourceTree = "<group>"; };
@@ -3218,6 +3226,8 @@
 				14A24D211EA9D05400755F6A /* SelectionManager.swift */,
 				14A24D241EA9D05400755F6A /* StackView.swift */,
 				14A24D251EA9D05400755F6A /* Styles.swift */,
+				1452DB1D1F71061F006A11D7 /* UserDefaults.swift */,
+				145FEA761F78A6C100BF9237 /* ReviewManager.swift */,
 			);
 			name = Common;
 			path = MHGDB/Common;
@@ -3229,6 +3239,7 @@
 				14A24D0F1EA9D05400755F6A /* Array+Remove.swift */,
 				14A24D101EA9D05400755F6A /* Enum+OptionalStringRaw.swift */,
 				14A24D111EA9D05400755F6A /* Int+NullString.swift */,
+				1452DB1F1F7108F8006A11D7 /* Int+TimeInterval.swift */,
 				14A24D121EA9D05400755F6A /* NSAttributedString+Swift.swift */,
 				14A24D131EA9D05400755F6A /* NSIndexPath+Array.swift */,
 				14A251581EAC41B800755F6A /* String+Additions.swift */,
@@ -3436,6 +3447,7 @@
 			isa = PBXGroup;
 			children = (
 				14A24D771EA9D05400755F6A /* Tests.swift */,
+				145FEA781F78A82400BF9237 /* ReviewTests.swift */,
 			);
 			name = Tests;
 			path = MHGDB/Tests;
@@ -4650,6 +4662,7 @@
 				14A251211EA9D05400755F6A /* Item.swift in Sources */,
 				14E2B5191EB2D856002A2A89 /* HeaderView.swift in Sources */,
 				14A2510F1EA9D05400755F6A /* Styles.swift in Sources */,
+				1452DB1E1F71061F006A11D7 /* UserDefaults.swift in Sources */,
 				14A251201EA9D05400755F6A /* ElementStats.swift in Sources */,
 				14A251131EA9D05400755F6A /* CustomSection.swift in Sources */,
 				14A251021EA9D05400755F6A /* UIImage+Scale.swift in Sources */,
@@ -4665,6 +4678,7 @@
 				14A2511A1EA9D05400755F6A /* TreeSection.swift in Sources */,
 				14A251271EA9D05400755F6A /* Weapon.swift in Sources */,
 				14A251001EA9D05400755F6A /* UIAlertController+Block.swift in Sources */,
+				145FEA771F78A6C100BF9237 /* ReviewManager.swift in Sources */,
 				14A251191EA9D05400755F6A /* TreeCellView.swift in Sources */,
 				14A251071EA9D05400755F6A /* MultiDetailCell.swift in Sources */,
 				14A2510B1EA9D05400755F6A /* SelectionManager.swift in Sources */,
@@ -4675,6 +4689,7 @@
 				14A250FE1EA9D05400755F6A /* NSAttributedString+Swift.swift in Sources */,
 				14A250FF1EA9D05400755F6A /* NSIndexPath+Array.swift in Sources */,
 				14A2512E1EA9D05400755F6A /* DecorationDetails.swift in Sources */,
+				1452DB201F7108F8006A11D7 /* Int+TimeInterval.swift in Sources */,
 				14E2B5131EB1041D002A2A89 /* Logging.swift in Sources */,
 				14A251241EA9D05400755F6A /* Quest.swift in Sources */,
 				14A251411EA9D05500755F6A /* QuestDetailSection.swift in Sources */,
@@ -4701,6 +4716,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14A251501EA9D0CE00755F6A /* Tests.swift in Sources */,
+				145FEA7A1F78A85200BF9237 /* ReviewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4872,7 +4888,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = P3987TZ3DB;
-				INFOPLIST_FILE = MHGDBTests/Info.plist;
+				INFOPLIST_FILE = MHGDB/Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ghstudios.MHGDBTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -4888,7 +4904,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = P3987TZ3DB;
-				INFOPLIST_FILE = MHGDBTests/Info.plist;
+				INFOPLIST_FILE = MHGDB/Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ghstudios.MHGDBTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
