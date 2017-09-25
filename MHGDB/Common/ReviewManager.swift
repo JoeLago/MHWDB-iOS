@@ -15,7 +15,7 @@ class ReviewManager {
         static let firstReviewMinLaunchCount = 5
         static let firstReviewMinTimeInterval = 2.days
         static let repeatReviewMinLaunchCount = 10
-        static let repeatReviewMinTimeInterval = 30.days
+        static let repeatReviewMinTimeInterval = 10.days
     }
     
     @available(iOS 10.3, *)

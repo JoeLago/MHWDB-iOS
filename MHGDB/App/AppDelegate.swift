@@ -19,7 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = UINavigationController(rootViewController: ListMenu())
         window?.makeKeyAndVisible()
         
-        Defaults[.launchCount] += 1
         if Defaults[.firstLaunchDate] == nil {
             Defaults[.firstLaunchDate] = Date()
         }
@@ -27,5 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #if DEBUG
             presentTestController()
         #endif
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        Defaults[.launchCount] += 1
     }
 }
