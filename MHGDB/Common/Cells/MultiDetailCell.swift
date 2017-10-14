@@ -7,7 +7,7 @@
 import UIKit
 
 class MultiDetailCell: UITableViewCell {
-    let stack = StackView(axis: .horizontal, spacing: 18)
+    let stack = UIStackView(axis: .horizontal, spacing: 18)
     
     init(details: [SingleDetailView]) {
         super.init(style: .value2, reuseIdentifier: String(describing: SingleDetailCell.self))
@@ -22,18 +22,6 @@ class MultiDetailCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    /*func addDetail(label: String, value: Int?) {
-        if let value = value {
-            addDetail(label: label, value: "\(value)")
-        }
-    }*/
-    
-    /*func addDetail(label: String, value: String?) {
-        if let value = value {
-            addDetail(SingleDetail(label: label, value: value))
-        }
-    }*/
-    
     func addDetail(_ detail: SingleDetailLabel) {
         addView(detail)
     }
@@ -44,8 +32,7 @@ class MultiDetailCell: UITableViewCell {
     
     func initializeViews() {
         contentView.addSubview(stack)
-        contentView.useConstraintsOnly()
-        stack.matchParent(top: 4, left: 25, bottom: 4, right: 25)
+        stack.matchParent(top: 4, left: 25, bottom: 4, right: nil)
     }
 }
 
@@ -72,7 +59,7 @@ class SingleDetail {
     }
 }
 
-class SingleDetailView: UIView {
+class SingleDetailView: UIStackView {
     let labelView = UILabel()
     let label: String
     let detailView: UIView
@@ -80,27 +67,23 @@ class SingleDetailView: UIView {
     init(label: String, detailView: UIView) {
         self.label = label
         self.detailView = detailView
-        super.init(frame: CGRect.zero)
+        super.init(frame: .zero)
+        axis = .vertical
+        spacing = 3
         initializeViews()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     func initializeViews() {
-        let stack = StackView(axis: .vertical, spacing: 3)
         labelView.text = label
         labelView.font = Font.subTitle
         labelView.textColor = Color.Text.primary
         labelView.numberOfLines = 0
-        
-        addSubview(stack)
-        stack.matchParent()
-        stack.addArrangedSubview(labelView)
-        stack.addArrangedSubview(detailView)
-        
-        useConstraintsOnly()
+        addArrangedSubview(labelView)
+        addArrangedSubview(detailView)
     }
 }
 
@@ -132,7 +115,7 @@ class SingleDetailLabel: SingleDetailView {
         populate()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     

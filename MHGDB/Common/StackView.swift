@@ -3,22 +3,20 @@
 // Copyright (c) Gathering Hall Studios
 //
 
+import UIKit
+
+extension UIStackView {
+    convenience init(axis: UILayoutConstraintAxis = .vertical, spacing: Int = 8, distribution: UIStackViewDistribution = .fill) {
+        self.init()
+        self.axis = axis
+        self.spacing = CGFloat(spacing)
+        self.distribution = .fill
+    }
+}
 
 /* UIStackView imitation until we get rid of < iOS 9
  Implemented like: distribution = .fill
  */
-
-import UIKit
-
-// Replacement code for iOS 9+
-/*class StackView: UIStackView {
- convenience init(axis: UILayoutConstraintAxis = .vertical, spacing: Int = 8) {
- self.init()
- self.axis = axis
- self.spacing = CGFloat(spacing)
- self.distribution = .fill
- }
- }*/
 
 class StackView: UIView {
     enum Axis {
