@@ -93,7 +93,7 @@ class Armor: RowConvertible {
     var resistances: Resistances
     
     required init(row: Row) {
-        id = row["id"]
+        id = row["_id"]
         name = row["name"]
         defense = row["defense"]
         defenseMax = row["max_defense"]
