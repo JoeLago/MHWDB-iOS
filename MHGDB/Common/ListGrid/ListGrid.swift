@@ -29,7 +29,7 @@ class ListGridCell: UICollectionViewCell {
     }
     
     func setupViews() {
-        let stack = StackView(axis: .vertical, spacing: 5, distribution: .fill)
+        let stack = UIStackView(axis: .vertical, spacing: 5, distribution: .fill)
         
         icon.contentMode = .scaleAspectFit
         

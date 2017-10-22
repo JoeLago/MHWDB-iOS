@@ -43,7 +43,7 @@ class SingleDetailCell: UITableViewCell {
     }
     
     func initializeViews() {
-        let stack = StackView(axis: .vertical, spacing: 0)
+        let stack = UIStackView(axis: .vertical, spacing: 0)
         contentView.addSubview(stack)
         contentView.useConstraintsOnly()
         stack.matchParent(top: 4, left: 25, bottom: 4, right: 25)

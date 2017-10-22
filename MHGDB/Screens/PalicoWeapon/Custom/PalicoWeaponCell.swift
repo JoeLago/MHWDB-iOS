@@ -9,10 +9,10 @@ import UIKit
 class PalicoWeaponCell: CustomCell<PalicoWeapon> {
     static let identifier = String(describing: PalicoWeaponCell.self)
     
-    let mainStack = StackView(axis: .horizontal, spacing: 8, distribution: .fill)
-    let descriptionStack = StackView(axis: .vertical, spacing: 4)
-    let detailsStack = StackView(axis: .vertical, spacing: 4)
-    let titleStack = StackView(axis: .horizontal, spacing: 4)
+    let mainStack = UIStackView(axis: .horizontal, spacing: 8, distribution: .fill)
+    let descriptionStack = UIStackView(axis: .vertical, spacing: 4)
+    let detailsStack = UIStackView(axis: .vertical, spacing: 4)
+    let titleStack = UIStackView(axis: .horizontal, spacing: 4)
     let iconView = UIImageView()
     let nameLabel = UILabel()
     let meleeLabel = UILabel()

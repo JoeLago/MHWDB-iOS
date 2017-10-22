@@ -11,14 +11,16 @@ struct CombinationCellModel {
     var itemSelected: ((Int) -> Void)
 }
 
-class IconImage: StackView {
+class IconImage: UIStackView {
     var id: Int?
     let label = UILabel()
     let icon = UIImageView()
     var selected: ((Int) -> Void)?
     
     init() {
-        super.init(axis: .horizontal, spacing: 5)
+        super.init(frame: .zero)
+        axis = .horizontal
+        spacing = 5
         label.textColor = Color.Text.primary
         label.font = Font.title
         
@@ -31,7 +33,7 @@ class IconImage: StackView {
         addGestureRecognizer(tapGesture)
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -72,8 +74,8 @@ class CombinationCell: CustomCell<CombinationCellModel> {
     }
     
     func setupViews() {
-        let stack = StackView(axis: .horizontal, spacing: 5)
-        let requiredItems = StackView(axis: .vertical, spacing: 5, distribution: .fill)
+        let stack = UIStackView(axis: .horizontal, spacing: 5)
+        let requiredItems = UIStackView(axis: .vertical, spacing: 5, distribution: .fill)
         let primaryViewWrapper = UIView()
         
         contentView.addSubview(stack)
@@ -91,7 +93,7 @@ class CombinationCell: CustomCell<CombinationCellModel> {
     }
     
     func getIconView(iconName: String, label: UILabel, action: Selector?) -> UIView {
-        let stack = StackView(axis: .horizontal, spacing: 5)
+        let stack = UIStackView(axis: .horizontal, spacing: 5)
         let tapGesture = UITapGestureRecognizer(target: self, action: action)
         stack.addGestureRecognizer(tapGesture)
         stack.addArrangedSubview(UIImageView(image: UIImage(named: iconName)))

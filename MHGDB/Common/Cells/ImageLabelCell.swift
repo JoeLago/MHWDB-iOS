@@ -72,7 +72,7 @@ class ImageLabelCell<T: ImageLabelCellProtocol>: CustomCell<T> {
     }
     
     func initializeViews() {
-        let rows = StackView(axis: .vertical, spacing: 8)
+        let rows = UIStackView(axis: .vertical, spacing: 8)
         contentView.addSubview(rows)
         if (doIncludeState) {
             rows.addArrangedSubview(stateLabel)

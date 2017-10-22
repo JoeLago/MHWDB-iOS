@@ -11,19 +11,21 @@ protocol StyledText {
     var isBold: Bool { get }
 }
 
-class LabelStack: StackView {
+class LabelStack: UIStackView {
     var length: Int?
     var textAlignment: NSTextAlignment?
     var fontSize: CGFloat = 12
     var count = 0
     var showSeparator = false
     
-    init(axis: Axis, length: Int? = nil) {
-        super.init(axis: axis, spacing: 0)
+    init(axis: UILayoutConstraintAxis, length: Int? = nil) {
+        super.init(frame: .zero)
+        self.axis = axis
+        self.spacing = 0
         self.length = length
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     

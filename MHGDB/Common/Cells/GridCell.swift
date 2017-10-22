@@ -10,7 +10,7 @@ import UIKit
 
 
 class GridCell<T>: CustomCell<T> {
-    let colStack = StackView(axis: .horizontal, spacing: 0)
+    let colStack = UIStackView(axis: .horizontal, spacing: 0)
     var columns = [LabelStack]()
     
     init() {

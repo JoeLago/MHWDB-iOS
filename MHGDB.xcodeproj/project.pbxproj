@@ -930,7 +930,7 @@
 		14A251081EA9D05400755F6A /* SingleDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A24D1D1EA9D05400755F6A /* SingleDetailCell.swift */; };
 		14A251091EA9D05400755F6A /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A24D1E1EA9D05400755F6A /* Database.swift */; };
 		14A2510B1EA9D05400755F6A /* SelectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A24D211EA9D05400755F6A /* SelectionManager.swift */; };
-		14A2510E1EA9D05400755F6A /* StackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A24D241EA9D05400755F6A /* StackView.swift */; };
+		14A2510E1EA9D05400755F6A /* UIStackView+Convinience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A24D241EA9D05400755F6A /* UIStackView+Convinience.swift */; };
 		14A2510F1EA9D05400755F6A /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A24D251EA9D05400755F6A /* Styles.swift */; };
 		14A251101EA9D05400755F6A /* DetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A24D271EA9D05400755F6A /* DetailController.swift */; };
 		14A251121EA9D05400755F6A /* DetailSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A24D291EA9D05400755F6A /* DetailSection.swift */; };
@@ -988,6 +988,7 @@
 		14A251591EAC41B800755F6A /* String+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A251581EAC41B800755F6A /* String+Additions.swift */; };
 		14C36CD81EBCD1D900A41C6E /* SubSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C36CD71EBCD1D900A41C6E /* SubSection.swift */; };
 		14C36CDA1EBD701F00A41C6E /* SubSectionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C36CD91EBD701F00A41C6E /* SubSectionHeaderCell.swift */; };
+		14C4BE3A1F9D2DB6000DB8EC /* DataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C4BE381F9D2DA0000DB8EC /* DataTests.swift */; };
 		14DF85451EC297E400F9AD1D /* ListGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14DF85441EC297E400F9AD1D /* ListGrid.swift */; };
 		14E2B5031EAD2229002A2A89 /* SharpnessesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E2B4FE1EAD2229002A2A89 /* SharpnessesView.swift */; };
 		14E2B5041EAD2229002A2A89 /* SharpnessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E2B4FF1EAD2229002A2A89 /* SharpnessView.swift */; };
@@ -1944,7 +1945,7 @@
 		14A24D1D1EA9D05400755F6A /* SingleDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SingleDetailCell.swift; sourceTree = "<group>"; };
 		14A24D1E1EA9D05400755F6A /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		14A24D211EA9D05400755F6A /* SelectionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SelectionManager.swift; path = SelectionAlert/SelectionManager.swift; sourceTree = "<group>"; };
-		14A24D241EA9D05400755F6A /* StackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackView.swift; sourceTree = "<group>"; };
+		14A24D241EA9D05400755F6A /* UIStackView+Convinience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIStackView+Convinience.swift"; sourceTree = "<group>"; };
 		14A24D251EA9D05400755F6A /* Styles.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		14A24D271EA9D05400755F6A /* DetailController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailController.swift; sourceTree = "<group>"; };
 		14A24D291EA9D05400755F6A /* DetailSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailSection.swift; sourceTree = "<group>"; };
@@ -2002,6 +2003,7 @@
 		14A251581EAC41B800755F6A /* String+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Additions.swift"; sourceTree = "<group>"; };
 		14C36CD71EBCD1D900A41C6E /* SubSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubSection.swift; sourceTree = "<group>"; };
 		14C36CD91EBD701F00A41C6E /* SubSectionHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubSectionHeaderCell.swift; sourceTree = "<group>"; };
+		14C4BE381F9D2DA0000DB8EC /* DataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTests.swift; sourceTree = "<group>"; };
 		14DF85441EC297E400F9AD1D /* ListGrid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListGrid.swift; sourceTree = "<group>"; };
 		14E2B4FE1EAD2229002A2A89 /* SharpnessesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharpnessesView.swift; sourceTree = "<group>"; };
 		14E2B4FF1EAD2229002A2A89 /* SharpnessView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharpnessView.swift; sourceTree = "<group>"; };
@@ -3224,7 +3226,6 @@
 				14E2B50A1EAD7AC9002A2A89 /* LabelStack.swift */,
 				14E2B5121EB1041D002A2A89 /* Logging.swift */,
 				14A24D211EA9D05400755F6A /* SelectionManager.swift */,
-				14A24D241EA9D05400755F6A /* StackView.swift */,
 				14A24D251EA9D05400755F6A /* Styles.swift */,
 				1452DB1D1F71061F006A11D7 /* UserDefaults.swift */,
 				145FEA761F78A6C100BF9237 /* ReviewManager.swift */,
@@ -3246,6 +3247,7 @@
 				14A24D141EA9D05400755F6A /* UIAlertController+Block.swift */,
 				14A24D151EA9D05400755F6A /* UIBarButtonItem+Buttons.swift */,
 				14A24D161EA9D05400755F6A /* UIImage+Scale.swift */,
+				14A24D241EA9D05400755F6A /* UIStackView+Convinience.swift */,
 				14A24D171EA9D05400755F6A /* UIView+AutoLayout.swift */,
 			);
 			path = Categories;
@@ -3312,13 +3314,13 @@
 				14A24D3A1EA9D05400755F6A /* ElementStats.swift */,
 				14A24D3B1EA9D05400755F6A /* Item.swift */,
 				14A24D3C1EA9D05400755F6A /* Location.swift */,
-				14E704131EB8E9FC00EA2E71 /* PalicoWeapon.swift */,
 				14A24D3D1EA9D05400755F6A /* Monster.swift */,
+				14E704131EB8E9FC00EA2E71 /* PalicoWeapon.swift */,
 				14A24D3E1EA9D05400755F6A /* Quest.swift */,
+				140A133B1EDB57B9002FD025 /* Search.swift */,
 				14A24D3F1EA9D05400755F6A /* Sharpness.swift */,
 				14A24D401EA9D05400755F6A /* SkillTree.swift */,
 				14A24D411EA9D05400755F6A /* Weapon.swift */,
-				140A133B1EDB57B9002FD025 /* Search.swift */,
 			);
 			name = Model;
 			path = MHGDB/Model;
@@ -3448,6 +3450,7 @@
 			children = (
 				14A24D771EA9D05400755F6A /* Tests.swift */,
 				145FEA781F78A82400BF9237 /* ReviewTests.swift */,
+				14C4BE381F9D2DA0000DB8EC /* DataTests.swift */,
 			);
 			name = Tests;
 			path = MHGDB/Tests;
@@ -4646,7 +4649,7 @@
 				1493A9E11EB3A74A00133B47 /* DetailController+SectionHelp.swift in Sources */,
 				14A251331EA9D05400755F6A /* ItemList.swift in Sources */,
 				14A2514C1EA9D05500755F6A /* WeaponTypeList.swift in Sources */,
-				14A2510E1EA9D05400755F6A /* StackView.swift in Sources */,
+				14A2510E1EA9D05400755F6A /* UIStackView+Convinience.swift in Sources */,
 				14A250FB1EA9D05400755F6A /* Array+Remove.swift in Sources */,
 				14A250FC1EA9D05400755F6A /* Enum+OptionalStringRaw.swift in Sources */,
 				14A2514A1EA9D05500755F6A /* WeaponList.swift in Sources */,
@@ -4716,6 +4719,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14A251501EA9D0CE00755F6A /* Tests.swift in Sources */,
+				14C4BE3A1F9D2DB6000DB8EC /* DataTests.swift in Sources */,
 				145FEA7A1F78A85200BF9237 /* ReviewTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
