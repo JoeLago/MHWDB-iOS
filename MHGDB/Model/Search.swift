@@ -35,37 +35,46 @@ class SearchRequest {
         }
     }
     
+    func search() -> SearchResponse? {
+        let searchText = self.searchText
+        
+        let monsters = Database.shared.monsters(searchText)
+        if self.isCanceled { return nil }
+        let items = Database.shared.items(searchText)
+        if self.isCanceled { return nil }
+        let weapons = Database.shared.weapons(searchText)
+        if self.isCanceled { return nil }
+        let armor = Database.shared.armor(searchText)
+        if self.isCanceled { return nil }
+        let quests = Database.shared.quests(searchText)[0] // TODO: Only returning Village
+        if self.isCanceled { return nil }
+        let locations = Database.shared.locations(searchText)
+        if self.isCanceled { return nil }
+        let skills = Database.shared.skillTrees(searchText)
+        if self.isCanceled { return nil }
+        let palico = Database.shared.palicoWeapons(searchText)
+        if self.isCanceled { return nil }
+        
+        return SearchResponse(
+            monsters: monsters,
+            items: items,
+            weapons: weapons,
+            armor: armor,
+            quests: quests,
+            locations: locations,
+            skills: skills,
+            palico: palico)
+    }
+    
     @discardableResult
     func then(_ completed: @escaping (SearchResponse) -> Void) -> SearchRequest {
         DispatchQueue.global(qos: .background).async {
-            let searchText = self.searchText
-            let monsters = Database.shared.monsters(searchText)
-            if self.isCanceled { return }
-            let items = Database.shared.items(searchText)
-            if self.isCanceled { return }
-            let weapons = Database.shared.weapons(searchText)
-            if self.isCanceled { return }
-            let armor = Database.shared.armor(searchText)
-            if self.isCanceled { return }
-            let quests = Database.shared.quests(searchText)[0] // Only returning Village
-            if self.isCanceled { return }
-            let locations = Database.shared.locations(searchText)
-            if self.isCanceled { return }
-            let skills = Database.shared.skillTrees(searchText)
-            if self.isCanceled { return }
-            let palico = Database.shared.palicoWeapons(searchText)
-            if self.isCanceled { return }
+            guard let response = self.search() else {
+                    return
+            }
             
             DispatchQueue.main.async {
-                completed(SearchResponse(
-                    monsters: monsters,
-                    items: items,
-                    weapons: weapons,
-                    armor: armor,
-                    quests: quests,
-                    locations: locations,
-                    skills: skills,
-                    palico: palico))
+                completed(response)
             }
         }
         
