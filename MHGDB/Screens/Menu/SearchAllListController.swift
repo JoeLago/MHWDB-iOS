@@ -45,7 +45,7 @@ class SearchAllListController: DetailController  {
     }
     
     public func update(searchText: String?) {
-        guard let searchText = searchText, searchText.characters.count > 0 else { return }
+        guard let searchText = searchText, searchText.count > 0 else { return }
         
         if let searchRequest = searchRequest {
             deferredSearch = searchText

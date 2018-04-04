@@ -172,7 +172,7 @@ class Weapon: RowConvertible {
 
     var noteImageNames: [String]? {
         if let notes = notes {
-          return notes.characters.compactMap({ (c: Character) -> String? in
+          return notes.compactMap({ (c: Character) -> String? in
                 switch c {
                 case "A": return "Note.aqua.png"
                 case "B": return "Note.blue.png"

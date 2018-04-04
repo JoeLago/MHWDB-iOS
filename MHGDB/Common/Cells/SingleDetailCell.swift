@@ -58,7 +58,7 @@ class SingleDetailCell: UITableViewCell {
     }
     
     private func populateCell() {
-        if detailModel?.text?.characters.count ?? 0 > 50 {
+        if detailModel?.text?.count ?? 0 > 50 {
             detail.font = Font.title
         }
         

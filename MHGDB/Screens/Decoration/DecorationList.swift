@@ -24,7 +24,7 @@ extension Decoration: DetailCellModel {
     var skillTreeString: String {
         var string = ""
         for skill in skillTrees {
-            if string.characters.count > 0 {
+            if string.count > 0 {
                  string += "\n"
             }
             string += skill.name + (skill.points > 0 ? " +" : " ") + "\(skill.points)"

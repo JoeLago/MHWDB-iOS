@@ -60,9 +60,10 @@ class Database {
     
     func fetch<T: RowConvertible>(select: String, order: String? = nil, filter: String? = nil, search: String? = nil) -> [T] {
         var params = [DatabaseValueConvertible?]()
-        let hasFilter = filter != nil && filter!.characters.count > 0
-        
+      
+        let hasFilter = (filter?.count ?? 0) > 0
         var finalFilter = ""
+        
         if hasFilter || search != nil {
             finalFilter += "WHERE "
         }
@@ -71,7 +72,7 @@ class Database {
             finalFilter += filter
         }
         
-        if let search = search, search.characters.count > 0 {
+        if let search = search, search.count > 0 {
             finalFilter += (hasFilter ? " AND " : "") + "name LIKE ?"
             params.append("%\(search)%")
         }

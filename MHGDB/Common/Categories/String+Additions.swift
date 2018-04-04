@@ -10,9 +10,7 @@ extension String {
     // http://www.colourlovers.com/palette/452030/you_will_be_free
     
     func capitalizingFirstLetter() -> String {
-        let first = String(characters.prefix(1)).capitalized
-        let other = String(characters.dropFirst())
-        return first + other
+      return prefix(1).uppercased() + dropFirst()
     }
     
     mutating func capitalizeFirstLetter() {
@@ -66,7 +64,7 @@ extension Array where Element: NSAttributedString {
 
 extension String {
     var length: Int {
-        return self.characters.count
+        return self.count
     }
     
     subscript (i: Int) -> String {
