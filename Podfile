@@ -4,6 +4,7 @@ target 'MHGDB' do
     use_frameworks!
     
     pod 'GRDB.swift', '0.110.0'
+    pod 'SwiftyUserDefaults', '3.0'
     
     target 'MHGDBTests' do
         inherit! :search_paths
