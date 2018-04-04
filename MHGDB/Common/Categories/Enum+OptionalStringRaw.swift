@@ -8,10 +8,10 @@ import Foundation
 
 extension RawRepresentable where RawValue == String {
     init?(optionalRaw: String?) {
-        if optionalRaw == nil {
+        guard let optionalRaw = optionalRaw else {
             return nil
-        } else {
-            self.init(rawValue: optionalRaw as String!)
         }
+      
+        self.init(rawValue: optionalRaw)
     }
 }

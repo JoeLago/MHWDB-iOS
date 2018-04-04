@@ -180,7 +180,7 @@ class MonsterHabitat : RowConvertible {
     var restArea: String?
     
     var string: String {
-        return [startArea, moveArea, restArea].flatMap{ $0 }.joined(separator: " > ")
+      return [startArea, moveArea, restArea].compactMap{ $0 }.joined(separator: " > ")
     }
     
     required init(row: Row) {

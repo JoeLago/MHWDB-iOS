@@ -54,7 +54,7 @@ class Database {
         // this implementation is silly
         RowString.column = column
         let rows = fetch(query) as [RowString]
-        let values = rows.flatMap { $0.value }
+      let values = rows.compactMap { $0.value }
         return values
     }
     

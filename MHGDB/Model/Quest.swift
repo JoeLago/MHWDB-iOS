@@ -179,7 +179,7 @@ class QuestMonster: RowConvertible {
     var moveArea: String?
     var restArea: String?
     var locations: String {
-        return [startArea, moveArea, restArea].flatMap{ $0 }.joined(separator: " > ")
+      return [startArea, moveArea, restArea].compactMap{ $0 }.joined(separator: " > ")
     }
     let icon: String?
     

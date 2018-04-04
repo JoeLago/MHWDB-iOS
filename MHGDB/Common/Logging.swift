@@ -70,7 +70,7 @@ class ConsoleLogger: Logger {
     }
     
     func log(page: String, event: String?, details: String?, metadata: [String: Any]?) {
-        let text = [page, event, details].flatMap{ return $0 }.joined(separator: " - ")
+      let text = [page, event, details].compactMap{ return $0 }.joined(separator: " - ")
         log(text)
     }
 }

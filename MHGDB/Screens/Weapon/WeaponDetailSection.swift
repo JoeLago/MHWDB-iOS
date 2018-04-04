@@ -40,12 +40,12 @@ class WeaponDetailSection: MultiCellSection {
         }
         
         if let notes = weapon.noteImageNames {
-            let model = ImageLabelCellModel(values: notes.flatMap { ImageLabelModel($0) }, label: "Notes")
+          let model = ImageLabelCellModel(values: notes.compactMap { ImageLabelModel($0) }, label: "Notes")
             addCell(ImageLabelCell<ImageLabelCellModel>(model: model))
         }
         
         if let coatings = weapon.coatingImageNames {
-            let model = ImageLabelCellModel(values: coatings.flatMap { ImageLabelModel($0) }, label: "Coatings")
+          let model = ImageLabelCellModel(values: coatings.compactMap { ImageLabelModel($0) }, label: "Coatings")
             addCell(ImageLabelCell<ImageLabelCellModel>(model: model))
         }
         
