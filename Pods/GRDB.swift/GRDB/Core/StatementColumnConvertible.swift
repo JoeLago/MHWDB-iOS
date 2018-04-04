@@ -50,6 +50,27 @@ public protocol StatementColumnConvertible {
     init(sqliteStatement: SQLiteStatement, index: Int32)
 }
 
+extension StatementColumnConvertible {
+    
+    @inline(__always)
+    static func losslessConvert(sqliteStatement: SQLiteStatement, index: Int32) -> Self? {
+        guard sqlite3_column_type(sqliteStatement, index) != SQLITE_NULL else {
+            return nil
+        }
+        return self.init(sqliteStatement: sqliteStatement, index: index)
+    }
+    
+    @inline(__always)
+    static func losslessConvert(sqliteStatement: SQLiteStatement, index: Int32) -> Self {
+        guard sqlite3_column_type(sqliteStatement, index) != SQLITE_NULL else {
+            // Programmer error
+            fatalError("could not convert database value NULL to \(Self.self)")
+        }
+        return self.init(sqliteStatement: sqliteStatement, index: index)
+    }
+}
+
+
 /// A cursor of database values extracted from a single column.
 /// For example:
 ///
@@ -73,6 +94,7 @@ public final class ColumnCursor<Value: DatabaseValueConvertible & StatementColum
         statement.cursorReset(arguments: arguments)
     }
     
+    /// :nodoc:
     public func next() throws -> Value? {
         if done { return nil }
         switch sqlite3_step(sqliteStatement) {
@@ -118,6 +140,7 @@ public final class NullableColumnCursor<Value: DatabaseValueConvertible & Statem
         statement.cursorReset(arguments: arguments)
     }
     
+    /// :nodoc:
     public func next() throws -> Value?? {
         if done { return nil }
         switch sqlite3_step(sqliteStatement) {

@@ -5,6 +5,8 @@ extension SQLExpression {
     /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
     ///
     /// Converts an expression to an SQLExpressionLiteral
+    ///
+    /// :nodoc:
     public var literal: SQLExpressionLiteral {
         var arguments: StatementArguments? = []
         let sql = expressionSQL(&arguments)
@@ -57,6 +59,8 @@ public struct SQLExpressionLiteral : SQLExpression {
     }
     
     /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
+    ///
+    /// :nodoc:
     public func expressionSQL(_ arguments: inout StatementArguments?) -> String {
         if let literalArguments = self.arguments {
             guard arguments != nil else {
@@ -68,6 +72,13 @@ public struct SQLExpressionLiteral : SQLExpression {
         }
         return sql
     }
+    
+    /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
+    ///
+    /// :nodoc:
+    public func qualified(by qualifier: SQLTableQualifier) -> SQLExpressionLiteral {
+        return self
+    }
 }
 
 // MARK: - SQLExpressionUnary
@@ -75,6 +86,8 @@ public struct SQLExpressionLiteral : SQLExpression {
 /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
 ///
 /// SQLUnaryOperator is a SQLite unary operator.
+///
+/// :nodoc:
 public struct SQLUnaryOperator : Hashable {
     /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
     ///
@@ -97,11 +110,15 @@ public struct SQLUnaryOperator : Hashable {
     }
     
     /// The hash value
+    ///
+    /// :nodoc:
     public var hashValue: Int {
         return sql.hashValue
     }
     
     /// Equality operator
+    ///
+    /// :nodoc:
     public static func == (lhs: SQLUnaryOperator, rhs: SQLUnaryOperator) -> Bool {
         return lhs.sql == rhs.sql
     }
@@ -113,6 +130,8 @@ public struct SQLUnaryOperator : Hashable {
 /// an operand expression.
 ///
 ///     SQLExpressionUnary(.not, Column("favorite"))
+///
+/// :nodoc:
 public struct SQLExpressionUnary : SQLExpression {
     /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
     ///
@@ -137,8 +156,17 @@ public struct SQLExpressionUnary : SQLExpression {
     }
     
     /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
+    ///
+    /// :nodoc:
     public func expressionSQL(_ arguments: inout StatementArguments?) -> String {
         return op.sql + (op.needsRightSpace ? " " : "") + expression.expressionSQL(&arguments)
+    }
+    
+    /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
+    ///
+    /// :nodoc:
+    public func qualified(by qualifier: SQLTableQualifier) -> SQLExpressionUnary {
+        return SQLExpressionUnary(op, expression.qualified(by: qualifier))
     }
 }
 
@@ -147,6 +175,8 @@ public struct SQLExpressionUnary : SQLExpression {
 /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
 ///
 /// SQLBinaryOperator is a SQLite binary operator.
+///
+/// :nodoc:
 public struct SQLBinaryOperator : Hashable {
     /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
     ///
@@ -223,6 +253,8 @@ public struct SQLBinaryOperator : Hashable {
 /// binary operator.
 ///
 ///     SQLExpressionBinary(.multiply, Column("length"), Column("width"))
+///
+/// :nodoc:
 public struct SQLExpressionBinary : SQLExpression {
     /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
     ///
@@ -265,6 +297,63 @@ public struct SQLExpressionBinary : SQLExpression {
             return SQLExpressionNot(self)
         }
     }
+    
+    /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
+    public func matchedRowIds(rowIdName: String?) -> Set<Int64>? {
+        switch op {
+        case .equal, .is:
+            // Look for `id == 1` or `id IS 1`?
+            switch (lhs, rhs) {
+            case (let column as Column, let dbValue as DatabaseValue),
+                 (let dbValue as DatabaseValue, let column as Column):
+                // Look for `id == 1`, `rowid == 1`, `1 == id`, `1 == rowid`
+                
+                var rowIdNames = [Column.rowID.name.lowercased()]
+                if let rowIdName = rowIdName {
+                    rowIdNames.append(rowIdName.lowercased())
+                }
+                
+                guard rowIdNames.contains(column.name.lowercased()) else {
+                    return nil
+                }
+                
+                if let rowId = Int64.fromDatabaseValue(dbValue) {
+                    return [rowId]
+                } else {
+                    return []
+                }
+            default:
+                return nil
+            }
+            
+        case .and:
+            let lids = lhs.matchedRowIds(rowIdName: rowIdName)
+            let rids = rhs.matchedRowIds(rowIdName: rowIdName)
+            switch (lids, rids) {
+            case (nil, nil): return nil
+            case let (ids?, nil), let (nil, ids?): return ids
+            case let (lids?, rids?): return lids.intersection(rids)
+            }
+            
+        case .or:
+            let lids = lhs.matchedRowIds(rowIdName: rowIdName)
+            let rids = rhs.matchedRowIds(rowIdName: rowIdName)
+            switch (lids, rids) {
+            case let (lids?, rids?): return lids.union(rids)
+            default: return nil
+            }
+            
+        default:
+            return nil
+        }
+    }
+    
+    /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
+    ///
+    /// :nodoc:
+    public func qualified(by qualifier: SQLTableQualifier) -> SQLExpressionBinary {
+        return SQLExpressionBinary(op, lhs.qualified(by: qualifier), rhs.qualified(by: qualifier))
+    }
 }
 
 // MARK: - SQLExpressionContains
@@ -295,6 +384,38 @@ struct SQLExpressionContains : SQLExpression {
     
     var negated: SQLExpression {
         return SQLExpressionContains(expression, collection, negated: !isNegated)
+    }
+    
+    /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
+    func matchedRowIds(rowIdName: String?) -> Set<Int64>? {
+        // Look for `id IN (1, 2, 3)`
+        guard let column = expression as? Column,
+            let array = collection as? SQLExpressionsArray else
+        {
+            return nil
+        }
+        
+        var rowIdNames = [Column.rowID.name.lowercased()]
+        if let rowIdName = rowIdName {
+            rowIdNames.append(rowIdName.lowercased())
+        }
+
+        guard rowIdNames.contains(column.name.lowercased()) else {
+            return nil
+        }
+        
+        var rowIDs: Set<Int64> = []
+        for expression in array.expressions {
+            guard let dbValue = expression as? DatabaseValue else { return nil }
+            if let rowId = Int64.fromDatabaseValue(dbValue) {
+                rowIDs.insert(rowId)
+            }
+        }
+        return rowIDs
+    }
+    
+    func qualified(by qualifier: SQLTableQualifier) -> SQLExpressionContains {
+        return SQLExpressionContains(expression.qualified(by: qualifier), collection, negated: isNegated)
     }
 }
 
@@ -331,6 +452,14 @@ struct SQLExpressionBetween : SQLExpression {
     var negated: SQLExpression {
         return SQLExpressionBetween(expression, lowerBound, upperBound, negated: !isNegated)
     }
+    
+    func qualified(by qualifier: SQLTableQualifier) -> SQLExpressionBetween {
+        return SQLExpressionBetween(
+            expression.qualified(by: qualifier),
+            lowerBound.qualified(by: qualifier),
+            upperBound.qualified(by: qualifier),
+            negated: isNegated)
+    }
 }
 
 // MARK: - SQLExpressionFunction
@@ -342,6 +471,8 @@ public struct SQLFunctionName : Hashable {
     /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
     ///
     /// The SQL function name
+    ///
+    /// :nodoc:
     public let sql: String
     
     /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
@@ -349,19 +480,27 @@ public struct SQLFunctionName : Hashable {
     /// Creates a function name
     ///
     ///     SQLFunctionName("ABS")
+    ///
+    /// :nodoc:
     public init(_ sql: String) {
         self.sql = sql
     }
     
+    #if !swift(>=4.1)
     /// The hash value
+    ///
+    /// :nodoc:
     public var hashValue: Int {
         return sql.hashValue
     }
     
     /// Equality operator
+    ///
+    /// :nodoc:
     public static func == (lhs: SQLFunctionName, rhs: SQLFunctionName) -> Bool {
         return lhs.sql == rhs.sql
     }
+    #endif
 }
 
 /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
@@ -370,6 +509,8 @@ public struct SQLFunctionName : Hashable {
 ///
 ///     // ABS(-1)
 ///     SQLExpressionFunction(.abs, [-1.databaseValue])
+///
+/// :nodoc:
 public struct SQLExpressionFunction : SQLExpression {
     /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
     ///
@@ -406,6 +547,13 @@ public struct SQLExpressionFunction : SQLExpression {
     public func expressionSQL(_ arguments: inout StatementArguments?) -> String {
         return functionName.sql + "(" + (self.arguments.map { $0.expressionSQL(&arguments) } as [String]).joined(separator: ", ")  + ")"
     }
+    
+    /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
+    ///
+    /// :nodoc:
+    public func qualified(by qualifier: SQLTableQualifier) -> SQLExpressionFunction {
+        return SQLExpressionFunction(functionName, arguments: arguments.map { $0.qualified(by: qualifier) })
+    }
 }
 
 // MARK: - SQLExpressionCount
@@ -425,6 +573,10 @@ struct SQLExpressionCount : SQLExpression {
     func expressionSQL(_ arguments: inout StatementArguments?) -> String {
         return "COUNT(" + counted.countedSQL(&arguments) + ")"
     }
+    
+    func qualified(by qualifier: SQLTableQualifier) -> SQLExpressionCount {
+        return SQLExpressionCount(counted.qualified(by: qualifier))
+    }
 }
 
 // MARK: - SQLExpressionCountDistinct
@@ -442,6 +594,10 @@ struct SQLExpressionCountDistinct : SQLExpression {
     
     func expressionSQL(_ arguments: inout StatementArguments?) -> String {
         return "COUNT(DISTINCT " + counted.expressionSQL(&arguments) + ")"
+    }
+    
+    func qualified(by qualifier: SQLTableQualifier) -> SQLExpressionCountDistinct {
+        return SQLExpressionCountDistinct(counted.qualified(by: qualifier))
     }
 }
 
@@ -462,11 +618,14 @@ struct SQLExpressionCollate : SQLExpression {
     
     func expressionSQL(_ arguments: inout StatementArguments?) -> String {
         let sql = expression.expressionSQL(&arguments)
-        let chars = sql.characters
-        if chars.last! == ")" {
-            return String(chars.prefix(upTo: chars.index(chars.endIndex, offsetBy: -1))) + " COLLATE " + collationName.rawValue + ")"
+        if sql.last! == ")" {
+            return String(sql.prefix(upTo: sql.index(sql.endIndex, offsetBy: -1))) + " COLLATE " + collationName.rawValue + ")"
         } else {
             return sql + " COLLATE " + collationName.rawValue
         }
+    }
+    
+    func qualified(by qualifier: SQLTableQualifier) -> SQLExpressionCollate {
+        return SQLExpressionCollate(expression.qualified(by: qualifier), collationName: collationName)
     }
 }

@@ -221,30 +221,43 @@ public final class AnyDatabaseReader : DatabaseReader {
         self.base = base
     }
     
+    // MARK: - Reading from Database
+    
+    /// :nodoc:
     public func read<T>(_ block: (Database) throws -> T) throws -> T {
         return try base.read(block)
     }
     
+    /// :nodoc:
     public func unsafeRead<T>(_ block: (Database) throws -> T) throws -> T {
         return try base.unsafeRead(block)
     }
     
+    /// :nodoc:
     public func unsafeReentrantRead<T>(_ block: (Database) throws -> T) throws -> T {
         return try base.unsafeReentrantRead(block)
     }
     
+    // MARK: - Functions
+    
+    /// :nodoc:
     public func add(function: DatabaseFunction) {
         base.add(function: function)
     }
     
+    /// :nodoc:
     public func remove(function: DatabaseFunction) {
         base.remove(function: function)
     }
     
+    // MARK: - Collations
+    
+    /// :nodoc:
     public func add(collation: DatabaseCollation) {
         base.add(collation: collation)
     }
     
+    /// :nodoc:
     public func remove(collation: DatabaseCollation) {
         base.remove(collation: collation)
     }

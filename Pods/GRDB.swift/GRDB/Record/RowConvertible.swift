@@ -24,7 +24,7 @@
 /// RowConvertible is adopted by Record.
 public protocol RowConvertible {
     
-    /// Initializes a record from `row`.
+    /// Creates a record from `row`.
     ///
     /// For performance reasons, the row argument may be reused during the
     /// iteration of a fetch query. If you want to keep the row for later use,
@@ -51,6 +51,7 @@ public final class RecordCursor<Record: RowConvertible> : Cursor {
         statement.cursorReset(arguments: arguments)
     }
     
+    /// :nodoc:
     public func next() throws -> Record? {
         if done { return nil }
         switch sqlite3_step(sqliteStatement) {

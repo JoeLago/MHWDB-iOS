@@ -22,6 +22,13 @@ public protocol Request {
     ///
     /// - parameter db: A database connection.
     func fetchCount(_ db: Database) throws -> Int
+    
+    /// The database region that the request looks into.
+    ///
+    /// This method has a default implementation.
+    ///
+    /// - parameter db: A database connection.
+    func fetchedRegion(_ db: Database) throws -> DatabaseRegion
 }
 
 extension Request {
@@ -35,6 +42,26 @@ extension Request {
         let (statement, _) = try prepare(db)
         let sql = "SELECT COUNT(*) FROM (\(statement.sql))"
         return try Int.fetchOne(db, sql, arguments: statement.arguments)!
+    }
+    
+    /// Returns an equivalent SQLRequest.
+    ///
+    /// - parameters:
+    ///     - db: A database connection.
+    ///     - cached: Defaults to false. If true, the request reuses a cached
+    ///       prepared statement.
+    /// - returns: An SQLRequest
+    public func asSQLRequest(_ db: Database, cached: Bool = false) throws -> SQLRequest {
+        let (statement, adapter) = try prepare(db)
+        return SQLRequest(statement.sql, arguments: statement.arguments, adapter: adapter, cached: cached)
+    }
+    
+    /// The database region that the request looks into.
+    ///
+    /// - parameter db: A database connection.
+    public func fetchedRegion(_ db: Database) throws -> DatabaseRegion {
+        let (statement, _) = try prepare(db)
+        return statement.fetchedRegion
     }
 }
 
@@ -53,11 +80,9 @@ extension Request {
     /// - parameter type: The fetched type T
     /// - returns: A typed request bound to type T.
     public func asRequest<T>(of type: T.Type) -> AnyTypedRequest<T> {
-        return AnyTypedRequest { try self.prepare($0) }
+        return AnyTypedRequest(self)
     }
     
-    /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
-    ///
     /// Returns an adapted request.
     public func adapted(_ adapter: @escaping (Database) throws -> RowAdapter) -> AdaptedRequest<Self> {
         return AdaptedRequest(self, adapter)
@@ -66,6 +91,9 @@ extension Request {
 
 /// An adapted request.
 public struct AdaptedRequest<Base: Request> : Request {
+    private let base: Base
+    private let adapter: (Database) throws -> RowAdapter
+    
     /// Creates an adapted request from a base request and a closure that builds
     /// a row adapter from a database connection.
     init(_ base: Base, _ adapter: @escaping (Database) throws -> RowAdapter) {
@@ -73,10 +101,7 @@ public struct AdaptedRequest<Base: Request> : Request {
         self.adapter = adapter
     }
     
-    /// A tuple that contains a prepared statement that is ready to be
-    /// executed, and an eventual row adapter.
-    ///
-    /// - parameter db: A database connection.
+    /// :nodoc:
     public func prepare(_ db: Database) throws -> (SelectStatement, RowAdapter?) {
         let (statement, baseAdapter) = try base.prepare(db)
         if let baseAdapter = baseAdapter {
@@ -86,15 +111,15 @@ public struct AdaptedRequest<Base: Request> : Request {
         }
     }
     
-    /// The number of rows fetched by the request.
-    ///
-    /// - parameter db: A database connection.
+    /// :nodoc:
     public func fetchCount(_ db: Database) throws -> Int {
         return try base.fetchCount(db)
     }
     
-    private let base: Base
-    private let adapter: (Database) throws -> RowAdapter
+    /// :nodoc:
+    public func fetchedRegion(_ db: Database) throws -> DatabaseRegion {
+        return try base.fetchedRegion(db)
+    }
 }
 
 /// A type-erased Request.
@@ -102,30 +127,48 @@ public struct AdaptedRequest<Base: Request> : Request {
 /// An instance of AnyRequest forwards its operations to an underlying request,
 /// hiding its specifics.
 public struct AnyRequest : Request {
+    private let base: Request
+    
     /// Creates a new request that wraps and forwards operations to `request`.
     public init(_ request: Request) {
-        self._prepare = { try request.prepare($0) }
+        base = request
     }
     
     /// Creates a new request whose `prepare()` method wraps and forwards
     /// operations the argument closure.
     public init(_ prepare: @escaping (Database) throws -> (SelectStatement, RowAdapter?)) {
-        _prepare = prepare
+        struct PrepareRequest: Request {
+            let base: (Database) throws -> (SelectStatement, RowAdapter?)
+            func prepare(_ db: Database) throws -> (SelectStatement, RowAdapter?) {
+                return try base(db)
+            }
+        }
+        base = PrepareRequest(base: prepare)
     }
     
-    /// A tuple that contains a prepared statement that is ready to be
-    /// executed, and an eventual row adapter.
-    ///
-    /// - parameter db: A database connection.
+    /// :nodoc:
     public func prepare(_ db: Database) throws -> (SelectStatement, RowAdapter?) {
-        return try _prepare(db)
+        return try base.prepare(db)
     }
     
-    private let _prepare: (Database) throws -> (SelectStatement, RowAdapter?)
+    /// :nodoc:
+    public func fetchCount(_ db: Database) throws -> Int {
+        return try base.fetchCount(db)
+    }
+    
+    /// :nodoc:
+    public func fetchedRegion(_ db: Database) throws -> DatabaseRegion {
+        return try base.fetchedRegion(db)
+    }
 }
 
 /// A Request built from raw SQL.
 public struct SQLRequest : Request {
+    public let sql: String
+    public let arguments: StatementArguments?
+    public let adapter: RowAdapter?
+    private let cache: Cache?
+    
     /// Creates a new request from an SQL string, optional arguments, and
     /// optional row adapter.
     ///
@@ -140,7 +183,7 @@ public struct SQLRequest : Request {
     ///       prepared statement.
     /// - returns: A SQLRequest
     public init(_ sql: String, arguments: StatementArguments? = nil, adapter: RowAdapter? = nil, cached: Bool = false) {
-        self.init(sql, arguments: arguments, adapter: adapter, fromCache: cached ? .user : nil)
+        self.init(sql, arguments: arguments, adapter: adapter, fromCache: cached ? .public : nil)
     }
     
     /// Creates a new request from an SQL string, optional arguments, and
@@ -155,23 +198,28 @@ public struct SQLRequest : Request {
     ///     - adapter: Optional RowAdapter.
     ///     - statementCacheName: Optional statement cache name.
     /// - returns: A SQLRequest
-    init(_ sql: String, arguments: StatementArguments? = nil, adapter: RowAdapter? = nil, fromCache statementCacheName: Database.StatementCacheName?) {
+    init(_ sql: String, arguments: StatementArguments? = nil, adapter: RowAdapter? = nil, fromCache cache: Cache?) {
         self.sql = sql
         self.arguments = arguments
         self.adapter = adapter
-        self.statementCacheName = statementCacheName
+        self.cache = cache
     }
     
     /// A tuple that contains a prepared statement that is ready to be
     /// executed, and an eventual row adapter.
     ///
     /// - parameter db: A database connection.
-    public func prepare(_ db: Database) throws -> (SelectStatement, RowAdapter?) {
+    ///
+    /// :nodoc:
+   public func prepare(_ db: Database) throws -> (SelectStatement, RowAdapter?) {
         let statement: SelectStatement
-        if let statementCacheName = statementCacheName {
-            statement = try db.selectStatement(sql, fromCache: statementCacheName)
-        } else {
+        switch cache {
+        case .none:
             statement = try db.makeSelectStatement(sql)
+        case .public?:
+            statement = try db.cachedSelectStatement(sql)
+        case .internal?:
+            statement = try db.internalCachedSelectStatement(sql)
         }
         if let arguments = arguments {
             try statement.setArgumentsWithValidation(arguments)
@@ -179,10 +227,17 @@ public struct SQLRequest : Request {
         return (statement, adapter)
     }
     
-    private let sql: String
-    private let arguments: StatementArguments?
-    private let adapter: RowAdapter?
-    private let statementCacheName: Database.StatementCacheName?
+    /// There are two statement caches: one for statements generated by the
+    /// user, and one for the statements generated by GRDB. Those are separated
+    /// so that GRDB has no opportunity to inadvertently modify the arguments of
+    /// user's cached statements.
+    enum Cache {
+        /// The public cache, for library user
+        case `public`
+        
+        /// The internal cache, for grdb
+        case `internal`
+    }
 }
 
 /// The protocol for requests that know how to decode database rows.
@@ -212,32 +267,31 @@ extension TypedRequest {
 
 /// An adapted typed request.
 public struct AdaptedTypedRequest<Base: TypedRequest> : TypedRequest {
-    
     /// The type that can convert raw database rows to fetched values
     public typealias RowDecoder = Base.RowDecoder
+    
+    private let base: AdaptedRequest<Base>
     
     /// Creates an adapted request from a base request and a closure that builds
     /// a row adapter from a database connection.
     init(_ base: Base, _ adapter: @escaping (Database) throws -> RowAdapter) {
-        adaptedRequest = AdaptedRequest(base, adapter)
+        self.base = AdaptedRequest(base, adapter)
     }
     
-    /// A tuple that contains a prepared statement that is ready to be
-    /// executed, and an eventual row adapter.
-    ///
-    /// - parameter db: A database connection.
+    /// :nodoc:
     public func prepare(_ db: Database) throws -> (SelectStatement, RowAdapter?) {
-        return try adaptedRequest.prepare(db)
+        return try base.prepare(db)
     }
     
-    /// The number of rows fetched by the request.
-    ///
-    /// - parameter db: A database connection.
+    /// :nodoc:
     public func fetchCount(_ db: Database) throws -> Int {
-        return try adaptedRequest.fetchCount(db)
+        return try base.fetchCount(db)
     }
     
-    private let adaptedRequest: AdaptedRequest<Base>
+    /// :nodoc:
+    public func fetchedRegion(_ db: Database) throws -> DatabaseRegion {
+        return try base.fetchedRegion(db)
+    }
 }
 
 /// A type-erased TypedRequest.
@@ -247,27 +301,39 @@ public struct AdaptedTypedRequest<Base: TypedRequest> : TypedRequest {
 public struct AnyTypedRequest<T> : TypedRequest {
     /// The type that can convert raw database rows to fetched values
     public typealias RowDecoder = T
+    private let base: Request
+    
+    /// Support for Request.asRequest(of:)
+    /// Not public because not type-safe.
+    fileprivate init(_ request: Request) {
+        base = request
+    }
     
     /// Creates a new request that wraps and forwards operations to `request`.
     public init<Request>(_ request: Request) where Request: TypedRequest, Request.RowDecoder == RowDecoder {
-        self._prepare = { try request.prepare($0) }
+        base = request
     }
     
     /// Creates a new request whose `prepare()` method wraps and forwards
     /// operations the argument closure.
     public init(_ prepare: @escaping (Database) throws -> (SelectStatement, RowAdapter?)) {
-        _prepare = prepare
+        base = AnyRequest(prepare)
     }
     
-    /// A tuple that contains a prepared statement that is ready to be
-    /// executed, and an eventual row adapter.
-    ///
-    /// - parameter db: A database connection.
+    /// :nodoc:
     public func prepare(_ db: Database) throws -> (SelectStatement, RowAdapter?) {
-        return try _prepare(db)
+        return try base.prepare(db)
     }
     
-    private let _prepare: (Database) throws -> (SelectStatement, RowAdapter?)
+    /// :nodoc:
+    public func fetchCount(_ db: Database) throws -> Int {
+        return try base.fetchCount(db)
+    }
+    
+    /// :nodoc:
+    public func fetchedRegion(_ db: Database) throws -> DatabaseRegion {
+        return try base.fetchedRegion(db)
+    }
 }
 
 extension TypedRequest where RowDecoder: RowConvertible {

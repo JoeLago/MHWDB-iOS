@@ -58,7 +58,7 @@ extension TableMapping {
 
 extension TableMapping {
     
-    // MARK: Counting All
+    // MARK: - Counting All
     
     /// The number of records.
     ///
@@ -70,63 +70,53 @@ extension TableMapping {
 
 extension TableMapping {
     
-    // MARK: Key Requests
+    // MARK: - SQL Generation
     
-    static func filter<Sequence: Swift.Sequence>(_ db: Database, keys: Sequence) throws -> QueryInterfaceRequest<Self> where Sequence.Element: DatabaseValueConvertible {
-        let primaryKey = try db.primaryKey(databaseTableName)
-        let columns = primaryKey.columns.map { Column($0) }
-        GRDBPrecondition(columns.count == 1, "table \(databaseTableName) has multiple columns in its primary key")
-        let column = columns[0]
-        
-        let keys = Array(keys)
-        switch keys.count {
-        case 0:
-            return none()
-        case 1:
-            return filter(column == keys[0])
-        default:
-            return filter(keys.contains(column))
-        }
+    /// The selection as an SQL String.
+    ///
+    /// For example:
+    ///
+    ///     struct Player: TableMapping {
+    ///         static let databaseTableName = "players"
+    ///     }
+    ///
+    ///     // SELECT "players".* FROM players
+    ///     let sql = "SELECT \(Player.selectionSQL()) FROM players"
+    ///
+    ///     // SELECT "p".* FROM players AS p
+    ///     let sql = "SELECT \(Player.selectionSQL(alias: "p")) FROM players AS p"
+    public static func selectionSQL(alias: String? = nil) -> String {
+        let qualifier = SQLTableQualifier(tableName: databaseTableName, alias: alias ?? databaseTableName)
+        let selection = databaseSelection.map { $0.qualified(by: qualifier) }
+        var arguments: StatementArguments? = nil
+        return selection
+            .map { $0.resultColumnSQL(&arguments) }
+            .joined(separator: ", ")
     }
     
-    // Raises a fatal error if there is no unique index on the columns (unless
-    // fatalErrorOnMissingUniqueIndex is false, for testability).
-    //
-    // TODO: think about
-    // - allowing non unique keys in Type.fetchOne(db, key: ...) ???
-    // - allowing non unique keys in Type.fetchAll/Cursor(db, keys: ...)
-    // - forbidding nil values: Player.deleteOne(db, key: ["email": nil]) may delete several rows (case of a nullable unique key)
-    static func filter(_ db: Database, keys: [[String: DatabaseValueConvertible?]], fatalErrorOnMissingUniqueIndex: Bool = true) throws -> QueryInterfaceRequest<Self> {
-        // SELECT * FROM table WHERE ((a=? AND b=?) OR (c=? AND d=?) OR ...)
-        let keyPredicates: [SQLExpression] = try keys.map { key in
-            // Prevent filter(db, keys: [[:]])
-            GRDBPrecondition(!key.isEmpty, "Invalid empty key dictionary")
-
-            // Prevent filter(db, keys: [["foo": 1, "bar": 2]]) where
-            // ("foo", "bar") is not a unique key (primary key or columns of a
-            // unique index)
-            guard let orderedColumns = try db.columnsForUniqueKey(key.keys, in: databaseTableName) else {
-                let message = "table \(databaseTableName) has no unique index on column(s) \(key.keys.sorted().joined(separator: ", "))"
-                if fatalErrorOnMissingUniqueIndex {
-                    fatalError(message)
-                } else {
-                    throw DatabaseError(resultCode: .SQLITE_MISUSE, message: message)
-                }
-            }
-            
-            let lowercaseOrderedColumns = orderedColumns.map { $0.lowercased() }
-            let columnPredicates: [SQLExpression] = key
-                // Sort key columns in the same order as the unique index
-                .sorted { (kv1, kv2) in lowercaseOrderedColumns.index(of: kv1.0.lowercased())! < lowercaseOrderedColumns.index(of: kv2.0.lowercased())! }
-                .map { (column, value) in Column(column) == value }
-            return SQLBinaryOperator.and.join(columnPredicates)! // not nil because columnPredicates is not empty
-        }
-        
-        guard let predicate = SQLBinaryOperator.or.join(keyPredicates) else {
-            // No key
-            return none()
-        }
-        
-        return filter(predicate)
+    /// Returns the number of selected columns.
+    ///
+    /// For example:
+    ///
+    ///     struct Player: TableMapping {
+    ///         static let databaseTableName = "players"
+    ///     }
+    ///
+    ///     try dbQueue.inDatabase { db in
+    ///         try db.create(table: "players") { t in
+    ///             t.column("id", .integer).primaryKey()
+    ///             t.column("name", .text)
+    ///             t.column("score", .integer)
+    ///         }
+    ///
+    ///         // 3
+    ///         try Player.numberOfSelectedColumns(db)
+    ///     }
+    public static func numberOfSelectedColumns(_ db: Database) throws -> Int {
+        let qualifier = SQLTableQualifier(tableName: databaseTableName, alias: nil)
+        return try databaseSelection
+            .map { try $0.qualified(by: qualifier).columnCount(db) }
+            .reduce(0, +)
     }
 }
+

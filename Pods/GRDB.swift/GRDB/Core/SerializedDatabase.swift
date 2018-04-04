@@ -81,7 +81,8 @@ final class SerializedDatabase {
         guard let watchdog = SchedulingWatchdog.current else {
             // Case 1
             return try queue.sync {
-                try block(db)
+                defer { preconditionNoTransactionLeft(db) }
+                return try block(db)
             }
         }
         
@@ -90,8 +91,9 @@ final class SerializedDatabase {
         
         // Case 3
         return try queue.sync {
-            try SchedulingWatchdog.current!.allowing(databases: watchdog.allowedDatabases) {
-                try block(db)
+            try SchedulingWatchdog.current!.inheritingAllowedDatabases(from: watchdog) {
+                defer { preconditionNoTransactionLeft(db) }
+                return try block(db)
             }
         }
     }
@@ -125,19 +127,22 @@ final class SerializedDatabase {
         guard let watchdog = SchedulingWatchdog.current else {
             // Case 1
             return try queue.sync {
-                try block(db)
+                defer { preconditionNoTransactionLeft(db) }
+                return try block(db)
             }
         }
         
         // Case 2
         if watchdog.allows(db) {
+            defer { preconditionNoTransactionLeft(db) }
             return try block(db)
         }
         
         // Case 3
         return try queue.sync {
-            try SchedulingWatchdog.current!.allowing(databases: watchdog.allowedDatabases) {
-                try block(db)
+            try SchedulingWatchdog.current!.inheritingAllowedDatabases(from: watchdog) {
+                defer { preconditionNoTransactionLeft(db) }
+                return try block(db)
             }
         }
     }
@@ -146,12 +151,13 @@ final class SerializedDatabase {
     func async(_ block: @escaping (Database) -> Void) {
         queue.async {
             block(self.db)
+            self.preconditionNoTransactionLeft(self.db)
         }
     }
     
     /// Returns true if any only if the current dispatch queue is valid.
     var onValidQueue: Bool {
-        return SchedulingWatchdog.allows(db)
+        return SchedulingWatchdog.current?.allows(db) ?? false
     }
     
     /// Executes the block in the current queue.
@@ -165,5 +171,10 @@ final class SerializedDatabase {
     /// Fatal error if current dispatch queue is not valid.
     func preconditionValidQueue(_ message: @autoclosure() -> String = "Database was not used on the correct thread.", file: StaticString = #file, line: UInt = #line) {
         SchedulingWatchdog.preconditionValidQueue(db, message, file: file, line: line)
+    }
+    
+    /// Fatal error if a transaction has been left opened.
+    func preconditionNoTransactionLeft(_ db: Database, _ message: @autoclosure() -> String = "A transaction has been left opened at the end of a database access", file: StaticString = #file, line: UInt = #line) {
+        GRDBPrecondition(configuration.allowsUnsafeTransactions || !db.isInsideTransaction, message, file: file, line: line)
     }
 }

@@ -13,15 +13,16 @@ extension Database.ConflictResolution {
 // MARK: - PersistenceError
 
 /// An error thrown by a type that adopts Persistable.
-public enum PersistenceError: Error {
+public enum PersistenceError: Error, CustomStringConvertible {
     
     /// Thrown by MutablePersistable.update() when no matching row could be
     /// found in the database.
     case recordNotFound(MutablePersistable)
 }
 
-extension PersistenceError : CustomStringConvertible {
-    /// A textual representation of `self`.
+// CustomStringConvertible
+extension PersistenceError {
+    /// :nodoc:
     public var description: String {
         switch self {
         case .recordNotFound(let persistable):
@@ -97,6 +98,8 @@ public struct PersistenceContainer {
     
     /// Accesses the value associated with the given column, in a
     /// case-insensitive fashion.
+    ///
+    /// :nodoc:
     subscript(caseInsensitive column: String) -> DatabaseValueConvertible? {
         get {
             if let value = storage[column] {
@@ -386,6 +389,30 @@ extension MutablePersistable {
         try update(db, columns: Set(columns.map { $0.name }))
     }
     
+    /// If the record has differences from the other record, executes an UPDATE
+    /// statement so that those changes and only those changes are saved in
+    /// the database.
+    ///
+    /// This method is guaranteed to have saved the eventual changes in the
+    /// database if it returns without error.
+    ///
+    /// - parameter db: A database connection.
+    /// - parameter columns: The columns to update.
+    /// - returns: Whether the record had changes.
+    /// - throws: A DatabaseError is thrown whenever an SQLite error occurs.
+    ///   PersistenceError.recordNotFound is thrown if the primary key does not
+    ///   match any row in the database and record could not be updated.
+    @discardableResult
+    public func updateChanges(_ db: Database, from record: MutablePersistable) throws -> Bool {
+        let changedColumns = Set(databaseChanges(from: record).keys)
+        if changedColumns.isEmpty {
+            return false
+        } else {
+            try update(db, columns: changedColumns)
+            return true
+        }
+    }
+
     /// Executes an INSERT or an UPDATE statement so that `self` is saved in
     /// the database.
     ///
@@ -408,6 +435,43 @@ extension MutablePersistable {
     /// The default implementation for exists() invokes performExists().
     public func exists(_ db: Database) throws -> Bool {
         return try performExists(db)
+    }
+    
+    // MARK: - Changes Tracking
+    
+    /// Returns a boolean indicating whether this record and the other record
+    /// have the same database representation.
+    public func databaseEqual(_ record: Self) -> Bool {
+        return databaseChangesIterator(from: record).next() == nil
+    }
+
+    /// A dictionary of values changed from the other record.
+    ///
+    /// Its keys are column names. Its values come from the other record.
+    ///
+    /// Note that this method is not symmetrical, not only in terms of values,
+    /// but also in terms of columns. When the two records don't define the
+    /// same set of columns in their `encode(to:)` method, only the columns
+    /// defined by the receiver record are considered.
+    public func databaseChanges(from record: MutablePersistable) -> [String: DatabaseValue] {
+        return Dictionary(uniqueKeysWithValues: databaseChangesIterator(from: record))
+    }
+    
+    fileprivate func databaseChangesIterator(from record: MutablePersistable) -> AnyIterator<(String, DatabaseValue)> {
+        let oldContainer = PersistenceContainer(record)
+        var newValueIterator = PersistenceContainer(self).makeIterator()
+        return AnyIterator {
+            // Loop until we find a change, or exhaust columns:
+            while let (column, newValue) = newValueIterator.next() {
+                let oldValue = oldContainer[caseInsensitive: column]
+                let oldDbValue = oldValue?.databaseValue ?? .null
+                let newDbValue = newValue?.databaseValue ?? .null
+                if newDbValue != oldDbValue {
+                    return (column, oldDbValue)
+                }
+            }
+            return nil
+        }
     }
     
     // MARK: - CRUD Internals
@@ -573,7 +637,7 @@ extension MutablePersistable {
             // Avoid hitting the database
             return 0
         }
-        return try filter(db, keys: keys).deleteAll(db)
+        return try filter(keys: keys).deleteAll(db)
     }
     
     /// Delete a record, identified by its primary key; returns whether a
@@ -624,7 +688,7 @@ extension MutablePersistable {
             // Avoid hitting the database
             return 0
         }
-        return try filter(db, keys: keys).deleteAll(db)
+        return try filter(keys: keys).deleteAll(db)
     }
     
     /// Delete a record, identified by a unique key (the primary key or any key
@@ -824,7 +888,7 @@ final class DAO {
             onConflict: onConflict,
             tableName: databaseTableName,
             insertedColumns: persistenceContainer.columns)
-        let statement = try db.updateStatement(query.sql, fromCache: .grdb)
+        let statement = try db.internalCachedUpdateStatement(query.sql)
         statement.unsafeSetArguments(StatementArguments(persistenceContainer.values))
         return statement
     }
@@ -870,7 +934,7 @@ final class DAO {
             tableName: databaseTableName,
             updatedColumns: updatedColumns,
             conditionColumns: primaryKeyColumns)
-        let statement = try db.updateStatement(query.sql, fromCache: .grdb)
+        let statement = try db.internalCachedUpdateStatement(query.sql)
         statement.unsafeSetArguments(StatementArguments(updatedValues + primaryKeyValues))
         return statement
     }
@@ -887,7 +951,7 @@ final class DAO {
         let query = DeleteQuery(
             tableName: databaseTableName,
             conditionColumns: primaryKeyColumns)
-        let statement = try db.updateStatement(query.sql, fromCache: .grdb)
+        let statement = try db.internalCachedUpdateStatement(query.sql)
         statement.unsafeSetArguments(StatementArguments(primaryKeyValues))
         return statement
     }
@@ -904,7 +968,7 @@ final class DAO {
         let query = ExistsQuery(
             tableName: databaseTableName,
             conditionColumns: primaryKeyColumns)
-        let statement = try db.selectStatement(query.sql, fromCache: .grdb)
+        let statement = try db.internalCachedSelectStatement(query.sql)
         statement.unsafeSetArguments(StatementArguments(primaryKeyValues))
         return statement
     }
@@ -913,20 +977,21 @@ final class DAO {
 
 // MARK: - InsertQuery
 
-private struct InsertQuery {
+private struct InsertQuery: Hashable {
     let onConflict: Database.ConflictResolution
     let tableName: String
     let insertedColumns: [String]
-}
-
-extension InsertQuery : Hashable {
+    
+    // Not generated by Swift 4.1
     var hashValue: Int { return tableName.hashValue }
     
+    #if !swift(>=4.1)
     static func == (lhs: InsertQuery, rhs: InsertQuery) -> Bool {
         if lhs.tableName != rhs.tableName { return false }
         if lhs.onConflict != rhs.onConflict { return false }
         return lhs.insertedColumns == rhs.insertedColumns
     }
+    #endif
 }
 
 extension InsertQuery {
@@ -952,22 +1017,23 @@ extension InsertQuery {
 
 // MARK: - UpdateQuery
 
-private struct UpdateQuery {
+private struct UpdateQuery: Hashable {
     let onConflict: Database.ConflictResolution
     let tableName: String
     let updatedColumns: [String]
     let conditionColumns: [String]
-}
-
-extension UpdateQuery : Hashable {
+    
+    // Not generated by Swift 4.1
     var hashValue: Int { return tableName.hashValue }
     
+    #if !swift(>=4.1)
     static func == (lhs: UpdateQuery, rhs: UpdateQuery) -> Bool {
         if lhs.tableName != rhs.tableName { return false }
         if lhs.onConflict != rhs.onConflict { return false }
         if lhs.updatedColumns != rhs.updatedColumns { return false }
         return lhs.conditionColumns == rhs.conditionColumns
     }
+    #endif
 }
 
 extension UpdateQuery {

@@ -10,7 +10,12 @@ import Foundation
 /// DatabaseValue is the intermediate type between SQLite and your values.
 ///
 /// See https://www.sqlite.org/datatype3.html
-public struct DatabaseValue {
+public struct DatabaseValue: Hashable, CustomStringConvertible, DatabaseValueConvertible, SQLExpressible, SQLExpression {
+    /// The SQLite storage
+    public let storage: Storage
+    
+    /// The NULL DatabaseValue.
+    public static let null = DatabaseValue(storage: .null)
     
     /// An SQLite storage (NULL, INTEGER, REAL, TEXT, BLOB).
     public enum Storage : Equatable {
@@ -62,12 +67,6 @@ public struct DatabaseValue {
         }
     }
     
-    /// The SQLite storage
-    public let storage: Storage
-    
-    /// The NULL DatabaseValue.
-    public static let null = DatabaseValue(storage: .null)
-    
     /// Creates a DatabaseValue from Any.
     ///
     /// The result is nil unless object adopts DatabaseValueConvertible.
@@ -77,7 +76,6 @@ public struct DatabaseValue {
         }
         self = convertible.databaseValue
     }
-    
     
     // MARK: - Extracting Value
     
@@ -90,7 +88,6 @@ public struct DatabaseValue {
             return false
         }
     }
-    
     
     // MARK: - Not Public
     
@@ -147,13 +144,13 @@ public struct DatabaseValue {
     }
 }
 
-
 // MARK: - Hashable & Equatable
 
-/// DatabaseValue adopts Hashable.
-extension DatabaseValue : Hashable {
+// Hashable
+extension DatabaseValue {
     
     /// The hash value
+    /// :nodoc:
     public var hashValue: Int {
         switch storage {
         case .null:
@@ -207,6 +204,16 @@ extension DatabaseValue : Hashable {
     }
 }
 
+// MARK: - SQLSelectable
+
+extension DatabaseValue {
+    /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
+    ///
+    /// :nodoc:
+    public func qualified(by qualifier: SQLTableQualifier) -> DatabaseValue {
+        return self
+    }
+}
 
 // MARK: - Lossless conversions
 
@@ -286,11 +293,8 @@ extension DatabaseValue {
     }
 }
 
-
-// MARK: - DatabaseValueConvertible & SQLExpressible & SQLExpression
-
-/// DatabaseValue adopts DatabaseValueConvertible.
-extension DatabaseValue : DatabaseValueConvertible {
+// DatabaseValueConvertible
+extension DatabaseValue {
     /// Returns self
     public var databaseValue: DatabaseValue {
         return self
@@ -302,17 +306,19 @@ extension DatabaseValue : DatabaseValueConvertible {
     }
 }
 
-extension DatabaseValue : SQLExpressible {
-    
+// SQLExpressible
+extension DatabaseValue {
     /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
+    /// :nodoc:
     public var sqlExpression: SQLExpression {
         return self
     }
 }
 
-/// DatabaseValue adopts SQLExpression.
-extension DatabaseValue : SQLExpression {
+// SQLExpression
+extension DatabaseValue {
     /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
+    /// :nodoc:
     public func expressionSQL(_ arguments: inout StatementArguments?) -> String {
         // fast path for NULL
         if isNull {
@@ -330,6 +336,7 @@ extension DatabaseValue : SQLExpression {
     }
     
     /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
+    /// :nodoc:
     public var negated: SQLExpression {
         switch storage {
         case .null:
@@ -355,11 +362,9 @@ extension DatabaseValue : SQLExpression {
     }
 }
 
-// MARK: - CustomStringConvertible
-
-/// DatabaseValue adopts CustomStringConvertible.
-extension DatabaseValue : CustomStringConvertible {
-    /// A textual representation of `self`.
+// CustomStringConvertible
+extension DatabaseValue {
+    /// :nodoc:
     public var description: String {
         switch storage {
         case .null:

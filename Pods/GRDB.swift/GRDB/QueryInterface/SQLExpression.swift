@@ -16,6 +16,8 @@
 /// - SQLExpressionExists
 /// - SQLExpressionFunction
 /// - SQLExpressionCollate
+///
+/// :nodoc:
 public protocol SQLExpression : SQLSpecificExpressible, SQLSelectable, SQLOrderingTerm {
     
     /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
@@ -53,6 +55,11 @@ public protocol SQLExpression : SQLSpecificExpressible, SQLSelectable, SQLOrderi
     ///     let expression = [1,2,3].contains(Column("id")) // id IN (1,2,3)
     ///     expression.negated // id NOT IN (1,2,3)
     var negated: SQLExpression { get }
+    
+    /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
+    ///
+    /// Returns the rowIds matched by the expression.
+    func matchedRowIds(rowIdName: String?) -> Set<Int64>? // TODO: this method should take SQLTableQualifier in account
 }
 
 extension SQLExpression {
@@ -64,8 +71,18 @@ extension SQLExpression {
     ///     let column = Column("favorite")
     ///     column.negated  // NOT favorite
     ///
+    /// :nodoc:
     public var negated: SQLExpression {
         return SQLExpressionNot(self)
+    }
+    
+    /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
+    ///
+    /// The default implementation returns nil
+    ///
+    /// :nodoc:
+    public func matchedRowIds(rowIdName: String?) -> Set<Int64>? {
+        return nil
     }
 }
 
@@ -74,6 +91,8 @@ extension SQLExpression {
 extension SQLExpression {
     
     /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
+    ///
+    /// :nodoc:
     public var sqlExpression: SQLExpression {
         return self
     }
@@ -84,6 +103,8 @@ extension SQLExpression {
 extension SQLExpression {
     
     /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
+    ///
+    /// :nodoc:
     public func count(distinct: Bool) -> SQLCount? {
         if distinct {
             // SELECT DISTINCT expr FROM tableName ...
@@ -114,5 +135,9 @@ struct SQLExpressionNot : SQLExpression {
     
     var negated: SQLExpression {
         return expression
+    }
+    
+    func qualified(by qualifier: SQLTableQualifier) -> SQLExpressionNot {
+        return SQLExpressionNot(expression.qualified(by: qualifier))
     }
 }

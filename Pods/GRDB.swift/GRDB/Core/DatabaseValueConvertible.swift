@@ -30,10 +30,9 @@ public protocol DatabaseValueConvertible : SQLExpressible {
     static func fromDatabaseValue(_ dbValue: DatabaseValue) -> Self?
 }
 
-// SQLExpressible adoption
 extension DatabaseValueConvertible {
-    
     /// [**Experimental**](http://github.com/groue/GRDB.swift#what-are-experimental-features)
+    /// :nodoc:
     public var sqlExpression: SQLExpression {
         return databaseValue
     }
@@ -62,6 +61,7 @@ public final class DatabaseValueCursor<Value: DatabaseValueConvertible> : Cursor
         statement.cursorReset(arguments: arguments)
     }
     
+    /// :nodoc:
     public func next() throws -> Value? {
         if done { return nil }
         switch sqlite3_step(sqliteStatement) {
@@ -101,6 +101,7 @@ public final class NullableDatabaseValueCursor<Value: DatabaseValueConvertible> 
         statement.cursorReset(arguments: arguments)
     }
     
+    /// :nodoc:
     public func next() throws -> Value?? {
         if done { return nil }
         switch sqlite3_step(sqliteStatement) {
@@ -131,7 +132,6 @@ public final class NullableDatabaseValueCursor<Value: DatabaseValueConvertible> 
 ///
 /// DatabaseValueConvertible is adopted by Bool, Int, String, etc.
 extension DatabaseValueConvertible {
-    
     
     // MARK: Fetching From SelectStatement
     

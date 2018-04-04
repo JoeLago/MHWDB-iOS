@@ -111,16 +111,16 @@ public struct FTS4 : VirtualTableModule {
             let oldRowID = "old.\(rowIDColumn.quotedDatabaseIdentifier)"
             
             try db.execute("""
-                CREATE TRIGGER \("__\(contentTable)_bu".quotedDatabaseIdentifier) BEFORE UPDATE ON \(content) BEGIN
+                CREATE TRIGGER \("__\(tableName)_bu".quotedDatabaseIdentifier) BEFORE UPDATE ON \(content) BEGIN
                     DELETE FROM \(ftsTable) WHERE docid=\(oldRowID);
                 END;
-                CREATE TRIGGER \("__\(contentTable)_bd".quotedDatabaseIdentifier) BEFORE DELETE ON \(content) BEGIN
+                CREATE TRIGGER \("__\(tableName)_bd".quotedDatabaseIdentifier) BEFORE DELETE ON \(content) BEGIN
                     DELETE FROM \(ftsTable) WHERE docid=\(oldRowID);
                 END;
-                CREATE TRIGGER \("__\(contentTable)_au".quotedDatabaseIdentifier) AFTER UPDATE ON \(content) BEGIN
+                CREATE TRIGGER \("__\(tableName)_au".quotedDatabaseIdentifier) AFTER UPDATE ON \(content) BEGIN
                     INSERT INTO \(ftsTable)(\(ftsColumns)) VALUES(\(newContentColumns));
                 END;
-                CREATE TRIGGER \("__\(contentTable)_ai".quotedDatabaseIdentifier) AFTER INSERT ON \(content) BEGIN
+                CREATE TRIGGER \("__\(tableName)_ai".quotedDatabaseIdentifier) AFTER INSERT ON \(content) BEGIN
                     INSERT INTO \(ftsTable)(\(ftsColumns)) VALUES(\(newContentColumns));
                 END;
                 """)
@@ -269,6 +269,7 @@ public final class FTS4ColumnDefinition {
     /// See https://www.sqlite.org/fts3.html#the_notindexed_option
     ///
     /// - returns: Self so that you can further refine the column definition.
+    /// :nodoc:
     @discardableResult
     public func notIndexed() -> Self {
         // notindexed FTS4 option was added in SQLite 3.8.0 http://www.sqlite.org/changes.html#version_3_8_0
@@ -311,5 +312,17 @@ public final class FTS4ColumnDefinition {
     public func asLanguageId() -> Self {
         self.isLanguageId = true
         return self
+    }
+}
+
+extension Database {
+    /// Deletes the synchronization triggers for a synchronized FTS4 table
+    public func dropFTS4SynchronizationTriggers(forTable tableName: String) throws {
+        try execute("""
+            DROP TRIGGER IF EXISTS \("__\(tableName)_bu".quotedDatabaseIdentifier);
+            DROP TRIGGER IF EXISTS \("__\(tableName)_bd".quotedDatabaseIdentifier);
+            DROP TRIGGER IF EXISTS \("__\(tableName)_au".quotedDatabaseIdentifier);
+            DROP TRIGGER IF EXISTS \("__\(tableName)_ai".quotedDatabaseIdentifier);
+            """)
     }
 }

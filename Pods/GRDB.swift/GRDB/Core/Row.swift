@@ -6,7 +6,22 @@ import Foundation
 #endif
 
 /// A database row.
-public final class Row {
+public final class Row : Equatable, Hashable, RandomAccessCollection, ExpressibleByDictionaryLiteral, CustomStringConvertible {
+    let impl: RowImpl
+    
+    /// Unless we are producing a row array, we use a single row when iterating
+    /// a statement:
+    ///
+    ///     let rows = try Row.fetchCursor(db, "SELECT ...")
+    ///     let players = try Player.fetchAll(db, "SELECT ...")
+    ///
+    /// This row keeps an unmanaged reference to the statement, and a handle to
+    /// the sqlite statement, so that we avoid many retain/release invocations.
+    ///
+    /// The statementRef is released in deinit.
+    let statementRef: Unmanaged<SelectStatement>?
+    let sqliteStatement: SQLiteStatement?
+    
     /// The number of columns in the row.
     public let count: Int
 
@@ -51,25 +66,10 @@ public final class Row {
     
     // MARK: - Not Public
     
-    let impl: RowImpl
-    
     /// Returns true if and only if the row was fetched from a database.
     var isFetched: Bool {
         return impl.isFetched
     }
-    
-    /// Unless we are producing a row array, we use a single row when iterating
-    /// a statement:
-    ///
-    ///     let rows = try Row.fetchCursor(db, "SELECT ...")
-    ///     let players = try Player.fetchAll(db, "SELECT ...")
-    ///
-    /// This row keeps an unmanaged reference to the statement, and a handle to
-    /// the sqlite statement, so that we avoid many retain/release invocations.
-    ///
-    /// The statementRef is released in deinit.
-    let statementRef: Unmanaged<SelectStatement>?
-    let sqliteStatement: SQLiteStatement?
     
     deinit {
         statementRef?.release()
@@ -131,6 +131,42 @@ extension Row {
     
     // MARK: - Extracting Values
     
+    /// Returns true if and only if one column contains a non-null value, or if
+    /// the row was fetched with a row adapter that defines a scoped row that
+    /// contains a non-null value.
+    ///
+    /// For example:
+    ///
+    ///     let row = try Row.fetchOne(db, "SELECT 'foo', 1")!
+    ///     row.containsNonNullValue // true
+    ///
+    ///     let row = try Row.fetchOne(db, "SELECT NULL, NULL")!
+    ///     row.containsNonNullValue // false
+    public var containsNonNullValue: Bool {
+        for i in (0..<count) {
+            if !hasNull(atIndex: i) { return true }
+        }
+        
+        for name in scopeNames where scoped(on: name)!.containsNonNullValue {
+            return true
+        }
+        
+        return false
+    }
+    
+    /// Returns true if the row contains null at given index.
+    ///
+    /// Indexes span from 0 for the leftmost column to (row.count - 1) for the
+    /// righmost column.
+    ///
+    /// This method is equivalent to `row[index] == nil`, but may be preferred
+    /// in performance-critical code because it can avoid decoding database
+    /// values.
+    public func hasNull(atIndex index: Int) -> Bool {
+        GRDBPrecondition(index >= 0 && index < count, "row index out of range")
+        return impl.hasNull(atUncheckedIndex: index)
+    }
+    
     /// Returns Int64, Double, String, Data or nil, depending on the value
     /// stored at the given index.
     ///
@@ -151,7 +187,7 @@ extension Row {
     /// fail, a fatal error is raised.
     public subscript<Value: DatabaseValueConvertible>(_ index: Int) -> Value? {
         GRDBPrecondition(index >= 0 && index < count, "row index out of range")
-        return impl.databaseValue(atUncheckedIndex: index).losslessConvert()
+        return impl.value(atUncheckedIndex: index)
     }
     
     /// Returns the value at given index, converted to the requested type.
@@ -169,9 +205,9 @@ extension Row {
     public subscript<Value: DatabaseValueConvertible & StatementColumnConvertible>(_ index: Int) -> Value? {
         GRDBPrecondition(index >= 0 && index < count, "row index out of range")
         if let sqliteStatement = sqliteStatement { // fast path
-            return Row.statementColumnConvertible(atUncheckedIndex: Int32(index), in: sqliteStatement)
+            return Value.losslessConvert(sqliteStatement: sqliteStatement, index: Int32(index))
         }
-        return impl.databaseValue(atUncheckedIndex: index).losslessConvert()
+        return impl.fastValue(atUncheckedIndex: index)
     }
     
     /// Returns the value at given index, converted to the requested type.
@@ -183,7 +219,7 @@ extension Row {
     /// SQLite value can not be converted to `Value`.
     public subscript<Value: DatabaseValueConvertible>(_ index: Int) -> Value {
         GRDBPrecondition(index >= 0 && index < count, "row index out of range")
-        return impl.databaseValue(atUncheckedIndex: index).losslessConvert()
+        return impl.value(atUncheckedIndex: index)
     }
     
     /// Returns the value at given index, converted to the requested type.
@@ -200,9 +236,9 @@ extension Row {
     public subscript<Value: DatabaseValueConvertible & StatementColumnConvertible>(_ index: Int) -> Value {
         GRDBPrecondition(index >= 0 && index < count, "row index out of range")
         if let sqliteStatement = sqliteStatement { // fast path
-            return Row.statementColumnConvertible(atUncheckedIndex: Int32(index), in: sqliteStatement)
+            return Value.losslessConvert(sqliteStatement: sqliteStatement, index: Int32(index))
         }
-        return impl.databaseValue(atUncheckedIndex: index).losslessConvert()
+        return impl.fastValue(atUncheckedIndex: index)
     }
     
     /// Returns Int64, Double, String, Data or nil, depending on the value
@@ -238,7 +274,7 @@ extension Row {
         guard let index = impl.index(ofColumn: columnName) else {
             return nil
         }
-        return impl.databaseValue(atUncheckedIndex: index).losslessConvert()
+        return impl.value(atUncheckedIndex: index)
     }
     
     /// Returns the value at given column, converted to the requested type.
@@ -258,9 +294,9 @@ extension Row {
             return nil
         }
         if let sqliteStatement = sqliteStatement { // fast path
-            return Row.statementColumnConvertible(atUncheckedIndex: Int32(index), in: sqliteStatement)
+            return Value.losslessConvert(sqliteStatement: sqliteStatement, index: Int32(index))
         }
-        return impl.databaseValue(atUncheckedIndex: index).losslessConvert()
+        return impl.fastValue(atUncheckedIndex: index)
     }
     
     /// Returns the value at given column, converted to the requested type.
@@ -277,7 +313,7 @@ extension Row {
             // Programmer error
             fatalError("no such column: \(columnName)")
         }
-        return impl.databaseValue(atUncheckedIndex: index).losslessConvert()
+        return impl.value(atUncheckedIndex: index)
     }
     
     /// Returns the value at given column, converted to the requested type.
@@ -295,13 +331,13 @@ extension Row {
     /// (see https://www.sqlite.org/datatype3.html).
     public subscript<Value: DatabaseValueConvertible & StatementColumnConvertible>(_ columnName: String) -> Value {
         guard let index = impl.index(ofColumn: columnName) else {
-             // Programmer error
+            // Programmer error
             fatalError("no such column: \(columnName)")
         }
         if let sqliteStatement = sqliteStatement { // fast path
-            return Row.statementColumnConvertible(atUncheckedIndex: Int32(index), in: sqliteStatement)
+            return Value.losslessConvert(sqliteStatement: sqliteStatement, index: Int32(index))
         }
-        return impl.databaseValue(atUncheckedIndex: index).losslessConvert()
+        return impl.fastValue(atUncheckedIndex: index)
     }
     
     /// Returns Int64, Double, String, NSData or nil, depending on the value
@@ -437,22 +473,36 @@ extension Row {
 
 extension Row {
     
-    // MARK: - Helpers
-    @inline(__always)
-    private static func statementColumnConvertible<Value: StatementColumnConvertible>(atUncheckedIndex index: Int32, in sqliteStatement: SQLiteStatement) -> Value? {
-        guard sqlite3_column_type(sqliteStatement, index) != SQLITE_NULL else {
+    // MARK: - Extracting Records
+    
+    /// Returns the record encoded in the given scope.
+    ///
+    /// A fatal error is raised in the row was not fetched with a row adapter
+    /// that defines this scope.
+    ///
+    /// See https://github.com/groue/GRDB.swift/blob/master/README.md#joined-queries-support
+    /// for more information.
+    public subscript<Record: RowConvertible>(_ scope: String) -> Record {
+        guard let scopedRow = scoped(on: scope) else {
+            // Programmer error
+            fatalError("no such scope: \(scope)")
+        }
+        return Record(row: scopedRow)
+    }
+
+    /// Returns the record encoded in the given scope, if and only if the scope
+    /// has been defined by a row adapter, and the scoped row contains a
+    /// non-null value. Otherwise, return nil.
+    ///
+    /// This subscript is designed to handle left joined records.
+    ///
+    /// See https://github.com/groue/GRDB.swift/blob/master/README.md#joined-queries-support
+    /// for more information.
+    public subscript<Record: RowConvertible>(_ scope: String) -> Record? {
+        guard let scopedRow = scoped(on: scope), scopedRow.containsNonNullValue else {
             return nil
         }
-        return Value.init(sqliteStatement: sqliteStatement, index: index)
-    }
-    
-    @inline(__always)
-    private static func statementColumnConvertible<Value: StatementColumnConvertible>(atUncheckedIndex index: Int32, in sqliteStatement: SQLiteStatement) -> Value {
-        guard sqlite3_column_type(sqliteStatement, index) != SQLITE_NULL else {
-            // Programmer error
-            fatalError("could not convert database value NULL to \(Value.self)")
-        }
-        return Value.init(sqliteStatement: sqliteStatement, index: index)
+        return Record(row: scopedRow)
     }
 }
 
@@ -460,8 +510,12 @@ extension Row {
     
     // MARK: - Scopes
     
-    /// Returns a scoped row, if the row was fetched along with a row adapter
-    /// that defines this scope.
+    var scopeNames: Set<String> {
+        return impl.scopeNames
+    }
+    
+    /// Returns a scoped row, if the row was fetched with a row adapter that
+    /// defines this scope.
     ///
     ///     // Two adapters
     ///     let fooAdapter = ColumnMapping(["value": "foo"])
@@ -486,6 +540,12 @@ extension Row {
     public func scoped(on name: String) -> Row? {
         return impl.scoped(on: name)
     }
+    
+    /// Returns a copy of the row, without any scoped row (if the row was fetched
+    /// with a row adapter that defines scopes).
+    public var unscoped: Row {
+        return Row(impl: ArrayRowImpl(columns: map { ($0, $1) }))
+    }
 }
 
 /// A cursor of database rows. For example:
@@ -506,6 +566,7 @@ public final class RowCursor : Cursor {
         statement.cursorReset(arguments: arguments)
     }
     
+    /// :nodoc:
     public func next() throws -> Row? {
         if done { return nil }
         switch sqlite3_step(sqliteStatement) {
@@ -725,7 +786,8 @@ extension Row {
     }
 }
 
-extension Row : ExpressibleByDictionaryLiteral {
+// ExpressibleByDictionaryLiteral
+extension Row {
     
     /// Creates a row initialized with elements. Column order is preserved, and
     /// duplicated columns names are allowed.
@@ -738,17 +800,20 @@ extension Row : ExpressibleByDictionaryLiteral {
     }
 }
 
-extension Row : Collection {
+// RandomAccessCollection
+extension Row {
     
     // MARK: - Row as a Collection of (ColumnName, DatabaseValue) Pairs
     
     /// The index of the first (ColumnName, DatabaseValue) pair.
+    /// :nodoc:
     public var startIndex: RowIndex {
         return Index(0)
     }
     
     /// The "past-the-end" index, successor of the index of the last
     /// (ColumnName, DatabaseValue) pair.
+    /// :nodoc:
     public var endIndex: RowIndex {
         return Index(count)
     }
@@ -761,25 +826,14 @@ extension Row : Collection {
             impl.columnName(atUncheckedIndex: index),
             impl.databaseValue(atUncheckedIndex: index))
     }
-    
-    /// Returns the position immediately after `i`.
-    ///
-    /// - Precondition: `(startIndex..<endIndex).contains(i)`
-    public func index(after i: RowIndex) -> RowIndex {
-        return RowIndex(i.index + 1)
-    }
-    
-    /// Replaces `i` with its successor.
-    public func formIndex(after i: inout RowIndex) {
-        i = RowIndex(i.index + 1)
-    }
 }
 
-/// Row adopts Equatable.
-extension Row : Equatable {
+// Equatable
+extension Row {
     
     /// Returns true if and only if both rows have the same columns and values,
     /// in the same order. Columns are compared in a case-sensitive way.
+    /// :nodoc:
     public static func == (lhs: Row, rhs: Row) -> Bool {
         if lhs === rhs {
             return true
@@ -789,10 +843,7 @@ extension Row : Equatable {
             return false
         }
         
-        var liter = lhs.makeIterator()
-        var riter = rhs.makeIterator()
-        
-        while let (lcol, lval) = liter.next(), let (rcol, rval) = riter.next() {
+        for ((lcol, lval), (rcol, rval)) in zip(lhs, rhs) {
             guard lcol == rcol else {
                 return false
             }
@@ -819,18 +870,19 @@ extension Row : Equatable {
     }
 }
 
-/// Row adopts Hashable.
-extension Row : Hashable {
+// Hashable
+extension Row {
     /// The hash value
+    /// :nodoc:
     public var hashValue: Int {
         return columnNames.reduce(0) { (acc, column) in acc ^ column.hashValue } ^
             databaseValues.reduce(0) { (acc, dbValue) in acc ^ dbValue.hashValue }
     }
 }
 
-/// Row adopts CustomStringConvertible.
-extension Row: CustomStringConvertible {
-    /// A textual representation of `self`.
+// CustomStringConvertible
+extension Row {
+    /// :nodoc:
     public var description: String {
         return "<Row"
             + map { (column, dbValue) in
@@ -843,19 +895,35 @@ extension Row: CustomStringConvertible {
 
 // MARK: - RowIndex
 
-/// Indexes to (columnName, dbValue) pairs in a database row.
-public struct RowIndex : Comparable {
+/// Indexes to (ColumnName, DatabaseValue) pairs in a database row.
+public struct RowIndex : Comparable, Strideable {
     let index: Int
     init(_ index: Int) { self.index = index }
-    
-    /// Equality operator
+}
+
+// Comparable
+extension RowIndex {
+    /// :nodoc:
     public static func == (lhs: RowIndex, rhs: RowIndex) -> Bool {
         return lhs.index == rhs.index
     }
     
-    // Comparison operator
+    /// :nodoc:
     public static func < (lhs: RowIndex, rhs: RowIndex) -> Bool {
         return lhs.index < rhs.index
+    }
+}
+
+// Strideable: support for Row: RandomAccessCollection
+extension RowIndex {
+    /// :nodoc:
+    public func distance(to other: RowIndex) -> Int {
+        return other.index - index
+    }
+    
+    /// :nodoc:
+    public func advanced(by n: Int) -> RowIndex {
+        return RowIndex(index + n)
     }
 }
 
@@ -867,6 +935,9 @@ protocol RowImpl {
     var count: Int { get }
     var isFetched: Bool { get }
     func databaseValue(atUncheckedIndex index: Int) -> DatabaseValue
+    func fastValue<Value: DatabaseValueConvertible & StatementColumnConvertible>(atUncheckedIndex index: Int) -> Value
+    func fastValue<Value: DatabaseValueConvertible & StatementColumnConvertible>(atUncheckedIndex index: Int) -> Value?
+    func hasNull(atUncheckedIndex index:Int) -> Bool
     func dataNoCopy(atUncheckedIndex index:Int) -> Data?
     func columnName(atUncheckedIndex index: Int) -> String
     
@@ -881,6 +952,27 @@ protocol RowImpl {
     func copy(_ row: Row) -> Row
 }
 
+extension RowImpl {
+    func hasNull(atUncheckedIndex index:Int) -> Bool {
+        return databaseValue(atUncheckedIndex: index).isNull
+    }
+    
+    func value<Value: DatabaseValueConvertible>(atUncheckedIndex index: Int) -> Value {
+        return databaseValue(atUncheckedIndex: index).losslessConvert()
+    }
+    
+    func value<Value: DatabaseValueConvertible>(atUncheckedIndex index: Int) -> Value? {
+        return databaseValue(atUncheckedIndex: index).losslessConvert()
+    }
+    
+    func fastValue<Value: DatabaseValueConvertible & StatementColumnConvertible>(atUncheckedIndex index: Int) -> Value {
+        return databaseValue(atUncheckedIndex: index).losslessConvert()
+    }
+    
+    func fastValue<Value: DatabaseValueConvertible & StatementColumnConvertible>(atUncheckedIndex index: Int) -> Value? {
+        return databaseValue(atUncheckedIndex: index).losslessConvert()
+    }
+}
 
 /// See Row.init(dictionary:)
 private struct ArrayRowImpl : RowImpl {
@@ -1009,6 +1101,11 @@ private struct StatementRowImpl : RowImpl {
         return true
     }
     
+    func hasNull(atUncheckedIndex index:Int) -> Bool {
+        // Avoid extracting values, because this modifies the statement.
+        return sqlite3_column_type(sqliteStatement, Int32(index)) == SQLITE_NULL
+    }
+    
     func dataNoCopy(atUncheckedIndex index:Int) -> Data? {
         guard sqlite3_column_type(sqliteStatement, Int32(index)) != SQLITE_NULL else {
             return nil
@@ -1024,6 +1121,14 @@ private struct StatementRowImpl : RowImpl {
         return DatabaseValue(sqliteStatement: sqliteStatement, index: Int32(index))
     }
     
+    func fastValue<Value: DatabaseValueConvertible & StatementColumnConvertible>(atUncheckedIndex index: Int) -> Value {
+        return Value.losslessConvert(sqliteStatement: sqliteStatement, index: Int32(index))
+    }
+    
+    func fastValue<Value: DatabaseValueConvertible & StatementColumnConvertible>(atUncheckedIndex index: Int) -> Value? {
+        return Value.losslessConvert(sqliteStatement: sqliteStatement, index: Int32(index))
+    }
+
     func columnName(atUncheckedIndex index: Int) -> String {
         return statementRef.takeUnretainedValue().columnNames[index]
     }

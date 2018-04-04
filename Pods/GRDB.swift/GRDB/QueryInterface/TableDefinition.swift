@@ -19,7 +19,9 @@ extension Database {
     /// - parameters:
     ///     - name: The table name.
     ///     - temporary: If true, creates a temporary table.
-    ///     - ifNotExists: If false, no error is thrown if table already exists.
+    ///     - ifNotExists: If false (the default), an error is thrown if the
+    ///       table already exists. Otherwise, the table is created unless it
+    ///       already exists.
     ///     - withoutRowID: If true, uses WITHOUT ROWID optimization.
     ///     - body: A closure that defines table columns and constraints.
     /// - throws: A DatabaseError whenever an SQLite error occurs.
@@ -46,7 +48,9 @@ extension Database {
     /// - parameters:
     ///     - name: The table name.
     ///     - temporary: If true, creates a temporary table.
-    ///     - ifNotExists: If false, no error is thrown if table already exists.
+    ///     - ifNotExists: If false (the default), an error is thrown if the
+    ///       table already exists. Otherwise, the table is created unless it
+    ///       already exists.
     ///     - withoutRowID: If true, uses WITHOUT ROWID optimization.
     ///     - body: A closure that defines table columns and constraints.
     /// - throws: A DatabaseError whenever an SQLite error occurs.
@@ -75,7 +79,9 @@ extension Database {
     /// - parameters:
     ///     - name: The table name.
     ///     - temporary: If true, creates a temporary table.
-    ///     - ifNotExists: If false, no error is thrown if table already exists.
+    ///     - ifNotExists: If false (the default), an error is thrown if the
+    ///       table already exists. Otherwise, the table is created unless it
+    ///       already exists.
     ///     - body: A closure that defines table columns and constraints.
     /// - throws: A DatabaseError whenever an SQLite error occurs.
     public func create(table name: String, temporary: Bool = false, ifNotExists: Bool = false, body: (TableDefinition) -> Void) throws {
@@ -457,7 +463,7 @@ public final class TableDefinition {
         }
         
         let indexStatements = columns
-            .flatMap { $0.indexDefinition(in: name) }
+            .compactMap { $0.indexDefinition(in: name) }
             .map { $0.sql() }
         statements.append(contentsOf: indexStatements)
         return statements.joined(separator: "; ")
@@ -495,7 +501,7 @@ public final class TableAlteration {
     /// - returns: An ColumnDefinition that allows you to refine the
     ///   column definition.
     @discardableResult
-    public func add(column name: String, _ type: Database.ColumnType) -> ColumnDefinition {
+    public func add(column name: String, _ type: Database.ColumnType? = nil) -> ColumnDefinition {
         let column = ColumnDefinition(name: name, type: type)
         addedColumns.append(column)
         return column
