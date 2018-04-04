@@ -63,47 +63,7 @@ extension Array where Element: NSAttributedString {
 }
 
 extension String {
-    var length: Int {
-        return self.count
-    }
-    
-    subscript (i: Int) -> String {
-        get {
-            return self[Range(i ..< i + 1)]
-        }
-        
-        set(value) {
-            let index = self.index(self.startIndex, offsetBy: i)
-            self.replaceSubrange(index ... index, with: value)
-            //self.replacingCharacters(in: Range(i ... i + 1), with: value)
-        }
-    }
-    
-    func substring(from: Int) -> String {
-        return self[Range(min(from, length) ..< length)]
-    }
-    
-    func substring(to: Int) -> String {
-        return self[Range(0 ..< min(to, length))]
-    }
-    
-    subscript (r: Range<Int>) -> String {
-        let range = Range(uncheckedBounds: (lower: max(0, min(length, r.lowerBound)),
-                                            upper: min(length, max(0, r.upperBound))))
-        let start = index(startIndex, offsetBy: range.lowerBound)
-        let end = index(start, offsetBy: range.upperBound - range.lowerBound)
-        return String(self[Range(start ..< end)])
-    }
-}
-
-
-extension String {
     func slice(from: String, to: String) -> String? {
-        /*if let start = self.range(of: from),
-            let end = self.range(of: to) {
-            return
-        }*/
-        
         return (range(of: from)?.upperBound).flatMap { substringFrom in
             (range(of: to, range: substringFrom..<endIndex)?.lowerBound).map { substringTo in
                 String(self[substringFrom..<substringTo])
