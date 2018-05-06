@@ -13,7 +13,7 @@ class Database {
     
     init() {
         do {
-            dbQueue = try DatabaseQueue(path: Bundle.main.path(forResource: "mhgen", ofType: "db")!)
+            dbQueue = try DatabaseQueue(path: Bundle.main.path(forResource: "mhw", ofType: "db")!)
         } catch {
             fatalError("Could not load DB")
         }
@@ -27,6 +27,11 @@ class Database {
         } catch {
             return nil
         }
+    }
+    
+    // TODO: kill all the other fetch functions
+    func fetch<T: RowConvertible>(_ query: Query) -> [T] {
+        return fetch(query.query)
     }
     
     func fetch<T: RowConvertible>(_ query: String, params: [DatabaseValueConvertible?]? = nil) -> [T] {
@@ -54,7 +59,7 @@ class Database {
         // this implementation is silly
         RowString.column = column
         let rows = fetch(query) as [RowString]
-      let values = rows.compactMap { $0.value }
+        let values = rows.compactMap { $0.value }
         return values
     }
     
@@ -77,7 +82,9 @@ class Database {
             params.append("%\(search)%")
         }
         
-        let query = "\(select) \(finalFilter) \(order ?? "")"
+        let orderString = order != nil ? "ORDER BY \(order ?? "")" : ""
+        
+        let query = [select, finalFilter, orderString].joined(separator: " ")
         
         return fetch(query, params: params)
     }
@@ -90,23 +97,3 @@ class RowString: RowConvertible {
         value = row[RowString.column]
     }
 }
-
-/*precedencegroup GRDBPrecedence {
-    associativity: right
-    higherThan: CastingPrecedence
-}
-
-infix operator =>: GRDBPrecedence
-
-public func => <Value: DatabaseValueConvertible>(row: Row, column: String) -> Value {
-    return row.value[column]
-}
-
-public func => <Value: DatabaseValueConvertible>(row: Row, column: String) -> Value? {
-    return row.value[column]
-}*/
-
-/* Not supported till Swift 4
- subscript<Value: DatabaseValueConvertible>(row: Row, column: String) -> Value? {
-    return row.value(named: column)
-}*/

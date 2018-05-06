@@ -7,7 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1405268B207EF640001A5E96 /* mhw.db in Resources */ = {isa = PBXBuildFile; fileRef = 1405268A207EF640001A5E96 /* mhw.db */; };
 		140A133C1EDB57B9002FD025 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140A133B1EDB57B9002FD025 /* Search.swift */; };
+		144306D5209EDC7600D60A5A /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144306D4209EDC7600D60A5A /* Monster.swift */; };
+		144306D7209EEFFF00D60A5A /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144306D6209EEFFF00D60A5A /* Query.swift */; };
+		144306DA209F5BD300D60A5A /* MonsterHabitat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144306D9209F5BD300D60A5A /* MonsterHabitat.swift */; };
+		144306DC209F72C800D60A5A /* MonsterDamage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144306DB209F72C800D60A5A /* MonsterDamage.swift */; };
+		144306DE209FA95C00D60A5A /* MonsterRewards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144306DD209FA95C00D60A5A /* MonsterRewards.swift */; };
 		1452DB1E1F71061F006A11D7 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1452DB1D1F71061F006A11D7 /* UserDefaults.swift */; };
 		1452DB201F7108F8006A11D7 /* Int+TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1452DB1F1F7108F8006A11D7 /* Int+TimeInterval.swift */; };
 		145FEA771F78A6C100BF9237 /* ReviewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145FEA761F78A6C100BF9237 /* ReviewManager.swift */; };
@@ -19,7 +25,6 @@
 		14A24D781EA9D05400755F6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A2496E1EA9D05300755F6A /* AppDelegate.swift */; };
 		14A24D791EA9D05400755F6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14A249701EA9D05300755F6A /* Assets.xcassets */; };
 		14A24D7A1EA9D05400755F6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14A249711EA9D05300755F6A /* LaunchScreen.storyboard */; };
-		14A24D7B1EA9D05400755F6A /* mhgen.db in Resources */ = {isa = PBXBuildFile; fileRef = 14A249741EA9D05300755F6A /* mhgen.db */; };
 		14A24D7C1EA9D05400755F6A /* arms1.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A249771EA9D05300755F6A /* arms1.png */; };
 		14A24D7D1EA9D05400755F6A /* arms10.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A249781EA9D05300755F6A /* arms10.png */; };
 		14A24D7E1EA9D05400755F6A /* arms2.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A249791EA9D05300755F6A /* arms2.png */; };
@@ -950,7 +955,6 @@
 		14A251201EA9D05400755F6A /* ElementStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A24D3A1EA9D05400755F6A /* ElementStats.swift */; };
 		14A251211EA9D05400755F6A /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A24D3B1EA9D05400755F6A /* Item.swift */; };
 		14A251221EA9D05400755F6A /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A24D3C1EA9D05400755F6A /* Location.swift */; };
-		14A251231EA9D05400755F6A /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A24D3D1EA9D05400755F6A /* Monster.swift */; };
 		14A251241EA9D05400755F6A /* Quest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A24D3E1EA9D05400755F6A /* Quest.swift */; };
 		14A251251EA9D05400755F6A /* Sharpness.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A24D3F1EA9D05400755F6A /* Sharpness.swift */; };
 		14A251261EA9D05400755F6A /* SkillTree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A24D401EA9D05400755F6A /* SkillTree.swift */; };
@@ -972,7 +976,6 @@
 		14A251371EA9D05400755F6A /* ListMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A24D581EA9D05400755F6A /* ListMenu.swift */; };
 		14A251381EA9D05400755F6A /* SearchAllListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A24D591EA9D05400755F6A /* SearchAllListController.swift */; };
 		14A2513C1EA9D05500755F6A /* MonsterDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A24D5F1EA9D05400755F6A /* MonsterDetails.swift */; };
-		14A2513D1EA9D05500755F6A /* MonsterDetailSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A24D601EA9D05400755F6A /* MonsterDetailSection.swift */; };
 		14A2513E1EA9D05500755F6A /* MonsterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A24D611EA9D05400755F6A /* MonsterList.swift */; };
 		14A251401EA9D05500755F6A /* QuestDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A24D641EA9D05400755F6A /* QuestDetails.swift */; };
 		14A251411EA9D05500755F6A /* QuestDetailSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A24D651EA9D05400755F6A /* QuestDetailSection.swift */; };
@@ -983,7 +986,6 @@
 		14A251491EA9D05500755F6A /* WeaponDetailSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A24D701EA9D05400755F6A /* WeaponDetailSection.swift */; };
 		14A2514A1EA9D05500755F6A /* WeaponList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A24D711EA9D05400755F6A /* WeaponList.swift */; };
 		14A2514C1EA9D05500755F6A /* WeaponTypeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A24D731EA9D05400755F6A /* WeaponTypeList.swift */; };
-		14A251501EA9D0CE00755F6A /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A24D771EA9D05400755F6A /* Tests.swift */; };
 		14A251571EABCE0500755F6A /* SimpleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A251561EABCE0500755F6A /* SimpleTableViewController.swift */; };
 		14A251591EAC41B800755F6A /* String+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A251581EAC41B800755F6A /* String+Additions.swift */; };
 		14C36CD81EBCD1D900A41C6E /* SubSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C36CD71EBCD1D900A41C6E /* SubSection.swift */; };
@@ -1019,7 +1021,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1405268A207EF640001A5E96 /* mhw.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = mhw.db; sourceTree = "<group>"; };
 		140A133B1EDB57B9002FD025 /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		144306D4209EDC7600D60A5A /* Monster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
+		144306D6209EEFFF00D60A5A /* Query.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Query.swift; sourceTree = "<group>"; };
+		144306D9209F5BD300D60A5A /* MonsterHabitat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterHabitat.swift; sourceTree = "<group>"; };
+		144306DB209F72C800D60A5A /* MonsterDamage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDamage.swift; sourceTree = "<group>"; };
+		144306DD209FA95C00D60A5A /* MonsterRewards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterRewards.swift; sourceTree = "<group>"; };
 		1452DB1D1F71061F006A11D7 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		1452DB1F1F7108F8006A11D7 /* Int+TimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+TimeInterval.swift"; sourceTree = "<group>"; };
 		145495641EA9CEC5004FA5FA /* MHGDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MHGDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1033,7 +1041,6 @@
 		14A2496E1EA9D05300755F6A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14A249701EA9D05300755F6A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14A249721EA9D05300755F6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		14A249741EA9D05300755F6A /* mhgen.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = mhgen.db; sourceTree = "<group>"; };
 		14A249771EA9D05300755F6A /* arms1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arms1.png; sourceTree = "<group>"; };
 		14A249781EA9D05300755F6A /* arms10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arms10.png; sourceTree = "<group>"; };
 		14A249791EA9D05300755F6A /* arms2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arms2.png; sourceTree = "<group>"; };
@@ -1965,7 +1972,6 @@
 		14A24D3A1EA9D05400755F6A /* ElementStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementStats.swift; sourceTree = "<group>"; };
 		14A24D3B1EA9D05400755F6A /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		14A24D3C1EA9D05400755F6A /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
-		14A24D3D1EA9D05400755F6A /* Monster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
 		14A24D3E1EA9D05400755F6A /* Quest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Quest.swift; sourceTree = "<group>"; };
 		14A24D3F1EA9D05400755F6A /* Sharpness.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Sharpness.swift; sourceTree = "<group>"; };
 		14A24D401EA9D05400755F6A /* SkillTree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SkillTree.swift; sourceTree = "<group>"; };
@@ -1987,7 +1993,6 @@
 		14A24D581EA9D05400755F6A /* ListMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListMenu.swift; sourceTree = "<group>"; };
 		14A24D591EA9D05400755F6A /* SearchAllListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchAllListController.swift; sourceTree = "<group>"; };
 		14A24D5F1EA9D05400755F6A /* MonsterDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterDetails.swift; sourceTree = "<group>"; };
-		14A24D601EA9D05400755F6A /* MonsterDetailSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterDetailSection.swift; sourceTree = "<group>"; };
 		14A24D611EA9D05400755F6A /* MonsterList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterList.swift; sourceTree = "<group>"; };
 		14A24D641EA9D05400755F6A /* QuestDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestDetails.swift; sourceTree = "<group>"; };
 		14A24D651EA9D05400755F6A /* QuestDetailSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestDetailSection.swift; sourceTree = "<group>"; };
@@ -1998,7 +2003,6 @@
 		14A24D701EA9D05400755F6A /* WeaponDetailSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeaponDetailSection.swift; sourceTree = "<group>"; };
 		14A24D711EA9D05400755F6A /* WeaponList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeaponList.swift; sourceTree = "<group>"; };
 		14A24D731EA9D05400755F6A /* WeaponTypeList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeaponTypeList.swift; sourceTree = "<group>"; };
-		14A24D771EA9D05400755F6A /* Tests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		14A251561EABCE0500755F6A /* SimpleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleTableViewController.swift; sourceTree = "<group>"; };
 		14A251581EAC41B800755F6A /* String+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Additions.swift"; sourceTree = "<group>"; };
 		14C36CD71EBCD1D900A41C6E /* SubSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubSection.swift; sourceTree = "<group>"; };
@@ -2058,13 +2062,202 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		144306D8209F5A5400D60A5A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				144306D4209EDC7600D60A5A /* Monster.swift */,
+				144306DB209F72C800D60A5A /* MonsterDamage.swift */,
+				144306D9209F5BD300D60A5A /* MonsterHabitat.swift */,
+				144306DD209FA95C00D60A5A /* MonsterRewards.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		144306DF209FAAAF00D60A5A /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				14A24D5F1EA9D05400755F6A /* MonsterDetails.swift */,
+				14A24D611EA9D05400755F6A /* MonsterList.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		144306E0209FB32B00D60A5A /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				14A24D6F1EA9D05400755F6A /* WeaponDetails.swift */,
+				14A24D701EA9D05400755F6A /* WeaponDetailSection.swift */,
+				14A24D711EA9D05400755F6A /* WeaponList.swift */,
+				14A24D731EA9D05400755F6A /* WeaponTypeList.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		144306E1209FB34F00D60A5A /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				14A24D681EA9D05400755F6A /* SkillDetails.swift */,
+				14A24D691EA9D05400755F6A /* SkillList.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		144306E2209FB36200D60A5A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				14A24D401EA9D05400755F6A /* SkillTree.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		144306E3209FB37100D60A5A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				14A24D371EA9D05400755F6A /* Component.swift */,
+				14A24D3F1EA9D05400755F6A /* Sharpness.swift */,
+				14A24D411EA9D05400755F6A /* Weapon.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		144306E4209FB3E100D60A5A /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				14E704171EB8EB5100EA2E71 /* PalicoList.swift */,
+				14612B121EB8EEA000DB7F64 /* PalicoWeaponDetail.swift */,
+				14612B161EB9B49900DB7F64 /* PalicoWeaponDetailSection.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		144306E5209FB3F200D60A5A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				14E704131EB8E9FC00EA2E71 /* PalicoWeapon.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		144306E6209FB41A00D60A5A /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				14A24D4C1EA9D05400755F6A /* DecorationDetails.swift */,
+				14A24D4D1EA9D05400755F6A /* DecorationDetailSection.swift */,
+				14A24D4E1EA9D05400755F6A /* DecorationList.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		144306E7209FB42600D60A5A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				14A24D381EA9D05400755F6A /* Decoration.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		144306E8209FB43F00D60A5A /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				14A24D501EA9D05400755F6A /* ItemDetails.swift */,
+				14A24D511EA9D05400755F6A /* ItemDetailSection.swift */,
+				14A24D521EA9D05400755F6A /* ItemList.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		144306E9209FB44B00D60A5A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				14A24D3B1EA9D05400755F6A /* Item.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		144306EA209FB49400D60A5A /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				14A24D441EA9D05400755F6A /* ArmorDetails.swift */,
+				14A24D461EA9D05400755F6A /* ArmorList.swift */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		144306EB209FB4A100D60A5A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				14A24D351EA9D05400755F6A /* Armor.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		144306EC209FB4FB00D60A5A /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				14A24D561EA9D05400755F6A /* MapCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		144306ED209FB50700D60A5A /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				14A24D541EA9D05400755F6A /* LocationDetails.swift */,
+				14A24D551EA9D05400755F6A /* LocationList.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		144306EE209FB50D00D60A5A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				14A24D3C1EA9D05400755F6A /* Location.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		144306EF209FB53000D60A5A /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				14A24D641EA9D05400755F6A /* QuestDetails.swift */,
+				14A24D651EA9D05400755F6A /* QuestDetailSection.swift */,
+				14A24D661EA9D05400755F6A /* QuestList.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		144306F0209FB53B00D60A5A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				14A24D3E1EA9D05400755F6A /* Quest.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		144306F1209FB54F00D60A5A /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				14A24D481EA9D05400755F6A /* CombinationCell.swift */,
+				14A24D491EA9D05400755F6A /* CombinationDetail.swift */,
+				14A24D4A1EA9D05400755F6A /* CombinationList.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		144306F2209FB55500D60A5A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				14A24D361EA9D05400755F6A /* Combination.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		1454955B1EA9CEC5004FA5FA = {
 			isa = PBXGroup;
 			children = (
 				14A2496D1EA9D05300755F6A /* App */,
 				14A2496F1EA9D05300755F6A /* Assets */,
 				14A24D0D1EA9D05400755F6A /* Common */,
-				14A24D341EA9D05400755F6A /* Model */,
 				14A24D421EA9D05400755F6A /* Screens */,
 				14A24D751EA9D05400755F6A /* Tests */,
 				145495651EA9CEC5004FA5FA /* Products */,
@@ -2082,12 +2275,12 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		14612B181EBA3EC800DB7F64 /* Custom */ = {
+		14612B181EBA3EC800DB7F64 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				14612B191EBA3EC800DB7F64 /* PalicoWeaponCell.swift */,
 			);
-			path = Custom;
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		14A2496D1EA9D05300755F6A /* App */ = {
@@ -2121,7 +2314,7 @@
 		14A249731EA9D05300755F6A /* databases */ = {
 			isa = PBXGroup;
 			children = (
-				14A249741EA9D05300755F6A /* mhgen.db */,
+				1405268A207EF640001A5E96 /* mhw.db */,
 			);
 			path = databases;
 			sourceTree = "<group>";
@@ -3220,6 +3413,7 @@
 				14A24D0E1EA9D05400755F6A /* Categories */,
 				14A24D181EA9D05400755F6A /* Cells */,
 				14DF85431EC297DA00F9AD1D /* ListGrid */,
+				14A24D341EA9D05400755F6A /* Models */,
 				14A24D261EA9D05400755F6A /* TableAbstraction */,
 				14A24D2E1EA9D05400755F6A /* Tree */,
 				14A24D1E1EA9D05400755F6A /* Database.swift */,
@@ -3229,6 +3423,7 @@
 				14A24D251EA9D05400755F6A /* Styles.swift */,
 				1452DB1D1F71061F006A11D7 /* UserDefaults.swift */,
 				145FEA761F78A6C100BF9237 /* ReviewManager.swift */,
+				144306D6209EEFFF00D60A5A /* Query.swift */,
 			);
 			name = Common;
 			path = MHGDB/Common;
@@ -3303,27 +3498,13 @@
 			path = Tree;
 			sourceTree = "<group>";
 		};
-		14A24D341EA9D05400755F6A /* Model */ = {
+		14A24D341EA9D05400755F6A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				14A24D351EA9D05400755F6A /* Armor.swift */,
-				14A24D361EA9D05400755F6A /* Combination.swift */,
-				14A24D371EA9D05400755F6A /* Component.swift */,
-				14A24D381EA9D05400755F6A /* Decoration.swift */,
 				14A24D391EA9D05400755F6A /* Element.swift */,
 				14A24D3A1EA9D05400755F6A /* ElementStats.swift */,
-				14A24D3B1EA9D05400755F6A /* Item.swift */,
-				14A24D3C1EA9D05400755F6A /* Location.swift */,
-				14A24D3D1EA9D05400755F6A /* Monster.swift */,
-				14E704131EB8E9FC00EA2E71 /* PalicoWeapon.swift */,
-				14A24D3E1EA9D05400755F6A /* Quest.swift */,
-				140A133B1EDB57B9002FD025 /* Search.swift */,
-				14A24D3F1EA9D05400755F6A /* Sharpness.swift */,
-				14A24D401EA9D05400755F6A /* SkillTree.swift */,
-				14A24D411EA9D05400755F6A /* Weapon.swift */,
 			);
-			name = Model;
-			path = MHGDB/Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		14A24D421EA9D05400755F6A /* Screens */ = {
@@ -3348,8 +3529,8 @@
 		14A24D431EA9D05400755F6A /* Armor */ = {
 			isa = PBXGroup;
 			children = (
-				14A24D441EA9D05400755F6A /* ArmorDetails.swift */,
-				14A24D461EA9D05400755F6A /* ArmorList.swift */,
+				144306EB209FB4A100D60A5A /* Models */,
+				144306EA209FB49400D60A5A /* Screen */,
 			);
 			path = Armor;
 			sourceTree = "<group>";
@@ -3357,9 +3538,8 @@
 		14A24D471EA9D05400755F6A /* Combination */ = {
 			isa = PBXGroup;
 			children = (
-				14A24D481EA9D05400755F6A /* CombinationCell.swift */,
-				14A24D491EA9D05400755F6A /* CombinationDetail.swift */,
-				14A24D4A1EA9D05400755F6A /* CombinationList.swift */,
+				144306F2209FB55500D60A5A /* Models */,
+				144306F1209FB54F00D60A5A /* Screens */,
 			);
 			path = Combination;
 			sourceTree = "<group>";
@@ -3367,9 +3547,8 @@
 		14A24D4B1EA9D05400755F6A /* Decoration */ = {
 			isa = PBXGroup;
 			children = (
-				14A24D4C1EA9D05400755F6A /* DecorationDetails.swift */,
-				14A24D4D1EA9D05400755F6A /* DecorationDetailSection.swift */,
-				14A24D4E1EA9D05400755F6A /* DecorationList.swift */,
+				144306E7209FB42600D60A5A /* Models */,
+				144306E6209FB41A00D60A5A /* Screens */,
 			);
 			path = Decoration;
 			sourceTree = "<group>";
@@ -3377,9 +3556,8 @@
 		14A24D4F1EA9D05400755F6A /* Item */ = {
 			isa = PBXGroup;
 			children = (
-				14A24D501EA9D05400755F6A /* ItemDetails.swift */,
-				14A24D511EA9D05400755F6A /* ItemDetailSection.swift */,
-				14A24D521EA9D05400755F6A /* ItemList.swift */,
+				144306E9209FB44B00D60A5A /* Models */,
+				144306E8209FB43F00D60A5A /* Screens */,
 			);
 			path = Item;
 			sourceTree = "<group>";
@@ -3387,9 +3565,9 @@
 		14A24D531EA9D05400755F6A /* Location */ = {
 			isa = PBXGroup;
 			children = (
-				14A24D541EA9D05400755F6A /* LocationDetails.swift */,
-				14A24D551EA9D05400755F6A /* LocationList.swift */,
-				14A24D561EA9D05400755F6A /* MapCell.swift */,
+				144306EE209FB50D00D60A5A /* Models */,
+				144306ED209FB50700D60A5A /* Screens */,
+				144306EC209FB4FB00D60A5A /* Cells */,
 			);
 			path = Location;
 			sourceTree = "<group>";
@@ -3397,6 +3575,7 @@
 		14A24D571EA9D05400755F6A /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				140A133B1EDB57B9002FD025 /* Search.swift */,
 				14A24D581EA9D05400755F6A /* ListMenu.swift */,
 				14A24D591EA9D05400755F6A /* SearchAllListController.swift */,
 			);
@@ -3406,10 +3585,9 @@
 		14A24D5A1EA9D05400755F6A /* Monster */ = {
 			isa = PBXGroup;
 			children = (
-				14A2515A1EAC8E1400755F6A /* Custom */,
-				14A24D5F1EA9D05400755F6A /* MonsterDetails.swift */,
-				14A24D601EA9D05400755F6A /* MonsterDetailSection.swift */,
-				14A24D611EA9D05400755F6A /* MonsterList.swift */,
+				14A2515A1EAC8E1400755F6A /* Cells */,
+				144306D8209F5A5400D60A5A /* Models */,
+				144306DF209FAAAF00D60A5A /* Screens */,
 			);
 			path = Monster;
 			sourceTree = "<group>";
@@ -3417,9 +3595,8 @@
 		14A24D631EA9D05400755F6A /* Quest */ = {
 			isa = PBXGroup;
 			children = (
-				14A24D641EA9D05400755F6A /* QuestDetails.swift */,
-				14A24D651EA9D05400755F6A /* QuestDetailSection.swift */,
-				14A24D661EA9D05400755F6A /* QuestList.swift */,
+				144306F0209FB53B00D60A5A /* Models */,
+				144306EF209FB53000D60A5A /* Screens */,
 			);
 			path = Quest;
 			sourceTree = "<group>";
@@ -3427,8 +3604,8 @@
 		14A24D671EA9D05400755F6A /* Skill */ = {
 			isa = PBXGroup;
 			children = (
-				14A24D681EA9D05400755F6A /* SkillDetails.swift */,
-				14A24D691EA9D05400755F6A /* SkillList.swift */,
+				144306E2209FB36200D60A5A /* Models */,
+				144306E1209FB34F00D60A5A /* Screens */,
 			);
 			path = Skill;
 			sourceTree = "<group>";
@@ -3436,11 +3613,9 @@
 		14A24D6A1EA9D05400755F6A /* Weapon */ = {
 			isa = PBXGroup;
 			children = (
-				14E2B4FD1EAD2229002A2A89 /* Custom */,
-				14A24D6F1EA9D05400755F6A /* WeaponDetails.swift */,
-				14A24D701EA9D05400755F6A /* WeaponDetailSection.swift */,
-				14A24D711EA9D05400755F6A /* WeaponList.swift */,
-				14A24D731EA9D05400755F6A /* WeaponTypeList.swift */,
+				14E2B4FD1EAD2229002A2A89 /* Cells */,
+				144306E3209FB37100D60A5A /* Models */,
+				144306E0209FB32B00D60A5A /* Screens */,
 			);
 			path = Weapon;
 			sourceTree = "<group>";
@@ -3448,7 +3623,6 @@
 		14A24D751EA9D05400755F6A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				14A24D771EA9D05400755F6A /* Tests.swift */,
 				145FEA781F78A82400BF9237 /* ReviewTests.swift */,
 				14C4BE381F9D2DA0000DB8EC /* DataTests.swift */,
 			);
@@ -3456,13 +3630,13 @@
 			path = MHGDB/Tests;
 			sourceTree = "<group>";
 		};
-		14A2515A1EAC8E1400755F6A /* Custom */ = {
+		14A2515A1EAC8E1400755F6A /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				14E2B50C1EAE5E46002A2A89 /* MonsterStatusesCell.swift */,
 				14E704031EB6506300EA2E71 /* MonsterDamagesCell.swift */,
 			);
-			path = Custom;
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		14DF85431EC297DA00F9AD1D /* ListGrid */ = {
@@ -3473,7 +3647,7 @@
 			path = ListGrid;
 			sourceTree = "<group>";
 		};
-		14E2B4FD1EAD2229002A2A89 /* Custom */ = {
+		14E2B4FD1EAD2229002A2A89 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				14E2B4FE1EAD2229002A2A89 /* SharpnessesView.swift */,
@@ -3482,16 +3656,15 @@
 				14E2B5021EAD2229002A2A89 /* WeaponView.swift */,
 				14E2B5101EAE6511002A2A89 /* AmmoCell.swift */,
 			);
-			path = Custom;
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		14E704161EB8EB4100EA2E71 /* PalicoWeapon */ = {
 			isa = PBXGroup;
 			children = (
-				14612B181EBA3EC800DB7F64 /* Custom */,
-				14E704171EB8EB5100EA2E71 /* PalicoList.swift */,
-				14612B121EB8EEA000DB7F64 /* PalicoWeaponDetail.swift */,
-				14612B161EB9B49900DB7F64 /* PalicoWeaponDetailSection.swift */,
+				14612B181EBA3EC800DB7F64 /* Cells */,
+				144306E5209FB3F200D60A5A /* Model */,
+				144306E4209FB3E100D60A5A /* Screens */,
 			);
 			path = PalicoWeapon;
 			sourceTree = "<group>";
@@ -3973,6 +4146,7 @@
 				14A24EAC1EA9D05400755F6A /* Meat-Blue.png in Resources */,
 				14A24FEB1EA9D05400755F6A /* Gold_Rathian.png in Resources */,
 				14A24E0C1EA9D05400755F6A /* Bug-Grey.png in Resources */,
+				1405268B207EF640001A5E96 /* mhw.db in Resources */,
 				14A24FB51EA9D05400755F6A /* maps_mh4_speartip_crag_mini.png in Resources */,
 				14A24F321EA9D05400755F6A /* Shell-Grey.png in Resources */,
 				14A24EC91EA9D05400755F6A /* Mushroom-Pink.png in Resources */,
@@ -4214,7 +4388,6 @@
 				14A250B31EA9D05400755F6A /* heavy_bowgun9.png in Resources */,
 				14A24E3A1EA9D05400755F6A /* Dung-Yellow.png in Resources */,
 				14A24ED11EA9D05400755F6A /* Nectar-Grey.png in Resources */,
-				14A24D7B1EA9D05400755F6A /* mhgen.db in Resources */,
 				14A2501C1EA9D05400755F6A /* Shagaru_Magala.png in Resources */,
 				14A24DE31EA9D05400755F6A /* Bomb-Yellow.png in Resources */,
 				14A24DC81EA9D05400755F6A /* Bait-Red.png in Resources */,
@@ -4618,6 +4791,7 @@
 				14E704041EB6506400EA2E71 /* MonsterDamagesCell.swift in Sources */,
 				14A2511D1EA9D05400755F6A /* Component.swift in Sources */,
 				14A251121EA9D05400755F6A /* DetailSection.swift in Sources */,
+				144306DA209F5BD300D60A5A /* MonsterHabitat.swift in Sources */,
 				14A251061EA9D05400755F6A /* ImageLabelCell.swift in Sources */,
 				14A24D781EA9D05400755F6A /* AppDelegate.swift in Sources */,
 				14A251081EA9D05400755F6A /* SingleDetailCell.swift in Sources */,
@@ -4656,6 +4830,7 @@
 				14A2511F1EA9D05400755F6A /* Element.swift in Sources */,
 				14E2B50B1EAD7AC9002A2A89 /* LabelStack.swift in Sources */,
 				14E2B5151EB174A5002A2A89 /* AppDelegate+Testing.swift in Sources */,
+				144306DE209FA95C00D60A5A /* MonsterRewards.swift in Sources */,
 				14A251311EA9D05400755F6A /* ItemDetails.swift in Sources */,
 				14A251571EABCE0500755F6A /* SimpleTableViewController.swift in Sources */,
 				14A251171EA9D05400755F6A /* Tree.swift in Sources */,
@@ -4677,7 +4852,6 @@
 				14A2511E1EA9D05400755F6A /* Decoration.swift in Sources */,
 				14C36CD81EBCD1D900A41C6E /* SubSection.swift in Sources */,
 				14A251031EA9D05400755F6A /* UIView+AutoLayout.swift in Sources */,
-				14A2513D1EA9D05500755F6A /* MonsterDetailSection.swift in Sources */,
 				14A2511A1EA9D05400755F6A /* TreeSection.swift in Sources */,
 				14A251271EA9D05400755F6A /* Weapon.swift in Sources */,
 				14A251001EA9D05400755F6A /* UIAlertController+Block.swift in Sources */,
@@ -4688,16 +4862,18 @@
 				14DF85451EC297E400F9AD1D /* ListGrid.swift in Sources */,
 				14A251281EA9D05400755F6A /* ArmorDetails.swift in Sources */,
 				14A251431EA9D05500755F6A /* SkillDetails.swift in Sources */,
-				14A251231EA9D05400755F6A /* Monster.swift in Sources */,
 				14A250FE1EA9D05400755F6A /* NSAttributedString+Swift.swift in Sources */,
 				14A250FF1EA9D05400755F6A /* NSIndexPath+Array.swift in Sources */,
 				14A2512E1EA9D05400755F6A /* DecorationDetails.swift in Sources */,
 				1452DB201F7108F8006A11D7 /* Int+TimeInterval.swift in Sources */,
 				14E2B5131EB1041D002A2A89 /* Logging.swift in Sources */,
+				144306D5209EDC7600D60A5A /* Monster.swift in Sources */,
 				14A251241EA9D05400755F6A /* Quest.swift in Sources */,
+				144306D7209EEFFF00D60A5A /* Query.swift in Sources */,
 				14A251411EA9D05500755F6A /* QuestDetailSection.swift in Sources */,
 				14A251091EA9D05400755F6A /* Database.swift in Sources */,
 				14E704141EB8E9FC00EA2E71 /* PalicoWeapon.swift in Sources */,
+				144306DC209F72C800D60A5A /* MonsterDamage.swift in Sources */,
 				14E2B5031EAD2229002A2A89 /* SharpnessesView.swift in Sources */,
 				14612B171EB9B49900DB7F64 /* PalicoWeaponDetailSection.swift in Sources */,
 				14A251351EA9D05400755F6A /* LocationList.swift in Sources */,
@@ -4718,7 +4894,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14A251501EA9D0CE00755F6A /* Tests.swift in Sources */,
 				14C4BE3A1F9D2DB6000DB8EC /* DataTests.swift in Sources */,
 				145FEA7A1F78A85200BF9237 /* ReviewTests.swift in Sources */,
 			);
