@@ -10,12 +10,12 @@ class WeaponTypeList: SimpleTableViewController {
     override func loadView() {
         super.loadView()
         
-        for weaponType in Weapon.WType.allValues {
+        for weaponType in WeaponType.allValues {
             addWeapon(weaponType: weaponType)
         }
     }
     
-    func addWeapon(weaponType: Weapon.WType) {
+    func addWeapon(weaponType: WeaponType) {
         addCell(text: weaponType.rawValue, imageName: weaponType.imageName, selectedBlock: { () in
             self.push(viewController: WeaponList(weaponType: weaponType))
         })

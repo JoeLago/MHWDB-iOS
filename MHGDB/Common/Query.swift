@@ -124,6 +124,12 @@ class Query {
     }
     
     @discardableResult
+    func filter(id: Any) -> Query {
+        filters.append(Filter(attribute: "\(table).id", value: id))
+        return self
+    }
+    
+    @discardableResult
     func order(by attribute: String, direction: Order.Direction = .asc) -> Query {
         orders.append(Order(attribute: attribute, direction: direction))
         return self

@@ -43,7 +43,7 @@ extension NSMutableAttributedString {
         self.init()
         append(string: "\(damage)")
         if let elementDamage = elementDamage, elementDamage > 0 {
-            appendImage(named: (element?.rawValue ?? "") + ".png")
+            appendImage(named: element?.imageName ?? "")
             append(string: " \(elementDamage)")
         }
         if let affinity = affinity, affinity != 0 {

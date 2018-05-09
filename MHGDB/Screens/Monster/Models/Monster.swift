@@ -27,7 +27,7 @@ class Monster: Decodable, RowConvertible {
 
 extension Database {
     func monster(id: Int) -> Monster {
-        let query = Query(table: "monster").join(table: "monster_text").filter("monster.id", equals: id)
+        let query = Query(table: "monster").join(table: "monster_text").filter(id: id)
         return fetch(query)[0]
     }
     

@@ -41,7 +41,7 @@ class WeaponView: TreeCellView<Weapon> {
     
     private func populateCell() {
         primaryTextLabel.text = weapon.name
-        sharpnessesView.sharpnesses = weapon.sharpnesses
+        sharpnessesView.sharpnesses = nil //weapon.sharpnesses
         populateAttack()
         populateSlots()
         populateAlternate()
@@ -81,7 +81,7 @@ class WeaponView: TreeCellView<Weapon> {
         attack.append(string: "\(weapon.attack ?? 0) ")
         
         if weapon.elementAttack ?? 0 > 0 {
-            attack.appendImage(named: (weapon.element?.rawValue ?? "") + ".png")
+            attack.appendImage(named: weapon.element?.imageName ?? "")
             attack.append(string: " \(weapon.elementAttack ?? 0)")
         }
         

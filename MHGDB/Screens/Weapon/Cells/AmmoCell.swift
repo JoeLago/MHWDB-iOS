@@ -17,7 +17,7 @@ class AmmoCell: GridCell<Weapon> {
     }
     
     func setup(weapon: Weapon) {
-        guard let ammo = weapon.ammo else {
+        /*guard let ammo = weapon.ammo else {
             return
         }
         
@@ -36,6 +36,6 @@ class AmmoCell: GridCell<Weapon> {
                      "Ice", ammo.ice])
         add(values: ["Clust", ammo.clust1, ammo.clust2, ammo.clust3,
                      "", "", "",
-                     "Dragon", ammo.dragon])
+                     "Dragon", ammo.dragon])*/
     }
 }

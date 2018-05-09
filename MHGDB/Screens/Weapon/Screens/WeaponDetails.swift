@@ -20,9 +20,9 @@ class WeaponDetails: DetailController, DetailScreen {
         addCustomSection(data: [weapon], cellType: WeaponCell.self)
         add(section: WeaponDetailSection(weapon: weapon))
         
-        if weapon.ammo != nil {
+        /*if weapon.ammo != nil {
             addCustomSection(title: "Ammo", data: [weapon], cellType: AmmoCell.self)
-        }
+        }*/
         
         //addSimpleSection(data: weapon.components, title: "Components") { ItemDetails(id: $0.id) }
         

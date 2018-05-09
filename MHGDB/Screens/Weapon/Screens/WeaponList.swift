@@ -8,13 +8,18 @@ import UIKit
 
 class WeaponList: DetailController {
     
-    init(weaponType: Weapon.WType) {
+    init(weaponType: WeaponType) {
         super.init()
         title = weaponType.rawValue
-        let weapons = TreeSection<Weapon, WeaponView>(tree: Database.shared.weaponTree(type: weaponType)!) {
+        
+        guard let weapons = Database.shared.weaponTree(type: weaponType) else {
+            Log(error: "Couldn't find weapons")
+            return
+        }
+        let weaponSection = TreeSection<Weapon, WeaponView>(tree: weapons) {
             self.push(WeaponDetails(id: $0.id))
         }
-        add(section: weapons)
+        add(section: weaponSection)
     }
     
     required public init?(coder aDecoder: NSCoder) {

@@ -21,6 +21,9 @@
 		14612B131EB8EEA000DB7F64 /* PalicoWeaponDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14612B121EB8EEA000DB7F64 /* PalicoWeaponDetail.swift */; };
 		14612B171EB9B49900DB7F64 /* PalicoWeaponDetailSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14612B161EB9B49900DB7F64 /* PalicoWeaponDetailSection.swift */; };
 		14612B1A1EBA3EC800DB7F64 /* PalicoWeaponCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14612B191EBA3EC800DB7F64 /* PalicoWeaponCell.swift */; };
+		148812F920A2C31E006B91EF /* WeaponType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148812F820A2C31E006B91EF /* WeaponType.swift */; };
+		148812FB20A2C378006B91EF /* WeaponAmmo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148812FA20A2C378006B91EF /* WeaponAmmo.swift */; };
+		148812FD20A2C3AE006B91EF /* Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148812FC20A2C3AE006B91EF /* Notes.swift */; };
 		1493A9E11EB3A74A00133B47 /* DetailController+SectionHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1493A9E01EB3A74A00133B47 /* DetailController+SectionHelp.swift */; };
 		14A24D781EA9D05400755F6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A2496E1EA9D05300755F6A /* AppDelegate.swift */; };
 		14A24D791EA9D05400755F6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14A249701EA9D05300755F6A /* Assets.xcassets */; };
@@ -1037,6 +1040,9 @@
 		14612B121EB8EEA000DB7F64 /* PalicoWeaponDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PalicoWeaponDetail.swift; sourceTree = "<group>"; };
 		14612B161EB9B49900DB7F64 /* PalicoWeaponDetailSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PalicoWeaponDetailSection.swift; sourceTree = "<group>"; };
 		14612B191EBA3EC800DB7F64 /* PalicoWeaponCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PalicoWeaponCell.swift; sourceTree = "<group>"; };
+		148812F820A2C31E006B91EF /* WeaponType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponType.swift; sourceTree = "<group>"; };
+		148812FA20A2C378006B91EF /* WeaponAmmo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponAmmo.swift; sourceTree = "<group>"; };
+		148812FC20A2C3AE006B91EF /* Notes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notes.swift; sourceTree = "<group>"; };
 		1493A9E01EB3A74A00133B47 /* DetailController+SectionHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DetailController+SectionHelp.swift"; sourceTree = "<group>"; };
 		14A2496E1EA9D05300755F6A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14A249701EA9D05300755F6A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -2116,6 +2122,9 @@
 				14A24D371EA9D05400755F6A /* Component.swift */,
 				14A24D3F1EA9D05400755F6A /* Sharpness.swift */,
 				14A24D411EA9D05400755F6A /* Weapon.swift */,
+				148812F820A2C31E006B91EF /* WeaponType.swift */,
+				148812FA20A2C378006B91EF /* WeaponAmmo.swift */,
+				148812FC20A2C3AE006B91EF /* Notes.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -4808,6 +4817,7 @@
 				14A251421EA9D05500755F6A /* QuestList.swift in Sources */,
 				14612B131EB8EEA000DB7F64 /* PalicoWeaponDetail.swift in Sources */,
 				14A251361EA9D05400755F6A /* MapCell.swift in Sources */,
+				148812FD20A2C3AE006B91EF /* Notes.swift in Sources */,
 				14A251181EA9D05400755F6A /* TreeCell.swift in Sources */,
 				14E2B5111EAE6511002A2A89 /* AmmoCell.swift in Sources */,
 				14A251161EA9D05400755F6A /* Node.swift in Sources */,
@@ -4822,6 +4832,7 @@
 				14A251401EA9D05500755F6A /* QuestDetails.swift in Sources */,
 				1493A9E11EB3A74A00133B47 /* DetailController+SectionHelp.swift in Sources */,
 				14A251331EA9D05400755F6A /* ItemList.swift in Sources */,
+				148812FB20A2C378006B91EF /* WeaponAmmo.swift in Sources */,
 				14A2514C1EA9D05500755F6A /* WeaponTypeList.swift in Sources */,
 				14A2510E1EA9D05400755F6A /* UIStackView+Convinience.swift in Sources */,
 				14A250FB1EA9D05400755F6A /* Array+Remove.swift in Sources */,
@@ -4861,6 +4872,7 @@
 				14A2510B1EA9D05400755F6A /* SelectionManager.swift in Sources */,
 				14DF85451EC297E400F9AD1D /* ListGrid.swift in Sources */,
 				14A251281EA9D05400755F6A /* ArmorDetails.swift in Sources */,
+				148812F920A2C31E006B91EF /* WeaponType.swift in Sources */,
 				14A251431EA9D05500755F6A /* SkillDetails.swift in Sources */,
 				14A250FE1EA9D05400755F6A /* NSAttributedString+Swift.swift in Sources */,
 				14A250FF1EA9D05400755F6A /* NSIndexPath+Array.swift in Sources */,
