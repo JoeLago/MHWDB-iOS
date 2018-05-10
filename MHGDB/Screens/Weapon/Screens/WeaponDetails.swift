@@ -24,8 +24,7 @@ class WeaponDetails: DetailController, DetailScreen {
             addCustomSection(title: "Ammo", data: [weapon], cellType: AmmoCell.self)
         }*/
         
-        //addSimpleSection(data: weapon.components, title: "Components") { ItemDetails(id: $0.id) }
-        
+        addSimpleSection(data: weapon.components, title: "Components") { ItemDetails(id: $0.id) }
         
         let result = Database.shared.weaponTree(weaponId: weapon.id)
         let path = TreeSection<Weapon, WeaponView>(tree: result.1) {
@@ -41,9 +40,9 @@ class WeaponDetails: DetailController, DetailScreen {
     }
 }
 
-/*extension Component: DetailCellModel {
+extension WeaponComponent: DetailCellModel {
     var primary: String? { return name }
     var subtitle: String? { return type }
     var secondary: String? { return "x \(quantity)" }
     var imageName: String? { return icon }
-}*/
+}

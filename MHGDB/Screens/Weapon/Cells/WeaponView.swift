@@ -62,17 +62,8 @@ class WeaponView: TreeCellView<Weapon> {
     }
     
     private func populateSlots() {
-        var slotsString = ""
-        var slots = weapon.numSlots ?? 0
-        for _ in 0...2 {
-            if slots > 0 {
-                slotsString += "O"
-                slots -= 1
-            } else {
-                slotsString += "-"
-            }
-        }
-        
+        let slotsString = [weapon.slotOne, weapon.slotTwo, weapon.slotThree]
+            .map({ ($0 ?? false) ? "O" : "-" }).joined()
         self.slotsLabel.text = slotsString
     }
     

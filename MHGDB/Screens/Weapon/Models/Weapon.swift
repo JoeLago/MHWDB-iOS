@@ -31,6 +31,9 @@ class Weapon: Decodable, RowConvertible {
     var sell: Int?
     var affinity: Int?
     var rarity: Int
+    var slotOne: Bool?
+    var slotTwo: Bool?
+    var slotThree: Bool?
     
     // specific to weapon type
     var recoil: String?
@@ -48,15 +51,11 @@ class Weapon: Decodable, RowConvertible {
     var notes: String?
     
     enum CodingKeys: String, CodingKey {
-        case type = "weapon_type"
-        case parentId = "previous_weapon_id"
-        case element = "element_type"
-        case elementAttack = "element_damage"
-        case id, name, depths, attack, awakenElement, awakenAttack, defense, numSlots, creationCost, upgradeCost, sell, affinity, rarity, recoil, reloadSpeed, rapidFire, deviation, ammoString, specialAmmo, coatings, charges, phial, phialAttack, shellingType, notes
+        case id, parentId = "previous_weapon_id", name, type = "weapon_type", depths, attack, element = "element_type", elementAttack = "element_damage", awakenElement, awakenAttack, defense, numSlots, creationCost, upgradeCost, sell, affinity, rarity, slotOne = "slot_1", slotTwo = "slot_2", slotThree = "slot_3", recoil, reloadSpeed, rapidFire, deviation, ammoString, specialAmmo, coatings, charges, phial, phialAttack, shellingType, notes
     }
     
-    var components: [Component] {
-        return Database.shared.components(itemId: id)
+    var components: [WeaponComponent] {
+        return Database.shared.components(weaponId: id)
     }
     
     var coatingImageNames: [String]? {

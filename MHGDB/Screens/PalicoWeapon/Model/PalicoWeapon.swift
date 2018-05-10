@@ -57,9 +57,9 @@ class PalicoWeapon: RowConvertible {
     var creationCost: Int
     
     
-    lazy var components: [Component] = {
+    /*lazy var components: [WeaponComponent] = {
         return Database.shared.components(itemId: self.id)
-    }()
+    }()*/
     
     required init(row: Row) {
         id = row["_id"]
