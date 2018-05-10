@@ -24,6 +24,36 @@
 		148812F920A2C31E006B91EF /* WeaponType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148812F820A2C31E006B91EF /* WeaponType.swift */; };
 		148812FB20A2C378006B91EF /* WeaponAmmo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148812FA20A2C378006B91EF /* WeaponAmmo.swift */; };
 		148812FD20A2C3AE006B91EF /* Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148812FC20A2C3AE006B91EF /* Notes.swift */; };
+		1488131E20A4224F006B91EF /* bazelgeuse.png in Resources */ = {isa = PBXBuildFile; fileRef = 148812FF20A4224E006B91EF /* bazelgeuse.png */; };
+		1488131F20A4224F006B91EF /* vaal-hazak.png in Resources */ = {isa = PBXBuildFile; fileRef = 1488130020A4224E006B91EF /* vaal-hazak.png */; };
+		1488132020A4224F006B91EF /* lavasioth.png in Resources */ = {isa = PBXBuildFile; fileRef = 1488130120A4224E006B91EF /* lavasioth.png */; };
+		1488132120A4224F006B91EF /* odogaron.png in Resources */ = {isa = PBXBuildFile; fileRef = 1488130220A4224E006B91EF /* odogaron.png */; };
+		1488132220A4224F006B91EF /* legiana.png in Resources */ = {isa = PBXBuildFile; fileRef = 1488130320A4224E006B91EF /* legiana.png */; };
+		1488132320A4224F006B91EF /* kirin.png in Resources */ = {isa = PBXBuildFile; fileRef = 1488130420A4224E006B91EF /* kirin.png */; };
+		1488132420A4224F006B91EF /* rathian.png in Resources */ = {isa = PBXBuildFile; fileRef = 1488130520A4224E006B91EF /* rathian.png */; };
+		1488132520A4224F006B91EF /* black-diablos.png in Resources */ = {isa = PBXBuildFile; fileRef = 1488130620A4224E006B91EF /* black-diablos.png */; };
+		1488132620A4224F006B91EF /* tzitziyaku.png in Resources */ = {isa = PBXBuildFile; fileRef = 1488130720A4224E006B91EF /* tzitziyaku.png */; };
+		1488132720A4224F006B91EF /* barroth.png in Resources */ = {isa = PBXBuildFile; fileRef = 1488130820A4224E006B91EF /* barroth.png */; };
+		1488132820A4224F006B91EF /* anjanath.png in Resources */ = {isa = PBXBuildFile; fileRef = 1488130920A4224E006B91EF /* anjanath.png */; };
+		1488132920A4224F006B91EF /* dodogama.png in Resources */ = {isa = PBXBuildFile; fileRef = 1488130A20A4224E006B91EF /* dodogama.png */; };
+		1488132A20A4224F006B91EF /* diablos.png in Resources */ = {isa = PBXBuildFile; fileRef = 1488130B20A4224E006B91EF /* diablos.png */; };
+		1488132B20A4224F006B91EF /* xeno-jiiva.png in Resources */ = {isa = PBXBuildFile; fileRef = 1488130C20A4224E006B91EF /* xeno-jiiva.png */; };
+		1488132C20A4224F006B91EF /* zorah-magdaros.png in Resources */ = {isa = PBXBuildFile; fileRef = 1488130D20A4224E006B91EF /* zorah-magdaros.png */; };
+		1488132D20A4224F006B91EF /* uragaan.png in Resources */ = {isa = PBXBuildFile; fileRef = 1488130E20A4224E006B91EF /* uragaan.png */; };
+		1488132E20A4224F006B91EF /* teostra.png in Resources */ = {isa = PBXBuildFile; fileRef = 1488130F20A4224E006B91EF /* teostra.png */; };
+		1488132F20A4224F006B91EF /* azure-rathalos.png in Resources */ = {isa = PBXBuildFile; fileRef = 1488131020A4224E006B91EF /* azure-rathalos.png */; };
+		1488133020A4224F006B91EF /* pink-rathian.png in Resources */ = {isa = PBXBuildFile; fileRef = 1488131120A4224E006B91EF /* pink-rathian.png */; };
+		1488133120A4224F006B91EF /* kushala-daora.png in Resources */ = {isa = PBXBuildFile; fileRef = 1488131220A4224E006B91EF /* kushala-daora.png */; };
+		1488133220A4224F006B91EF /* tobi-kadachi.png in Resources */ = {isa = PBXBuildFile; fileRef = 1488131320A4224E006B91EF /* tobi-kadachi.png */; };
+		1488133320A4224F006B91EF /* kuluyaku.png in Resources */ = {isa = PBXBuildFile; fileRef = 1488131420A4224E006B91EF /* kuluyaku.png */; };
+		1488133420A4224F006B91EF /* radobaan.png in Resources */ = {isa = PBXBuildFile; fileRef = 1488131520A4224E006B91EF /* radobaan.png */; };
+		1488133520A4224F006B91EF /* jyuratodus.png in Resources */ = {isa = PBXBuildFile; fileRef = 1488131620A4224E006B91EF /* jyuratodus.png */; };
+		1488133620A4224F006B91EF /* great-jagras.png in Resources */ = {isa = PBXBuildFile; fileRef = 1488131720A4224E006B91EF /* great-jagras.png */; };
+		1488133720A4224F006B91EF /* great-girros.png in Resources */ = {isa = PBXBuildFile; fileRef = 1488131820A4224E006B91EF /* great-girros.png */; };
+		1488133820A4224F006B91EF /* puke-pukei.png in Resources */ = {isa = PBXBuildFile; fileRef = 1488131920A4224E006B91EF /* puke-pukei.png */; };
+		1488133920A4224F006B91EF /* nergigante.png in Resources */ = {isa = PBXBuildFile; fileRef = 1488131A20A4224E006B91EF /* nergigante.png */; };
+		1488133A20A4224F006B91EF /* paolumu.png in Resources */ = {isa = PBXBuildFile; fileRef = 1488131B20A4224E006B91EF /* paolumu.png */; };
+		1488133B20A4224F006B91EF /* rathalos.png in Resources */ = {isa = PBXBuildFile; fileRef = 1488131C20A4224E006B91EF /* rathalos.png */; };
 		1493A9E11EB3A74A00133B47 /* DetailController+SectionHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1493A9E01EB3A74A00133B47 /* DetailController+SectionHelp.swift */; };
 		14A24D781EA9D05400755F6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A2496E1EA9D05300755F6A /* AppDelegate.swift */; };
 		14A24D791EA9D05400755F6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14A249701EA9D05300755F6A /* Assets.xcassets */; };
@@ -1010,7 +1040,8 @@
 		14E704141EB8E9FC00EA2E71 /* PalicoWeapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E704131EB8E9FC00EA2E71 /* PalicoWeapon.swift */; };
 		14E704181EB8EB5100EA2E71 /* PalicoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E704171EB8EB5100EA2E71 /* PalicoList.swift */; };
 		3D4882AD20FD0490A2C25B6F /* Pods_MHGDBTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9892914A22C05CA6D6C7171 /* Pods_MHGDBTests.framework */; };
-		422A55EDBCF16BD7617A8C78 /* Pods_MHGDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DC8FEAA00F92625E1C49D7B /* Pods_MHGDB.framework */; };
+		613A51D7ED0F8DD41DD8F38D /* Pods_MHWDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28A362D7A0E8494F3767C6D0 /* Pods_MHWDB.framework */; };
+		F78D3235AA09D8152D4C51CF /* Pods_MHWDBTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F77642DEAA528D99A1B9B18 /* Pods_MHWDBTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1033,8 +1064,8 @@
 		144306DD209FA95C00D60A5A /* MonsterRewards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterRewards.swift; sourceTree = "<group>"; };
 		1452DB1D1F71061F006A11D7 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		1452DB1F1F7108F8006A11D7 /* Int+TimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+TimeInterval.swift"; sourceTree = "<group>"; };
-		145495641EA9CEC5004FA5FA /* MHGDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MHGDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		145495781EA9CEC5004FA5FA /* MHGDBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MHGDBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		145495641EA9CEC5004FA5FA /* MHWDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MHWDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		145495781EA9CEC5004FA5FA /* MHWDBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MHWDBTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		145FEA761F78A6C100BF9237 /* ReviewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewManager.swift; sourceTree = "<group>"; };
 		145FEA781F78A82400BF9237 /* ReviewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTests.swift; sourceTree = "<group>"; };
 		14612B121EB8EEA000DB7F64 /* PalicoWeaponDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PalicoWeaponDetail.swift; sourceTree = "<group>"; };
@@ -1043,6 +1074,36 @@
 		148812F820A2C31E006B91EF /* WeaponType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponType.swift; sourceTree = "<group>"; };
 		148812FA20A2C378006B91EF /* WeaponAmmo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponAmmo.swift; sourceTree = "<group>"; };
 		148812FC20A2C3AE006B91EF /* Notes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notes.swift; sourceTree = "<group>"; };
+		148812FF20A4224E006B91EF /* bazelgeuse.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bazelgeuse.png; sourceTree = "<group>"; };
+		1488130020A4224E006B91EF /* vaal-hazak.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vaal-hazak.png"; sourceTree = "<group>"; };
+		1488130120A4224E006B91EF /* lavasioth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lavasioth.png; sourceTree = "<group>"; };
+		1488130220A4224E006B91EF /* odogaron.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = odogaron.png; sourceTree = "<group>"; };
+		1488130320A4224E006B91EF /* legiana.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = legiana.png; sourceTree = "<group>"; };
+		1488130420A4224E006B91EF /* kirin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kirin.png; sourceTree = "<group>"; };
+		1488130520A4224E006B91EF /* rathian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rathian.png; sourceTree = "<group>"; };
+		1488130620A4224E006B91EF /* black-diablos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "black-diablos.png"; sourceTree = "<group>"; };
+		1488130720A4224E006B91EF /* tzitziyaku.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tzitziyaku.png; sourceTree = "<group>"; };
+		1488130820A4224E006B91EF /* barroth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = barroth.png; sourceTree = "<group>"; };
+		1488130920A4224E006B91EF /* anjanath.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = anjanath.png; sourceTree = "<group>"; };
+		1488130A20A4224E006B91EF /* dodogama.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dodogama.png; sourceTree = "<group>"; };
+		1488130B20A4224E006B91EF /* diablos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = diablos.png; sourceTree = "<group>"; };
+		1488130C20A4224E006B91EF /* xeno-jiiva.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xeno-jiiva.png"; sourceTree = "<group>"; };
+		1488130D20A4224E006B91EF /* zorah-magdaros.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zorah-magdaros.png"; sourceTree = "<group>"; };
+		1488130E20A4224E006B91EF /* uragaan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uragaan.png; sourceTree = "<group>"; };
+		1488130F20A4224E006B91EF /* teostra.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = teostra.png; sourceTree = "<group>"; };
+		1488131020A4224E006B91EF /* azure-rathalos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "azure-rathalos.png"; sourceTree = "<group>"; };
+		1488131120A4224E006B91EF /* pink-rathian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pink-rathian.png"; sourceTree = "<group>"; };
+		1488131220A4224E006B91EF /* kushala-daora.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kushala-daora.png"; sourceTree = "<group>"; };
+		1488131320A4224E006B91EF /* tobi-kadachi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tobi-kadachi.png"; sourceTree = "<group>"; };
+		1488131420A4224E006B91EF /* kuluyaku.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kuluyaku.png; sourceTree = "<group>"; };
+		1488131520A4224E006B91EF /* radobaan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = radobaan.png; sourceTree = "<group>"; };
+		1488131620A4224E006B91EF /* jyuratodus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jyuratodus.png; sourceTree = "<group>"; };
+		1488131720A4224E006B91EF /* great-jagras.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "great-jagras.png"; sourceTree = "<group>"; };
+		1488131820A4224E006B91EF /* great-girros.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "great-girros.png"; sourceTree = "<group>"; };
+		1488131920A4224E006B91EF /* puke-pukei.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "puke-pukei.png"; sourceTree = "<group>"; };
+		1488131A20A4224E006B91EF /* nergigante.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nergigante.png; sourceTree = "<group>"; };
+		1488131B20A4224E006B91EF /* paolumu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paolumu.png; sourceTree = "<group>"; };
+		1488131C20A4224E006B91EF /* rathalos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rathalos.png; sourceTree = "<group>"; };
 		1493A9E01EB3A74A00133B47 /* DetailController+SectionHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DetailController+SectionHelp.swift"; sourceTree = "<group>"; };
 		14A2496E1EA9D05300755F6A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14A249701EA9D05300755F6A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -2029,10 +2090,16 @@
 		14E704031EB6506300EA2E71 /* MonsterDamagesCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterDamagesCell.swift; sourceTree = "<group>"; };
 		14E704131EB8E9FC00EA2E71 /* PalicoWeapon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PalicoWeapon.swift; sourceTree = "<group>"; };
 		14E704171EB8EB5100EA2E71 /* PalicoList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PalicoList.swift; sourceTree = "<group>"; };
+		28A362D7A0E8494F3767C6D0 /* Pods_MHWDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MHWDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		36731F1082DA965761955EA5 /* Pods-MHGDBTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHGDBTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MHGDBTests/Pods-MHGDBTests.release.xcconfig"; sourceTree = "<group>"; };
+		3F77642DEAA528D99A1B9B18 /* Pods_MHWDBTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MHWDBTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A5CD697F0BFB53B42D1FEE7 /* Pods-MHWDBTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHWDBTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MHWDBTests/Pods-MHWDBTests.debug.xcconfig"; sourceTree = "<group>"; };
+		4E369C8999E79E1AFE19F085 /* Pods-MHWDB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHWDB.release.xcconfig"; path = "Pods/Target Support Files/Pods-MHWDB/Pods-MHWDB.release.xcconfig"; sourceTree = "<group>"; };
 		8304EA6FD5EE66F4AEA5BCBD /* Pods-MHGDB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHGDB.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MHGDB/Pods-MHGDB.debug.xcconfig"; sourceTree = "<group>"; };
+		89CC4F71A6B6123E1AD0393B /* Pods-MHWDBTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHWDBTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MHWDBTests/Pods-MHWDBTests.release.xcconfig"; sourceTree = "<group>"; };
 		9DC8FEAA00F92625E1C49D7B /* Pods_MHGDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MHGDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1F779AA8AA898125FD4B1A5 /* Pods-MHGDBTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHGDBTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MHGDBTests/Pods-MHGDBTests.debug.xcconfig"; sourceTree = "<group>"; };
+		BC142E68CE1D130ADF025186 /* Pods-MHWDB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHWDB.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MHWDB/Pods-MHWDB.debug.xcconfig"; sourceTree = "<group>"; };
 		C9892914A22C05CA6D6C7171 /* Pods_MHGDBTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MHGDBTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F481373F95A51309BFE3C1FD /* Pods-MHGDB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHGDB.release.xcconfig"; path = "Pods/Target Support Files/Pods-MHGDB/Pods-MHGDB.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -2042,7 +2109,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				422A55EDBCF16BD7617A8C78 /* Pods_MHGDB.framework in Frameworks */,
+				613A51D7ED0F8DD41DD8F38D /* Pods_MHWDB.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2051,6 +2118,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D4882AD20FD0490A2C25B6F /* Pods_MHGDBTests.framework in Frameworks */,
+				F78D3235AA09D8152D4C51CF /* Pods_MHWDBTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2064,6 +2132,10 @@
 				F481373F95A51309BFE3C1FD /* Pods-MHGDB.release.xcconfig */,
 				A1F779AA8AA898125FD4B1A5 /* Pods-MHGDBTests.debug.xcconfig */,
 				36731F1082DA965761955EA5 /* Pods-MHGDBTests.release.xcconfig */,
+				BC142E68CE1D130ADF025186 /* Pods-MHWDB.debug.xcconfig */,
+				4E369C8999E79E1AFE19F085 /* Pods-MHWDB.release.xcconfig */,
+				4A5CD697F0BFB53B42D1FEE7 /* Pods-MHWDBTests.debug.xcconfig */,
+				89CC4F71A6B6123E1AD0393B /* Pods-MHWDBTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -2278,8 +2350,8 @@
 		145495651EA9CEC5004FA5FA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				145495641EA9CEC5004FA5FA /* MHGDB.app */,
-				145495781EA9CEC5004FA5FA /* MHGDBTests.xctest */,
+				145495641EA9CEC5004FA5FA /* MHWDB.app */,
+				145495781EA9CEC5004FA5FA /* MHWDBTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2290,6 +2362,50 @@
 				14612B191EBA3EC800DB7F64 /* PalicoWeaponCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		148812FE20A4224E006B91EF /* monster-large */ = {
+			isa = PBXGroup;
+			children = (
+				148812FF20A4224E006B91EF /* bazelgeuse.png */,
+				1488130020A4224E006B91EF /* vaal-hazak.png */,
+				1488130120A4224E006B91EF /* lavasioth.png */,
+				1488130220A4224E006B91EF /* odogaron.png */,
+				1488130320A4224E006B91EF /* legiana.png */,
+				1488130420A4224E006B91EF /* kirin.png */,
+				1488130520A4224E006B91EF /* rathian.png */,
+				1488130620A4224E006B91EF /* black-diablos.png */,
+				1488130720A4224E006B91EF /* tzitziyaku.png */,
+				1488130820A4224E006B91EF /* barroth.png */,
+				1488130920A4224E006B91EF /* anjanath.png */,
+				1488130A20A4224E006B91EF /* dodogama.png */,
+				1488130B20A4224E006B91EF /* diablos.png */,
+				1488130C20A4224E006B91EF /* xeno-jiiva.png */,
+				1488130D20A4224E006B91EF /* zorah-magdaros.png */,
+				1488130E20A4224E006B91EF /* uragaan.png */,
+				1488130F20A4224E006B91EF /* teostra.png */,
+				1488131020A4224E006B91EF /* azure-rathalos.png */,
+				1488131120A4224E006B91EF /* pink-rathian.png */,
+				1488131220A4224E006B91EF /* kushala-daora.png */,
+				1488131320A4224E006B91EF /* tobi-kadachi.png */,
+				1488131420A4224E006B91EF /* kuluyaku.png */,
+				1488131520A4224E006B91EF /* radobaan.png */,
+				1488131620A4224E006B91EF /* jyuratodus.png */,
+				1488131720A4224E006B91EF /* great-jagras.png */,
+				1488131820A4224E006B91EF /* great-girros.png */,
+				1488131920A4224E006B91EF /* puke-pukei.png */,
+				1488131A20A4224E006B91EF /* nergigante.png */,
+				1488131B20A4224E006B91EF /* paolumu.png */,
+				1488131C20A4224E006B91EF /* rathalos.png */,
+			);
+			path = "monster-large";
+			sourceTree = "<group>";
+		};
+		1488131D20A4224E006B91EF /* monster-small */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "monster-small";
 			sourceTree = "<group>";
 		};
 		14A2496D1EA9D05300755F6A /* App */ = {
@@ -2313,6 +2429,8 @@
 				14A24BBD1EA9D05400755F6A /* icons_monster */,
 				14A24C391EA9D05400755F6A /* icons_monster_info */,
 				14A24C601EA9D05400755F6A /* icons_weapons */,
+				148812FE20A4224E006B91EF /* monster-large */,
+				1488131D20A4224E006B91EF /* monster-small */,
 				14A24D0C1EA9D05400755F6A /* Info.plist */,
 				14A249711EA9D05300755F6A /* LaunchScreen.storyboard */,
 			);
@@ -3683,6 +3801,8 @@
 			children = (
 				9DC8FEAA00F92625E1C49D7B /* Pods_MHGDB.framework */,
 				C9892914A22C05CA6D6C7171 /* Pods_MHGDBTests.framework */,
+				28A362D7A0E8494F3767C6D0 /* Pods_MHWDB.framework */,
+				3F77642DEAA528D99A1B9B18 /* Pods_MHWDBTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -3690,9 +3810,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		145495631EA9CEC5004FA5FA /* MHGDB */ = {
+		145495631EA9CEC5004FA5FA /* MHWDB */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 145495811EA9CEC5004FA5FA /* Build configuration list for PBXNativeTarget "MHGDB" */;
+			buildConfigurationList = 145495811EA9CEC5004FA5FA /* Build configuration list for PBXNativeTarget "MHWDB" */;
 			buildPhases = (
 				21FFFFDD3DDD35778ADED495 /* [CP] Check Pods Manifest.lock */,
 				145495601EA9CEC5004FA5FA /* Sources */,
@@ -3705,14 +3825,14 @@
 			);
 			dependencies = (
 			);
-			name = MHGDB;
+			name = MHWDB;
 			productName = MHGDB;
-			productReference = 145495641EA9CEC5004FA5FA /* MHGDB.app */;
+			productReference = 145495641EA9CEC5004FA5FA /* MHWDB.app */;
 			productType = "com.apple.product-type.application";
 		};
-		145495771EA9CEC5004FA5FA /* MHGDBTests */ = {
+		145495771EA9CEC5004FA5FA /* MHWDBTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 145495841EA9CEC5004FA5FA /* Build configuration list for PBXNativeTarget "MHGDBTests" */;
+			buildConfigurationList = 145495841EA9CEC5004FA5FA /* Build configuration list for PBXNativeTarget "MHWDBTests" */;
 			buildPhases = (
 				9B23B679CB901212E20737DD /* [CP] Check Pods Manifest.lock */,
 				145495741EA9CEC5004FA5FA /* Sources */,
@@ -3726,9 +3846,9 @@
 			dependencies = (
 				1454957A1EA9CEC5004FA5FA /* PBXTargetDependency */,
 			);
-			name = MHGDBTests;
+			name = MHWDBTests;
 			productName = MHGDBTests;
-			productReference = 145495781EA9CEC5004FA5FA /* MHGDBTests.xctest */;
+			productReference = 145495781EA9CEC5004FA5FA /* MHWDBTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -3754,7 +3874,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 1454955F1EA9CEC5004FA5FA /* Build configuration list for PBXProject "MHGDB" */;
+			buildConfigurationList = 1454955F1EA9CEC5004FA5FA /* Build configuration list for PBXProject "MHWDB" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -3767,8 +3887,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				145495631EA9CEC5004FA5FA /* MHGDB */,
-				145495771EA9CEC5004FA5FA /* MHGDBTests */,
+				145495631EA9CEC5004FA5FA /* MHWDB */,
+				145495771EA9CEC5004FA5FA /* MHWDBTests */,
 			);
 		};
 /* End PBXProject section */
@@ -3800,12 +3920,15 @@
 				14A24E9F1EA9D05400755F6A /* Mantle-DarkGreen.png in Resources */,
 				14A250551EA9D05400755F6A /* StatusEffect-Thunder.jpg in Resources */,
 				14A24FE31EA9D05400755F6A /* Furious_Rajang.png in Resources */,
+				1488132D20A4224F006B91EF /* uragaan.png in Resources */,
 				14A24E4C1EA9D05400755F6A /* Fang-Red.png in Resources */,
+				1488132020A4224F006B91EF /* lavasioth.png in Resources */,
 				14A24DCB1EA9D05400755F6A /* Barrel-Bomb-Blue.png in Resources */,
 				14A250041EA9D05400755F6A /* Melynx.png in Resources */,
 				14A24E1F1EA9D05400755F6A /* Carapace-Purple.png in Resources */,
 				14A250461EA9D05400755F6A /* Ice.png in Resources */,
 				14A24F8B1EA9D05400755F6A /* 13.png in Resources */,
+				1488132520A4224F006B91EF /* black-diablos.png in Resources */,
 				14A24E411EA9D05400755F6A /* Egg-White.png in Resources */,
 				14A24EC11EA9D05400755F6A /* Monster-Jewel-Yellow.png in Resources */,
 				14A24E911EA9D05400755F6A /* Liquid-DarkGreen.png in Resources */,
@@ -3861,6 +3984,7 @@
 				14A24EA41EA9D05400755F6A /* Mantle-Purple.png in Resources */,
 				14A24E331EA9D05400755F6A /* Coin-Purple.png in Resources */,
 				14A250621EA9D05400755F6A /* blunt6.png in Resources */,
+				1488132F20A4224F006B91EF /* azure-rathalos.png in Resources */,
 				14A24DE81EA9D05400755F6A /* Bone-Grey.png in Resources */,
 				14A24F9B1EA9D05400755F6A /* maps_mh4_castle_schrade_mini.png in Resources */,
 				14A24FC51EA9D05400755F6A /* Ash_Kecha_Wacha.png in Resources */,
@@ -3883,6 +4007,7 @@
 				14A24F551EA9D05400755F6A /* Talisman-White.png in Resources */,
 				14A250851EA9D05400755F6A /* dual_blades4.png in Resources */,
 				14A24DB91EA9D05400755F6A /* Ammo-Green.png in Resources */,
+				1488133620A4224F006B91EF /* great-jagras.png in Resources */,
 				14A24DD21EA9D05400755F6A /* Barrel-White.png in Resources */,
 				14A250B71EA9D05400755F6A /* hunting_horn3.png in Resources */,
 				14A2505C1EA9D05400755F6A /* Webbed.png in Resources */,
@@ -3938,6 +4063,7 @@
 				14A250BD1EA9D05400755F6A /* hunting_horn9.png in Resources */,
 				14A2503A1EA9D05400755F6A /* 43-14_1.jpg in Resources */,
 				14A250C51EA9D05400755F6A /* insect_glaive7.png in Resources */,
+				1488133B20A4224F006B91EF /* rathalos.png in Resources */,
 				14A2509B1EA9D05400755F6A /* gunlance5.png in Resources */,
 				14A24E721EA9D05400755F6A /* Hide-Green.png in Resources */,
 				14A24D7C1EA9D05400755F6A /* arms1.png in Resources */,
@@ -4013,9 +4139,11 @@
 				14A24E0B1EA9D05400755F6A /* Bug-Green.png in Resources */,
 				14A250B51EA9D05400755F6A /* hunting_horn10.png in Resources */,
 				14A24D981EA9D05400755F6A /* head8.png in Resources */,
+				1488133720A4224F006B91EF /* great-girros.png in Resources */,
 				14A24F9C1EA9D05400755F6A /* maps_mh4_dunes_day.png in Resources */,
 				14A24FC91EA9D05400755F6A /* Blango.png in Resources */,
 				14A24EFA1EA9D05400755F6A /* Sac-Blue.png in Resources */,
+				1488133320A4224F006B91EF /* kuluyaku.png in Resources */,
 				14A2505E1EA9D05400755F6A /* blunt2.png in Resources */,
 				14A250601EA9D05400755F6A /* blunt4.png in Resources */,
 				14A24ECF1EA9D05400755F6A /* Nectar-Cyan.png in Resources */,
@@ -4052,12 +4180,15 @@
 				14A24DD11EA9D05400755F6A /* Barrel-Red.png in Resources */,
 				14A250D21EA9D05400755F6A /* light_bowgun1.png in Resources */,
 				14A24DCE1EA9D05400755F6A /* Barrel-Bomb-White.png in Resources */,
+				1488132C20A4224F006B91EF /* zorah-magdaros.png in Resources */,
 				14A24EB31EA9D05400755F6A /* Meat-Red.png in Resources */,
 				14A24D821EA9D05400755F6A /* arms6.png in Resources */,
 				14A24DFA1EA9D05400755F6A /* Boomerang-White.png in Resources */,
 				14A24E831EA9D05400755F6A /* Jewel-Purple.png in Resources */,
 				14A2504C1EA9D05400755F6A /* Slime.png in Resources */,
+				1488132320A4224F006B91EF /* kirin.png in Resources */,
 				14A250C41EA9D05400755F6A /* insect_glaive6.png in Resources */,
+				1488133820A4224F006B91EF /* puke-pukei.png in Resources */,
 				14A250A01EA9D05400755F6A /* hammer1.png in Resources */,
 				14A24FB41EA9D05400755F6A /* maps_mh4_speartip_crag.png in Resources */,
 				14A24EE31EA9D05400755F6A /* Ore-Yellow.png in Resources */,
@@ -4074,6 +4205,7 @@
 				14A24FC01EA9D05400755F6A /* Amatsu.png in Resources */,
 				14A250931EA9D05400755F6A /* great_sword8.png in Resources */,
 				14A2502D1EA9D05400755F6A /* Velocidrome.png in Resources */,
+				1488132220A4224F006B91EF /* legiana.png in Resources */,
 				14A24ED31EA9D05400755F6A /* Nectar-Pink.png in Resources */,
 				14A250AE1EA9D05400755F6A /* heavy_bowgun4.png in Resources */,
 				14A250DB1EA9D05400755F6A /* light_bowgun9.png in Resources */,
@@ -4106,18 +4238,22 @@
 				14A250A41EA9D05400755F6A /* hammer4.png in Resources */,
 				14A2506A1EA9D05400755F6A /* cutting6.png in Resources */,
 				14A24F931EA9D05400755F6A /* 21.png in Resources */,
+				1488133120A4224F006B91EF /* kushala-daora.png in Resources */,
 				14A24E4D1EA9D05400755F6A /* Fang-Teal.png in Resources */,
 				14A24F291EA9D05400755F6A /* Seed-Pink.png in Resources */,
 				14A24EAD1EA9D05400755F6A /* Meat-Cyan.png in Resources */,
 				14A250C01EA9D05400755F6A /* insect_glaive2.png in Resources */,
 				14A24FDB1EA9D05400755F6A /* Diablos.png in Resources */,
 				14A24F4A1EA9D05400755F6A /* Sphere-YellowGreen.png in Resources */,
+				1488133020A4224F006B91EF /* pink-rathian.png in Resources */,
 				14A24FF81EA9D05400755F6A /* Kelbi.png in Resources */,
 				14A24F1B1EA9D05400755F6A /* Scraps-Pink.png in Resources */,
 				14A250D81EA9D05400755F6A /* light_bowgun6.png in Resources */,
 				14A250EE1EA9D05400755F6A /* switch_axe8.png in Resources */,
+				1488132420A4224F006B91EF /* rathian.png in Resources */,
 				14A24DBB1EA9D05400755F6A /* Ammo-Orange.png in Resources */,
 				14A250BC1EA9D05400755F6A /* hunting_horn8.png in Resources */,
+				1488131E20A4224F006B91EF /* bazelgeuse.png in Resources */,
 				14A24E8A1EA9D05400755F6A /* Knife-Purple.png in Resources */,
 				14A250751EA9D05400755F6A /* bow8.png in Resources */,
 				14A24FD91EA9D05400755F6A /* Deadeye_Yian_Garuga.png in Resources */,
@@ -4170,7 +4306,9 @@
 				14A250B11EA9D05400755F6A /* heavy_bowgun7.png in Resources */,
 				14A250871EA9D05400755F6A /* dual_blades6.png in Resources */,
 				14A24EBD1EA9D05400755F6A /* Monster-Jewel-Purple.png in Resources */,
+				1488132A20A4224F006B91EF /* diablos.png in Resources */,
 				14A24E3D1EA9D05400755F6A /* Egg-Green.png in Resources */,
+				1488132720A4224F006B91EF /* barroth.png in Resources */,
 				14A24E981EA9D05400755F6A /* Liquid-Red.png in Resources */,
 				14A24F011EA9D05400755F6A /* Sac-Teal.png in Resources */,
 				14A24DDE1EA9D05400755F6A /* Bomb-Orange.png in Resources */,
@@ -4181,11 +4319,14 @@
 				14A24D841EA9D05400755F6A /* arms8.png in Resources */,
 				14A24D9E1EA9D05400755F6A /* legs4.png in Resources */,
 				14A24F6B1EA9D05400755F6A /* Traptool-Green.png in Resources */,
+				1488132120A4224F006B91EF /* odogaron.png in Resources */,
 				14A24FE41EA9D05400755F6A /* Gammoth.png in Resources */,
 				14A24E531EA9D05400755F6A /* Fish-Gold.png in Resources */,
 				14A24F2D1EA9D05400755F6A /* Shell-Blue.png in Resources */,
 				14A24E2C1EA9D05400755F6A /* Coin-Blue.png in Resources */,
 				14A24FAD1EA9D05400755F6A /* maps_mh4_polar_field_mini.png in Resources */,
+				1488132820A4224F006B91EF /* anjanath.png in Resources */,
+				1488132920A4224F006B91EF /* dodogama.png in Resources */,
 				14A250E31EA9D05400755F6A /* long_sword7.png in Resources */,
 				14A24DEA1EA9D05400755F6A /* Bone-Pink.png in Resources */,
 				14A24E7C1EA9D05400755F6A /* Husk-White.png in Resources */,
@@ -4245,6 +4386,7 @@
 				14A24F5A1EA9D05400755F6A /* Ticket-Green.png in Resources */,
 				14A250741EA9D05400755F6A /* bow7.png in Resources */,
 				14A24FA91EA9D05400755F6A /* maps_mh4_heavens_mount_mini.png in Resources */,
+				1488133920A4224F006B91EF /* nergigante.png in Resources */,
 				14A24F301EA9D05400755F6A /* Shell-Gold.png in Resources */,
 				14A250681EA9D05400755F6A /* cutting4.png in Resources */,
 				14A24FAC1EA9D05400755F6A /* maps_mh4_polar_field.png in Resources */,
@@ -4361,6 +4503,7 @@
 				14A24E2A1EA9D05400755F6A /* Charm-Stone-White.png in Resources */,
 				14A250D71EA9D05400755F6A /* light_bowgun5.png in Resources */,
 				14A250261EA9D05400755F6A /* Teostra.png in Resources */,
+				1488132E20A4224F006B91EF /* teostra.png in Resources */,
 				14A24E2D1EA9D05400755F6A /* Coin-Cyan.png in Resources */,
 				14A250C11EA9D05400755F6A /* insect_glaive3.png in Resources */,
 				14A24DCA1EA9D05400755F6A /* Bait-Yellow.png in Resources */,
@@ -4397,6 +4540,7 @@
 				14A250B31EA9D05400755F6A /* heavy_bowgun9.png in Resources */,
 				14A24E3A1EA9D05400755F6A /* Dung-Yellow.png in Resources */,
 				14A24ED11EA9D05400755F6A /* Nectar-Grey.png in Resources */,
+				1488133A20A4224F006B91EF /* paolumu.png in Resources */,
 				14A2501C1EA9D05400755F6A /* Shagaru_Magala.png in Resources */,
 				14A24DE31EA9D05400755F6A /* Bomb-Yellow.png in Resources */,
 				14A24DC81EA9D05400755F6A /* Bait-Red.png in Resources */,
@@ -4462,6 +4606,7 @@
 				14A24FAB1EA9D05400755F6A /* maps_mh4_ingle_isle_mini.png in Resources */,
 				14A250EF1EA9D05400755F6A /* switch_axe9.png in Resources */,
 				14A24FA61EA9D05400755F6A /* maps_mh4_great_sea.png in Resources */,
+				1488133220A4224F006B91EF /* tobi-kadachi.png in Resources */,
 				14A2507D1EA9D05400755F6A /* charge_blade6.png in Resources */,
 				14A250AD1EA9D05400755F6A /* heavy_bowgun3.png in Resources */,
 				14A250441EA9D05400755F6A /* frenzy_down.png in Resources */,
@@ -4538,6 +4683,7 @@
 				14A24F051EA9D05400755F6A /* Scale-Blue.png in Resources */,
 				14A24E651EA9D05400755F6A /* Herb-Green.png in Resources */,
 				14A24EA91EA9D05400755F6A /* Map-Icon-White.png in Resources */,
+				1488132620A4224F006B91EF /* tzitziyaku.png in Resources */,
 				14A24D9F1EA9D05400755F6A /* legs5.png in Resources */,
 				14A24F351EA9D05400755F6A /* Shell-Pink.png in Resources */,
 				14A24FFB1EA9D05400755F6A /* Konchu.png in Resources */,
@@ -4561,6 +4707,7 @@
 				14A24ED01EA9D05400755F6A /* Nectar-Gold.png in Resources */,
 				14A24DA21EA9D05400755F6A /* legs8.png in Resources */,
 				14A24ECE1EA9D05400755F6A /* Nectar-Blue.png in Resources */,
+				1488132B20A4224F006B91EF /* xeno-jiiva.png in Resources */,
 				14A24EE01EA9D05400755F6A /* Ore-Red.png in Resources */,
 				14A250531EA9D05400755F6A /* StatusEffect-Fire.jpg in Resources */,
 				14A24DA31EA9D05400755F6A /* legs9.png in Resources */,
@@ -4583,6 +4730,7 @@
 				14A24DDC1EA9D05400755F6A /* Bomb-Green.png in Resources */,
 				14A24D8D1EA9D05400755F6A /* body7.png in Resources */,
 				14A24DC91EA9D05400755F6A /* Bait-White.png in Resources */,
+				1488131F20A4224F006B91EF /* vaal-hazak.png in Resources */,
 				14A24F361EA9D05400755F6A /* Shell-Purple.png in Resources */,
 				14A24E841EA9D05400755F6A /* Jewel-Red.png in Resources */,
 				14A24F621EA9D05400755F6A /* Ticket-White.png in Resources */,
@@ -4597,6 +4745,7 @@
 				14A250641EA9D05400755F6A /* blunt8.png in Resources */,
 				14A24E561EA9D05400755F6A /* Fish-Orange.png in Resources */,
 				14A250AC1EA9D05400755F6A /* heavy_bowgun2.png in Resources */,
+				1488133520A4224F006B91EF /* jyuratodus.png in Resources */,
 				14A24DB61EA9D05400755F6A /* Ammo-Blue.png in Resources */,
 				14A250BB1EA9D05400755F6A /* hunting_horn7.png in Resources */,
 				14A24E791EA9D05400755F6A /* Hide-Yellow.png in Resources */,
@@ -4651,6 +4800,7 @@
 				14A24E5C1EA9D05400755F6A /* Flute-Blue.png in Resources */,
 				14A24DEE1EA9D05400755F6A /* Bone-Yellow.png in Resources */,
 				14A24F601EA9D05400755F6A /* Ticket-Teal.png in Resources */,
+				1488133420A4224F006B91EF /* radobaan.png in Resources */,
 				14A24FAE1EA9D05400755F6A /* maps_mh4_primal_forest.png in Resources */,
 				14A24F3E1EA9D05400755F6A /* Smoke-Green.png in Resources */,
 				14A24DB81EA9D05400755F6A /* Ammo-Gold.png in Resources */,
@@ -4699,7 +4849,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MHGDB-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-MHWDB-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -4718,7 +4868,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MHGDB/Pods-MHGDB-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MHWDB/Pods-MHWDB-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		9B23B679CB901212E20737DD /* [CP] Check Pods Manifest.lock */ = {
@@ -4732,7 +4882,7 @@
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MHGDBTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-MHWDBTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -4745,7 +4895,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MHGDB/Pods-MHGDB-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-MHWDB/Pods-MHWDB-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GRDB.swift/GRDB.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyUserDefaults/SwiftyUserDefaults.framework",
 			);
@@ -4756,7 +4906,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MHGDB/Pods-MHGDB-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MHWDB/Pods-MHWDB-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D98C1CB66DD2FFCEE96DCD94 /* [CP] Embed Pods Frameworks */ = {
@@ -4771,7 +4921,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MHGDBTests/Pods-MHGDBTests-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MHWDBTests/Pods-MHWDBTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D9E8C6F65F10CA0E7A444145 /* [CP] Copy Pods Resources */ = {
@@ -4786,7 +4936,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MHGDBTests/Pods-MHGDBTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MHWDBTests/Pods-MHWDBTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -4916,7 +5066,7 @@
 /* Begin PBXTargetDependency section */
 		1454957A1EA9CEC5004FA5FA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 145495631EA9CEC5004FA5FA /* MHGDB */;
+			target = 145495631EA9CEC5004FA5FA /* MHWDB */;
 			targetProxy = 145495791EA9CEC5004FA5FA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -5046,14 +5196,14 @@
 		};
 		145495821EA9CEC5004FA5FA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8304EA6FD5EE66F4AEA5BCBD /* Pods-MHGDB.debug.xcconfig */;
+			baseConfigurationReference = BC142E68CE1D130ADF025186 /* Pods-MHWDB.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = YNK39UG84R;
 				INFOPLIST_FILE = MHGDB/Assets/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ghstudios.MHGDB;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ghstudios.MHWDB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -5062,14 +5212,14 @@
 		};
 		145495831EA9CEC5004FA5FA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F481373F95A51309BFE3C1FD /* Pods-MHGDB.release.xcconfig */;
+			baseConfigurationReference = 4E369C8999E79E1AFE19F085 /* Pods-MHWDB.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = YNK39UG84R;
 				INFOPLIST_FILE = MHGDB/Assets/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ghstudios.MHGDB;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ghstudios.MHWDB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -5078,7 +5228,7 @@
 		};
 		145495851EA9CEC5004FA5FA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A1F779AA8AA898125FD4B1A5 /* Pods-MHGDBTests.debug.xcconfig */;
+			baseConfigurationReference = 4A5CD697F0BFB53B42D1FEE7 /* Pods-MHWDBTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -5088,13 +5238,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ghstudios.MHGDBTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MHGDB.app/MHGDB";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MHWDB.app/MHWDB";
 			};
 			name = Debug;
 		};
 		145495861EA9CEC5004FA5FA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 36731F1082DA965761955EA5 /* Pods-MHGDBTests.release.xcconfig */;
+			baseConfigurationReference = 89CC4F71A6B6123E1AD0393B /* Pods-MHWDBTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -5104,14 +5254,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ghstudios.MHGDBTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MHGDB.app/MHGDB";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MHWDB.app/MHWDB";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		1454955F1EA9CEC5004FA5FA /* Build configuration list for PBXProject "MHGDB" */ = {
+		1454955F1EA9CEC5004FA5FA /* Build configuration list for PBXProject "MHWDB" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				1454957F1EA9CEC5004FA5FA /* Debug */,
@@ -5120,7 +5270,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		145495811EA9CEC5004FA5FA /* Build configuration list for PBXNativeTarget "MHGDB" */ = {
+		145495811EA9CEC5004FA5FA /* Build configuration list for PBXNativeTarget "MHWDB" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				145495821EA9CEC5004FA5FA /* Debug */,
@@ -5129,7 +5279,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		145495841EA9CEC5004FA5FA /* Build configuration list for PBXNativeTarget "MHGDBTests" */ = {
+		145495841EA9CEC5004FA5FA /* Build configuration list for PBXNativeTarget "MHWDBTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				145495851EA9CEC5004FA5FA /* Debug */,

@@ -11,7 +11,7 @@ class ListMenu: SimpleTableViewController {
     
     override func loadView() {
         super.loadView()
-        title = "MHGDB"
+        title = "MHWDB"
         
         definesPresentationContext = true
         searchController = SearchAllController(mainViewController: self)

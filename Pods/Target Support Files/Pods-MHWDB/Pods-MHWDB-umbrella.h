@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_MHGDBTestsVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_MHGDBTestsVersionString[];
+FOUNDATION_EXPORT double Pods_MHWDBVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_MHWDBVersionString[];
 
