@@ -16,7 +16,9 @@ class Monster: Decodable, RowConvertible {
     
     var id: Int
     var name: String
-    var icon: String?
+    var icon: String? {
+        return name.lowercased().replacingOccurrences(of: " ", with: "-") + ".png"
+    }
     var size: Size?
     
     lazy var habitats: [MonsterHabitat] = { return Database.shared.habitats(monsterId: id) }()

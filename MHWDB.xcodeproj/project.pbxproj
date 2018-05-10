@@ -634,129 +634,6 @@
 		14A24FB91EA9D05400755F6A /* maps_mh4_tower_summit_mini.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BBA1EA9D05400755F6A /* maps_mh4_tower_summit_mini.png */; };
 		14A24FBA1EA9D05400755F6A /* maps_mh4_volcanic_hollow.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BBB1EA9D05400755F6A /* maps_mh4_volcanic_hollow.png */; };
 		14A24FBB1EA9D05400755F6A /* maps_mh4_volcanic_hollow_mini.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BBC1EA9D05400755F6A /* maps_mh4_volcanic_hollow_mini.png */; };
-		14A24FBC1EA9D05400755F6A /* Agnaktor.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BBE1EA9D05400755F6A /* Agnaktor.png */; };
-		14A24FBD1EA9D05400755F6A /* Akantor.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BBF1EA9D05400755F6A /* Akantor.png */; };
-		14A24FBE1EA9D05400755F6A /* Alatreon.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BC01EA9D05400755F6A /* Alatreon.png */; };
-		14A24FBF1EA9D05400755F6A /* Altaroth.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BC11EA9D05400755F6A /* Altaroth.png */; };
-		14A24FC01EA9D05400755F6A /* Amatsu.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BC21EA9D05400755F6A /* Amatsu.png */; };
-		14A24FC11EA9D05400755F6A /* Anteka.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BC31EA9D05400755F6A /* Anteka.png */; };
-		14A24FC21EA9D05400755F6A /* Apceros.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BC41EA9D05400755F6A /* Apceros.png */; };
-		14A24FC31EA9D05400755F6A /* Aptonoth.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BC51EA9D05400755F6A /* Aptonoth.png */; };
-		14A24FC41EA9D05400755F6A /* Arzuros.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BC61EA9D05400755F6A /* Arzuros.png */; };
-		14A24FC51EA9D05400755F6A /* Ash_Kecha_Wacha.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BC71EA9D05400755F6A /* Ash_Kecha_Wacha.png */; };
-		14A24FC61EA9D05400755F6A /* Astalos.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BC81EA9D05400755F6A /* Astalos.png */; };
-		14A24FC71EA9D05400755F6A /* Azure_Rathalos.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BC91EA9D05400755F6A /* Azure_Rathalos.png */; };
-		14A24FC81EA9D05400755F6A /* Basarios.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BCA1EA9D05400755F6A /* Basarios.png */; };
-		14A24FC91EA9D05400755F6A /* Blango.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BCB1EA9D05400755F6A /* Blango.png */; };
-		14A24FCA1EA9D05400755F6A /* Blangonga.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BCC1EA9D05400755F6A /* Blangonga.png */; };
-		14A24FCB1EA9D05400755F6A /* Bnahabra.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BCD1EA9D05400755F6A /* Bnahabra.png */; };
-		14A24FCC1EA9D05400755F6A /* Brachydios.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BCE1EA9D05400755F6A /* Brachydios.png */; };
-		14A24FCD1EA9D05400755F6A /* Bulldrome.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BCF1EA9D05400755F6A /* Bulldrome.png */; };
-		14A24FCE1EA9D05400755F6A /* Bullfango.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BD01EA9D05400755F6A /* Bullfango.png */; };
-		14A24FCF1EA9D05400755F6A /* Ceanataur.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BD11EA9D05400755F6A /* Ceanataur.png */; };
-		14A24FD01EA9D05400755F6A /* Cephadrome.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BD21EA9D05400755F6A /* Cephadrome.png */; };
-		14A24FD11EA9D05400755F6A /* Cephalos.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BD31EA9D05400755F6A /* Cephalos.png */; };
-		14A24FD21EA9D05400755F6A /* Chameleos.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BD41EA9D05400755F6A /* Chameleos.png */; };
-		14A24FD31EA9D05400755F6A /* Conga.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BD51EA9D05400755F6A /* Conga.png */; };
-		14A24FD41EA9D05400755F6A /* Congalala.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BD61EA9D05400755F6A /* Congalala.png */; };
-		14A24FD51EA9D05400755F6A /* Crimson_Fatalis.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BD71EA9D05400755F6A /* Crimson_Fatalis.png */; };
-		14A24FD61EA9D05400755F6A /* Crystalbeard_Uragaan.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BD81EA9D05400755F6A /* Crystalbeard_Uragaan.png */; };
-		14A24FD71EA9D05400755F6A /* Dah'ren_Mohran.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BD91EA9D05400755F6A /* Dah'ren_Mohran.png */; };
-		14A24FD81EA9D05400755F6A /* Daimyo_Hermitaur.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BDA1EA9D05400755F6A /* Daimyo_Hermitaur.png */; };
-		14A24FD91EA9D05400755F6A /* Deadeye_Yian_Garuga.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BDB1EA9D05400755F6A /* Deadeye_Yian_Garuga.png */; };
-		14A24FDA1EA9D05400755F6A /* Deviljho.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BDC1EA9D05400755F6A /* Deviljho.png */; };
-		14A24FDB1EA9D05400755F6A /* Diablos.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BDD1EA9D05400755F6A /* Diablos.png */; };
-		14A24FDC1EA9D05400755F6A /* Dreadking_Rathalos.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BDE1EA9D05400755F6A /* Dreadking_Rathalos.png */; };
-		14A24FDD1EA9D05400755F6A /* Dreadqueen_Rathian.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BDF1EA9D05400755F6A /* Dreadqueen_Rathian.png */; };
-		14A24FDE1EA9D05400755F6A /* Drilltusk_Tetsucabra.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BE01EA9D05400755F6A /* Drilltusk_Tetsucabra.png */; };
-		14A24FDF1EA9D05400755F6A /* Duramboros.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BE11EA9D05400755F6A /* Duramboros.png */; };
-		14A24FE01EA9D05400755F6A /* Emerald_Congalala.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BE21EA9D05400755F6A /* Emerald_Congalala.png */; };
-		14A24FE11EA9D05400755F6A /* Fatalis.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BE31EA9D05400755F6A /* Fatalis.png */; };
-		14A24FE21EA9D05400755F6A /* Felyne.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BE41EA9D05400755F6A /* Felyne.png */; };
-		14A24FE31EA9D05400755F6A /* Furious_Rajang.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BE51EA9D05400755F6A /* Furious_Rajang.png */; };
-		14A24FE41EA9D05400755F6A /* Gammoth.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BE61EA9D05400755F6A /* Gammoth.png */; };
-		14A24FE51EA9D05400755F6A /* Gargwa.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BE71EA9D05400755F6A /* Gargwa.png */; };
-		14A24FE61EA9D05400755F6A /* Gendrome.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BE81EA9D05400755F6A /* Gendrome.png */; };
-		14A24FE71EA9D05400755F6A /* Genprey.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BE91EA9D05400755F6A /* Genprey.png */; };
-		14A24FE81EA9D05400755F6A /* Giaprey.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BEA1EA9D05400755F6A /* Giaprey.png */; };
-		14A24FE91EA9D05400755F6A /* Glavenus.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BEB1EA9D05400755F6A /* Glavenus.png */; };
-		14A24FEA1EA9D05400755F6A /* Gogmazios.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BEC1EA9D05400755F6A /* Gogmazios.png */; };
-		14A24FEB1EA9D05400755F6A /* Gold_Rathian.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BED1EA9D05400755F6A /* Gold_Rathian.png */; };
-		14A24FEC1EA9D05400755F6A /* Gore_Magala.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BEE1EA9D05400755F6A /* Gore_Magala.png */; };
-		14A24FED1EA9D05400755F6A /* Great_Maccao.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BEF1EA9D05400755F6A /* Great_Maccao.png */; };
-		14A24FEE1EA9D05400755F6A /* Grimclaw_Tigrex.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BF01EA9D05400755F6A /* Grimclaw_Tigrex.png */; };
-		14A24FEF1EA9D05400755F6A /* Gypceros.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BF11EA9D05400755F6A /* Gypceros.png */; };
-		14A24FF01EA9D05400755F6A /* Hellblade_Glavenus.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BF21EA9D05400755F6A /* Hellblade_Glavenus.png */; };
-		14A24FF11EA9D05400755F6A /* Hermitaur.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BF31EA9D05400755F6A /* Hermitaur.png */; };
-		14A24FF21EA9D05400755F6A /* Hornetaur.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BF41EA9D05400755F6A /* Hornetaur.png */; };
-		14A24FF31EA9D05400755F6A /* Iodrome.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BF51EA9D05400755F6A /* Iodrome.png */; };
-		14A24FF41EA9D05400755F6A /* Ioprey.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BF61EA9D05400755F6A /* Ioprey.png */; };
-		14A24FF51EA9D05400755F6A /* Jaggi.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BF71EA9D05400755F6A /* Jaggi.png */; };
-		14A24FF61EA9D05400755F6A /* Jaggia.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BF81EA9D05400755F6A /* Jaggia.png */; };
-		14A24FF71EA9D05400755F6A /* Kecha_Wacha.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BF91EA9D05400755F6A /* Kecha_Wacha.png */; };
-		14A24FF81EA9D05400755F6A /* Kelbi.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BFA1EA9D05400755F6A /* Kelbi.png */; };
-		14A24FF91EA9D05400755F6A /* Khezu.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BFB1EA9D05400755F6A /* Khezu.png */; };
-		14A24FFA1EA9D05400755F6A /* Kirin.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BFC1EA9D05400755F6A /* Kirin.png */; };
-		14A24FFB1EA9D05400755F6A /* Konchu.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BFD1EA9D05400755F6A /* Konchu.png */; };
-		14A24FFC1EA9D05400755F6A /* Kushala_Daora.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BFE1EA9D05400755F6A /* Kushala_Daora.png */; };
-		14A24FFD1EA9D05400755F6A /* Lagiacrus.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24BFF1EA9D05400755F6A /* Lagiacrus.png */; };
-		14A24FFE1EA9D05400755F6A /* Lagombi.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C001EA9D05400755F6A /* Lagombi.png */; };
-		14A24FFF1EA9D05400755F6A /* Larinoth.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C011EA9D05400755F6A /* Larinoth.png */; };
-		14A250001EA9D05400755F6A /* Lavasioth.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C021EA9D05400755F6A /* Lavasioth.png */; };
-		14A250011EA9D05400755F6A /* Ludroth.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C031EA9D05400755F6A /* Ludroth.png */; };
-		14A250021EA9D05400755F6A /* Maccao.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C041EA9D05400755F6A /* Maccao.png */; };
-		14A250031EA9D05400755F6A /* Malfestio.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C051EA9D05400755F6A /* Malfestio.png */; };
-		14A250041EA9D05400755F6A /* Melynx.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C061EA9D05400755F6A /* Melynx.png */; };
-		14A250051EA9D05400755F6A /* Mizutsune.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C071EA9D05400755F6A /* Mizutsune.png */; };
-		14A250061EA9D05400755F6A /* Moofah.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C081EA9D05400755F6A /* Moofah.png */; };
-		14A250071EA9D05400755F6A /* Mosswine.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C091EA9D05400755F6A /* Mosswine.png */; };
-		14A250081EA9D05400755F6A /* Najarala.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C0A1EA9D05400755F6A /* Najarala.png */; };
-		14A250091EA9D05400755F6A /* Nakarkos.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C0B1EA9D05400755F6A /* Nakarkos.png */; };
-		14A2500A1EA9D05400755F6A /* Nargacuga.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C0C1EA9D05400755F6A /* Nargacuga.png */; };
-		14A2500B1EA9D05400755F6A /* Nibelsnarf.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C0D1EA9D05400755F6A /* Nibelsnarf.png */; };
-		14A2500C1EA9D05400755F6A /* Plesioth.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C0E1EA9D05400755F6A /* Plesioth.png */; };
-		14A2500D1EA9D05400755F6A /* Popo.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C0F1EA9D05400755F6A /* Popo.png */; };
-		14A2500E1EA9D05400755F6A /* Rajang.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C101EA9D05400755F6A /* Rajang.png */; };
-		14A2500F1EA9D05400755F6A /* Rathalos.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C111EA9D05400755F6A /* Rathalos.png */; };
-		14A250101EA9D05400755F6A /* Rathian.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C121EA9D05400755F6A /* Rathian.png */; };
-		14A250111EA9D05400755F6A /* Red_Khezu.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C131EA9D05400755F6A /* Red_Khezu.png */; };
-		14A250121EA9D05400755F6A /* Redhelm_Arzuros.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C141EA9D05400755F6A /* Redhelm_Arzuros.png */; };
-		14A250131EA9D05400755F6A /* Remobra.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C151EA9D05400755F6A /* Remobra.png */; };
-		14A250141EA9D05400755F6A /* Rhenoplos.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C161EA9D05400755F6A /* Rhenoplos.png */; };
-		14A250151EA9D05400755F6A /* Royal_Ludroth.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C171EA9D05400755F6A /* Royal_Ludroth.png */; };
-		14A250161EA9D05400755F6A /* Ruby_Basarios.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C181EA9D05400755F6A /* Ruby_Basarios.png */; };
-		14A250171EA9D05400755F6A /* Rusted_Kushala_Daora.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C191EA9D05400755F6A /* Rusted_Kushala_Daora.png */; };
-		14A250181EA9D05400755F6A /* Savage_Deviljho.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C1A1EA9D05400755F6A /* Savage_Deviljho.png */; };
-		14A250191EA9D05400755F6A /* Seltas.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C1B1EA9D05400755F6A /* Seltas.png */; };
-		14A2501A1EA9D05400755F6A /* Seltas_Queen.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C1C1EA9D05400755F6A /* Seltas_Queen.png */; };
-		14A2501B1EA9D05400755F6A /* Seregios.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C1D1EA9D05400755F6A /* Seregios.png */; };
-		14A2501C1EA9D05400755F6A /* Shagaru_Magala.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C1E1EA9D05400755F6A /* Shagaru_Magala.png */; };
-		14A2501D1EA9D05400755F6A /* Shah_Dalamadur.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C1F1EA9D05400755F6A /* Shah_Dalamadur.png */; };
-		14A2501E1EA9D05400755F6A /* Shogun_Ceanataur.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C201EA9D05400755F6A /* Shogun_Ceanataur.png */; };
-		14A2501F1EA9D05400755F6A /* Shrouded_Nerscylla.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C211EA9D05400755F6A /* Shrouded_Nerscylla.png */; };
-		14A250201EA9D05400755F6A /* Silver_Rathalos.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C221EA9D05400755F6A /* Silver_Rathalos.png */; };
-		14A250211EA9D05400755F6A /* Silverwind_Nargacuga.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C231EA9D05400755F6A /* Silverwind_Nargacuga.png */; };
-		14A250221EA9D05400755F6A /* Slagtoth.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C241EA9D05400755F6A /* Slagtoth.png */; };
-		14A250231EA9D05400755F6A /* Slagtoth_Red.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C251EA9D05400755F6A /* Slagtoth_Red.png */; };
-		14A250241EA9D05400755F6A /* Snowbaron_Lagombi.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C261EA9D05400755F6A /* Snowbaron_Lagombi.png */; };
-		14A250251EA9D05400755F6A /* Stonefist_Hermitaur.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C271EA9D05400755F6A /* Stonefist_Hermitaur.png */; };
-		14A250261EA9D05400755F6A /* Teostra.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C281EA9D05400755F6A /* Teostra.png */; };
-		14A250271EA9D05400755F6A /* Tetsucabra.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C291EA9D05400755F6A /* Tetsucabra.png */; };
-		14A250281EA9D05400755F6A /* Thunderlord_Zinogre.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C2A1EA9D05400755F6A /* Thunderlord_Zinogre.png */; };
-		14A250291EA9D05400755F6A /* Tigrex.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C2B1EA9D05400755F6A /* Tigrex.png */; };
-		14A2502A1EA9D05400755F6A /* Ukanlos.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C2C1EA9D05400755F6A /* Ukanlos.png */; };
-		14A2502B1EA9D05400755F6A /* Uragaan.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C2D1EA9D05400755F6A /* Uragaan.png */; };
-		14A2502C1EA9D05400755F6A /* Uroktor.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C2E1EA9D05400755F6A /* Uroktor.png */; };
-		14A2502D1EA9D05400755F6A /* Velocidrome.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C2F1EA9D05400755F6A /* Velocidrome.png */; };
-		14A2502E1EA9D05400755F6A /* Velociprey.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C301EA9D05400755F6A /* Velociprey.png */; };
-		14A2502F1EA9D05400755F6A /* Vespoid.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C311EA9D05400755F6A /* Vespoid.png */; };
-		14A250301EA9D05400755F6A /* Volvidon.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C321EA9D05400755F6A /* Volvidon.png */; };
-		14A250311EA9D05400755F6A /* White_Fatalis.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C331EA9D05400755F6A /* White_Fatalis.png */; };
-		14A250321EA9D05400755F6A /* Yian_Garuga.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C341EA9D05400755F6A /* Yian_Garuga.png */; };
-		14A250331EA9D05400755F6A /* Yian_Kut-Ku.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C351EA9D05400755F6A /* Yian_Kut-Ku.png */; };
-		14A250341EA9D05400755F6A /* Zamite.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C361EA9D05400755F6A /* Zamite.png */; };
-		14A250351EA9D05400755F6A /* Zamtrios.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C371EA9D05400755F6A /* Zamtrios.png */; };
-		14A250361EA9D05400755F6A /* Zinogre.png in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C381EA9D05400755F6A /* Zinogre.png */; };
 		14A250371EA9D05400755F6A /* 43-11_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C3A1EA9D05400755F6A /* 43-11_1.jpg */; };
 		14A250381EA9D05400755F6A /* 43-12_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C3B1EA9D05400755F6A /* 43-12_1.jpg */; };
 		14A250391EA9D05400755F6A /* 43-13_1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 14A24C3C1EA9D05400755F6A /* 43-13_1.jpg */; };
@@ -1684,129 +1561,6 @@
 		14A24BBA1EA9D05400755F6A /* maps_mh4_tower_summit_mini.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maps_mh4_tower_summit_mini.png; sourceTree = "<group>"; };
 		14A24BBB1EA9D05400755F6A /* maps_mh4_volcanic_hollow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maps_mh4_volcanic_hollow.png; sourceTree = "<group>"; };
 		14A24BBC1EA9D05400755F6A /* maps_mh4_volcanic_hollow_mini.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = maps_mh4_volcanic_hollow_mini.png; sourceTree = "<group>"; };
-		14A24BBE1EA9D05400755F6A /* Agnaktor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Agnaktor.png; sourceTree = "<group>"; };
-		14A24BBF1EA9D05400755F6A /* Akantor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Akantor.png; sourceTree = "<group>"; };
-		14A24BC01EA9D05400755F6A /* Alatreon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Alatreon.png; sourceTree = "<group>"; };
-		14A24BC11EA9D05400755F6A /* Altaroth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Altaroth.png; sourceTree = "<group>"; };
-		14A24BC21EA9D05400755F6A /* Amatsu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Amatsu.png; sourceTree = "<group>"; };
-		14A24BC31EA9D05400755F6A /* Anteka.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Anteka.png; sourceTree = "<group>"; };
-		14A24BC41EA9D05400755F6A /* Apceros.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Apceros.png; sourceTree = "<group>"; };
-		14A24BC51EA9D05400755F6A /* Aptonoth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Aptonoth.png; sourceTree = "<group>"; };
-		14A24BC61EA9D05400755F6A /* Arzuros.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Arzuros.png; sourceTree = "<group>"; };
-		14A24BC71EA9D05400755F6A /* Ash_Kecha_Wacha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ash_Kecha_Wacha.png; sourceTree = "<group>"; };
-		14A24BC81EA9D05400755F6A /* Astalos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Astalos.png; sourceTree = "<group>"; };
-		14A24BC91EA9D05400755F6A /* Azure_Rathalos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Azure_Rathalos.png; sourceTree = "<group>"; };
-		14A24BCA1EA9D05400755F6A /* Basarios.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Basarios.png; sourceTree = "<group>"; };
-		14A24BCB1EA9D05400755F6A /* Blango.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Blango.png; sourceTree = "<group>"; };
-		14A24BCC1EA9D05400755F6A /* Blangonga.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Blangonga.png; sourceTree = "<group>"; };
-		14A24BCD1EA9D05400755F6A /* Bnahabra.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bnahabra.png; sourceTree = "<group>"; };
-		14A24BCE1EA9D05400755F6A /* Brachydios.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Brachydios.png; sourceTree = "<group>"; };
-		14A24BCF1EA9D05400755F6A /* Bulldrome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bulldrome.png; sourceTree = "<group>"; };
-		14A24BD01EA9D05400755F6A /* Bullfango.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bullfango.png; sourceTree = "<group>"; };
-		14A24BD11EA9D05400755F6A /* Ceanataur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ceanataur.png; sourceTree = "<group>"; };
-		14A24BD21EA9D05400755F6A /* Cephadrome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cephadrome.png; sourceTree = "<group>"; };
-		14A24BD31EA9D05400755F6A /* Cephalos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cephalos.png; sourceTree = "<group>"; };
-		14A24BD41EA9D05400755F6A /* Chameleos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Chameleos.png; sourceTree = "<group>"; };
-		14A24BD51EA9D05400755F6A /* Conga.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Conga.png; sourceTree = "<group>"; };
-		14A24BD61EA9D05400755F6A /* Congalala.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Congalala.png; sourceTree = "<group>"; };
-		14A24BD71EA9D05400755F6A /* Crimson_Fatalis.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Crimson_Fatalis.png; sourceTree = "<group>"; };
-		14A24BD81EA9D05400755F6A /* Crystalbeard_Uragaan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Crystalbeard_Uragaan.png; sourceTree = "<group>"; };
-		14A24BD91EA9D05400755F6A /* Dah'ren_Mohran.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Dah'ren_Mohran.png"; sourceTree = "<group>"; };
-		14A24BDA1EA9D05400755F6A /* Daimyo_Hermitaur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Daimyo_Hermitaur.png; sourceTree = "<group>"; };
-		14A24BDB1EA9D05400755F6A /* Deadeye_Yian_Garuga.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Deadeye_Yian_Garuga.png; sourceTree = "<group>"; };
-		14A24BDC1EA9D05400755F6A /* Deviljho.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Deviljho.png; sourceTree = "<group>"; };
-		14A24BDD1EA9D05400755F6A /* Diablos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Diablos.png; sourceTree = "<group>"; };
-		14A24BDE1EA9D05400755F6A /* Dreadking_Rathalos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dreadking_Rathalos.png; sourceTree = "<group>"; };
-		14A24BDF1EA9D05400755F6A /* Dreadqueen_Rathian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dreadqueen_Rathian.png; sourceTree = "<group>"; };
-		14A24BE01EA9D05400755F6A /* Drilltusk_Tetsucabra.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Drilltusk_Tetsucabra.png; sourceTree = "<group>"; };
-		14A24BE11EA9D05400755F6A /* Duramboros.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Duramboros.png; sourceTree = "<group>"; };
-		14A24BE21EA9D05400755F6A /* Emerald_Congalala.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Emerald_Congalala.png; sourceTree = "<group>"; };
-		14A24BE31EA9D05400755F6A /* Fatalis.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Fatalis.png; sourceTree = "<group>"; };
-		14A24BE41EA9D05400755F6A /* Felyne.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Felyne.png; sourceTree = "<group>"; };
-		14A24BE51EA9D05400755F6A /* Furious_Rajang.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Furious_Rajang.png; sourceTree = "<group>"; };
-		14A24BE61EA9D05400755F6A /* Gammoth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gammoth.png; sourceTree = "<group>"; };
-		14A24BE71EA9D05400755F6A /* Gargwa.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gargwa.png; sourceTree = "<group>"; };
-		14A24BE81EA9D05400755F6A /* Gendrome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gendrome.png; sourceTree = "<group>"; };
-		14A24BE91EA9D05400755F6A /* Genprey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Genprey.png; sourceTree = "<group>"; };
-		14A24BEA1EA9D05400755F6A /* Giaprey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Giaprey.png; sourceTree = "<group>"; };
-		14A24BEB1EA9D05400755F6A /* Glavenus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Glavenus.png; sourceTree = "<group>"; };
-		14A24BEC1EA9D05400755F6A /* Gogmazios.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gogmazios.png; sourceTree = "<group>"; };
-		14A24BED1EA9D05400755F6A /* Gold_Rathian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gold_Rathian.png; sourceTree = "<group>"; };
-		14A24BEE1EA9D05400755F6A /* Gore_Magala.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gore_Magala.png; sourceTree = "<group>"; };
-		14A24BEF1EA9D05400755F6A /* Great_Maccao.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Great_Maccao.png; sourceTree = "<group>"; };
-		14A24BF01EA9D05400755F6A /* Grimclaw_Tigrex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Grimclaw_Tigrex.png; sourceTree = "<group>"; };
-		14A24BF11EA9D05400755F6A /* Gypceros.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gypceros.png; sourceTree = "<group>"; };
-		14A24BF21EA9D05400755F6A /* Hellblade_Glavenus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Hellblade_Glavenus.png; sourceTree = "<group>"; };
-		14A24BF31EA9D05400755F6A /* Hermitaur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Hermitaur.png; sourceTree = "<group>"; };
-		14A24BF41EA9D05400755F6A /* Hornetaur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Hornetaur.png; sourceTree = "<group>"; };
-		14A24BF51EA9D05400755F6A /* Iodrome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Iodrome.png; sourceTree = "<group>"; };
-		14A24BF61EA9D05400755F6A /* Ioprey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ioprey.png; sourceTree = "<group>"; };
-		14A24BF71EA9D05400755F6A /* Jaggi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Jaggi.png; sourceTree = "<group>"; };
-		14A24BF81EA9D05400755F6A /* Jaggia.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Jaggia.png; sourceTree = "<group>"; };
-		14A24BF91EA9D05400755F6A /* Kecha_Wacha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Kecha_Wacha.png; sourceTree = "<group>"; };
-		14A24BFA1EA9D05400755F6A /* Kelbi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Kelbi.png; sourceTree = "<group>"; };
-		14A24BFB1EA9D05400755F6A /* Khezu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Khezu.png; sourceTree = "<group>"; };
-		14A24BFC1EA9D05400755F6A /* Kirin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Kirin.png; sourceTree = "<group>"; };
-		14A24BFD1EA9D05400755F6A /* Konchu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Konchu.png; sourceTree = "<group>"; };
-		14A24BFE1EA9D05400755F6A /* Kushala_Daora.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Kushala_Daora.png; sourceTree = "<group>"; };
-		14A24BFF1EA9D05400755F6A /* Lagiacrus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Lagiacrus.png; sourceTree = "<group>"; };
-		14A24C001EA9D05400755F6A /* Lagombi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Lagombi.png; sourceTree = "<group>"; };
-		14A24C011EA9D05400755F6A /* Larinoth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Larinoth.png; sourceTree = "<group>"; };
-		14A24C021EA9D05400755F6A /* Lavasioth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Lavasioth.png; sourceTree = "<group>"; };
-		14A24C031EA9D05400755F6A /* Ludroth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ludroth.png; sourceTree = "<group>"; };
-		14A24C041EA9D05400755F6A /* Maccao.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Maccao.png; sourceTree = "<group>"; };
-		14A24C051EA9D05400755F6A /* Malfestio.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Malfestio.png; sourceTree = "<group>"; };
-		14A24C061EA9D05400755F6A /* Melynx.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Melynx.png; sourceTree = "<group>"; };
-		14A24C071EA9D05400755F6A /* Mizutsune.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mizutsune.png; sourceTree = "<group>"; };
-		14A24C081EA9D05400755F6A /* Moofah.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Moofah.png; sourceTree = "<group>"; };
-		14A24C091EA9D05400755F6A /* Mosswine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mosswine.png; sourceTree = "<group>"; };
-		14A24C0A1EA9D05400755F6A /* Najarala.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Najarala.png; sourceTree = "<group>"; };
-		14A24C0B1EA9D05400755F6A /* Nakarkos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Nakarkos.png; sourceTree = "<group>"; };
-		14A24C0C1EA9D05400755F6A /* Nargacuga.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Nargacuga.png; sourceTree = "<group>"; };
-		14A24C0D1EA9D05400755F6A /* Nibelsnarf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Nibelsnarf.png; sourceTree = "<group>"; };
-		14A24C0E1EA9D05400755F6A /* Plesioth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Plesioth.png; sourceTree = "<group>"; };
-		14A24C0F1EA9D05400755F6A /* Popo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Popo.png; sourceTree = "<group>"; };
-		14A24C101EA9D05400755F6A /* Rajang.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Rajang.png; sourceTree = "<group>"; };
-		14A24C111EA9D05400755F6A /* Rathalos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Rathalos.png; sourceTree = "<group>"; };
-		14A24C121EA9D05400755F6A /* Rathian.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Rathian.png; sourceTree = "<group>"; };
-		14A24C131EA9D05400755F6A /* Red_Khezu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Red_Khezu.png; sourceTree = "<group>"; };
-		14A24C141EA9D05400755F6A /* Redhelm_Arzuros.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Redhelm_Arzuros.png; sourceTree = "<group>"; };
-		14A24C151EA9D05400755F6A /* Remobra.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Remobra.png; sourceTree = "<group>"; };
-		14A24C161EA9D05400755F6A /* Rhenoplos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Rhenoplos.png; sourceTree = "<group>"; };
-		14A24C171EA9D05400755F6A /* Royal_Ludroth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Royal_Ludroth.png; sourceTree = "<group>"; };
-		14A24C181EA9D05400755F6A /* Ruby_Basarios.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ruby_Basarios.png; sourceTree = "<group>"; };
-		14A24C191EA9D05400755F6A /* Rusted_Kushala_Daora.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Rusted_Kushala_Daora.png; sourceTree = "<group>"; };
-		14A24C1A1EA9D05400755F6A /* Savage_Deviljho.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Savage_Deviljho.png; sourceTree = "<group>"; };
-		14A24C1B1EA9D05400755F6A /* Seltas.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Seltas.png; sourceTree = "<group>"; };
-		14A24C1C1EA9D05400755F6A /* Seltas_Queen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Seltas_Queen.png; sourceTree = "<group>"; };
-		14A24C1D1EA9D05400755F6A /* Seregios.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Seregios.png; sourceTree = "<group>"; };
-		14A24C1E1EA9D05400755F6A /* Shagaru_Magala.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Shagaru_Magala.png; sourceTree = "<group>"; };
-		14A24C1F1EA9D05400755F6A /* Shah_Dalamadur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Shah_Dalamadur.png; sourceTree = "<group>"; };
-		14A24C201EA9D05400755F6A /* Shogun_Ceanataur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Shogun_Ceanataur.png; sourceTree = "<group>"; };
-		14A24C211EA9D05400755F6A /* Shrouded_Nerscylla.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Shrouded_Nerscylla.png; sourceTree = "<group>"; };
-		14A24C221EA9D05400755F6A /* Silver_Rathalos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Silver_Rathalos.png; sourceTree = "<group>"; };
-		14A24C231EA9D05400755F6A /* Silverwind_Nargacuga.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Silverwind_Nargacuga.png; sourceTree = "<group>"; };
-		14A24C241EA9D05400755F6A /* Slagtoth.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Slagtoth.png; sourceTree = "<group>"; };
-		14A24C251EA9D05400755F6A /* Slagtoth_Red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Slagtoth_Red.png; sourceTree = "<group>"; };
-		14A24C261EA9D05400755F6A /* Snowbaron_Lagombi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Snowbaron_Lagombi.png; sourceTree = "<group>"; };
-		14A24C271EA9D05400755F6A /* Stonefist_Hermitaur.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Stonefist_Hermitaur.png; sourceTree = "<group>"; };
-		14A24C281EA9D05400755F6A /* Teostra.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Teostra.png; sourceTree = "<group>"; };
-		14A24C291EA9D05400755F6A /* Tetsucabra.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tetsucabra.png; sourceTree = "<group>"; };
-		14A24C2A1EA9D05400755F6A /* Thunderlord_Zinogre.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Thunderlord_Zinogre.png; sourceTree = "<group>"; };
-		14A24C2B1EA9D05400755F6A /* Tigrex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tigrex.png; sourceTree = "<group>"; };
-		14A24C2C1EA9D05400755F6A /* Ukanlos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ukanlos.png; sourceTree = "<group>"; };
-		14A24C2D1EA9D05400755F6A /* Uragaan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Uragaan.png; sourceTree = "<group>"; };
-		14A24C2E1EA9D05400755F6A /* Uroktor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Uroktor.png; sourceTree = "<group>"; };
-		14A24C2F1EA9D05400755F6A /* Velocidrome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Velocidrome.png; sourceTree = "<group>"; };
-		14A24C301EA9D05400755F6A /* Velociprey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Velociprey.png; sourceTree = "<group>"; };
-		14A24C311EA9D05400755F6A /* Vespoid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Vespoid.png; sourceTree = "<group>"; };
-		14A24C321EA9D05400755F6A /* Volvidon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Volvidon.png; sourceTree = "<group>"; };
-		14A24C331EA9D05400755F6A /* White_Fatalis.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = White_Fatalis.png; sourceTree = "<group>"; };
-		14A24C341EA9D05400755F6A /* Yian_Garuga.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Yian_Garuga.png; sourceTree = "<group>"; };
-		14A24C351EA9D05400755F6A /* Yian_Kut-Ku.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Yian_Kut-Ku.png"; sourceTree = "<group>"; };
-		14A24C361EA9D05400755F6A /* Zamite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Zamite.png; sourceTree = "<group>"; };
-		14A24C371EA9D05400755F6A /* Zamtrios.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Zamtrios.png; sourceTree = "<group>"; };
-		14A24C381EA9D05400755F6A /* Zinogre.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Zinogre.png; sourceTree = "<group>"; };
 		14A24C3A1EA9D05400755F6A /* 43-11_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "43-11_1.jpg"; sourceTree = "<group>"; };
 		14A24C3B1EA9D05400755F6A /* 43-12_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "43-12_1.jpg"; sourceTree = "<group>"; };
 		14A24C3C1EA9D05400755F6A /* 43-13_1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "43-13_1.jpg"; sourceTree = "<group>"; };
@@ -2426,7 +2180,6 @@
 				14A249751EA9D05300755F6A /* icons_armor */,
 				14A249B51EA9D05300755F6A /* icons_items */,
 				14A24B7F1EA9D05300755F6A /* icons_location */,
-				14A24BBD1EA9D05400755F6A /* icons_monster */,
 				14A24C391EA9D05400755F6A /* icons_monster_info */,
 				14A24C601EA9D05400755F6A /* icons_weapons */,
 				148812FE20A4224E006B91EF /* monster-large */,
@@ -3081,136 +2834,6 @@
 				14A24BBC1EA9D05400755F6A /* maps_mh4_volcanic_hollow_mini.png */,
 			);
 			path = icons_location;
-			sourceTree = "<group>";
-		};
-		14A24BBD1EA9D05400755F6A /* icons_monster */ = {
-			isa = PBXGroup;
-			children = (
-				14A24BBE1EA9D05400755F6A /* Agnaktor.png */,
-				14A24BBF1EA9D05400755F6A /* Akantor.png */,
-				14A24BC01EA9D05400755F6A /* Alatreon.png */,
-				14A24BC11EA9D05400755F6A /* Altaroth.png */,
-				14A24BC21EA9D05400755F6A /* Amatsu.png */,
-				14A24BC31EA9D05400755F6A /* Anteka.png */,
-				14A24BC41EA9D05400755F6A /* Apceros.png */,
-				14A24BC51EA9D05400755F6A /* Aptonoth.png */,
-				14A24BC61EA9D05400755F6A /* Arzuros.png */,
-				14A24BC71EA9D05400755F6A /* Ash_Kecha_Wacha.png */,
-				14A24BC81EA9D05400755F6A /* Astalos.png */,
-				14A24BC91EA9D05400755F6A /* Azure_Rathalos.png */,
-				14A24BCA1EA9D05400755F6A /* Basarios.png */,
-				14A24BCB1EA9D05400755F6A /* Blango.png */,
-				14A24BCC1EA9D05400755F6A /* Blangonga.png */,
-				14A24BCD1EA9D05400755F6A /* Bnahabra.png */,
-				14A24BCE1EA9D05400755F6A /* Brachydios.png */,
-				14A24BCF1EA9D05400755F6A /* Bulldrome.png */,
-				14A24BD01EA9D05400755F6A /* Bullfango.png */,
-				14A24BD11EA9D05400755F6A /* Ceanataur.png */,
-				14A24BD21EA9D05400755F6A /* Cephadrome.png */,
-				14A24BD31EA9D05400755F6A /* Cephalos.png */,
-				14A24BD41EA9D05400755F6A /* Chameleos.png */,
-				14A24BD51EA9D05400755F6A /* Conga.png */,
-				14A24BD61EA9D05400755F6A /* Congalala.png */,
-				14A24BD71EA9D05400755F6A /* Crimson_Fatalis.png */,
-				14A24BD81EA9D05400755F6A /* Crystalbeard_Uragaan.png */,
-				14A24BD91EA9D05400755F6A /* Dah'ren_Mohran.png */,
-				14A24BDA1EA9D05400755F6A /* Daimyo_Hermitaur.png */,
-				14A24BDB1EA9D05400755F6A /* Deadeye_Yian_Garuga.png */,
-				14A24BDC1EA9D05400755F6A /* Deviljho.png */,
-				14A24BDD1EA9D05400755F6A /* Diablos.png */,
-				14A24BDE1EA9D05400755F6A /* Dreadking_Rathalos.png */,
-				14A24BDF1EA9D05400755F6A /* Dreadqueen_Rathian.png */,
-				14A24BE01EA9D05400755F6A /* Drilltusk_Tetsucabra.png */,
-				14A24BE11EA9D05400755F6A /* Duramboros.png */,
-				14A24BE21EA9D05400755F6A /* Emerald_Congalala.png */,
-				14A24BE31EA9D05400755F6A /* Fatalis.png */,
-				14A24BE41EA9D05400755F6A /* Felyne.png */,
-				14A24BE51EA9D05400755F6A /* Furious_Rajang.png */,
-				14A24BE61EA9D05400755F6A /* Gammoth.png */,
-				14A24BE71EA9D05400755F6A /* Gargwa.png */,
-				14A24BE81EA9D05400755F6A /* Gendrome.png */,
-				14A24BE91EA9D05400755F6A /* Genprey.png */,
-				14A24BEA1EA9D05400755F6A /* Giaprey.png */,
-				14A24BEB1EA9D05400755F6A /* Glavenus.png */,
-				14A24BEC1EA9D05400755F6A /* Gogmazios.png */,
-				14A24BED1EA9D05400755F6A /* Gold_Rathian.png */,
-				14A24BEE1EA9D05400755F6A /* Gore_Magala.png */,
-				14A24BEF1EA9D05400755F6A /* Great_Maccao.png */,
-				14A24BF01EA9D05400755F6A /* Grimclaw_Tigrex.png */,
-				14A24BF11EA9D05400755F6A /* Gypceros.png */,
-				14A24BF21EA9D05400755F6A /* Hellblade_Glavenus.png */,
-				14A24BF31EA9D05400755F6A /* Hermitaur.png */,
-				14A24BF41EA9D05400755F6A /* Hornetaur.png */,
-				14A24BF51EA9D05400755F6A /* Iodrome.png */,
-				14A24BF61EA9D05400755F6A /* Ioprey.png */,
-				14A24BF71EA9D05400755F6A /* Jaggi.png */,
-				14A24BF81EA9D05400755F6A /* Jaggia.png */,
-				14A24BF91EA9D05400755F6A /* Kecha_Wacha.png */,
-				14A24BFA1EA9D05400755F6A /* Kelbi.png */,
-				14A24BFB1EA9D05400755F6A /* Khezu.png */,
-				14A24BFC1EA9D05400755F6A /* Kirin.png */,
-				14A24BFD1EA9D05400755F6A /* Konchu.png */,
-				14A24BFE1EA9D05400755F6A /* Kushala_Daora.png */,
-				14A24BFF1EA9D05400755F6A /* Lagiacrus.png */,
-				14A24C001EA9D05400755F6A /* Lagombi.png */,
-				14A24C011EA9D05400755F6A /* Larinoth.png */,
-				14A24C021EA9D05400755F6A /* Lavasioth.png */,
-				14A24C031EA9D05400755F6A /* Ludroth.png */,
-				14A24C041EA9D05400755F6A /* Maccao.png */,
-				14A24C051EA9D05400755F6A /* Malfestio.png */,
-				14A24C061EA9D05400755F6A /* Melynx.png */,
-				14A24C071EA9D05400755F6A /* Mizutsune.png */,
-				14A24C081EA9D05400755F6A /* Moofah.png */,
-				14A24C091EA9D05400755F6A /* Mosswine.png */,
-				14A24C0A1EA9D05400755F6A /* Najarala.png */,
-				14A24C0B1EA9D05400755F6A /* Nakarkos.png */,
-				14A24C0C1EA9D05400755F6A /* Nargacuga.png */,
-				14A24C0D1EA9D05400755F6A /* Nibelsnarf.png */,
-				14A24C0E1EA9D05400755F6A /* Plesioth.png */,
-				14A24C0F1EA9D05400755F6A /* Popo.png */,
-				14A24C101EA9D05400755F6A /* Rajang.png */,
-				14A24C111EA9D05400755F6A /* Rathalos.png */,
-				14A24C121EA9D05400755F6A /* Rathian.png */,
-				14A24C131EA9D05400755F6A /* Red_Khezu.png */,
-				14A24C141EA9D05400755F6A /* Redhelm_Arzuros.png */,
-				14A24C151EA9D05400755F6A /* Remobra.png */,
-				14A24C161EA9D05400755F6A /* Rhenoplos.png */,
-				14A24C171EA9D05400755F6A /* Royal_Ludroth.png */,
-				14A24C181EA9D05400755F6A /* Ruby_Basarios.png */,
-				14A24C191EA9D05400755F6A /* Rusted_Kushala_Daora.png */,
-				14A24C1A1EA9D05400755F6A /* Savage_Deviljho.png */,
-				14A24C1B1EA9D05400755F6A /* Seltas.png */,
-				14A24C1C1EA9D05400755F6A /* Seltas_Queen.png */,
-				14A24C1D1EA9D05400755F6A /* Seregios.png */,
-				14A24C1E1EA9D05400755F6A /* Shagaru_Magala.png */,
-				14A24C1F1EA9D05400755F6A /* Shah_Dalamadur.png */,
-				14A24C201EA9D05400755F6A /* Shogun_Ceanataur.png */,
-				14A24C211EA9D05400755F6A /* Shrouded_Nerscylla.png */,
-				14A24C221EA9D05400755F6A /* Silver_Rathalos.png */,
-				14A24C231EA9D05400755F6A /* Silverwind_Nargacuga.png */,
-				14A24C241EA9D05400755F6A /* Slagtoth.png */,
-				14A24C251EA9D05400755F6A /* Slagtoth_Red.png */,
-				14A24C261EA9D05400755F6A /* Snowbaron_Lagombi.png */,
-				14A24C271EA9D05400755F6A /* Stonefist_Hermitaur.png */,
-				14A24C281EA9D05400755F6A /* Teostra.png */,
-				14A24C291EA9D05400755F6A /* Tetsucabra.png */,
-				14A24C2A1EA9D05400755F6A /* Thunderlord_Zinogre.png */,
-				14A24C2B1EA9D05400755F6A /* Tigrex.png */,
-				14A24C2C1EA9D05400755F6A /* Ukanlos.png */,
-				14A24C2D1EA9D05400755F6A /* Uragaan.png */,
-				14A24C2E1EA9D05400755F6A /* Uroktor.png */,
-				14A24C2F1EA9D05400755F6A /* Velocidrome.png */,
-				14A24C301EA9D05400755F6A /* Velociprey.png */,
-				14A24C311EA9D05400755F6A /* Vespoid.png */,
-				14A24C321EA9D05400755F6A /* Volvidon.png */,
-				14A24C331EA9D05400755F6A /* White_Fatalis.png */,
-				14A24C341EA9D05400755F6A /* Yian_Garuga.png */,
-				14A24C351EA9D05400755F6A /* Yian_Kut-Ku.png */,
-				14A24C361EA9D05400755F6A /* Zamite.png */,
-				14A24C371EA9D05400755F6A /* Zamtrios.png */,
-				14A24C381EA9D05400755F6A /* Zinogre.png */,
-			);
-			path = icons_monster;
 			sourceTree = "<group>";
 		};
 		14A24C391EA9D05400755F6A /* icons_monster_info */ = {
@@ -3901,17 +3524,14 @@
 				14A250C71EA9D05400755F6A /* insect_glaive9.png in Resources */,
 				14A250A81EA9D05400755F6A /* hammer8.png in Resources */,
 				14A250961EA9D05400755F6A /* gunlance1.png in Resources */,
-				14A250201EA9D05400755F6A /* Silver_Rathalos.png in Resources */,
 				14A24FB91EA9D05400755F6A /* maps_mh4_tower_summit_mini.png in Resources */,
 				14A24F561EA9D05400755F6A /* Talisman-Yellow.png in Resources */,
-				14A24FEA1EA9D05400755F6A /* Gogmazios.png in Resources */,
 				14A24EB91EA9D05400755F6A /* Monster-Jewel-Green.png in Resources */,
 				14A24E481EA9D05400755F6A /* Fang-Grey.png in Resources */,
 				14A250561EA9D05400755F6A /* StatusEffect-Water.jpg in Resources */,
 				14A2508F1EA9D05400755F6A /* great_sword4.png in Resources */,
 				14A24ED61EA9D05400755F6A /* Nectar-Teal.png in Resources */,
 				14A250591EA9D05400755F6A /* Thunder.png in Resources */,
-				14A24FF71EA9D05400755F6A /* Kecha_Wacha.png in Resources */,
 				14A250991EA9D05400755F6A /* gunlance3.png in Resources */,
 				14A24EDD1EA9D05400755F6A /* Ore-Orange.png in Resources */,
 				14A250E21EA9D05400755F6A /* long_sword6.png in Resources */,
@@ -3919,12 +3539,10 @@
 				14A24D9A1EA9D05400755F6A /* legs1.png in Resources */,
 				14A24E9F1EA9D05400755F6A /* Mantle-DarkGreen.png in Resources */,
 				14A250551EA9D05400755F6A /* StatusEffect-Thunder.jpg in Resources */,
-				14A24FE31EA9D05400755F6A /* Furious_Rajang.png in Resources */,
 				1488132D20A4224F006B91EF /* uragaan.png in Resources */,
 				14A24E4C1EA9D05400755F6A /* Fang-Red.png in Resources */,
 				1488132020A4224F006B91EF /* lavasioth.png in Resources */,
 				14A24DCB1EA9D05400755F6A /* Barrel-Bomb-Blue.png in Resources */,
-				14A250041EA9D05400755F6A /* Melynx.png in Resources */,
 				14A24E1F1EA9D05400755F6A /* Carapace-Purple.png in Resources */,
 				14A250461EA9D05400755F6A /* Ice.png in Resources */,
 				14A24F8B1EA9D05400755F6A /* 13.png in Resources */,
@@ -3934,9 +3552,7 @@
 				14A24E911EA9D05400755F6A /* Liquid-DarkGreen.png in Resources */,
 				14A250C31EA9D05400755F6A /* insect_glaive5.png in Resources */,
 				14A250651EA9D05400755F6A /* cutting1.png in Resources */,
-				14A250111EA9D05400755F6A /* Red_Khezu.png in Resources */,
 				14A24F181EA9D05400755F6A /* Scraps-Green.png in Resources */,
-				14A2502F1EA9D05400755F6A /* Vespoid.png in Resources */,
 				14A250DA1EA9D05400755F6A /* light_bowgun8.png in Resources */,
 				14A24EAB1EA9D05400755F6A /* MealTicket-Yellow.png in Resources */,
 				14A24EB01EA9D05400755F6A /* Meat-Orange.png in Resources */,
@@ -3947,9 +3563,7 @@
 				14A250CD1EA9D05400755F6A /* lance5.png in Resources */,
 				14A24F201EA9D05400755F6A /* Scraps-Yellow.png in Resources */,
 				14A24E041EA9D05400755F6A /* Bottle-Slime.png in Resources */,
-				14A2500E1EA9D05400755F6A /* Rajang.png in Resources */,
 				14A24DE91EA9D05400755F6A /* Bone-Orange.png in Resources */,
-				14A24FBD1EA9D05400755F6A /* Akantor.png in Resources */,
 				14A24E641EA9D05400755F6A /* Herb-DarkGreen.png in Resources */,
 				14A250791EA9D05400755F6A /* charge_blade2.png in Resources */,
 				14A24DEB1EA9D05400755F6A /* Bone-Purple.png in Resources */,
@@ -3966,10 +3580,7 @@
 				14A24EF81EA9D05400755F6A /* QuestionMark-Yellow.png in Resources */,
 				14A24E321EA9D05400755F6A /* Coin-Pink.png in Resources */,
 				14A24DC11EA9D05400755F6A /* Ammo-Yellow.png in Resources */,
-				14A24FC81EA9D05400755F6A /* Basarios.png in Resources */,
-				14A24FE11EA9D05400755F6A /* Fatalis.png in Resources */,
 				14A2509D1EA9D05400755F6A /* gunlance7.png in Resources */,
-				14A24FDE1EA9D05400755F6A /* Drilltusk_Tetsucabra.png in Resources */,
 				14A24DAD1EA9D05400755F6A /* waist9.png in Resources */,
 				14A24DB31EA9D05400755F6A /* Note.red.png in Resources */,
 				14A24E581EA9D05400755F6A /* Fish-Purple.png in Resources */,
@@ -3978,7 +3589,6 @@
 				14A24E8B1EA9D05400755F6A /* Knife-Red.png in Resources */,
 				14A24E1C1EA9D05400755F6A /* Carapace-Grey.png in Resources */,
 				14A24F8C1EA9D05400755F6A /* 14.png in Resources */,
-				14A24FBC1EA9D05400755F6A /* Agnaktor.png in Resources */,
 				14A24E2E1EA9D05400755F6A /* Coin-DarkGreen.png in Resources */,
 				14A24F611EA9D05400755F6A /* Ticket-Unknown.png in Resources */,
 				14A24EA41EA9D05400755F6A /* Mantle-Purple.png in Resources */,
@@ -3987,15 +3597,12 @@
 				1488132F20A4224F006B91EF /* azure-rathalos.png in Resources */,
 				14A24DE81EA9D05400755F6A /* Bone-Grey.png in Resources */,
 				14A24F9B1EA9D05400755F6A /* maps_mh4_castle_schrade_mini.png in Resources */,
-				14A24FC51EA9D05400755F6A /* Ash_Kecha_Wacha.png in Resources */,
 				14A24DFD1EA9D05400755F6A /* Bottle-Cyan.png in Resources */,
 				14A24F841EA9D05400755F6A /* 06.png in Resources */,
 				14A24E8F1EA9D05400755F6A /* Liquid-Blue.png in Resources */,
 				14A250F81EA9D05400755F6A /* sword_and_shield8.png in Resources */,
 				14A250731EA9D05400755F6A /* bow6.png in Resources */,
-				14A24FE61EA9D05400755F6A /* Gendrome.png in Resources */,
 				14A2507A1EA9D05400755F6A /* charge_blade3.png in Resources */,
-				14A2500D1EA9D05400755F6A /* Popo.png in Resources */,
 				14A24E371EA9D05400755F6A /* Coin-YellowGreen.png in Resources */,
 				14A24EBA1EA9D05400755F6A /* Monster-Jewel-Grey.png in Resources */,
 				14A24D8C1EA9D05400755F6A /* body6.png in Resources */,
@@ -4016,9 +3623,7 @@
 				14A24F721EA9D05400755F6A /* Webbing-Grey.png in Resources */,
 				14A24DED1EA9D05400755F6A /* Bone-White.png in Resources */,
 				14A24DB11EA9D05400755F6A /* Note.orange.png in Resources */,
-				14A250171EA9D05400755F6A /* Rusted_Kushala_Daora.png in Resources */,
 				14A24FB11EA9D05400755F6A /* maps_mh4_sanctuary_mini.png in Resources */,
-				14A250181EA9D05400755F6A /* Savage_Deviljho.png in Resources */,
 				14A24F871EA9D05400755F6A /* 09.png in Resources */,
 				14A24F251EA9D05400755F6A /* Seed-Gold.png in Resources */,
 				14A24DB41EA9D05400755F6A /* Note.white.png in Resources */,
@@ -4027,22 +3632,17 @@
 				14A250EC1EA9D05400755F6A /* switch_axe6.png in Resources */,
 				14A24F121EA9D05400755F6A /* Scale-YellowGreen.png in Resources */,
 				14A2509E1EA9D05400755F6A /* gunlance8.png in Resources */,
-				14A24FE81EA9D05400755F6A /* Giaprey.png in Resources */,
 				14A24D8F1EA9D05400755F6A /* body9.png in Resources */,
-				14A250341EA9D05400755F6A /* Zamite.png in Resources */,
 				14A250A91EA9D05400755F6A /* hammer9.png in Resources */,
 				14A24F7B1EA9D05400755F6A /* Wood-Orange.png in Resources */,
 				14A250CC1EA9D05400755F6A /* lance4.png in Resources */,
-				14A250121EA9D05400755F6A /* Redhelm_Arzuros.png in Resources */,
 				14A24E1D1EA9D05400755F6A /* Carapace-Orange.png in Resources */,
 				14A250A71EA9D05400755F6A /* hammer7.png in Resources */,
 				14A24E681EA9D05400755F6A /* Herb-Purple.png in Resources */,
-				14A24FF91EA9D05400755F6A /* Khezu.png in Resources */,
 				14A24E931EA9D05400755F6A /* Liquid-Green.png in Resources */,
 				14A24EFD1EA9D05400755F6A /* Sac-Orange.png in Resources */,
 				14A250471EA9D05400755F6A /* jump.png in Resources */,
 				14A24EB21EA9D05400755F6A /* Meat-Purple.png in Resources */,
-				14A250281EA9D05400755F6A /* Thunderlord_Zinogre.png in Resources */,
 				14A24E781EA9D05400755F6A /* Hide-White.png in Resources */,
 				14A24F8E1EA9D05400755F6A /* 16.png in Resources */,
 				14A24E0D1EA9D05400755F6A /* Bug-Orange.png in Resources */,
@@ -4082,13 +3682,10 @@
 				14A24DAF1EA9D05400755F6A /* Note.blue.png in Resources */,
 				14A24F701EA9D05400755F6A /* Webbing-Cyan.png in Resources */,
 				14A24DB51EA9D05400755F6A /* Note.yellow.png in Resources */,
-				14A250331EA9D05400755F6A /* Yian_Kut-Ku.png in Resources */,
 				14A24EC81EA9D05400755F6A /* Mushroom-Orange.png in Resources */,
 				14A24E191EA9D05400755F6A /* Carapace-DarkGreen.png in Resources */,
-				14A250311EA9D05400755F6A /* White_Fatalis.png in Resources */,
 				14A24DC71EA9D05400755F6A /* Bait-Pink.png in Resources */,
 				14A2509C1EA9D05400755F6A /* gunlance6.png in Resources */,
-				14A24FD21EA9D05400755F6A /* Chameleos.png in Resources */,
 				14A24E2B1EA9D05400755F6A /* Charm-Stone-Yellow.png in Resources */,
 				14A24FA21EA9D05400755F6A /* maps_mh4_frozen_seaway.png in Resources */,
 				14A24EAF1EA9D05400755F6A /* Meat-Grey.png in Resources */,
@@ -4098,12 +3695,10 @@
 				14A250571EA9D05400755F6A /* Stun.png in Resources */,
 				14A24E6F1EA9D05400755F6A /* Hide-Cyan.png in Resources */,
 				14A24E851EA9D05400755F6A /* Jewel-Unknown.png in Resources */,
-				14A24FCF1EA9D05400755F6A /* Ceanataur.png in Resources */,
 				14A24DC51EA9D05400755F6A /* Bait-Grey.png in Resources */,
 				14A24FB81EA9D05400755F6A /* maps_mh4_tower_summit.png in Resources */,
 				14A24E461EA9D05400755F6A /* Fang-Gold.png in Resources */,
 				14A24E541EA9D05400755F6A /* Fish-Green.png in Resources */,
-				14A24FDD1EA9D05400755F6A /* Dreadqueen_Rathian.png in Resources */,
 				14A24EFB1EA9D05400755F6A /* Sac-Cyan.png in Resources */,
 				14A250F11EA9D05400755F6A /* sword_and_shield10.png in Resources */,
 				14A24F331EA9D05400755F6A /* Shell-Magenta.png in Resources */,
@@ -4111,13 +3706,10 @@
 				14A250711EA9D05400755F6A /* bow4.png in Resources */,
 				14A24F081EA9D05400755F6A /* Scale-Gold.png in Resources */,
 				14A24F1E1EA9D05400755F6A /* Scraps-Teal.png in Resources */,
-				14A2501E1EA9D05400755F6A /* Shogun_Ceanataur.png in Resources */,
-				14A2502B1EA9D05400755F6A /* Uragaan.png in Resources */,
 				14A24EDF1EA9D05400755F6A /* Ore-Purple.png in Resources */,
 				14A24E551EA9D05400755F6A /* Fish-Grey.png in Resources */,
 				14A24F641EA9D05400755F6A /* Ticket-YellowGreen.png in Resources */,
 				14A24F451EA9D05400755F6A /* Sphere-Orange.png in Resources */,
-				14A250011EA9D05400755F6A /* Ludroth.png in Resources */,
 				14A250911EA9D05400755F6A /* great_sword6.png in Resources */,
 				14A250A61EA9D05400755F6A /* hammer6.png in Resources */,
 				14A24F071EA9D05400755F6A /* Scale-DarkGreen.png in Resources */,
@@ -4130,18 +3722,15 @@
 				14A250C81EA9D05400755F6A /* lance1.png in Resources */,
 				14A24F741EA9D05400755F6A /* Webbing-Pink.png in Resources */,
 				14A2508C1EA9D05400755F6A /* great_sword10.png in Resources */,
-				14A2500C1EA9D05400755F6A /* Plesioth.png in Resources */,
 				14A24E011EA9D05400755F6A /* Bottle-Pink.png in Resources */,
 				14A24EB41EA9D05400755F6A /* Meat-White.png in Resources */,
 				14A24F341EA9D05400755F6A /* Shell-Orange.png in Resources */,
-				14A250241EA9D05400755F6A /* Snowbaron_Lagombi.png in Resources */,
 				14A24EBE1EA9D05400755F6A /* Monster-Jewel-Red.png in Resources */,
 				14A24E0B1EA9D05400755F6A /* Bug-Green.png in Resources */,
 				14A250B51EA9D05400755F6A /* hunting_horn10.png in Resources */,
 				14A24D981EA9D05400755F6A /* head8.png in Resources */,
 				1488133720A4224F006B91EF /* great-girros.png in Resources */,
 				14A24F9C1EA9D05400755F6A /* maps_mh4_dunes_day.png in Resources */,
-				14A24FC91EA9D05400755F6A /* Blango.png in Resources */,
 				14A24EFA1EA9D05400755F6A /* Sac-Blue.png in Resources */,
 				1488133320A4224F006B91EF /* kuluyaku.png in Resources */,
 				14A2505E1EA9D05400755F6A /* blunt2.png in Resources */,
@@ -4155,7 +3744,6 @@
 				14A250811EA9D05400755F6A /* dual_blades1.png in Resources */,
 				14A24E9B1EA9D05400755F6A /* Liquid-Yellow.png in Resources */,
 				14A250501EA9D05400755F6A /* Status_Effect-Thunderblight_MH4_Icon.png in Resources */,
-				14A24FD81EA9D05400755F6A /* Daimyo_Hermitaur.png in Resources */,
 				14A24E3E1EA9D05400755F6A /* Egg-Grey.png in Resources */,
 				14A24F0E1EA9D05400755F6A /* Scale-Red.png in Resources */,
 				14A24F4D1EA9D05400755F6A /* Talisman-Blue.png in Resources */,
@@ -4167,9 +3755,7 @@
 				14A24FB01EA9D05400755F6A /* maps_mh4_sanctuary.png in Resources */,
 				14A24F7F1EA9D05400755F6A /* 01.png in Resources */,
 				14A24D8A1EA9D05400755F6A /* body4.png in Resources */,
-				14A24FBF1EA9D05400755F6A /* Altaroth.png in Resources */,
 				14A24E741EA9D05400755F6A /* Hide-Orange.png in Resources */,
-				14A24FCE1EA9D05400755F6A /* Bullfango.png in Resources */,
 				14A24F1F1EA9D05400755F6A /* Scraps-White.png in Resources */,
 				14A24FA11EA9D05400755F6A /* maps_mh4_everwood_mini.png in Resources */,
 				14A24E431EA9D05400755F6A /* Fang-Blue.png in Resources */,
@@ -4202,9 +3788,7 @@
 				14A24EDB1EA9D05400755F6A /* Ore-Green.png in Resources */,
 				14A24EC61EA9D05400755F6A /* Mushroom-Green.png in Resources */,
 				14A24D801EA9D05400755F6A /* arms4.png in Resources */,
-				14A24FC01EA9D05400755F6A /* Amatsu.png in Resources */,
 				14A250931EA9D05400755F6A /* great_sword8.png in Resources */,
-				14A2502D1EA9D05400755F6A /* Velocidrome.png in Resources */,
 				1488132220A4224F006B91EF /* legiana.png in Resources */,
 				14A24ED31EA9D05400755F6A /* Nectar-Pink.png in Resources */,
 				14A250AE1EA9D05400755F6A /* heavy_bowgun4.png in Resources */,
@@ -4221,20 +3805,15 @@
 				14A24ED51EA9D05400755F6A /* Nectar-Red.png in Resources */,
 				14A24EEE1EA9D05400755F6A /* QuestionMark-DarkGreen.png in Resources */,
 				14A24DFE1EA9D05400755F6A /* Bottle-Empty.png in Resources */,
-				14A250251EA9D05400755F6A /* Stonefist_Hermitaur.png in Resources */,
-				14A24FF01EA9D05400755F6A /* Hellblade_Glavenus.png in Resources */,
 				14A250D11EA9D05400755F6A /* lance9.png in Resources */,
 				14A24DBE1EA9D05400755F6A /* Ammo-Red.png in Resources */,
 				14A24D851EA9D05400755F6A /* arms9.png in Resources */,
-				14A250301EA9D05400755F6A /* Volvidon.png in Resources */,
 				14A24EF21EA9D05400755F6A /* QuestionMark-Orange.png in Resources */,
 				14A24EE51EA9D05400755F6A /* Pickaxe-Purple.png in Resources */,
-				14A250131EA9D05400755F6A /* Remobra.png in Resources */,
 				14A24F001EA9D05400755F6A /* Sac-Red.png in Resources */,
 				14A24D811EA9D05400755F6A /* arms5.png in Resources */,
 				14A24ED71EA9D05400755F6A /* Nectar-White.png in Resources */,
 				14A24E901EA9D05400755F6A /* Liquid-Cyan.png in Resources */,
-				14A24FDC1EA9D05400755F6A /* Dreadking_Rathalos.png in Resources */,
 				14A250A41EA9D05400755F6A /* hammer4.png in Resources */,
 				14A2506A1EA9D05400755F6A /* cutting6.png in Resources */,
 				14A24F931EA9D05400755F6A /* 21.png in Resources */,
@@ -4243,10 +3822,8 @@
 				14A24F291EA9D05400755F6A /* Seed-Pink.png in Resources */,
 				14A24EAD1EA9D05400755F6A /* Meat-Cyan.png in Resources */,
 				14A250C01EA9D05400755F6A /* insect_glaive2.png in Resources */,
-				14A24FDB1EA9D05400755F6A /* Diablos.png in Resources */,
 				14A24F4A1EA9D05400755F6A /* Sphere-YellowGreen.png in Resources */,
 				1488133020A4224F006B91EF /* pink-rathian.png in Resources */,
-				14A24FF81EA9D05400755F6A /* Kelbi.png in Resources */,
 				14A24F1B1EA9D05400755F6A /* Scraps-Pink.png in Resources */,
 				14A250D81EA9D05400755F6A /* light_bowgun6.png in Resources */,
 				14A250EE1EA9D05400755F6A /* switch_axe8.png in Resources */,
@@ -4256,19 +3833,14 @@
 				1488131E20A4224F006B91EF /* bazelgeuse.png in Resources */,
 				14A24E8A1EA9D05400755F6A /* Knife-Purple.png in Resources */,
 				14A250751EA9D05400755F6A /* bow8.png in Resources */,
-				14A24FD91EA9D05400755F6A /* Deadeye_Yian_Garuga.png in Resources */,
 				14A24E6D1EA9D05400755F6A /* Herb-YellowGreen.png in Resources */,
 				14A250391EA9D05400755F6A /* 43-13_1.jpg in Resources */,
 				14A250371EA9D05400755F6A /* 43-11_1.jpg in Resources */,
-				14A2500B1EA9D05400755F6A /* Nibelsnarf.png in Resources */,
 				14A24D861EA9D05400755F6A /* body1.png in Resources */,
 				14A24F061EA9D05400755F6A /* Scale-Cyan.png in Resources */,
-				14A24FC21EA9D05400755F6A /* Apceros.png in Resources */,
-				14A2501D1EA9D05400755F6A /* Shah_Dalamadur.png in Resources */,
 				14A24E501EA9D05400755F6A /* Fang-YellowGreen.png in Resources */,
 				14A250921EA9D05400755F6A /* great_sword7.png in Resources */,
 				14A250F31EA9D05400755F6A /* sword_and_shield3.png in Resources */,
-				14A2502C1EA9D05400755F6A /* Uroktor.png in Resources */,
 				14A24EB71EA9D05400755F6A /* Monster-Jewel-Cyan.png in Resources */,
 				14A2503B1EA9D05400755F6A /* 43-15_1.jpg in Resources */,
 				14A24F0B1EA9D05400755F6A /* Scale-Orange.png in Resources */,
@@ -4277,32 +3849,26 @@
 				14A24F761EA9D05400755F6A /* Webbing-Red.png in Resources */,
 				14A250891EA9D05400755F6A /* dual_blades8.png in Resources */,
 				14A24D941EA9D05400755F6A /* head4.png in Resources */,
-				14A24FE51EA9D05400755F6A /* Gargwa.png in Resources */,
 				14A250DE1EA9D05400755F6A /* long_sword2.png in Resources */,
 				14A24F801EA9D05400755F6A /* 02.png in Resources */,
 				14A250CE1EA9D05400755F6A /* lance6.png in Resources */,
 				14A24F811EA9D05400755F6A /* 03.png in Resources */,
 				14A24F371EA9D05400755F6A /* Shell-Red.png in Resources */,
 				14A24E991EA9D05400755F6A /* Liquid-Slime.png in Resources */,
-				14A2500A1EA9D05400755F6A /* Nargacuga.png in Resources */,
-				14A24FEC1EA9D05400755F6A /* Gore_Magala.png in Resources */,
 				14A24ED81EA9D05400755F6A /* Nectar-Yellow.png in Resources */,
 				14A24F3C1EA9D05400755F6A /* Smoke-Blue.png in Resources */,
 				14A24EAC1EA9D05400755F6A /* Meat-Blue.png in Resources */,
-				14A24FEB1EA9D05400755F6A /* Gold_Rathian.png in Resources */,
 				14A24E0C1EA9D05400755F6A /* Bug-Grey.png in Resources */,
 				1405268B207EF640001A5E96 /* mhw.db in Resources */,
 				14A24FB51EA9D05400755F6A /* maps_mh4_speartip_crag_mini.png in Resources */,
 				14A24F321EA9D05400755F6A /* Shell-Grey.png in Resources */,
 				14A24EC91EA9D05400755F6A /* Mushroom-Pink.png in Resources */,
 				14A24E661EA9D05400755F6A /* Herb-Grey.png in Resources */,
-				14A24FD31EA9D05400755F6A /* Conga.png in Resources */,
 				14A24EE41EA9D05400755F6A /* Pickaxe-Grey.png in Resources */,
 				14A24F591EA9D05400755F6A /* Ticket-Gold.png in Resources */,
 				14A24D791EA9D05400755F6A /* Assets.xcassets in Resources */,
 				14A24D961EA9D05400755F6A /* head6.png in Resources */,
 				14A24F6E1EA9D05400755F6A /* Traptool-Yellow.png in Resources */,
-				14A24FBE1EA9D05400755F6A /* Alatreon.png in Resources */,
 				14A250B11EA9D05400755F6A /* heavy_bowgun7.png in Resources */,
 				14A250871EA9D05400755F6A /* dual_blades6.png in Resources */,
 				14A24EBD1EA9D05400755F6A /* Monster-Jewel-Purple.png in Resources */,
@@ -4320,7 +3886,6 @@
 				14A24D9E1EA9D05400755F6A /* legs4.png in Resources */,
 				14A24F6B1EA9D05400755F6A /* Traptool-Green.png in Resources */,
 				1488132120A4224F006B91EF /* odogaron.png in Resources */,
-				14A24FE41EA9D05400755F6A /* Gammoth.png in Resources */,
 				14A24E531EA9D05400755F6A /* Fish-Gold.png in Resources */,
 				14A24F2D1EA9D05400755F6A /* Shell-Blue.png in Resources */,
 				14A24E2C1EA9D05400755F6A /* Coin-Blue.png in Resources */,
@@ -4330,26 +3895,19 @@
 				14A250E31EA9D05400755F6A /* long_sword7.png in Resources */,
 				14A24DEA1EA9D05400755F6A /* Bone-Pink.png in Resources */,
 				14A24E7C1EA9D05400755F6A /* Husk-White.png in Resources */,
-				14A250351EA9D05400755F6A /* Zamtrios.png in Resources */,
 				14A24DFB1EA9D05400755F6A /* Boomerang-Yellow.png in Resources */,
-				14A24FCB1EA9D05400755F6A /* Bnahabra.png in Resources */,
 				14A2505A1EA9D05400755F6A /* unknown.png in Resources */,
 				14A24FBA1EA9D05400755F6A /* maps_mh4_volcanic_hollow.png in Resources */,
 				14A24F541EA9D05400755F6A /* Talisman-Red.png in Resources */,
 				14A24E5F1EA9D05400755F6A /* Flute-Red.png in Resources */,
-				14A24FE71EA9D05400755F6A /* Genprey.png in Resources */,
 				14A24F091EA9D05400755F6A /* Scale-Green.png in Resources */,
 				14A24DA71EA9D05400755F6A /* waist3.png in Resources */,
-				14A24FD51EA9D05400755F6A /* Crimson_Fatalis.png in Resources */,
 				14A24E101EA9D05400755F6A /* Bug-Red.png in Resources */,
-				14A250021EA9D05400755F6A /* Maccao.png in Resources */,
-				14A24FDA1EA9D05400755F6A /* Deviljho.png in Resources */,
 				14A250AB1EA9D05400755F6A /* heavy_bowgun10.png in Resources */,
 				14A24E921EA9D05400755F6A /* Liquid-Gold.png in Resources */,
 				14A24F9D1EA9D05400755F6A /* maps_mh4_dunes_day_mini.png in Resources */,
 				14A24F441EA9D05400755F6A /* Sphere-Green.png in Resources */,
 				14A24F3A1EA9D05400755F6A /* Shell-Yellow.png in Resources */,
-				14A24FE91EA9D05400755F6A /* Glavenus.png in Resources */,
 				14A2508B1EA9D05400755F6A /* great_sword1.png in Resources */,
 				14A24DE11EA9D05400755F6A /* Bomb-Red.png in Resources */,
 				14A24E7F1EA9D05400755F6A /* Jewel-Green.png in Resources */,
@@ -4357,9 +3915,6 @@
 				14A24E701EA9D05400755F6A /* Hide-DarkGreen.png in Resources */,
 				14A250691EA9D05400755F6A /* cutting5.png in Resources */,
 				14A24E521EA9D05400755F6A /* Fish-Cyan.png in Resources */,
-				14A24FC31EA9D05400755F6A /* Aptonoth.png in Resources */,
-				14A24FF51EA9D05400755F6A /* Jaggi.png in Resources */,
-				14A24FFE1EA9D05400755F6A /* Lagombi.png in Resources */,
 				14A24E1A1EA9D05400755F6A /* Carapace-Gold.png in Resources */,
 				14A24F8D1EA9D05400755F6A /* 15.png in Resources */,
 				14A24E751EA9D05400755F6A /* Hide-Pink.png in Resources */,
@@ -4376,7 +3931,6 @@
 				14A24DF81EA9D05400755F6A /* Book-White.png in Resources */,
 				14A250D41EA9D05400755F6A /* light_bowgun2.png in Resources */,
 				14A24F521EA9D05400755F6A /* Talisman-Pink.png in Resources */,
-				14A250061EA9D05400755F6A /* Moofah.png in Resources */,
 				14A24E7A1EA9D05400755F6A /* Hide-YellowGreen.png in Resources */,
 				14A24E0E1EA9D05400755F6A /* Bug-Pink.png in Resources */,
 				14A24ECC1EA9D05400755F6A /* Mushroom-White.png in Resources */,
@@ -4390,23 +3944,19 @@
 				14A24F301EA9D05400755F6A /* Shell-Gold.png in Resources */,
 				14A250681EA9D05400755F6A /* cutting4.png in Resources */,
 				14A24FAC1EA9D05400755F6A /* maps_mh4_polar_field.png in Resources */,
-				14A24FD61EA9D05400755F6A /* Crystalbeard_Uragaan.png in Resources */,
 				14A250941EA9D05400755F6A /* great_sword9.png in Resources */,
 				14A24DA11EA9D05400755F6A /* legs7.png in Resources */,
 				14A24EAE1EA9D05400755F6A /* Meat-Green.png in Resources */,
 				14A250491EA9D05400755F6A /* Paralysis.png in Resources */,
 				14A2504D1EA9D05400755F6A /* Status_Effect-Dragonblight_MH4_Icon.png in Resources */,
-				14A250091EA9D05400755F6A /* Nakarkos.png in Resources */,
 				14A24E7B1EA9D05400755F6A /* Husk-Grey.png in Resources */,
 				14A24F431EA9D05400755F6A /* Sphere-Cyan.png in Resources */,
 				14A24E881EA9D05400755F6A /* Knife-Cyan.png in Resources */,
 				14A24EF01EA9D05400755F6A /* QuestionMark-Green.png in Resources */,
 				14A24DF31EA9D05400755F6A /* Book-Grey.png in Resources */,
 				14A24F501EA9D05400755F6A /* Talisman-Magenta.png in Resources */,
-				14A250321EA9D05400755F6A /* Yian_Garuga.png in Resources */,
 				14A250AA1EA9D05400755F6A /* heavy_bowgun1.png in Resources */,
 				14A24E4F1EA9D05400755F6A /* Fang-Yellow.png in Resources */,
-				14A250071EA9D05400755F6A /* Mosswine.png in Resources */,
 				14A24E291EA9D05400755F6A /* Charm-Stone-Red.png in Resources */,
 				14A24F661EA9D05400755F6A /* Trap-Green.png in Resources */,
 				14A24EED1EA9D05400755F6A /* QuestionMark-Cyan.png in Resources */,
@@ -4428,7 +3978,6 @@
 				14A24F0F1EA9D05400755F6A /* Scale-Teal.png in Resources */,
 				14A250981EA9D05400755F6A /* gunlance2.png in Resources */,
 				14A24F6D1EA9D05400755F6A /* Traptool-White.png in Resources */,
-				14A24FC11EA9D05400755F6A /* Anteka.png in Resources */,
 				14A24F111EA9D05400755F6A /* Scale-Yellow.png in Resources */,
 				14A24D871EA9D05400755F6A /* body10.png in Resources */,
 				14A24E061EA9D05400755F6A /* Bottle-Yellow.png in Resources */,
@@ -4447,8 +3996,6 @@
 				14A24EA01EA9D05400755F6A /* Mantle-Green.png in Resources */,
 				14A24F461EA9D05400755F6A /* Sphere-Purple.png in Resources */,
 				14A24DE51EA9D05400755F6A /* Bone-Cyan.png in Resources */,
-				14A250361EA9D05400755F6A /* Zinogre.png in Resources */,
-				14A24FCA1EA9D05400755F6A /* Blangonga.png in Resources */,
 				14A24EC51EA9D05400755F6A /* Mushroom-Gold.png in Resources */,
 				14A24F5B1EA9D05400755F6A /* Ticket-Grey.png in Resources */,
 				14A24DDF1EA9D05400755F6A /* Bomb-Pink.png in Resources */,
@@ -4457,21 +4004,14 @@
 				14A24E571EA9D05400755F6A /* Fish-Pink.png in Resources */,
 				14A24FAF1EA9D05400755F6A /* maps_mh4_primal_forest_mini.png in Resources */,
 				14A24E4B1EA9D05400755F6A /* Fang-Purple.png in Resources */,
-				14A250211EA9D05400755F6A /* Silverwind_Nargacuga.png in Resources */,
 				14A24F151EA9D05400755F6A /* Scraps-Cyan.png in Resources */,
 				14A24E351EA9D05400755F6A /* Coin-White.png in Resources */,
 				14A250401EA9D05400755F6A /* effectiveness-2.png in Resources */,
-				14A250031EA9D05400755F6A /* Malfestio.png in Resources */,
 				14A24F5D1EA9D05400755F6A /* Ticket-Pink.png in Resources */,
 				14A24F8F1EA9D05400755F6A /* 17.png in Resources */,
-				14A250101EA9D05400755F6A /* Rathian.png in Resources */,
 				14A250D31EA9D05400755F6A /* light_bowgun10.png in Resources */,
 				14A24E631EA9D05400755F6A /* Herb-Cyan.png in Resources */,
-				14A250291EA9D05400755F6A /* Tigrex.png in Resources */,
-				14A250271EA9D05400755F6A /* Tetsucabra.png in Resources */,
 				14A24EF11EA9D05400755F6A /* QuestionMark-Grey.png in Resources */,
-				14A24FDF1EA9D05400755F6A /* Duramboros.png in Resources */,
-				14A24FD11EA9D05400755F6A /* Cephalos.png in Resources */,
 				14A24E171EA9D05400755F6A /* Carapace-Blue.png in Resources */,
 				14A24DDB1EA9D05400755F6A /* Bomb-Cyan.png in Resources */,
 				14A24E951EA9D05400755F6A /* Liquid-Orange.png in Resources */,
@@ -4487,22 +4027,18 @@
 				14A24EF91EA9D05400755F6A /* QuestionMark-YellowGreen.png in Resources */,
 				14A24D891EA9D05400755F6A /* body3.png in Resources */,
 				14A24DAE1EA9D05400755F6A /* Note.aqua.png in Resources */,
-				14A24FF61EA9D05400755F6A /* Jaggia.png in Resources */,
 				14A24E451EA9D05400755F6A /* Fang-DarkGreen.png in Resources */,
 				14A24F7E1EA9D05400755F6A /* Wyvern-Crystal-White.png in Resources */,
 				14A24DA61EA9D05400755F6A /* waist2.png in Resources */,
-				14A2501A1EA9D05400755F6A /* Seltas_Queen.png in Resources */,
 				14A24F311EA9D05400755F6A /* Shell-Green.png in Resources */,
 				14A24E221EA9D05400755F6A /* Carapace-White.png in Resources */,
 				14A250F21EA9D05400755F6A /* sword_and_shield2.png in Resources */,
-				14A24FD01EA9D05400755F6A /* Cephadrome.png in Resources */,
 				14A24F891EA9D05400755F6A /* 11.png in Resources */,
 				14A24F861EA9D05400755F6A /* 08.png in Resources */,
 				14A24F631EA9D05400755F6A /* Ticket-Yellow.png in Resources */,
 				14A250451EA9D05400755F6A /* frenzy_up.png in Resources */,
 				14A24E2A1EA9D05400755F6A /* Charm-Stone-White.png in Resources */,
 				14A250D71EA9D05400755F6A /* light_bowgun5.png in Resources */,
-				14A250261EA9D05400755F6A /* Teostra.png in Resources */,
 				1488132E20A4224F006B91EF /* teostra.png in Resources */,
 				14A24E2D1EA9D05400755F6A /* Coin-Cyan.png in Resources */,
 				14A250C11EA9D05400755F6A /* insect_glaive3.png in Resources */,
@@ -4513,12 +4049,10 @@
 				14A24D8B1EA9D05400755F6A /* body5.png in Resources */,
 				14A250DC1EA9D05400755F6A /* long_sword1.png in Resources */,
 				14A250F51EA9D05400755F6A /* sword_and_shield5.png in Resources */,
-				14A250151EA9D05400755F6A /* Royal_Ludroth.png in Resources */,
 				14A250E81EA9D05400755F6A /* switch_axe2.png in Resources */,
 				14A24DF71EA9D05400755F6A /* Book-Red.png in Resources */,
 				14A24EE71EA9D05400755F6A /* Pickaxe-Yellow.png in Resources */,
 				14A24DBC1EA9D05400755F6A /* Ammo-Pink.png in Resources */,
-				14A24FE21EA9D05400755F6A /* Felyne.png in Resources */,
 				14A250B91EA9D05400755F6A /* hunting_horn5.png in Resources */,
 				14A24F5C1EA9D05400755F6A /* Ticket-Orange.png in Resources */,
 				14A24E7D1EA9D05400755F6A /* Jewel-Blue.png in Resources */,
@@ -4536,12 +4070,10 @@
 				14A24DF51EA9D05400755F6A /* Book-Pink.png in Resources */,
 				14A24F581EA9D05400755F6A /* Ticket-Cyan.png in Resources */,
 				14A24F191EA9D05400755F6A /* Scraps-Grey.png in Resources */,
-				14A250221EA9D05400755F6A /* Slagtoth.png in Resources */,
 				14A250B31EA9D05400755F6A /* heavy_bowgun9.png in Resources */,
 				14A24E3A1EA9D05400755F6A /* Dung-Yellow.png in Resources */,
 				14A24ED11EA9D05400755F6A /* Nectar-Grey.png in Resources */,
 				1488133A20A4224F006B91EF /* paolumu.png in Resources */,
-				14A2501C1EA9D05400755F6A /* Shagaru_Magala.png in Resources */,
 				14A24DE31EA9D05400755F6A /* Bomb-Yellow.png in Resources */,
 				14A24DC81EA9D05400755F6A /* Bait-Red.png in Resources */,
 				14A24E6E1EA9D05400755F6A /* Hide-Blue.png in Resources */,
@@ -4555,11 +4087,8 @@
 				14A24E071EA9D05400755F6A /* Bottle-YellowGreen.png in Resources */,
 				14A250661EA9D05400755F6A /* cutting2.png in Resources */,
 				14A250BA1EA9D05400755F6A /* hunting_horn6.png in Resources */,
-				14A24FC41EA9D05400755F6A /* Arzuros.png in Resources */,
 				14A24E691EA9D05400755F6A /* Herb-Red.png in Resources */,
 				14A24E891EA9D05400755F6A /* Knife-Grey.png in Resources */,
-				14A250191EA9D05400755F6A /* Seltas.png in Resources */,
-				14A250001EA9D05400755F6A /* Lavasioth.png in Resources */,
 				14A24D881EA9D05400755F6A /* body2.png in Resources */,
 				14A24FB31EA9D05400755F6A /* maps_mh4_slayground_mini.png in Resources */,
 				14A24E771EA9D05400755F6A /* Hide-Red.png in Resources */,
@@ -4583,18 +4112,14 @@
 				14A250C91EA9D05400755F6A /* lance10.png in Resources */,
 				14A24DA91EA9D05400755F6A /* waist5.png in Resources */,
 				14A24EA11EA9D05400755F6A /* Mantle-Grey.png in Resources */,
-				14A2501F1EA9D05400755F6A /* Shrouded_Nerscylla.png in Resources */,
 				14A24EDA1EA9D05400755F6A /* Ore-Cyan.png in Resources */,
 				14A24E9C1EA9D05400755F6A /* Liquid-YellowGreen.png in Resources */,
-				14A24FF41EA9D05400755F6A /* Ioprey.png in Resources */,
 				14A24EEC1EA9D05400755F6A /* QuestionMark-Blue.png in Resources */,
 				14A24DA01EA9D05400755F6A /* legs6.png in Resources */,
-				14A24FEE1EA9D05400755F6A /* Grimclaw_Tigrex.png in Resources */,
 				14A24F221EA9D05400755F6A /* Seed-Blue.png in Resources */,
 				14A24E091EA9D05400755F6A /* Bug-Cyan.png in Resources */,
 				14A24E6C1EA9D05400755F6A /* Herb-Yellow.png in Resources */,
 				14A250D51EA9D05400755F6A /* light_bowgun3.png in Resources */,
-				14A250051EA9D05400755F6A /* Mizutsune.png in Resources */,
 				14A24E0A1EA9D05400755F6A /* Bug-Gold.png in Resources */,
 				14A24E421EA9D05400755F6A /* Egg-Yellow.png in Resources */,
 				14A24EDC1EA9D05400755F6A /* Ore-Grey.png in Resources */,
@@ -4610,7 +4135,6 @@
 				14A2507D1EA9D05400755F6A /* charge_blade6.png in Resources */,
 				14A250AD1EA9D05400755F6A /* heavy_bowgun3.png in Resources */,
 				14A250441EA9D05400755F6A /* frenzy_down.png in Resources */,
-				14A250161EA9D05400755F6A /* Ruby_Basarios.png in Resources */,
 				14A24E821EA9D05400755F6A /* Jewel-Pink.png in Resources */,
 				14A250B21EA9D05400755F6A /* heavy_bowgun8.png in Resources */,
 				14A24E121EA9D05400755F6A /* Bug-White.png in Resources */,
@@ -4622,16 +4146,13 @@
 				14A24F101EA9D05400755F6A /* Scale-White.png in Resources */,
 				14A24F421EA9D05400755F6A /* Sphere-Blue.png in Resources */,
 				14A24E161EA9D05400755F6A /* Bugnet-Yellow.png in Resources */,
-				14A24FCC1EA9D05400755F6A /* Brachydios.png in Resources */,
 				14A250771EA9D05400755F6A /* charge_blade1.png in Resources */,
 				14A24F921EA9D05400755F6A /* 20.png in Resources */,
 				14A24F131EA9D05400755F6A /* Scraps-Blue.png in Resources */,
 				14A24D9D1EA9D05400755F6A /* legs3.png in Resources */,
 				14A24E341EA9D05400755F6A /* Coin-Red.png in Resources */,
-				14A2502E1EA9D05400755F6A /* Velociprey.png in Resources */,
 				14A24F401EA9D05400755F6A /* Smoke-White.png in Resources */,
 				14A24E251EA9D05400755F6A /* Charm-Stone-Blue.png in Resources */,
-				14A24FFD1EA9D05400755F6A /* Lagiacrus.png in Resources */,
 				14A24F0D1EA9D05400755F6A /* Scale-Purple.png in Resources */,
 				14A24EDE1EA9D05400755F6A /* Ore-Pink.png in Resources */,
 				14A250E91EA9D05400755F6A /* switch_axe3.png in Resources */,
@@ -4639,7 +4160,6 @@
 				14A24F7C1EA9D05400755F6A /* Wood-Yellow.png in Resources */,
 				14A24DE71EA9D05400755F6A /* Bone-Green.png in Resources */,
 				14A24E711EA9D05400755F6A /* Hide-Gold.png in Resources */,
-				14A24FCD1EA9D05400755F6A /* Bulldrome.png in Resources */,
 				14A24EEA1EA9D05400755F6A /* Quest-Icon-Red.png in Resources */,
 				14A24F571EA9D05400755F6A /* Ticket-Blue.png in Resources */,
 				14A24E381EA9D05400755F6A /* Dung-Grey.png in Resources */,
@@ -4649,8 +4169,6 @@
 				14A24EB81EA9D05400755F6A /* Monster-Jewel-DarkGreen.png in Resources */,
 				14A24D9C1EA9D05400755F6A /* legs2.png in Resources */,
 				14A24E311EA9D05400755F6A /* Coin-Orange.png in Resources */,
-				14A24FD41EA9D05400755F6A /* Congalala.png in Resources */,
-				14A2500F1EA9D05400755F6A /* Rathalos.png in Resources */,
 				14A24F9F1EA9D05400755F6A /* maps_mh4_dunes_night_mini.png in Resources */,
 				14A24DD51EA9D05400755F6A /* BBQSpit-Pink.png in Resources */,
 				14A24FA81EA9D05400755F6A /* maps_mh4_heavens_mount.png in Resources */,
@@ -4665,18 +4183,14 @@
 				14A24F3B1EA9D05400755F6A /* Shell-YellowGreen.png in Resources */,
 				14A24DB71EA9D05400755F6A /* Ammo-Cyan.png in Resources */,
 				14A24E2F1EA9D05400755F6A /* Coin-Green.png in Resources */,
-				14A24FC61EA9D05400755F6A /* Astalos.png in Resources */,
 				14A24F1D1EA9D05400755F6A /* Scraps-Red.png in Resources */,
-				14A24FF21EA9D05400755F6A /* Hornetaur.png in Resources */,
 				14A24DF21EA9D05400755F6A /* Book-Green.png in Resources */,
 				14A250521EA9D05400755F6A /* StatusEffect-Dragon.jpg in Resources */,
 				14A24F7A1EA9D05400755F6A /* Whetstone.png in Resources */,
 				14A250951EA9D05400755F6A /* Great_Sword_Icon_White.png in Resources */,
-				14A24FEF1EA9D05400755F6A /* Gypceros.png in Resources */,
 				14A24E141EA9D05400755F6A /* Bugnet-Grey.png in Resources */,
 				14A24DE01EA9D05400755F6A /* Bomb-Purple.png in Resources */,
 				14A24DDD1EA9D05400755F6A /* Bomb-Grey.png in Resources */,
-				14A250141EA9D05400755F6A /* Rhenoplos.png in Resources */,
 				14A24E1E1EA9D05400755F6A /* Carapace-Pink.png in Resources */,
 				14A250E41EA9D05400755F6A /* long_sword8.png in Resources */,
 				14A24EF31EA9D05400755F6A /* QuestionMark-Pink.png in Resources */,
@@ -4686,7 +4200,6 @@
 				1488132620A4224F006B91EF /* tzitziyaku.png in Resources */,
 				14A24D9F1EA9D05400755F6A /* legs5.png in Resources */,
 				14A24F351EA9D05400755F6A /* Shell-Pink.png in Resources */,
-				14A24FFB1EA9D05400755F6A /* Konchu.png in Resources */,
 				14A24F481EA9D05400755F6A /* Sphere-White.png in Resources */,
 				14A24E241EA9D05400755F6A /* Carapace-YellowGreen.png in Resources */,
 				14A24FA41EA9D05400755F6A /* maps_mh4_great_desert.png in Resources */,
@@ -4698,7 +4211,6 @@
 				14A24DF41EA9D05400755F6A /* Book-Orange.png in Resources */,
 				14A24F731EA9D05400755F6A /* Webbing-Orange.png in Resources */,
 				14A24F9E1EA9D05400755F6A /* maps_mh4_dunes_night.png in Resources */,
-				14A24FE01EA9D05400755F6A /* Emerald_Congalala.png in Resources */,
 				14A24F2B1EA9D05400755F6A /* Seed-White.png in Resources */,
 				14A24F851EA9D05400755F6A /* 07.png in Resources */,
 				14A24EBF1EA9D05400755F6A /* Monster-Jewel-Teal.png in Resources */,
@@ -4717,16 +4229,13 @@
 				14A250D91EA9D05400755F6A /* light_bowgun7.png in Resources */,
 				14A24F141EA9D05400755F6A /* Scraps-BlueGreen.png in Resources */,
 				14A2508E1EA9D05400755F6A /* great_sword3.png in Resources */,
-				14A24FC71EA9D05400755F6A /* Azure_Rathalos.png in Resources */,
 				14A24ECD1EA9D05400755F6A /* Mushroom-Yellow.png in Resources */,
 				14A24DE61EA9D05400755F6A /* Bone-Gold.png in Resources */,
 				14A250781EA9D05400755F6A /* charge_blade10.png in Resources */,
 				14A250511EA9D05400755F6A /* Status_Effect-Waterblight_MH4_Icon.png in Resources */,
 				14A24DCF1EA9D05400755F6A /* Barrel-Bomb-Yellow.png in Resources */,
-				14A24FF11EA9D05400755F6A /* Hermitaur.png in Resources */,
 				14A24DA81EA9D05400755F6A /* waist4.png in Resources */,
 				14A24DAA1EA9D05400755F6A /* waist6.png in Resources */,
-				14A250081EA9D05400755F6A /* Najarala.png in Resources */,
 				14A24DDC1EA9D05400755F6A /* Bomb-Green.png in Resources */,
 				14A24D8D1EA9D05400755F6A /* body7.png in Resources */,
 				14A24DC91EA9D05400755F6A /* Bait-White.png in Resources */,
@@ -4750,13 +4259,10 @@
 				14A250BB1EA9D05400755F6A /* hunting_horn7.png in Resources */,
 				14A24E791EA9D05400755F6A /* Hide-Yellow.png in Resources */,
 				14A24E7E1EA9D05400755F6A /* Jewel-Cyan.png in Resources */,
-				14A24FED1EA9D05400755F6A /* Great_Maccao.png in Resources */,
 				14A250E11EA9D05400755F6A /* long_sword5.png in Resources */,
 				14A250EB1EA9D05400755F6A /* switch_axe5.png in Resources */,
 				14A24EB11EA9D05400755F6A /* Meat-Pink.png in Resources */,
 				14A250541EA9D05400755F6A /* StatusEffect-Ice.jpg in Resources */,
-				14A24FFC1EA9D05400755F6A /* Kushala_Daora.png in Resources */,
-				14A24FF31EA9D05400755F6A /* Iodrome.png in Resources */,
 				14A24F2E1EA9D05400755F6A /* Shell-Cyan.png in Resources */,
 				14A24E8D1EA9D05400755F6A /* Knife-Yellow.png in Resources */,
 				14A24F901EA9D05400755F6A /* 18.png in Resources */,
@@ -4764,7 +4270,6 @@
 				14A2509A1EA9D05400755F6A /* gunlance4.png in Resources */,
 				14A24F981EA9D05400755F6A /* maps_mh4_battlequarters.png in Resources */,
 				14A24F771EA9D05400755F6A /* Webbing-White.png in Resources */,
-				14A2501B1EA9D05400755F6A /* Seregios.png in Resources */,
 				14A2504F1EA9D05400755F6A /* Status_Effect-Iceblight_MH4_Icon.png in Resources */,
 				14A2503E1EA9D05400755F6A /* Dragon.png in Resources */,
 				14A24D831EA9D05400755F6A /* arms7.png in Resources */,
@@ -4779,13 +4284,10 @@
 				14A24DF01EA9D05400755F6A /* Book-Blue.png in Resources */,
 				14A24E861EA9D05400755F6A /* Jewel-White.png in Resources */,
 				14A24E111EA9D05400755F6A /* Bug-Teal.png in Resources */,
-				14A250231EA9D05400755F6A /* Slagtoth_Red.png in Resources */,
 				14A24EF71EA9D05400755F6A /* QuestionMark-White.png in Resources */,
-				14A24FFF1EA9D05400755F6A /* Larinoth.png in Resources */,
 				14A24D7A1EA9D05400755F6A /* LaunchScreen.storyboard in Resources */,
 				14A250421EA9D05400755F6A /* exhaust.png in Resources */,
 				14A250D01EA9D05400755F6A /* lance8.png in Resources */,
-				14A2502A1EA9D05400755F6A /* Ukanlos.png in Resources */,
 				14A24EB51EA9D05400755F6A /* Meat-Yellow.png in Resources */,
 				14A24DD41EA9D05400755F6A /* BBQSpit-Orange.png in Resources */,
 				14A250671EA9D05400755F6A /* cutting3.png in Resources */,
@@ -4794,7 +4296,6 @@
 				14A24FB21EA9D05400755F6A /* maps_mh4_slayground.png in Resources */,
 				14A24EB61EA9D05400755F6A /* Monster-Jewel-Blue.png in Resources */,
 				14A2508D1EA9D05400755F6A /* great_sword2.png in Resources */,
-				14A24FD71EA9D05400755F6A /* Dah'ren_Mohran.png in Resources */,
 				14A2509F1EA9D05400755F6A /* gunlance9.png in Resources */,
 				14A24EF51EA9D05400755F6A /* QuestionMark-Red.png in Resources */,
 				14A24E5C1EA9D05400755F6A /* Flute-Blue.png in Resources */,
@@ -4805,7 +4306,6 @@
 				14A24F3E1EA9D05400755F6A /* Smoke-Green.png in Resources */,
 				14A24DB81EA9D05400755F6A /* Ammo-Gold.png in Resources */,
 				14A24D921EA9D05400755F6A /* head2.png in Resources */,
-				14A24FFA1EA9D05400755F6A /* Kirin.png in Resources */,
 				14A250C21EA9D05400755F6A /* insect_glaive4.png in Resources */,
 				14A24EBB1EA9D05400755F6A /* Monster-Jewel-Orange.png in Resources */,
 				14A24D7F1EA9D05400755F6A /* arms3.png in Resources */,
