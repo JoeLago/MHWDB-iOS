@@ -17,9 +17,9 @@ class ArmorDetails: DetailController, DetailScreen {
         id = armor.id
         super.init()
         title = armor.name
-        addSimpleSection(data: [armor])
+        //addSimpleSection(data: [armor])
         addSimpleSection(data: armor.skills, title: "Skills") { SkillDetails(id: $0.skillId) }
-        addCustomSection(title: "Resistances", data: [armor.resistances], cellType: ImageLabelCell.self)
+        //addCustomSection(title: "Resistances", data: [armor.resistances], cellType: ImageLabelCell.self)
         addSimpleSection(data: armor.components, title: "Components") { ItemDetails(id: $0.itemId) }
     }
     
@@ -41,7 +41,7 @@ extension ArmorComponent: DetailCellModel {
     //var subtitle: String? { return type }
 }
 
-extension Resistances: ImageLabelCellProtocol {
+/*extension Armor: ImageLabelCellProtocol {
     var label: String? { return nil }
     
     var values: [ImageLabelModel] {
@@ -53,4 +53,4 @@ extension Resistances: ImageLabelCellProtocol {
             ImageLabelModel("Dragon.png", dragon)
         ]
     }
-}
+}*/

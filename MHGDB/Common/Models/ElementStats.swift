@@ -16,14 +16,3 @@ class Elements {
     var dragon = 0
     var poison = 0
 }
-
-class Resistances: Elements, RowConvertible {
-    required init(row: Row) {
-        super.init()
-        fire = row["fire_res"]
-        water = row["water_res"]
-        thunder = row["thunder_res"]
-        ice = row["ice_res"]
-        dragon = row["dragon_res"]
-    }
-}

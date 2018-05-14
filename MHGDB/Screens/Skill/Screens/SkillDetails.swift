@@ -21,7 +21,7 @@ class SkillDetails: DetailController, DetailScreen {
         addSimpleSection(data: skillTree.decorations, title: "Decorations") { DecorationDetails(id: $0.itemId) }
         addSimpleSection(data: skillTree.weapons, title: "Weapons") { WeaponDetails(id: $0.itemId) }
         addSimpleSection(data: skillTree.armor(slot: .head), title: "Head") { ArmorDetails(id: $0.itemId) }
-        addSimpleSection(data: skillTree.armor(slot: .body), title: "Body") { ArmorDetails(id: $0.itemId) }
+        addSimpleSection(data: skillTree.armor(slot: .chest), title: "Chest") { ArmorDetails(id: $0.itemId) }
         addSimpleSection(data: skillTree.armor(slot: .arms), title: "Arms") { ArmorDetails(id: $0.itemId) }
         addSimpleSection(data: skillTree.armor(slot: .waist), title: "Waist") { ArmorDetails(id: $0.itemId) }
         addSimpleSection(data: skillTree.armor(slot: .legs), title: "Legs") { ArmorDetails(id: $0.itemId) }

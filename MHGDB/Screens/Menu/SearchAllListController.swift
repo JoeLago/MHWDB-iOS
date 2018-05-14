@@ -76,7 +76,7 @@ class SearchAllListController: DetailController  {
         addSearchSection(data: response.monsters, title: "Monsters") { MonsterDetails(id: $0.id) }
         addSearchSection(data: response.items, title: "Items") { ItemDetails(item: $0) }
         addSearchSection(data: response.weapons, title: "Weapons") { WeaponDetails(id: $0.id) }
-        addSearchSection(data: response.armor, title: "Armor") { ArmorDetails(id: $0.id) }
+        //addSearchSection(data: response.armor, title: "Armor") { ArmorDetails(id: $0.id) }
         addSearchSection(data: response.quests, title: "Quests") { QuestDetails(quest: $0) }
         addSearchSection(data: response.locations, title: "Locations") { LocationDetails(location: $0) }
         addSearchSection(data: response.skills, title: "Skills") { SkillDetails(id: $0.id) }

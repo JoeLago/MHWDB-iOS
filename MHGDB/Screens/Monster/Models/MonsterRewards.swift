@@ -48,7 +48,6 @@ extension Database {
             .filter("monster_reward_condition_text.lang_id", equals: "en")
             .order(by: "monster_reward_condition_text.name")
             .order(by: "percentage", direction: .dec)
-        
         return fetch(query)
     }
 }

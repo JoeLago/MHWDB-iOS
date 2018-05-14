@@ -8,6 +8,8 @@
 
 import Foundation
 
+// Slapped together because writing queries is tedious, could use cleanup
+
 class Query {
     struct Join {
         let originTable: String
@@ -35,10 +37,16 @@ class Query {
     struct Filter {
         let attribute: String
         let value: Any
+        let comparison: Comparison
+        
+        enum Comparison {
+            case equals, contains
+        }
         
         var query: String {
-            switch value {
-            case is Int: return "\(attribute) = \(value)"
+            switch (value, comparison) {
+            case is (Int, Comparison): return "\(attribute) = \(value)"
+            case (_, .contains): return "\(attribute) LIKE '%\(value)%'"
             default: return "\(attribute) = '\(value)'"
             }
         }
@@ -119,13 +127,19 @@ class Query {
     
     @discardableResult
     func filter(_ attribute: String, equals value: Any) -> Query {
-        filters.append(Filter(attribute: attribute, value: value))
+        filters.append(Filter(attribute: attribute, value: value, comparison: .equals))
+        return self
+    }
+    
+    @discardableResult
+    func filter(_ attribute: String, contains value: Any) -> Query {
+        filters.append(Filter(attribute: attribute, value: value, comparison: .contains))
         return self
     }
     
     @discardableResult
     func filter(id: Any) -> Query {
-        filters.append(Filter(attribute: "\(table).id", value: id))
+        filters.append(Filter(attribute: "\(table).id", value: id, comparison: .equals))
         return self
     }
     

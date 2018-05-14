@@ -14,6 +14,15 @@
 		144306DA209F5BD300D60A5A /* MonsterHabitat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144306D9209F5BD300D60A5A /* MonsterHabitat.swift */; };
 		144306DC209F72C800D60A5A /* MonsterDamage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144306DB209F72C800D60A5A /* MonsterDamage.swift */; };
 		144306DE209FA95C00D60A5A /* MonsterRewards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144306DD209FA95C00D60A5A /* MonsterRewards.swift */; };
+		1450DA6120A95900000085C5 /* ItemQuest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1450DA6020A95900000085C5 /* ItemQuest.swift */; };
+		1450DA6320A95915000085C5 /* ItemLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1450DA6220A95915000085C5 /* ItemLocation.swift */; };
+		1450DA6520A95927000085C5 /* ItemMonster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1450DA6420A95927000085C5 /* ItemMonster.swift */; };
+		1450DA6720A95930000085C5 /* ItemComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1450DA6620A95930000085C5 /* ItemComponent.swift */; };
+		1450DA6920A963FC000085C5 /* ArmorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1450DA6820A963FC000085C5 /* ArmorSet.swift */; };
+		1450DA6B20A96405000085C5 /* ArmorSkill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1450DA6A20A96405000085C5 /* ArmorSkill.swift */; };
+		1450DA6D20A96414000085C5 /* ArmorComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1450DA6C20A96414000085C5 /* ArmorComponent.swift */; };
+		1450DA6F20A96860000085C5 /* ArmorSetList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1450DA6E20A96860000085C5 /* ArmorSetList.swift */; };
+		1450DA7320A96AB7000085C5 /* ArmorSetDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1450DA7220A96AB7000085C5 /* ArmorSetDetails.swift */; };
 		1452DB1E1F71061F006A11D7 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1452DB1D1F71061F006A11D7 /* UserDefaults.swift */; };
 		1452DB201F7108F8006A11D7 /* Int+TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1452DB1F1F7108F8006A11D7 /* Int+TimeInterval.swift */; };
 		145FEA771F78A6C100BF9237 /* ReviewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145FEA761F78A6C100BF9237 /* ReviewManager.swift */; };
@@ -859,7 +868,7 @@
 		14A2511A1EA9D05400755F6A /* TreeSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A24D331EA9D05400755F6A /* TreeSection.swift */; };
 		14A2511B1EA9D05400755F6A /* Armor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A24D351EA9D05400755F6A /* Armor.swift */; };
 		14A2511C1EA9D05400755F6A /* Combination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A24D361EA9D05400755F6A /* Combination.swift */; };
-		14A2511D1EA9D05400755F6A /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A24D371EA9D05400755F6A /* Component.swift */; };
+		14A2511D1EA9D05400755F6A /* WeaponComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A24D371EA9D05400755F6A /* WeaponComponent.swift */; };
 		14A2511E1EA9D05400755F6A /* Decoration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A24D381EA9D05400755F6A /* Decoration.swift */; };
 		14A2511F1EA9D05400755F6A /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A24D391EA9D05400755F6A /* Element.swift */; };
 		14A251201EA9D05400755F6A /* ElementStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A24D3A1EA9D05400755F6A /* ElementStats.swift */; };
@@ -939,6 +948,15 @@
 		144306D9209F5BD300D60A5A /* MonsterHabitat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterHabitat.swift; sourceTree = "<group>"; };
 		144306DB209F72C800D60A5A /* MonsterDamage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDamage.swift; sourceTree = "<group>"; };
 		144306DD209FA95C00D60A5A /* MonsterRewards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterRewards.swift; sourceTree = "<group>"; };
+		1450DA6020A95900000085C5 /* ItemQuest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemQuest.swift; sourceTree = "<group>"; };
+		1450DA6220A95915000085C5 /* ItemLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemLocation.swift; sourceTree = "<group>"; };
+		1450DA6420A95927000085C5 /* ItemMonster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemMonster.swift; sourceTree = "<group>"; };
+		1450DA6620A95930000085C5 /* ItemComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemComponent.swift; sourceTree = "<group>"; };
+		1450DA6820A963FC000085C5 /* ArmorSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArmorSet.swift; sourceTree = "<group>"; };
+		1450DA6A20A96405000085C5 /* ArmorSkill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArmorSkill.swift; sourceTree = "<group>"; };
+		1450DA6C20A96414000085C5 /* ArmorComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArmorComponent.swift; sourceTree = "<group>"; };
+		1450DA6E20A96860000085C5 /* ArmorSetList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArmorSetList.swift; sourceTree = "<group>"; };
+		1450DA7220A96AB7000085C5 /* ArmorSetDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArmorSetDetails.swift; sourceTree = "<group>"; };
 		1452DB1D1F71061F006A11D7 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		1452DB1F1F7108F8006A11D7 /* Int+TimeInterval.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+TimeInterval.swift"; sourceTree = "<group>"; };
 		145495641EA9CEC5004FA5FA /* MHWDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MHWDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1787,7 +1805,7 @@
 		14A24D331EA9D05400755F6A /* TreeSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TreeSection.swift; sourceTree = "<group>"; };
 		14A24D351EA9D05400755F6A /* Armor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Armor.swift; sourceTree = "<group>"; };
 		14A24D361EA9D05400755F6A /* Combination.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Combination.swift; sourceTree = "<group>"; };
-		14A24D371EA9D05400755F6A /* Component.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
+		14A24D371EA9D05400755F6A /* WeaponComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeaponComponent.swift; sourceTree = "<group>"; };
 		14A24D381EA9D05400755F6A /* Decoration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Decoration.swift; sourceTree = "<group>"; };
 		14A24D391EA9D05400755F6A /* Element.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
 		14A24D3A1EA9D05400755F6A /* ElementStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElementStats.swift; sourceTree = "<group>"; };
@@ -1945,7 +1963,7 @@
 		144306E3209FB37100D60A5A /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				14A24D371EA9D05400755F6A /* Component.swift */,
+				14A24D371EA9D05400755F6A /* WeaponComponent.swift */,
 				14A24D3F1EA9D05400755F6A /* Sharpness.swift */,
 				14A24D411EA9D05400755F6A /* Weapon.swift */,
 				148812F820A2C31E006B91EF /* WeaponType.swift */,
@@ -2005,6 +2023,10 @@
 			isa = PBXGroup;
 			children = (
 				14A24D3B1EA9D05400755F6A /* Item.swift */,
+				1450DA6020A95900000085C5 /* ItemQuest.swift */,
+				1450DA6220A95915000085C5 /* ItemLocation.swift */,
+				1450DA6420A95927000085C5 /* ItemMonster.swift */,
+				1450DA6620A95930000085C5 /* ItemComponent.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -2014,6 +2036,8 @@
 			children = (
 				14A24D441EA9D05400755F6A /* ArmorDetails.swift */,
 				14A24D461EA9D05400755F6A /* ArmorList.swift */,
+				1450DA7220A96AB7000085C5 /* ArmorSetDetails.swift */,
+				1450DA6E20A96860000085C5 /* ArmorSetList.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -2022,6 +2046,9 @@
 			isa = PBXGroup;
 			children = (
 				14A24D351EA9D05400755F6A /* Armor.swift */,
+				1450DA6C20A96414000085C5 /* ArmorComponent.swift */,
+				1450DA6820A963FC000085C5 /* ArmorSet.swift */,
+				1450DA6A20A96405000085C5 /* ArmorSkill.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -3162,12 +3189,12 @@
 			children = (
 				14A24D0E1EA9D05400755F6A /* Categories */,
 				14A24D181EA9D05400755F6A /* Cells */,
-				14DF85431EC297DA00F9AD1D /* ListGrid */,
 				14A24D341EA9D05400755F6A /* Models */,
 				14A24D261EA9D05400755F6A /* TableAbstraction */,
 				14A24D2E1EA9D05400755F6A /* Tree */,
 				14A24D1E1EA9D05400755F6A /* Database.swift */,
 				14E2B50A1EAD7AC9002A2A89 /* LabelStack.swift */,
+				14DF85441EC297E400F9AD1D /* ListGrid.swift */,
 				14E2B5121EB1041D002A2A89 /* Logging.swift */,
 				14A24D211EA9D05400755F6A /* SelectionManager.swift */,
 				14A24D251EA9D05400755F6A /* Styles.swift */,
@@ -3387,14 +3414,6 @@
 				14E704031EB6506300EA2E71 /* MonsterDamagesCell.swift */,
 			);
 			path = Cells;
-			sourceTree = "<group>";
-		};
-		14DF85431EC297DA00F9AD1D /* ListGrid */ = {
-			isa = PBXGroup;
-			children = (
-				14DF85441EC297E400F9AD1D /* ListGrid.swift */,
-			);
-			path = ListGrid;
 			sourceTree = "<group>";
 		};
 		14E2B4FD1EAD2229002A2A89 /* Cells */ = {
@@ -4448,7 +4467,7 @@
 			files = (
 				14A251011EA9D05400755F6A /* UIBarButtonItem+Buttons.swift in Sources */,
 				14E704041EB6506400EA2E71 /* MonsterDamagesCell.swift in Sources */,
-				14A2511D1EA9D05400755F6A /* Component.swift in Sources */,
+				14A2511D1EA9D05400755F6A /* WeaponComponent.swift in Sources */,
 				14A251121EA9D05400755F6A /* DetailSection.swift in Sources */,
 				144306DA209F5BD300D60A5A /* MonsterHabitat.swift in Sources */,
 				14A251061EA9D05400755F6A /* ImageLabelCell.swift in Sources */,
@@ -4457,12 +4476,14 @@
 				14A2512F1EA9D05400755F6A /* DecorationDetailSection.swift in Sources */,
 				14A251321EA9D05400755F6A /* ItemDetailSection.swift in Sources */,
 				14E704181EB8EB5100EA2E71 /* PalicoList.swift in Sources */,
+				1450DA6120A95900000085C5 /* ItemQuest.swift in Sources */,
 				14A251341EA9D05400755F6A /* LocationDetails.swift in Sources */,
 				14A251051EA9D05400755F6A /* DetailCell.swift in Sources */,
 				14A2512D1EA9D05400755F6A /* CombinationList.swift in Sources */,
 				14A251261EA9D05400755F6A /* SkillTree.swift in Sources */,
 				14A251151EA9D05400755F6A /* SimpleDetailSection.swift in Sources */,
 				14A251041EA9D05400755F6A /* CustomCell.swift in Sources */,
+				1450DA6320A95915000085C5 /* ItemLocation.swift in Sources */,
 				14A251371EA9D05400755F6A /* ListMenu.swift in Sources */,
 				14A251421EA9D05500755F6A /* QuestList.swift in Sources */,
 				14612B131EB8EEA000DB7F64 /* PalicoWeaponDetail.swift in Sources */,
@@ -4493,20 +4514,26 @@
 				14E2B5151EB174A5002A2A89 /* AppDelegate+Testing.swift in Sources */,
 				144306DE209FA95C00D60A5A /* MonsterRewards.swift in Sources */,
 				14A251311EA9D05400755F6A /* ItemDetails.swift in Sources */,
+				1450DA6520A95927000085C5 /* ItemMonster.swift in Sources */,
 				14A251571EABCE0500755F6A /* SimpleTableViewController.swift in Sources */,
+				1450DA7320A96AB7000085C5 /* ArmorSetDetails.swift in Sources */,
 				14A251171EA9D05400755F6A /* Tree.swift in Sources */,
 				14E2B5041EAD2229002A2A89 /* SharpnessView.swift in Sources */,
 				14A251301EA9D05400755F6A /* DecorationList.swift in Sources */,
 				14A2512A1EA9D05400755F6A /* ArmorList.swift in Sources */,
 				14A251211EA9D05400755F6A /* Item.swift in Sources */,
 				14E2B5191EB2D856002A2A89 /* HeaderView.swift in Sources */,
+				1450DA6F20A96860000085C5 /* ArmorSetList.swift in Sources */,
 				14A2510F1EA9D05400755F6A /* Styles.swift in Sources */,
 				1452DB1E1F71061F006A11D7 /* UserDefaults.swift in Sources */,
 				14A251201EA9D05400755F6A /* ElementStats.swift in Sources */,
 				14A251131EA9D05400755F6A /* CustomSection.swift in Sources */,
+				1450DA6D20A96414000085C5 /* ArmorComponent.swift in Sources */,
 				14A251021EA9D05400755F6A /* UIImage+Scale.swift in Sources */,
 				14612B1A1EBA3EC800DB7F64 /* PalicoWeaponCell.swift in Sources */,
+				1450DA6B20A96405000085C5 /* ArmorSkill.swift in Sources */,
 				14E2B5051EAD2229002A2A89 /* WeaponCell.swift in Sources */,
+				1450DA6720A95930000085C5 /* ItemComponent.swift in Sources */,
 				14A251101EA9D05400755F6A /* DetailController.swift in Sources */,
 				140A133C1EDB57B9002FD025 /* Search.swift in Sources */,
 				14A251141EA9D05400755F6A /* MultiCellSection.swift in Sources */,
@@ -4536,6 +4563,7 @@
 				14A251091EA9D05400755F6A /* Database.swift in Sources */,
 				14E704141EB8E9FC00EA2E71 /* PalicoWeapon.swift in Sources */,
 				144306DC209F72C800D60A5A /* MonsterDamage.swift in Sources */,
+				1450DA6920A963FC000085C5 /* ArmorSet.swift in Sources */,
 				14E2B5031EAD2229002A2A89 /* SharpnessesView.swift in Sources */,
 				14612B171EB9B49900DB7F64 /* PalicoWeaponDetailSection.swift in Sources */,
 				14A251351EA9D05400755F6A /* LocationList.swift in Sources */,

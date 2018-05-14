@@ -38,6 +38,9 @@ extension Database {
         if let size = size {
             query.filter("size", equals: size.rawValue)
         }
+        if let search = search {
+            query.filter("name", contains: search)
+        }
         return fetch(query)
     }
 }

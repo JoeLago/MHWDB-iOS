@@ -6,8 +6,7 @@
 
 import UIKit
 
-class ArmorList: DetailController {
-    var type = Armor.HunterType.all
+/*class ArmorList: DetailController {
     var slot = Armor.Slot.body
     
     override func loadView() {
@@ -53,5 +52,5 @@ extension Armor: DetailCellModel {
     var subtitle: String? { return slotsString }
     var secondary: String? { return "\(defense) - \(defenseMax) def" }
     var imageName: String? { return icon }
-}
+}*/
 

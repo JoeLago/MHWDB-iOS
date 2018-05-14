@@ -127,9 +127,10 @@ extension Database {
     }
     
     func weapons(_ search: String) -> [Weapon] {
-        let query = "SELECT * FROM weapons LEFT JOIN items on weapons._id = items._id"
-        let filter =  "weapons.wtype IS NOT NULL"
-        return fetch(select: query, filter: filter, search: search)
+        let query = Query(table: "weapon")
+            .join(table: "weapon_text")
+            .filter("name", contains: search)
+        return fetch(query)
     }
     
     func weaponQuery(type: WeaponType) -> Query {
