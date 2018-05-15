@@ -23,16 +23,16 @@ class ListMenu: SimpleTableViewController {
             tableView.tableHeaderView = searchController.searchBar
         }
         
-        addCell(text: "Quests", imageName: "Quest-Icon-Red.png") { QuestList() }
+        //addCell(text: "Quests", imageName: "Quest-Icon-Red.png") { QuestList() }
         addCell(text: "Monsters", imageName: "great-jagras.png") { MonsterList() }
         addCell(text: "Weapons", imageName: "great_sword8.png") { WeaponTypeList() }
         addCell(text: "Armor", imageName: "body4.png") { ArmorSetList() }
         addCell(text: "Items", imageName: "Ore-Purple.png") { ItemList() }
-        addCell(text: "Combinations", imageName: "Liquid-Green.png") { CombinationList() }
+        //addCell(text: "Combinations", imageName: "Liquid-Green.png") { CombinationList() }
         addCell(text: "Locations", imageName: "Map-Icon-White.png") { LocationList() }
         addCell(text: "Decorations", imageName: "Jewel-Cyan.png") { DecorationList() }
         addCell(text: "Skills", imageName: "Monster-Jewel-Teal.png") { SkillList() }
-        addCell(text: "Palico", imageName: "cutting3.png") { PalicoList() }
+        //addCell(text: "Palico", imageName: "cutting3.png") { PalicoList() }
     }
     
     override func viewDidAppear(_ animated: Bool) {

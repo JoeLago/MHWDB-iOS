@@ -26,8 +26,7 @@ class MonsterDamage: Decodable, RowConvertible {
     var ko: Int
     
     enum CodingKeys: String, CodingKey {
-        case bodyPart = "name"
-        case cut, impact, shot, fire, water, ice, thunder, dragon, ko
+        case bodyPart = "name", cut, impact, shot, fire, water, ice, thunder, dragon, ko
     }
 }
 

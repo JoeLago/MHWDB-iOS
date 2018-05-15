@@ -2114,6 +2114,13 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		1450DA7420AA0BB1000085C5 /* Charm */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Charm;
+			sourceTree = "<group>";
+		};
 		1454955B1EA9CEC5004FA5FA = {
 			isa = PBXGroup;
 			children = (
@@ -3288,6 +3295,7 @@
 			isa = PBXGroup;
 			children = (
 				14A24D431EA9D05400755F6A /* Armor */,
+				1450DA7420AA0BB1000085C5 /* Charm */,
 				14A24D471EA9D05400755F6A /* Combination */,
 				14A24D4B1EA9D05400755F6A /* Decoration */,
 				14A24D4F1EA9D05400755F6A /* Item */,

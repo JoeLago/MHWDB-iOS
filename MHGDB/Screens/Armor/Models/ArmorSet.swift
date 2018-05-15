@@ -17,12 +17,15 @@ class ArmorSet: RowConvertible, Decodable {
 
 extension Database {
     func armorSet(id: Int) -> ArmorSet {
-        let query = Query(table: "armorset").join(table: "armorset_text")
+        let query = Query(table: "armorset")
+            .join(table: "armorset_text")
         return fetch(query)[0]
     }
     
-    func armorSet(_ search: String? = nil) -> [ArmorSet] {
-        let query = Query(table: "armorset").join(table: "armorset_text")
+    // Need the filter data in db
+    func armorSet(_ search: String? = nil, rank: Quest.Rank? = nil, hrArmorType: Int? = nil) -> [ArmorSet] {
+        let query = Query(table: "armorset")
+            .join(table: "armorset_text")
         return fetch(query)
     }
 }

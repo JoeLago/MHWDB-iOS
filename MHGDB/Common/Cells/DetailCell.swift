@@ -133,5 +133,6 @@ class DetailCell: UITableViewCell {
                                                   multiplier: 1.0,
                                                   constant: 0)
         addConstraint(imageWidthConstraint!)
+        secondaryTextLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
     }
 }

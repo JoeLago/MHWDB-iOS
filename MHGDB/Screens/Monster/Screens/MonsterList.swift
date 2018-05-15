@@ -23,7 +23,6 @@ class MonsterList: DetailController {
         
         segment = populateToolbarSegment(items: ["Large", "Small", "All"])
         segment.selectedSegmentIndex = 0
-        
         isToolBarHidden = false;
     }
     

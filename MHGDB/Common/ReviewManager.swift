@@ -13,7 +13,7 @@ import SwiftyUserDefaults
 class ReviewManager {
     struct Constants {
         static let firstReviewMinLaunchCount = 5
-        static let firstReviewMinTimeInterval = 2.days
+        static let firstReviewMinTimeInterval = 7.days
         static let repeatReviewMinLaunchCount = 10
         static let repeatReviewMinTimeInterval = 10.days
     }
@@ -42,12 +42,10 @@ class ReviewManager {
                 launchCount - lastReviewRequestLaunchCount >= Constants.repeatReviewMinLaunchCount  {
                 return true
             }
-        } else {
-            if let firstLaunchDate = firstLaunchDate,
-                firstLaunchDate.addingTimeInterval(Constants.firstReviewMinTimeInterval) <= currDate,
-                launchCount >= Constants.firstReviewMinLaunchCount {
-                return true
-            }
+        } else if let firstLaunchDate = firstLaunchDate,
+            firstLaunchDate.addingTimeInterval(Constants.firstReviewMinTimeInterval) <= currDate,
+            launchCount >= Constants.firstReviewMinLaunchCount {
+            return true
         }
         
         return false

@@ -17,8 +17,8 @@ class ArmorDetails: DetailController, DetailScreen {
         id = armor.id
         super.init()
         title = armor.name
-        //addSimpleSection(data: [armor])
-        addSimpleSection(data: armor.skills, title: "Skills") { SkillDetails(id: $0.skillId) }
+        addSimpleSection(data: [armor])
+        addSimpleSection(data: armor.skills, title: "Skills") { SkillDetails(id: $0.skillTreeId) }
         //addCustomSection(title: "Resistances", data: [armor.resistances], cellType: ImageLabelCell.self)
         addSimpleSection(data: armor.components, title: "Components") { ItemDetails(id: $0.itemId) }
     }
@@ -30,7 +30,8 @@ class ArmorDetails: DetailController, DetailScreen {
 
 extension ArmorSkill: DetailCellModel {
     var primary: String? { return name }
-    var secondary: String? { return "\(value)" }
+    var secondary: String? { return "\(level)" }
+    var subtitle: String? { return "\(description)" }
 }
 
 extension ArmorComponent: DetailCellModel {

@@ -19,7 +19,7 @@ class ArmorSetDetails: DetailController, DetailScreen {
         id = armorSet.id
         super.init()
         title = armorSet.name
-        addSimpleSection(data: armorSet.armor, title: "Armor") //{ SkillDetails(id: $0.skillId) }
+        addSimpleSection(data: armorSet.armor, title: "Armor") { ArmorDetails(id: $0.id) }
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -30,6 +30,6 @@ class ArmorSetDetails: DetailController, DetailScreen {
 extension Armor: DetailCellModel {
     var primary: String? { return name }
     //var subtitle: String? { return slotsString }
-    var secondary: String? { return "\(defense) - \(defenseMax) def" }
+    var subtitle: String? { return "\(defense) - \(defenseMax) def" }
     var imageName: String? { return icon }
 }

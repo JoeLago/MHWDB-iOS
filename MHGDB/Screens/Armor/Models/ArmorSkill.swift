@@ -9,20 +9,22 @@
 import GRDB
 
 class ArmorSkill: RowConvertible, Decodable {
-    let skillId: Int
+    let skillTreeId: Int
     var name: String
-    var value: Int
+    var description: String
+    var level: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case skillTreeId = "skilltree_id", name, description, level
+    }
 }
 
 extension Database {
-    func armorSkills(itemId: Int) -> [ArmorSkill] {
-        let query = "SELECT *,"
-            + " skill_trees.name AS skillname,"
-            + " skill_trees._id AS skillid"
-            + " FROM item_to_skill_tree"
-            + " LEFT JOIN items ON item_to_skill_tree.item_id = items._id"
-            + " LEFT JOIN skill_trees ON item_to_skill_tree.skill_tree_id = skill_trees._id"
-            + " WHERE items._id == \(itemId)"
+    func armorSkills(armorId: Int) -> [ArmorSkill] {
+        let query = Query(table: "armor_skill")
+            .join(table: "skilltree", on: "skilltree_id")
+            .join(originTable: "skilltree", table: "skilltree_text")
+            .filter("armor_id", equals: armorId)
         return fetch(query)
     }
 }

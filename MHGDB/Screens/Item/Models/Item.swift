@@ -27,7 +27,7 @@ class Item: Decodable, RowConvertible {
     lazy var monsters: [ItemMonster] = { return Database.shared.monsters(itemId: self.id) }()
     lazy var armor: [ItemComponent] = { return Database.shared.armor(itemId: self.id) }()
     lazy var weapons: [ItemComponent] = { return Database.shared.weapons(itemId: self.id) }()
-    lazy var decorations: [ItemComponent] = { return Database.shared.decorations(itemId: self.id) }()
+    lazy var charms: [ItemComponent] = { return Database.shared.charms(itemId: self.id) }()
 }
 
 extension Database {

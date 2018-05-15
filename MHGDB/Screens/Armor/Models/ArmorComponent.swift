@@ -14,19 +14,18 @@ class ArmorComponent: RowConvertible, Decodable {
     var icon: String?
     var type: String?
     var quantity: Int?
+    
+    enum CodingKeys: String, CodingKey {
+        case itemId = "item_id", name, icon, type, quantity
+    }
 }
 
 extension Database {
     func armorComponents(armorId: Int) -> [ArmorComponent] {
-        let query = "SELECT"
-            + " component._id AS componentid,"
-            + " component.name AS componentname,"
-            + " component.icon_name AS componenticon,"
-            + " component.type AS componenttype"
-            + " FROM components"
-            + " LEFT JOIN items ON components.created_item_id = items._id"
-            + " LEFT JOIN items AS component ON components.component_item_id = component._id"
-            + " WHERE items._id == \(armorId)"
+        let query = Query(table: "armor_recipe")
+            .join(table: "item", on: "item_id")
+            .join(originTable: "item", table: "item_text")
+            .filter("armor_id", equals: armorId)
         return fetch(query)
     }
 }

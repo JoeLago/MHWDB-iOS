@@ -8,7 +8,7 @@
 
 import Foundation
 
-// Slapped together because writing queries is tedious, could use cleanup
+// Not very intuitive, could use some thought
 
 class Query {
     struct Join {
@@ -40,13 +40,14 @@ class Query {
         let comparison: Comparison
         
         enum Comparison {
-            case equals, contains
+            case equal, like, notLike
         }
         
         var query: String {
             switch (value, comparison) {
             case is (Int, Comparison): return "\(attribute) = \(value)"
-            case (_, .contains): return "\(attribute) LIKE '%\(value)%'"
+            case (_, .like): return "\(attribute) LIKE '%\(value)%'"
+            case (_, .notLike): return "\(attribute) NOT LIKE '%\(value)%'"
             default: return "\(attribute) = '\(value)'"
             }
         }
@@ -127,19 +128,25 @@ class Query {
     
     @discardableResult
     func filter(_ attribute: String, equals value: Any) -> Query {
-        filters.append(Filter(attribute: attribute, value: value, comparison: .equals))
+        filters.append(Filter(attribute: attribute, value: value, comparison: .equal))
         return self
     }
     
     @discardableResult
     func filter(_ attribute: String, contains value: Any) -> Query {
-        filters.append(Filter(attribute: attribute, value: value, comparison: .contains))
+        filters.append(Filter(attribute: attribute, value: value, comparison: .like))
+        return self
+    }
+    
+    @discardableResult
+    func filter(_ attribute: String, is comparison: Filter.Comparison, value: Any) -> Query {
+        filters.append(Filter(attribute: attribute, value: value, comparison: comparison))
         return self
     }
     
     @discardableResult
     func filter(id: Any) -> Query {
-        filters.append(Filter(attribute: "\(table).id", value: id, comparison: .equals))
+        filters.append(Filter(attribute: "\(table).id", value: id, comparison: .equal))
         return self
     }
     

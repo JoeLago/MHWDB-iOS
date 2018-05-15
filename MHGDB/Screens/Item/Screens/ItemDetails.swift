@@ -19,16 +19,16 @@ class ItemDetails: DetailController, DetailScreen {
         title = item.name
         addSimpleSection(data: [item])
         add(section: ItemDetailSection(item: item))
-        addCustomSection(title: "Combinations",
+        /*addCustomSection(title: "Combinations",
                          data: item.combinations.map {
                             CombinationCellModel(combination: $0, itemSelected: { self.push(ItemDetails(id: $0)) }) },
-                         cellType: CombinationCell.self)
-        addSimpleSection(data: item.quests, title: "Quest Rewards") { QuestDetails(id: $0.questId) }
+                         cellType: CombinationCell.self)*/
+        //addSimpleSection(data: item.quests, title: "Quest Rewards") { QuestDetails(id: $0.questId) }
         addSimpleSection(data: item.locations, title: "Locations") { LocationDetails(id: $0.id) }
-        addSimpleSection(data: item.monsters, title: "Monsters") { MonsterDetails(id: $0.monsterId) }
-        addSimpleSection(data: item.armor, title: "Armor") { ArmorDetails(id: $0.producedId) }
-        addSimpleSection(data: item.weapons, title: "Weapons") { WeaponDetails(id: $0.producedId) }
-        addSimpleSection(data: item.decorations, title: "Decorations") { DecorationDetails(id: $0.producedId) }
+        addSimpleSection(data: item.monsters, title: "Rewards") { MonsterDetails(id: $0.monsterId) }
+        addSimpleSection(data: item.armor, title: "Armor") { ArmorDetails(id: $0.createdId) }
+        addSimpleSection(data: item.weapons, title: "Weapons") { WeaponDetails(id: $0.createdId) }
+        addSimpleSection(data: item.charms, title: "Charms") { DecorationDetails(id: $0.createdId) }
     }
     
     required public init?(coder aDecoder: NSCoder) {
