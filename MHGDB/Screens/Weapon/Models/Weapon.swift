@@ -75,14 +75,8 @@ class Weapon: Decodable, RowConvertible {
         }
     }
 
-    var numChildren: Int {
-        var count = 0
-        for weapon in children {
-            count += 1
-            count += weapon.numChildren
-        }
-
-        return count
+    var totalChildren: Int {
+        return children.map({ 1 + $0.totalChildren }).reduce(0, +)
     }
 
     func allChildren() -> [Weapon] {
