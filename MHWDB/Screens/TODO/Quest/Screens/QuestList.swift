@@ -5,7 +5,7 @@
 
 import UIKit
 
-class QuestList: DetailController {
+class QuestList: TableController {
     var hubButton: UIBarButtonItem?
     var hubAlert: UIAlertController!
     var keyQuestButton: UIBarButtonItem!

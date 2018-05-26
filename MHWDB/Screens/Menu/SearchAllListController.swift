@@ -26,7 +26,7 @@ class SearchAllController: UISearchController {
     }
 }
 
-class SearchAllListController: DetailController {
+class SearchAllListController: TableController {
     var mainViewController: UIViewController?
     var searchText: String?
     var deferredSearch: String?

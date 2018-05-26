@@ -5,7 +5,7 @@
 
 import UIKit
 
-class PalicoList: DetailController {
+class PalicoList: TableController {
     override func loadView() {
         super.loadView()
         title = "Palico Weapons"

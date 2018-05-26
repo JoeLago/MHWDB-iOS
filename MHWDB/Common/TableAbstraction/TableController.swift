@@ -10,9 +10,9 @@ protocol DetailScreen {
 }
 
 // TODO: This does more than just Details, used for lists, rename
-class DetailController: UITableViewController {
+class TableController: UITableViewController {
     var database = Database()
-    var sections = [DetailSection]()
+    var sections = [TableSection]()
     var isToolBarHidden = true
     var hackyButtonRetains = [Any]()
 
@@ -24,7 +24,7 @@ class DetailController: UITableViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func add(section: DetailSection) {
+    func add(section: TableSection) {
         section.index = sections.count
         sections.append(section)
         section.tableView = tableView // Commenting this line out doesn't break anything, why?!
@@ -98,7 +98,7 @@ class DetailController: UITableViewController {
 
 // MARK: TableView Protocol
 
-extension DetailController {
+extension TableController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return sections.count
@@ -127,7 +127,7 @@ extension DetailController {
 
 // MARK: Collapsabile Sections
 
-extension DetailController: UIGestureRecognizerDelegate {
+extension TableController: UIGestureRecognizerDelegate {
 
     func addLongPressGesture() {
         let lp = UILongPressGestureRecognizer(target: self, action: #selector(longPressGesture))
@@ -190,7 +190,7 @@ extension DetailController: UIGestureRecognizerDelegate {
         }
     }
 
-    func toggleSection(_ section: DetailSection) {
+    func toggleSection(_ section: TableSection) {
         section.isCollapsed = !section.isCollapsed
         let indexPaths = NSIndexPath.indexPathsFor(section: section.index ?? 0, startRow: 0, count: section.numberOfRows - 1)
 

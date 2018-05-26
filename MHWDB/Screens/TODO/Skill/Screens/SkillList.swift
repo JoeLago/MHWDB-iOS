@@ -5,7 +5,7 @@
 
 import UIKit
 
-class SkillList: DetailController {
+class SkillList: TableController {
     override func loadView() {
         super.loadView()
         title = "Skill Trees"

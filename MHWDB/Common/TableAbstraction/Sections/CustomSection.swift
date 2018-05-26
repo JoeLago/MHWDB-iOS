@@ -5,7 +5,7 @@
 
 import UIKit
 
-class CustomSection<T, U: CustomCell<T>>: DetailSection {
+class CustomSection<T, U: CustomCell<T>>: TableSection {
     var rows: [T]? {
         didSet {
             populateNumRows()

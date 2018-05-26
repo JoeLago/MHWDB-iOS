@@ -5,7 +5,7 @@
 
 import UIKit
 
-class LocationList: DetailController {
+class LocationList: TableController {
     override func loadView() {
         super.loadView()
         title = "Locations"

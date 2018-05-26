@@ -5,7 +5,7 @@
 
 import UIKit
 
-class DetailSection { // TODO: TableSection Refactor
+class TableSection { // TODO: TableSection Refactor
     var tableView: UITableView?
     var index: Int?
     var isCollapsed = false

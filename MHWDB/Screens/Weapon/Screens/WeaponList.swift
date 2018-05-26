@@ -5,7 +5,7 @@
 
 import UIKit
 
-class WeaponList: DetailController {
+class WeaponList: TableController {
 
     init(weaponType: WeaponType) {
         super.init()

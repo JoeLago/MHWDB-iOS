@@ -5,7 +5,7 @@
 
 import UIKit
 
-class SimpleDetailSection<T: DetailCellModel>: DetailSection {
+class SimpleDetailSection<T: DetailCellModel>: TableSection {
 
     var rows: [T]? {
         didSet {

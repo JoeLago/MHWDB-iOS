@@ -5,7 +5,7 @@
 
 import UIKit
 
-class MonsterList: DetailController {
+class MonsterList: TableController {
     var monsterSection: SimpleDetailSection<Monster>!
     var segment: UISegmentedControl!
 

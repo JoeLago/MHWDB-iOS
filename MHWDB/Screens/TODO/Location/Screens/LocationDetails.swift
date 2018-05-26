@@ -5,7 +5,7 @@
 
 import UIKit
 
-class LocationDetails: DetailController, DetailScreen {
+class LocationDetails: TableController, DetailScreen {
     var id: Int
 
     convenience required init(id: Int) {

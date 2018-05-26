@@ -5,7 +5,7 @@
 
 import UIKit
 
-class MonsterDetails: DetailController, DetailScreen {
+class MonsterDetails: TableController, DetailScreen {
     var id: Int
 
     convenience init(id: Int) {

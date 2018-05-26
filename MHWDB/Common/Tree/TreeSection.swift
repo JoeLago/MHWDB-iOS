@@ -5,7 +5,7 @@
 
 import UIKit
 
-class TreeSection<T, U: TreeCellView<T>>: DetailSection {
+class TreeSection<T, U: TreeCellView<T>>: TableSection {
     let tree: Tree<T>
     var selectedNode: Node<T>?
     var nodeArray: [Node<T>]

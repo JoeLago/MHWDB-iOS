@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ArmorSetDetails: DetailController, DetailScreen {
+class ArmorSetDetails: TableController, DetailScreen {
     var id: Int
 
     convenience init(id: Int) {

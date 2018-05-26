@@ -5,7 +5,7 @@
 
 import UIKit
 
-class ItemList: DetailController {
+class ItemList: TableController {
     override func loadView() {
         super.loadView()
         title = "Items"

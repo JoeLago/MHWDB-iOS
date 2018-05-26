@@ -5,7 +5,7 @@
 
 import UIKit
 
-class CombinationList: DetailController {
+class CombinationList: TableController {
     override func loadView() {
         super.loadView()
         title = "Combinations"

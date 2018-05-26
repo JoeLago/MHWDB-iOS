@@ -10,7 +10,7 @@
 
 import UIKit
 
-class ArmorSetList: DetailController {
+class ArmorSetList: TableController {
     var list: SimpleDetailSection<ArmorSet>!
     var segment: UISegmentedControl!
 

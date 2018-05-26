@@ -5,7 +5,9 @@
 
 import UIKit
 
-extension DetailController {
+// TODO: Should try to kill this in favor of just initializing sections directly, the only hard part is the navigationController
+
+extension TableController {
 
     func getPushBlock<T>(_ vcBlock: ((T) -> UIViewController)?) -> ((T) -> Void)? {
         var pushBlock: ((T) -> Void)? = nil

@@ -6,21 +6,21 @@
 import UIKit
 
 struct SubsectionRow {
-    var section: DetailSection
+    var section: TableSection
     var row: Int
     var isHeader: Bool { return row == -1 }
 }
 
-class SubSection: DetailSection {
-    private var subSections = [DetailSection]()
+class SubSection: TableSection {
+    private var subSections = [TableSection]()
 
-    init(subSections: [DetailSection], title: String) {
+    init(subSections: [TableSection], title: String) {
         self.subSections = subSections
         super.init()
         self.title = title
     }
 
-    func totalRows(subSection: DetailSection) -> Int {
+    func totalRows(subSection: TableSection) -> Int {
         return (subSection.hasHeader ? 1 : 0) + subSection.numberOfRows
     }
 

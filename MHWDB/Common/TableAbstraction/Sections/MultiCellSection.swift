@@ -5,7 +5,7 @@
 
 import UIKit
 
-class MultiCellSection: DetailSection {
+class MultiCellSection: TableSection {
     private var cells = [UITableViewCell]()
 
     override init() {

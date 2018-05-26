@@ -5,7 +5,7 @@
 
 import UIKit
 
-class QuestDetails: DetailController, DetailScreen {
+class QuestDetails: TableController, DetailScreen {
     var id: Int
 
     convenience required init(id: Int) {

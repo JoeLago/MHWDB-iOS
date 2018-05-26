@@ -5,7 +5,7 @@
 
 import UIKit
 
-class PalicoWeaponDetails: DetailController, DetailScreen {
+class PalicoWeaponDetails: TableController, DetailScreen {
     var id: Int
 
     convenience required init(id: Int) {

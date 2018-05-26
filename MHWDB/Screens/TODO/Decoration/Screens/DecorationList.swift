@@ -5,7 +5,7 @@
 
 import UIKit
 
-class DecorationList: DetailController {
+class DecorationList: TableController {
     override func loadView() {
         super.loadView()
 
