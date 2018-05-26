@@ -2099,7 +2099,6 @@
 		144306F1209FB54F00D60A5A /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				14A24D481EA9D05400755F6A /* CombinationCell.swift */,
 				14A24D491EA9D05400755F6A /* CombinationDetail.swift */,
 				14A24D4A1EA9D05400755F6A /* CombinationList.swift */,
 			);
@@ -2208,6 +2207,14 @@
 				14A24D671EA9D05400755F6A /* Skill */,
 			);
 			path = TODO;
+			sourceTree = "<group>";
+		};
+		149CFE5F20B94FA80004A57D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				14A24D481EA9D05400755F6A /* CombinationCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		14A2496D1EA9D05300755F6A /* App */ = {
@@ -3331,6 +3338,7 @@
 		14A24D471EA9D05400755F6A /* Combination */ = {
 			isa = PBXGroup;
 			children = (
+				149CFE5F20B94FA80004A57D /* Cells */,
 				144306F2209FB55500D60A5A /* Models */,
 				144306F1209FB54F00D60A5A /* Screens */,
 			);
