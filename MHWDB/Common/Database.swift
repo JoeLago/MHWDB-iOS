@@ -10,9 +10,14 @@ class Database {
     static let shared = Database()
     let dbQueue: DatabaseQueue
 
+    enum LoadingError: Error {
+        case invalidPath
+    }
+
     init() {
         do {
-            dbQueue = try DatabaseQueue(path: Bundle.main.path(forResource: "mhw", ofType: "db")!)
+            guard let path = Bundle.main.path(forResource: "mhw", ofType: "db") else { throw LoadingError.invalidPath }
+            dbQueue = try DatabaseQueue(path: path)
         } catch {
             fatalError("Could not load DB")
         }

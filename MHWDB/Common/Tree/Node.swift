@@ -20,7 +20,7 @@ class Node<T> {
     }
 
     func getBranches(childNode: Node<T>? = nil) -> [Bool] {
-        var branches = (parent != nil) ? parent!.getBranches(childNode: self) : [Bool]()
+        var branches = parent?.getBranches(childNode: self) ?? [Bool]()
 
         if let childNode = childNode {
             let index = children.index(where: { (node: Node<T>) -> Bool in

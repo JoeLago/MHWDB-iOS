@@ -7,15 +7,15 @@ import Foundation
 import GRDB
 
 class Combination: RowConvertible {
-    var id: Int!
-    var createdId: Int!
-    var createdName: String!
+    var id: Int
+    var createdId: Int
+    var createdName: String
     var createdIcon: String?
-    var firstId: Int!
-    var firstName: String!
+    var firstId: Int
+    var firstName: String
     var firstIcon: String?
-    var secondId: Int!
-    var secondName: String!
+    var secondId: Int
+    var secondName: String
     var secondIcon: String?
 
     lazy var created: Item = {

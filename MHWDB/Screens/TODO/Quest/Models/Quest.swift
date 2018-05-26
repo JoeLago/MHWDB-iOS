@@ -7,7 +7,7 @@ import Foundation
 import GRDB
 
 class Quest: RowConvertible {
-    var id: Int!
+    var id: Int
     var name: String?
     var hub: String? // Switch to enum
     var icon: String?
@@ -42,11 +42,8 @@ class Quest: RowConvertible {
         case normal, key, urgent
 
         init?(_ type: Int?) {
-            if type == nil {
-                return nil
-            }
-
-            switch type! {
+            guard let type = type else { return nil }
+            switch type {
             case 0: self = .normal
             case 1: self = .key
             case 2: self = .urgent
@@ -67,11 +64,8 @@ class Quest: RowConvertible {
         case hunt, slay, capture, deliver, huntathon, marathon
 
         init?(_ type: Int?) {
-            if type == nil {
-                return nil
-            }
-
-            switch type! {
+            guard let type = type else { return nil }
+            switch type {
             case 0: self = .hunt
             case 1: self = .slay
             case 2: self = .capture

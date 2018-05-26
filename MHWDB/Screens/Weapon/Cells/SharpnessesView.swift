@@ -10,15 +10,15 @@ class SharpnesesView: UIView {
 
     var sharpnesses: [Sharpness]? {
         didSet {
-            if sharpnesses == nil {
+            guard let sharpnesses = sharpnesses, sharpnesses.count == 3  else {
                 isHidden = true
                 return
             }
 
             isHidden = false
-            sharpnessViews[0].sharpness = sharpnesses![0]
-            sharpnessViews[1].sharpness = sharpnesses![1]
-            sharpnessViews[2].sharpness = sharpnesses![2]
+            sharpnessViews[0].sharpness = sharpnesses[0]
+            sharpnessViews[1].sharpness = sharpnesses[1]
+            sharpnessViews[2].sharpness = sharpnesses[2]
         }
     }
 

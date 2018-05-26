@@ -7,20 +7,27 @@ import UIKit
 
 @objc class SelectionManager: NSObject {
     var parentController: UIViewController
-    var alert: UIAlertController!
-    var button: UIBarButtonItem!
+    let title: String
+    let options: [String]
+    let selected: (Int, String) -> Void
+
+    lazy var alert: UIAlertController = {
+        return UIAlertController(options: options) { [weak self] (index: Int, selection: String) in
+            self?.button.title = selection
+            self?.selected(index, selection)
+        }
+    }()
+
+    lazy var button: UIBarButtonItem = {
+        return UIBarButtonItem(title: title, style: .plain, target: self, action: #selector(buttonPressed))
+    }()
 
     init(title: String, options: [String], parentController: UIViewController, selected: (@escaping (Int, String) -> Void)) {
         self.parentController = parentController
-
+        self.title = title
+        self.options = options
+        self.selected = selected
         super.init()
-
-        alert = UIAlertController(options: options) {  (index: Int, selection: String) in
-            self.button.title = selection
-            selected(index, selection)
-        }
-
-        button = UIBarButtonItem(title: title, style: .plain, target: self, action: #selector(buttonPressed))
     }
 
     required init?(coder aDecoder: NSCoder) {

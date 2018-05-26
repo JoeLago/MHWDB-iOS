@@ -76,11 +76,10 @@ class LocationItem: RowConvertible {
     var stack: Int?
 
     var nodeName: String {
-        return "\(area ?? "")"
-            + (isFixed ? " Fixed" : " Random")
-            + (site != nil ? " \(site!)" : "")
-            + (group != nil ? " \(group!)" : "")
-            + (isRare ? " Rare" : "")
+        let fixedString = isFixed ? "Fixed" : "Random"
+        let rarityString = isRare ? "Rare" : nil
+        let groupString = group.map({ "\($0)" }) ?? nil
+        return [area, fixedString, site, groupString, rarityString].compactMap({ $0 }).joined(separator: " ")
     }
 
     required init(row: Row) {

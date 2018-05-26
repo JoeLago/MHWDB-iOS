@@ -29,6 +29,7 @@ class LocationDetails: DetailController, DetailScreen {
 
     func addItemSection(location: Location, rank: Quest.Rank, title: String) {
         let items = location.itemsByNode(rank: rank)
+        // TODO: remove force unwrap, copy other example
         let sections = [SimpleDetailSection](items.keys.sorted().map { SimpleDetailSection(data: items[$0]!, title: $0, showCountMinRows: -1) { self.push(ItemDetails(id: $0.itemId)) } })
         add(section: SubSection(subSections: sections, title: title))
     }
