@@ -17,25 +17,30 @@ class MonsterDetails: DetailController, DetailScreen {
         id = monster.id
         super.init()
         title = monster.name
-        addSimpleSection(data: [monster])
-        
-        addSimpleSection(data: monster.habitats, title: "Habitats") { LocationDetails(id: $0.locationId) }
-        addCustomSection(title: "Damage", data: monster.damageByPart, cellType: MonsterDamagesCell.self, showCount: false)
-        addRewardSection(monster: monster, rank: .low, title: "Low Rank Rewards")
-        addRewardSection(monster: monster, rank: .high, title: "High Rank Rewards")
-        addRewardSection(monster: monster, rank: .g, title: "G Rank Rewards")
-    }
-    
-    func addRewardSection(monster: Monster, rank: Quest.Rank, title: String) {
-        let rewards = monster.rewardsByCondition(rank: rank)
-        let sections = [SimpleDetailSection](rewards.keys.map
-        { SimpleDetailSection(data: rewards[$0]!, title: $0, showCountMinRows: -1)
-        { self.push(ItemDetails(id: $0.itemId)) } })
-        add(section: SubSection(subSections: sections, title: title))
+        sections = [
+            SimpleDetailSection(data: [monster]),
+            SimpleDetailSection(title: "Habitats", data: monster.habitats) { LocationDetails(id: $0.locationId) },
+            CustomSection(title: "Damage", data: monster.damageByPart, cellType: MonsterDamagesCell.self, showCount: false),
+            RewardSection(monster: monster, rank: .low, title: "Low Rank Rewards"),
+            RewardSection(monster: monster, rank: .high, title: "High Rank Rewards"),
+            RewardSection(monster: monster, rank: .g, title: "G Rank Rewards"),
+        ]
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("I don't want to use storyboards Apple")
+    }
+}
+
+class RewardSection: SubSection {
+    init(monster: Monster, rank: Quest.Rank, title: String) {
+        let rewards = monster.rewardsByCondition(rank: rank)
+        let sections = rewards.keys.compactMap { key in
+            rewards[key].map { SimpleDetailSection(title: key, data: $0, showCountMinRows: -1, viewController: {
+                ItemDetails(id: $0.itemId)
+            }) } ?? nil
+        }
+        super.init(subSections: sections, title: title)
     }
 }
 

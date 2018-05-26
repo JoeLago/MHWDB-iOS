@@ -15,6 +15,7 @@ class SimpleDetailSection<T: DetailCellModel>: DetailSection {
     }
     
     var selectionBlock: ((T) -> Void)?
+    var viewControllerBlock: ((T) -> UIViewController)?
     
     override init() {
         
@@ -30,6 +31,12 @@ class SimpleDetailSection<T: DetailCellModel>: DetailSection {
         self.selectionBlock = selectionBlock
         self.isCollapsed = isCollapsed
         populateNumRows()
+    }
+    
+    convenience init(title: String? = nil, data: [T], showCountMinRows: Int = 0, isCollapsed: Bool = false,
+         defaultCollapseCount: Int = -1, viewController: @escaping ((T) -> UIViewController)) {
+        self.init(data: data, title: title, showCountMinRows: showCountMinRows, isCollapsed: isCollapsed, defaultCollapseCount: defaultCollapseCount, selectionBlock: nil)
+        viewControllerBlock = viewController
     }
     
     func populateNumRows() {
@@ -53,13 +60,15 @@ class SimpleDetailSection<T: DetailCellModel>: DetailSection {
     
     override func selected(row: Int, navigationController: UINavigationController?) {
         if let model = rows?[row] {
-            selected(model: model)
+            selected(model: model, navigationController: navigationController)
         }
     }
     
-    func selected(model: T) {
+    func selected(model: T, navigationController: UINavigationController?) {
         if let selectionBlock = selectionBlock {
             selectionBlock(model)
+        } else if let viewControllerBlock = viewControllerBlock {
+            navigationController?.pushViewController(viewControllerBlock(model), animated: true)
         }
     }
 }
