@@ -1,15 +1,18 @@
 PODS:
   - GRDB.swift (2.10.0)
+  - SwiftLint (0.25.0)
   - SwiftyUserDefaults (3.0.1)
 
 DEPENDENCIES:
   - GRDB.swift
+  - SwiftLint
   - SwiftyUserDefaults
 
 SPEC CHECKSUMS:
   GRDB.swift: 9859cab1b990eac62ee550d3d2208ec1b44f76af
+  SwiftLint: e14651157288e9e01d6e1a71db7014fb5744a8ea
   SwiftyUserDefaults: 3d273b1739b68ada3145dc754a70ec775bc5c8be
 
-PODFILE CHECKSUM: 0fe52ce4a02ba1a1dd3ee80f59966257a6dcc5f7
+PODFILE CHECKSUM: 5ee7052e25c24a5f344363bea4d4f584720cc4bc
 
 COCOAPODS: 1.3.1

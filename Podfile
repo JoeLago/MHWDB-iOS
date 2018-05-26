@@ -4,6 +4,7 @@ target 'MHWDB' do
     use_frameworks!
     
     pod 'GRDB.swift'
+    pod 'SwiftLint'
     pod 'SwiftyUserDefaults'
     
     target 'MHWDBTests' do

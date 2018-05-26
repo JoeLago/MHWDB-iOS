@@ -1,0 +1,13 @@
+# This file whitelists only the rules that we want to be automatically corrected
+# during the build process. The Xcode project uses this for its autocorrect usage
+whitelist_rules:
+    # Whitespace rules
+    - closing_brace
+    - colon
+    - comma
+    - leading_whitespace
+    - opening_brace
+    - return_arrow_whitespace
+    - trailing_whitespace
+    - vertical_whitespace
+    - trailing_newline
