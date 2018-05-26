@@ -2114,11 +2114,11 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		1450DA7420AA0BB1000085C5 /* TODO Charm */ = {
+		1450DA7420AA0BB1000085C5 /* Charm */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = "TODO Charm";
+			path = Charm;
 			sourceTree = "<group>";
 		};
 		1454955B1EA9CEC5004FA5FA = {
@@ -2194,6 +2194,20 @@
 			children = (
 			);
 			path = "monster-small";
+			sourceTree = "<group>";
+		};
+		149CFE5E20B94F370004A57D /* TODO */ = {
+			isa = PBXGroup;
+			children = (
+				1450DA7420AA0BB1000085C5 /* Charm */,
+				14A24D471EA9D05400755F6A /* Combination */,
+				14A24D4B1EA9D05400755F6A /* Decoration */,
+				14A24D531EA9D05400755F6A /* Location */,
+				14E704161EB8EB4100EA2E71 /* PalicoWeapon */,
+				14A24D631EA9D05400755F6A /* Quest */,
+				14A24D671EA9D05400755F6A /* Skill */,
+			);
+			path = TODO;
 			sourceTree = "<group>";
 		};
 		14A2496D1EA9D05300755F6A /* App */ = {
@@ -3298,13 +3312,7 @@
 				14A24D4F1EA9D05400755F6A /* Item */,
 				14A24D571EA9D05400755F6A /* Menu */,
 				14A24D5A1EA9D05400755F6A /* Monster */,
-				1450DA7420AA0BB1000085C5 /* TODO Charm */,
-				14A24D471EA9D05400755F6A /* TODO Combination */,
-				14A24D4B1EA9D05400755F6A /* TODO Decoration */,
-				14A24D531EA9D05400755F6A /* TODO Location */,
-				14E704161EB8EB4100EA2E71 /* TODO PalicoWeapon */,
-				14A24D631EA9D05400755F6A /* TODO Quest */,
-				14A24D671EA9D05400755F6A /* TODO Skill */,
+				149CFE5E20B94F370004A57D /* TODO */,
 				14A24D6A1EA9D05400755F6A /* Weapon */,
 			);
 			name = Screens;
@@ -3320,22 +3328,22 @@
 			path = Armor;
 			sourceTree = "<group>";
 		};
-		14A24D471EA9D05400755F6A /* TODO Combination */ = {
+		14A24D471EA9D05400755F6A /* Combination */ = {
 			isa = PBXGroup;
 			children = (
 				144306F2209FB55500D60A5A /* Models */,
 				144306F1209FB54F00D60A5A /* Screens */,
 			);
-			path = "TODO Combination";
+			path = Combination;
 			sourceTree = "<group>";
 		};
-		14A24D4B1EA9D05400755F6A /* TODO Decoration */ = {
+		14A24D4B1EA9D05400755F6A /* Decoration */ = {
 			isa = PBXGroup;
 			children = (
 				144306E7209FB42600D60A5A /* Models */,
 				144306E6209FB41A00D60A5A /* Screens */,
 			);
-			path = "TODO Decoration";
+			path = Decoration;
 			sourceTree = "<group>";
 		};
 		14A24D4F1EA9D05400755F6A /* Item */ = {
@@ -3347,14 +3355,14 @@
 			path = Item;
 			sourceTree = "<group>";
 		};
-		14A24D531EA9D05400755F6A /* TODO Location */ = {
+		14A24D531EA9D05400755F6A /* Location */ = {
 			isa = PBXGroup;
 			children = (
 				144306EC209FB4FB00D60A5A /* Cells */,
 				144306EE209FB50D00D60A5A /* Models */,
 				144306ED209FB50700D60A5A /* Screens */,
 			);
-			path = "TODO Location";
+			path = Location;
 			sourceTree = "<group>";
 		};
 		14A24D571EA9D05400755F6A /* Menu */ = {
@@ -3377,22 +3385,22 @@
 			path = Monster;
 			sourceTree = "<group>";
 		};
-		14A24D631EA9D05400755F6A /* TODO Quest */ = {
+		14A24D631EA9D05400755F6A /* Quest */ = {
 			isa = PBXGroup;
 			children = (
 				144306F0209FB53B00D60A5A /* Models */,
 				144306EF209FB53000D60A5A /* Screens */,
 			);
-			path = "TODO Quest";
+			path = Quest;
 			sourceTree = "<group>";
 		};
-		14A24D671EA9D05400755F6A /* TODO Skill */ = {
+		14A24D671EA9D05400755F6A /* Skill */ = {
 			isa = PBXGroup;
 			children = (
 				144306E2209FB36200D60A5A /* Models */,
 				144306E1209FB34F00D60A5A /* Screens */,
 			);
-			path = "TODO Skill";
+			path = Skill;
 			sourceTree = "<group>";
 		};
 		14A24D6A1EA9D05400755F6A /* Weapon */ = {
@@ -3436,14 +3444,14 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		14E704161EB8EB4100EA2E71 /* TODO PalicoWeapon */ = {
+		14E704161EB8EB4100EA2E71 /* PalicoWeapon */ = {
 			isa = PBXGroup;
 			children = (
 				14612B181EBA3EC800DB7F64 /* Cells */,
 				144306E5209FB3F200D60A5A /* Model */,
 				144306E4209FB3E100D60A5A /* Screens */,
 			);
-			path = "TODO PalicoWeapon";
+			path = PalicoWeapon;
 			sourceTree = "<group>";
 		};
 		CBCF59F9BE521D8FDE547F73 /* Frameworks */ = {
