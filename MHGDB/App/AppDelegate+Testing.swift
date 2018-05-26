@@ -3,7 +3,6 @@
 // Copyright (c) Gathering Hall Studios
 //
 
-
 import UIKit
 
 extension AppDelegate {
@@ -13,7 +12,7 @@ extension AppDelegate {
         //presentTestController(vc: WeaponDetails(id: 328194)) // Heavy Bowgun
         //presentTestController(vc: WeaponDetails(id: 65795)) // Great Sword
     }
-    
+
     func presentTestController(vc: UIViewController) {
         vc.navigationItem.rightBarButtonItem =
             UIBarButtonItem(barButtonSystemItem: .done, target: self,
@@ -21,7 +20,7 @@ extension AppDelegate {
         let nc = UINavigationController(rootViewController: vc)
         window?.rootViewController?.present(nc, animated: false, completion: nil)
     }
-    
+
     @objc func popTestController() {
         window?.rootViewController?.dismiss(animated: true, completion: nil)
     }

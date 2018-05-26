@@ -3,16 +3,15 @@
 // Copyright (c) Gathering Hall Studios
 //
 
-
 import UIKit
 
 class LocationDetails: DetailController, DetailScreen {
     var id: Int
-    
+
     convenience required init(id: Int) {
         self.init(location: Database.shared.location(id: id))
     }
-    
+
     init(location: Location) {
         id = location.id
         super.init()
@@ -23,16 +22,14 @@ class LocationDetails: DetailController, DetailScreen {
         addItemSection(location: location, rank: .high, title: "High Rank Items")
         addItemSection(location: location, rank: .g, title: "G Rank Items")
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("I don't want to use storyboards Apple")
     }
-    
+
     func addItemSection(location: Location, rank: Quest.Rank, title: String) {
         let items = location.itemsByNode(rank: rank)
-        let sections = [SimpleDetailSection](items.keys.sorted().map
-        { SimpleDetailSection(data: items[$0]!, title: $0, showCountMinRows: -1)
-        { self.push(ItemDetails(id: $0.itemId)) } })
+        let sections = [SimpleDetailSection](items.keys.sorted().map { SimpleDetailSection(data: items[$0]!, title: $0, showCountMinRows: -1) { self.push(ItemDetails(id: $0.itemId)) } })
         add(section: SubSection(subSections: sections, title: title))
     }
 }

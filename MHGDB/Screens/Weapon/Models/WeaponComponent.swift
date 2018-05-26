@@ -3,7 +3,6 @@
 // Copyright (c) Gathering Hall Studios
 //
 
-
 import Foundation
 import GRDB
 
@@ -13,7 +12,7 @@ class WeaponComponent: RowConvertible, Decodable {
     let icon: String?
     let type: String?
     let quantity: Int
-    
+
     enum CodingKeys: String, CodingKey {
         case id = "item_id", name, icon, type = "recipe_type", quantity
     }

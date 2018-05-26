@@ -3,7 +3,6 @@
 // Copyright (c) Gathering Hall Studios
 //
 
-
 import Foundation
 
 enum Element: String, Decodable {
@@ -18,7 +17,7 @@ enum Element: String, Decodable {
     case slime = "Slime"
     case blastblight = "Blastblight"
     case blast = "Blast"
-    
+
     var imageName: String {
         switch self {
         case .fire: return "Fire"

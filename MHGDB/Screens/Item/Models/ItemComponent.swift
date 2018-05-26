@@ -13,7 +13,7 @@ class ItemComponent: RowConvertible, Decodable {
     var name: String
     var icon: String?
     var quantity: Int
-    
+
     enum CodingKeys: String, CodingKey {
         case createdId = "created_id", name, icon, quantity
     }
@@ -28,7 +28,7 @@ extension Database {
             .filter("item_id", equals: itemId)
         return fetch(query)
     }
-    
+
     func weapons(itemId: Int) -> [ItemComponent] {
         let query = Query(table: "weapon_recipe")
             .column("weapon_id", as: "created_id")
@@ -37,7 +37,7 @@ extension Database {
             .filter("item_id", equals: itemId)
         return fetch(query)
     }
-    
+
     func charms(itemId: Int) -> [ItemComponent] {
         let query = Query(table: "charm_recipe")
             .column("charm_id", as: "created_id")

@@ -23,21 +23,21 @@ class SearchRequest {
     let searchText: String
     var isCanceled = false
     var cancelBlock: (() -> Void)?
-    
+
     init(_ text: String) {
         self.searchText = text
     }
-    
+
     func cancel() {
         isCanceled = true
         DispatchQueue.main.async {
             self.cancelBlock?()
         }
     }
-    
+
     func search() -> SearchResponse? {
         let searchText = self.searchText
-        
+
         let monsters = Database.shared.monsters(searchText)
         if self.isCanceled { return nil }
         let items = Database.shared.items(searchText)
@@ -54,7 +54,7 @@ class SearchRequest {
         if self.isCanceled { return nil }
         let palico = Database.shared.palicoWeapons(searchText)
         if self.isCanceled { return nil }
-        
+
         return SearchResponse(
             monsters: monsters,
             items: items,
@@ -65,22 +65,22 @@ class SearchRequest {
             skills: skills,
             palico: palico)
     }
-    
+
     @discardableResult
     func then(_ completed: @escaping (SearchResponse) -> Void) -> SearchRequest {
         DispatchQueue.global(qos: .background).async {
             guard let response = self.search() else {
                     return
             }
-            
+
             DispatchQueue.main.async {
                 completed(response)
             }
         }
-        
+
         return self
     }
-    
+
     @discardableResult
     func canceled(_ cancelBlock: @escaping () -> Void) -> SearchRequest {
         self.cancelBlock = cancelBlock

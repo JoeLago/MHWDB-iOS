@@ -3,16 +3,15 @@
 // Copyright (c) Gathering Hall Studios
 //
 
-
 import UIKit
 
 class ArmorDetails: DetailController, DetailScreen {
     var id: Int
-    
+
     convenience init(id: Int) {
         self.init(Database.shared.armor(id: id))
     }
-    
+
     init(_ armor: Armor) {
         id = armor.id
         super.init()
@@ -22,7 +21,7 @@ class ArmorDetails: DetailController, DetailScreen {
         //addCustomSection(title: "Resistances", data: [armor.resistances], cellType: ImageLabelCell.self)
         addSimpleSection(data: armor.components, title: "Components") { ItemDetails(id: $0.itemId) }
     }
-    
+
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

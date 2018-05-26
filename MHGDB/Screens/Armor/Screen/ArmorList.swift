@@ -3,7 +3,6 @@
 // Copyright (c) Gathering Hall Studios
 //
 
-
 import UIKit
 
 /*class ArmorList: DetailController {
@@ -53,4 +52,3 @@ extension Armor: DetailCellModel {
     var secondary: String? { return "\(defense) - \(defenseMax) def" }
     var imageName: String? { return icon }
 }*/
-

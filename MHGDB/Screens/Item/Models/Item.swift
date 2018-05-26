@@ -3,7 +3,6 @@
 // Copyright (c) Gathering Hall Studios
 //
 
-
 import Foundation
 import GRDB
 
@@ -16,11 +15,11 @@ class Item: Decodable, RowConvertible {
     let buy: Int?
     let sell: Int?
     let rarity: Int?
-    
+
     enum CodingKeys: String, CodingKey {
         case id, name, description, icon, stack = "carry_limit", buy = "buy_price", sell = "sell_price", rarity
     }
-    
+
     lazy var quests: [ItemQuest] = { return Database.shared.rewards(itemId: self.id) }()
     lazy var combinations: [Combination] = { return Database.shared.combinations(itemId: self.id) }()
     lazy var locations: [ItemLocation] = { return Database.shared.locations(itemId: self.id) }()
@@ -38,7 +37,7 @@ extension Database {
         }
         return fetch(query)
     }
-    
+
     func item(id: Int) -> Item {
         let query = Query(table: "item").join(table: "item_text").filter(id: id)
         return fetch(query)[0]

@@ -3,16 +3,15 @@
 // Copyright (c) Gathering Hall Studios
 //
 
-
 import UIKit
 
 class DecorationDetails: DetailController, DetailScreen {
     var id: Int
-    
+
     convenience init(id: Int) {
         self.init(Database.shared.decoration(id: id))
     }
-    
+
     init(_ decoration: Decoration) {
         id = decoration.id
         super.init()
@@ -22,7 +21,7 @@ class DecorationDetails: DetailController, DetailScreen {
         addSimpleSection(data: decoration.skillTrees, title: "Skills") { SkillDetails(id: $0.skillId) }
         addSimpleSection(data: decoration.components, title: "Components") { ItemDetails(id: $0.componentId) }
     }
-    
+
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

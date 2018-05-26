@@ -3,11 +3,10 @@
 // Copyright (c) Gathering Hall Studios
 //
 
-
 import Foundation
 
 class AmmoCell: GridCell<Weapon> {
-    
+
     override var model: Weapon? {
         didSet {
             if let model = model {
@@ -15,7 +14,7 @@ class AmmoCell: GridCell<Weapon> {
             }
         }
     }
-    
+
     func setup(weapon: Weapon) {
         /*guard let ammo = weapon.ammo else {
             return

@@ -3,7 +3,6 @@
 // Copyright (c) Gathering Hall Studios
 //
 
-
 import Foundation
 
 extension Array where Element: Equatable {
@@ -12,7 +11,7 @@ extension Array where Element: Equatable {
             self.remove(at: index)
         }
     }
-    
+
     mutating func remove(objects: [Element]) {
         for object in objects {
             self.remove(object: object)

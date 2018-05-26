@@ -3,12 +3,11 @@
 // Copyright (c) Gathering Hall Studios
 //
 
-
 import Foundation
 
 class Sharpness {
     static let max = 40.0
-    
+
     var red = 0
     var orange = 0
     var yellow = 0
@@ -16,7 +15,7 @@ class Sharpness {
     var blue = 0
     var white = 0
     var purple = 0
-    
+
     init(palicoSharpness: Int) {
         switch palicoSharpness {
         case 0: orange = 1
@@ -27,13 +26,11 @@ class Sharpness {
         default: break
         }
     }
-    
+
     init(string: String) {
         let components = string.components(separatedBy: ".")
-        if (components.count < 6) {
-            return
-        }
-        
+        guard components.count >= 6  else { return }
+
         // Make this int enum and loop incrementing int i
         red = Int(components[0]) ?? 0
         orange = Int(components[1]) ?? 0

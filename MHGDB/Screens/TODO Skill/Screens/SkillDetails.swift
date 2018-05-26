@@ -3,16 +3,15 @@
 // Copyright (c) Gathering Hall Studios
 //
 
-
 import UIKit
 
 class SkillDetails: DetailController, DetailScreen {
     var id: Int
-    
+
     convenience required init(id: Int) {
         self.init(skillTree: Database.shared.skillTree(id: id))
     }
-    
+
     init(skillTree: SkillTree) {
         id = skillTree.id
         super.init()
@@ -26,7 +25,7 @@ class SkillDetails: DetailController, DetailScreen {
         addSimpleSection(data: skillTree.armor(slot: .waist), title: "Waist") { ArmorDetails(id: $0.itemId) }
         addSimpleSection(data: skillTree.armor(slot: .legs), title: "Legs") { ArmorDetails(id: $0.itemId) }
     }
-    
+
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

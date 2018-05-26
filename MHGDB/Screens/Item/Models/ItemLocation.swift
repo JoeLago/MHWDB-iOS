@@ -20,7 +20,7 @@ class ItemLocation: RowConvertible, Decodable {
     var isFixed: Bool
     var isRare: Bool
     var group: Int
-    
+
     var nodeName: String {
         return "\(area) \(isFixed ? "Fixed" : "Random") \(site) \(group) \(isRare ? " Rare" : "")"
     }

@@ -14,7 +14,7 @@ class ArmorComponent: RowConvertible, Decodable {
     var icon: String?
     var type: String?
     var quantity: Int?
-    
+
     enum CodingKeys: String, CodingKey {
         case itemId = "item_id", name, icon, type, quantity
     }

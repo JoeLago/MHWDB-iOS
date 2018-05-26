@@ -37,10 +37,10 @@ class Ammo {
     let thunder: AmmoType
     let ice: AmmoType
     let dragon: AmmoType
-    
+
     init(string: String) {
         let values = string.components(separatedBy: "|")
-        
+
         normal1 = AmmoType(values, 0)
         normal2 = AmmoType(values, 1)
         normal3 = AmmoType(values, 2)
@@ -56,13 +56,13 @@ class Ammo {
         clust1 = AmmoType(values, 12)
         clust2 = AmmoType(values, 13)
         clust3 = AmmoType(values, 14)
-        
+
         fire = AmmoType(values, 15)
         water = AmmoType(values, 16)
         thunder = AmmoType(values, 17)
         ice = AmmoType(values, 18)
         dragon = AmmoType(values, 19)
-        
+
         poison1 = AmmoType(values, 20)
         poison2 = AmmoType(values, 21)
         paralysis1 = AmmoType(values, 22)
@@ -79,21 +79,20 @@ class AmmoType: StyledText {
     // text and isBold should be in separate extension
     // (in AmmoCell.swift since it's a UI thing)
     // and return these new values to conform to protocol
-    
+
     let text: String
     let isBold: Bool
-    
+
     init(text: String, isBold: Bool = false) {
         self.text = text
         self.isBold = isBold
     }
-    
+
     convenience init(_ values: [String], _ index: Int) {
         let stringValue = values[index]
         if let index = stringValue.range(of: "*") {
             self.init(text: String(stringValue[..<index.lowerBound]), isBold: true)
-        }
-        else {
+        } else {
             self.init(text: stringValue)
         }
     }

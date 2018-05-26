@@ -11,7 +11,7 @@ import GRDB
 class ArmorSet: RowConvertible, Decodable {
     let id: Int
     let name: String
-    
+
     lazy var armor: [Armor] = { return Database.shared.armorSetPieces(armorSetId: id) }()
 }
 
@@ -21,7 +21,7 @@ extension Database {
             .join(table: "armorset_text")
         return fetch(query)[0]
     }
-    
+
     // Need the filter data in db
     func armorSet(_ search: String? = nil, rank: Quest.Rank? = nil, hrArmorType: Int? = nil) -> [ArmorSet] {
         let query = Query(table: "armorset")

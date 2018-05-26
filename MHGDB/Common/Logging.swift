@@ -3,7 +3,6 @@
 // Copyright (c) Gathering Hall Studios
 //
 
-
 import Foundation
 
 /// Add logging implementation to capture logs to your location of choice
@@ -51,36 +50,35 @@ class Logs {
 class ConsoleLogger: Logger {
     static let dateFormatter = DateFormatter()
     let showErrorsOnly: Bool
-    
+
     init(showErrorsOnly: Bool = false) {
         self.showErrorsOnly = showErrorsOnly
         // TODO: Come up with a better format
         ConsoleLogger.dateFormatter.dateStyle = .short
         ConsoleLogger.dateFormatter.timeStyle = .medium
     }
-    
+
     func log(text: String) {
         print("Log [" + ConsoleLogger.dateFormatter.string(from: Date()) + "] " + text)
     }
-    
+
     func log(_ text: String) {
         guard !showErrorsOnly else { return }
         log(text: text)
     }
-    
+
     func log(search: String) {
         guard !showErrorsOnly else { return }
         Log("Search: \(search)")
     }
-    
+
     func log(error: String) {
         log(text: "*ERROR* " + error)
     }
-    
+
     func log(page: String, event: String?, details: String?, metadata: [String: Any]?) {
         guard !showErrorsOnly else { return }
-        let text = [page, event, details].compactMap{ return $0 }.joined(separator: " - ")
+        let text = [page, event, details].compactMap { return $0 }.joined(separator: " - ")
         log(text)
     }
 }
-

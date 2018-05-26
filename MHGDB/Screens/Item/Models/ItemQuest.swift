@@ -20,7 +20,7 @@ class ItemQuest: RowConvertible, Decodable {
 }
 
 extension Database {
-    
+
     func rewards(itemId: Int) -> [ItemQuest] {
         let query = "SELECT *,"
             + " items._id AS itemid,"

@@ -16,7 +16,7 @@ class ItemMonster: RowConvertible, Decodable {
     let rank: Quest.Rank
     let stack: Int
     let chance: Int
-    
+
     enum CodingKeys: String, CodingKey {
         case monsterId = "monster_id", name, icon, condition = "condition", rank, stack = "stack_size", chance = "percentage"
     }

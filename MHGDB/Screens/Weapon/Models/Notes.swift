@@ -12,7 +12,7 @@ extension Weapon {
     struct Note {
         let imageName: String
     }
-    
+
     var noteImageNames: [String]? {
         if let notes = notes {
             return notes.compactMap({ (c: Character) -> String? in

@@ -3,7 +3,6 @@
 // Copyright (c) Gathering Hall Studios
 //
 
-
 import Foundation
 import GRDB
 
@@ -18,19 +17,19 @@ class Combination: RowConvertible {
     var secondId: Int!
     var secondName: String!
     var secondIcon: String?
-    
+
     lazy var created: Item = {
         return Database.shared.item(id: self.createdId)
     }()
-    
+
     lazy var first: Item = {
         return Database.shared.item(id: self.firstId)
     }()
-    
+
     lazy var second: Item = {
         return Database.shared.item(id: self.secondId)
     }()
-    
+
     required init(row: Row) {
         id = row["combineid"]
         createdId = row["createid"]
@@ -46,8 +45,8 @@ class Combination: RowConvertible {
 }
 
 extension Database {
-    
-    var combinationQuery : String {
+
+    var combinationQuery: String {
         return "SELECT"
         + " combining._id AS combineid,"
         + " createitem._id AS createid,"
@@ -64,18 +63,18 @@ extension Database {
         + " LEFT JOIN items AS item1 ON combining.item_1_id = item1._id"
         + " LEFT JOIN items AS item2 ON combining.item_2_id = item2._id"
     }
-    
+
     func combination(id: Int) -> Combination {
         return fetch(combinationQuery + " WHERE combining._id = \(id)")[0]
     }
-    
+
     func combinations(itemId: Int) -> [Combination] {
         return fetch(combinationQuery
             + " WHERE created_item_id == \(itemId)"
             + " OR item_1_id == \(itemId)"
             + " OR item_2_id == \(itemId)")
     }
-    
+
     func combinations() -> [Combination] {
         return fetch(combinationQuery)
     }

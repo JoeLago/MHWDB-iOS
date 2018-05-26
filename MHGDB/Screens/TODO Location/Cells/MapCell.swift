@@ -3,13 +3,12 @@
 // Copyright (c) Gathering Hall Studios
 //
 
-
 import UIKit
 
 class MapCell: CustomCell<Location> {
     static let identifier = "mapCell"
     var mapImageView = UIImageView()
-    
+
     override var model: Location? {
         didSet {
             if let model = model, let icon = model.icon {
@@ -17,17 +16,17 @@ class MapCell: CustomCell<Location> {
             }
         }
     }
-    
+
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: MapCell.identifier)
         selectionStyle = .none
         addViews()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func addViews() {
         contentView.addSubview(mapImageView)
         mapImageView.contentMode = .scaleAspectFit

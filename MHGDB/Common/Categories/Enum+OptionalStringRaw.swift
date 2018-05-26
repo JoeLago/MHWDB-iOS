@@ -3,7 +3,6 @@
 // Copyright (c) Gathering Hall Studios
 //
 
-
 import Foundation
 
 extension RawRepresentable where RawValue == String {
@@ -11,7 +10,7 @@ extension RawRepresentable where RawValue == String {
         guard let optionalRaw = optionalRaw else {
             return nil
         }
-      
+
         self.init(rawValue: optionalRaw)
     }
 }

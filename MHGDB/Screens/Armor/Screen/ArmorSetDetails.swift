@@ -10,18 +10,18 @@ import UIKit
 
 class ArmorSetDetails: DetailController, DetailScreen {
     var id: Int
-    
+
     convenience init(id: Int) {
         self.init(Database.shared.armorSet(id: id))
     }
-    
+
     init(_ armorSet: ArmorSet) {
         id = armorSet.id
         super.init()
         title = armorSet.name
         addSimpleSection(data: armorSet.armor, title: "Armor") { ArmorDetails(id: $0.id) }
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

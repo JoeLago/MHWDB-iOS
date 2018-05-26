@@ -3,7 +3,6 @@
 // Copyright (c) Gathering Hall Studios
 //
 
-
 import Foundation
 import GRDB
 
@@ -24,13 +23,13 @@ class Quest: RowConvertible {
     var subHrp: Int?
     var fee: Int?
     var hasSubQuest = false
-    
+
     enum Rank: String, Decodable {
         case low = "lr"
         case high = "hr"
         case g = "g"
     }
-    
+
     enum Hub: String {
         case village = "Village"
         case arena = "Arena"
@@ -38,15 +37,15 @@ class Quest: RowConvertible {
         case guild = "Guild"
         case permit = "Permit"
     }
-    
+
     enum Progression {
         case normal, key, urgent
-        
+
         init?(_ type: Int?) {
             if type == nil {
                 return nil
             }
-            
+
             switch type! {
             case 0: self = .normal
             case 1: self = .key
@@ -54,26 +53,24 @@ class Quest: RowConvertible {
             default: return nil
             }
         }
-        
+
         var text: String {
-            get {
-                switch self {
-                case .normal: return "Normal"
-                case .key: return "Key"
-                case .urgent: return "Urgent"
-                }
+            switch self {
+            case .normal: return "Normal"
+            case .key: return "Key"
+            case .urgent: return "Urgent"
             }
         }
     }
-    
+
     enum Goal {
         case hunt, slay, capture, deliver, huntathon, marathon
-        
+
         init?(_ type: Int?) {
             if type == nil {
                 return nil
             }
-            
+
             switch type! {
             case 0: self = .hunt
             case 1: self = .slay
@@ -84,41 +81,39 @@ class Quest: RowConvertible {
             default: return nil
             }
         }
-        
+
         var text: String? {
-            get {
-                switch self {
-                case .hunt: return "Hunt"
-                case .slay: return "Slay"
-                case .capture: return "Capture"
-                case .deliver: return "Deliver"
-                case .huntathon: return "Huntathon"
-                case .marathon: return "Marathon"
-                }
+            switch self {
+            case .hunt: return "Hunt"
+            case .slay: return "Slay"
+            case .capture: return "Capture"
+            case .deliver: return "Deliver"
+            case .huntathon: return "Huntathon"
+            case .marathon: return "Marathon"
             }
         }
     }
-    
+
     class func titleForStars(count: Int) -> String {
         if count == 0 {
             return "Training"
         }
-        
+
         var title = "\(count) "
         for _ in 0 ... count - 1 {
             title += String.star
         }
         return title
     }
-    
+
     lazy var rewards: [QuestReward] = {
         return Database.shared.rewards(questId: self.id)
     }()
-    
+
     lazy var prereqQuests: [Quest] = {
         return Database.shared.prereqQuests(questId: self.id)
     }()
-    
+
     lazy var rewardsBySlot: [String: [QuestReward]] = {
         let allRewards = Database.shared.rewards(questId: self.id)
         var rewardsBySlot = [String: [QuestReward]]()
@@ -129,11 +124,11 @@ class Quest: RowConvertible {
         }
         return rewardsBySlot
     }()
-    
+
     lazy var monsters: [QuestMonster] = {
         return Database.shared.monsters(questId: self.id)
     }()
-    
+
     required init(row: Row) {
         id = row["_id"]
         name = row["name"]
@@ -161,7 +156,7 @@ class QuestReward: RowConvertible {
     var quantity: Int
     var chance: Int
     var slot: String
-    
+
     required init(row: Row) {
         itemId = row["itemid"]
         name = row["itemname"]
@@ -179,10 +174,10 @@ class QuestMonster: RowConvertible {
     var moveArea: String?
     var restArea: String?
     var locations: String {
-      return [startArea, moveArea, restArea].compactMap{ $0 }.joined(separator: " > ")
+      return [startArea, moveArea, restArea].compactMap { $0 }.joined(separator: " > ")
     }
     let icon: String?
-    
+
     required init(row: Row) {
         monsterId = row["monsterid"]
         name = row["monstername"]
@@ -194,38 +189,38 @@ class QuestMonster: RowConvertible {
 }
 
 extension Database {
-    
+
     func quest(id: Int) -> Quest {
         let query = "SELECT * FROM quests WHERE _id = \(id)"
         return fetch(query)!
     }
-    
+
     func quests(_ search: String? = nil, keyOnly: Bool = false, hub: String? = nil,
                 stars: Int? = nil) -> [[Quest]] {
         let query = "SELECT * FROM quests"
         let order = "ORDER BY stars"
         var filters = [String]()
-        
+
         if let hub = hub {
             filters.append("hub == '\(hub)'")
         }
-        
+
         if let stars = stars {
             filters.append("stars == \(stars)")
         }
-        
-        if (keyOnly) {
+
+        if keyOnly {
             filters.append("type != 0")
         }
-        
+
         let filter = filters.joined(separator: " AND ")
-        
+
         let quests = fetch(select: query, order: order, filter: filter, search: search) as [Quest]
-        
+
         if search != nil {
             return [quests]
         }
-        
+
         // Meh
         var questGroups = [[Quest]]()
         var questsPerStar = [Quest]()
@@ -237,16 +232,16 @@ extension Database {
                 questsPerStar.append(quest)
             }
         }
-        
+
         questGroups.append(questsPerStar)
-        
+
         return questGroups
     }
-    
+
     func questHubs() -> [String] {
         return getStrings("SELECT hub as value FROM quests GROUP BY hub")
     }
-    
+
     var rewardsQuery: String {
         return "SELECT *,"
             + " items._id AS itemid,"
@@ -259,12 +254,12 @@ extension Database {
             + " LEFT JOIN items on quest_rewards.item_id = items._id"
             + " LEFT JOIN quests on quest_rewards.quest_id = quests._id "
     }
-    
+
     func rewards(questId: Int) -> [QuestReward] {
         let query = rewardsQuery + "WHERE quests._id == \(questId)"
         return fetch(query)
     }
-    
+
     func monsters(questId: Int) -> [QuestMonster] {
         // The monster_habitat night locations use day counterpart id 100 off
         let query = "SELECT *,"
@@ -279,7 +274,7 @@ extension Database {
             + " WHERE quests._id == \(questId)"
         return fetch(query)
     }
-    
+
     func prereqQuests(questId: Int) -> [Quest] {
         let query = "SELECT *, quest_prereqs.prereq_id as _id FROM quest_prereqs"
             + " LEFT JOIN quests ON quests._id = quest_prereqs.prereq_id"

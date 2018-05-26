@@ -3,7 +3,6 @@
 // Copyright (c) Gathering Hall Studios
 //
 
-
 import UIKit
 
 protocol StyledText {
@@ -17,18 +16,18 @@ class LabelStack: UIStackView {
     var fontSize: CGFloat = 12
     var count = 0
     var showSeparator = false
-    
+
     init(axis: UILayoutConstraintAxis, length: Int? = nil) {
         super.init(frame: .zero)
         self.axis = axis
         self.spacing = 0
         self.length = length
     }
-    
+
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     func newLabel() -> UILabel {
         let label = MarginLabel()
         label.textAlignment = textAlignment ?? .right
@@ -36,7 +35,7 @@ class LabelStack: UIStackView {
         label.textColor = Color.Text.primary
         let verticalPadding: CGFloat = showSeparator ? 2 : 0
         label.edgeInsets = UIEdgeInsets(top: verticalPadding, left: 5, bottom: verticalPadding, right: 5)
-        
+
         if let length = length {
             if axis == .horizontal {
                 label.widthConstraint(length)
@@ -44,10 +43,10 @@ class LabelStack: UIStackView {
                 label.heightConstraint(length)
             }
         }
-        
+
         return label
     }
-    
+
     func addTopSeparator(view: UIView) {
         let separator = UIView()
         separator.backgroundColor = Color.Background.seperator
@@ -55,25 +54,25 @@ class LabelStack: UIStackView {
         separator.matchParent(top: 0, left: 0, bottom: nil, right: 0)
         separator.heightConstraint(1)
     }
-    
+
     func add(values: [Any]) {
         for value in values {
             add(value: value)
         }
     }
-    
+
     func add(value: Any) {
         let label = newLabel()
         if showSeparator, count > 0 {
             addTopSeparator(view: label)
         }
-        
+
         if let value = value as? StyledText {
             if value.isBold {
                 let font = label.font
                 label.font = UIFont.boldSystemFont(ofSize: font?.pointSize ?? fontSize)
             }
-            
+
             label.text = value.text
         } else if let value = value as? Int {
             label.text = value == 0 ? "-" : "\(value)" // TODO: have a var to determine this behavior
@@ -84,7 +83,7 @@ class LabelStack: UIStackView {
         } else {
             label.text = " "
         }
-        
+
         addArrangedSubview(label)
         count += 1
     }
@@ -100,11 +99,11 @@ class MarginLabel: UILabel {
             invalidateIntrinsicContentSize()
         }
     }
-    
+
     override func drawText(in rect: CGRect) {
         super.drawText(in: UIEdgeInsetsInsetRect(rect, self.edgeInsets))
     }
-    
+
     override var intrinsicContentSize: CGSize {
         let size = super.intrinsicContentSize
         let newWidth = size.width + edgeInsets.left + edgeInsets.right

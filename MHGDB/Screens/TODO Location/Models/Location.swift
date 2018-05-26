@@ -3,7 +3,6 @@
 // Copyright (c) Gathering Hall Studios
 //
 
-
 import Foundation
 import GRDB
 
@@ -11,15 +10,15 @@ class Location: RowConvertible {
     var id: Int
     var name: String
     var icon: String?
-    
+
     lazy var monsters: [LocationMonster] = {
         return Database.shared.locationMonsters(locationId: self.id)
     }()
-    
+
     func items(rank: Quest.Rank) -> [LocationItem] {
         return Database.shared.locationItems(locationId: self.id, rank: rank)
     }
-    
+
     func itemsByNode(rank: Quest.Rank) -> [String: [LocationItem]] {
         let allItems = Database.shared.locationItems(locationId: self.id, rank: rank)
         var itemsByNode = [String: [LocationItem]]()
@@ -31,7 +30,7 @@ class Location: RowConvertible {
         }
         return itemsByNode
     }
-    
+
     required init(row: Row) {
         id = row["_id"]
         name = row["name"]
@@ -39,20 +38,20 @@ class Location: RowConvertible {
     }
 }
 
-class LocationMonster : RowConvertible {
+class LocationMonster: RowConvertible {
     let monsterId: Int
     let monster: String?
     let icon: String?
     let startArea: String?
     let moneArea: String?
     let restArea: String?
-    
+
     var areas: String {
         return "\(startArea ?? "")"
             + " > " + (moneArea ?? "")
             + " > \(restArea ?? "")"
     }
-    
+
     required init(row: Row) {
         monsterId = row["monsterid"]
         monster = row["monstername"]
@@ -63,7 +62,7 @@ class LocationMonster : RowConvertible {
     }
 }
 
-class LocationItem : RowConvertible {
+class LocationItem: RowConvertible {
     var itemId: Int
     var name: String?
     var icon: String?
@@ -75,7 +74,7 @@ class LocationItem : RowConvertible {
     var isRare: Bool
     var chance: Int?
     var stack: Int?
-    
+
     var nodeName: String {
         return "\(area ?? "")"
             + (isFixed ? " Fixed" : " Random")
@@ -83,7 +82,7 @@ class LocationItem : RowConvertible {
             + (group != nil ? " \(group!)" : "")
             + (isRare ? " Rare" : "")
     }
-    
+
     required init(row: Row) {
         itemId = row["itemid"]
         name = row["itemname"]
@@ -100,18 +99,18 @@ class LocationItem : RowConvertible {
 }
 
 extension Database {
-    
+
     func location(id: Int) -> Location {
         let query = "SELECT * FROM locations WHERE _id == '\(id)'"
         return fetch(query)[0]
     }
-    
+
     func locations(_ search: String? = nil) -> [Location] {
         let query = "SELECT * FROM locations "
         let order = "ORDER BY name"
         return fetch(select: query, order: order, search: search)
     }
-    
+
     func locationMonsters(locationId: Int) -> [LocationMonster] {
         let query = "SELECT *,"
             + " monsters.name AS monstername,"
@@ -123,7 +122,7 @@ extension Database {
             + " WHERE locations._id == \(locationId)"
         return fetch(query)
     }
-    
+
     func locationItems(locationId: Int, rank: Quest.Rank) -> [LocationItem] {
         let query = "SELECT *"
             + " ,items.name AS itemname,"

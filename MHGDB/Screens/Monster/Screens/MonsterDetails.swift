@@ -3,16 +3,15 @@
 // Copyright (c) Gathering Hall Studios
 //
 
-
 import UIKit
 
 class MonsterDetails: DetailController, DetailScreen {
     var id: Int
-    
+
     convenience init(id: Int) {
         self.init(Database.shared.monster(id: id))
     }
-    
+
     init(_ monster: Monster) {
         id = monster.id
         super.init()
@@ -23,10 +22,10 @@ class MonsterDetails: DetailController, DetailScreen {
             CustomSection(title: "Damage", data: monster.damageByPart, cellType: MonsterDamagesCell.self, showCount: false),
             RewardSection(monster: monster, rank: .low, title: "Low Rank Rewards"),
             RewardSection(monster: monster, rank: .high, title: "High Rank Rewards"),
-            RewardSection(monster: monster, rank: .g, title: "G Rank Rewards"),
+            RewardSection(monster: monster, rank: .g, title: "G Rank Rewards")
         ]
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("I don't want to use storyboards Apple")
     }

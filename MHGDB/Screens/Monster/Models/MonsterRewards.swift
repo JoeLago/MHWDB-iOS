@@ -16,7 +16,7 @@ class MonsterReward: RowConvertible, Decodable {
     var rank: Quest.Rank?
     var stackSize: Int?
     var chance: Int?
-    
+
     enum CodingKeys: String, CodingKey {
         case itemId = "item_id", name = "item_name", icon, condition = "condition", rank, stackSize = "stack_size", chance = "percentage"
     }
@@ -33,7 +33,7 @@ extension Database {
         }
         return rewardsByCondition
     }
-    
+
     func rewards(monsterId: Int, rank: Quest.Rank) -> [MonsterReward] {
         let query = Query(table: "monster_reward", addLanguageFilter: false)
             .column("item_text.name", as: "item_name")

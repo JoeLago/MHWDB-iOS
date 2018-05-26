@@ -3,13 +3,12 @@
 // Copyright (c) Gathering Hall Studios
 //
 
-
 import UIKit
 
 class DecorationList: DetailController {
     override func loadView() {
         super.loadView()
-        
+
         title = "Decorations"
         addSimpleSection(data: Database.shared.decorations()) { DecorationDetails(id: $0.id) }
     }
@@ -20,7 +19,7 @@ extension Decoration: DetailCellModel {
     var subtitle: String? { return skillTreeString }
     var secondary: String? { return slotsString }
     var imageName: String? { return icon }
-    
+
     var skillTreeString: String {
         var string = ""
         for skill in skillTrees {

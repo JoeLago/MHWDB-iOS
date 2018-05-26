@@ -3,26 +3,25 @@
 // Copyright (c) Gathering Hall Studios
 //
 
-
 import UIKit
 
 class ListMenu: SimpleTableViewController {
     var searchController: SearchAllController!
-    
+
     override func loadView() {
         super.loadView()
         title = "MHWDB"
-        
+
         definesPresentationContext = true
         searchController = SearchAllController(mainViewController: self)
-        
+
         if #available(iOS 11, *) {
             navigationItem.searchController = searchController
             navigationItem.hidesSearchBarWhenScrolling = false
         } else {
             tableView.tableHeaderView = searchController.searchBar
         }
-        
+
         //addCell(text: "Quests", imageName: "Quest-Icon-Red.png") { QuestList() }
         addCell(text: "Monsters", imageName: "great-jagras.png") { MonsterList() }
         addCell(text: "Weapons", imageName: "great_sword8.png") { WeaponTypeList() }
@@ -34,10 +33,10 @@ class ListMenu: SimpleTableViewController {
         addCell(text: "Skills", imageName: "Monster-Jewel-Teal.png") { SkillList() }
         //addCell(text: "Palico", imageName: "cutting3.png") { PalicoList() }
     }
-    
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+
         if #available(iOS 10.3, *) {
             ReviewManager.presentReviewControllerIfElligible()
         }

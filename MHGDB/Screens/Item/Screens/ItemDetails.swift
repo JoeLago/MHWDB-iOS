@@ -3,16 +3,15 @@
 // Copyright (c) Gathering Hall Studios
 //
 
-
 import UIKit
 
 class ItemDetails: DetailController, DetailScreen {
     var id: Int
-    
+
     convenience required init(id: Int) {
         self.init(item: Database.shared.item(id: id))
     }
-    
+
     init(item: Item) {
         id = item.id
         super.init()
@@ -30,7 +29,7 @@ class ItemDetails: DetailController, DetailScreen {
         addSimpleSection(data: item.weapons, title: "Weapons") { WeaponDetails(id: $0.createdId) }
         addSimpleSection(data: item.charms, title: "Charms") { DecorationDetails(id: $0.createdId) }
     }
-    
+
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

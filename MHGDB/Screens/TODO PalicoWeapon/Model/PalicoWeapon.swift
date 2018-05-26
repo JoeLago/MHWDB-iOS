@@ -3,14 +3,13 @@
 // Copyright (c) Gathering Hall Studios
 //
 
-
 import Foundation
 import GRDB
 
 class PalicoWeapon: RowConvertible {
     enum Balance: Int {
         case balanced = 0, meleePlus, rangedPlus
-        
+
         var string: String {
             switch self {
             case .balanced: return "Balanced"
@@ -19,19 +18,19 @@ class PalicoWeapon: RowConvertible {
             }
         }
     }
-    
+
     var id: Int
     var name: String
     var icon: String?
     var description: String
     var attackMelee: Int
     var attackRanged: Int
-    
+
     var balanceValue: Int
     var balance: Balance {
         return Balance(rawValue: balanceValue) ?? .balanced
     }
-    
+
     var elementString: String?
     var element: Element? {
         if let elementString = elementString {
@@ -40,7 +39,7 @@ class PalicoWeapon: RowConvertible {
             return nil
         }
     }
-    
+
     var elementMelee: Int?
     var elementRanged: Int?
     var defense: Int?
@@ -55,12 +54,11 @@ class PalicoWeapon: RowConvertible {
         return isBlunt ? "Blunt" : "Cutting"
     }
     var creationCost: Int
-    
-    
+
     /*lazy var components: [WeaponComponent] = {
         return Database.shared.components(itemId: self.id)
     }()*/
-    
+
     required init(row: Row) {
         id = row["_id"]
         name = row["name"]
@@ -81,20 +79,19 @@ class PalicoWeapon: RowConvertible {
     }
 }
 
-
 extension Database {
-    
+
     func palicoWeapon(id: Int) -> PalicoWeapon {
         let query = "SELECT * FROM palico_weapons LEFT JOIN items on palico_weapons._id = items._id"
             + " WHERE palico_weapons._id = \(id)"
         return fetch(query)[0]
     }
-    
+
     func palicoWeapons() -> [PalicoWeapon] {
         let query = "SELECT * FROM palico_weapons LEFT JOIN items on palico_weapons._id = items._id"
         return fetch(query)
     }
-    
+
     func palicoWeapons(_ search: String) -> [PalicoWeapon] {
         let query = "SELECT * FROM palico_weapons LEFT JOIN items on palico_weapons._id = items._id"
         return fetch(select: query, search: search)

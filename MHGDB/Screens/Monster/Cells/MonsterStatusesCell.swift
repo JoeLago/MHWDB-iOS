@@ -3,11 +3,10 @@
 // Copyright (c) Gathering Hall Studios
 //
 
-
 import Foundation
 
 class MonsterStatusesCell: GridCell<Monster> {
-    
+
     override var model: Monster? {
         didSet {
             if let model = model {
@@ -15,7 +14,7 @@ class MonsterStatusesCell: GridCell<Monster> {
             }
         }
     }
-    
+
     func populate(monster: Monster) {
         /*add(imageNames: ["",
                          "Poison",

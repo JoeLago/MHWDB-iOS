@@ -13,7 +13,7 @@ class ArmorSkill: RowConvertible, Decodable {
     var name: String
     var description: String
     var level: Int
-    
+
     enum CodingKeys: String, CodingKey {
         case skillTreeId = "skilltree_id", name, description, level
     }

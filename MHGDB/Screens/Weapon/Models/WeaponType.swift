@@ -24,13 +24,13 @@ enum WeaponType: String, Decodable {
     case heavyBowgun = "heavy-bowgun"
     case bow = "bow"
     case unknown = "Unknown"
-    
+
     static var allValues: [WeaponType] {
         return [.greatSword, .longSword, .swordAndShield, .dualBlades, .hammer, .huntingHorm,
                 .lance, .gunlance, .switchAxe, .chargeBlade, .insectGlaive, .lightBowgun, .heavyBowgun,
                 .bow]
     }
-    
+
     var imagePrefix: String {
         switch self {
         case .greatSword: return "great_sword"
@@ -50,7 +50,7 @@ enum WeaponType: String, Decodable {
         case .unknown: return ""
         }
     }
-    
+
     var imageName: String {
         switch self {
         case .greatSword: return "great_sword8.png"

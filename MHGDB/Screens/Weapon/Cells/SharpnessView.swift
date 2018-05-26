@@ -3,7 +3,6 @@
 // Copyright (c) Gathering Hall Studios
 //
 
-
 import UIKit
 
 class SharpnessView: UIView {
@@ -19,16 +18,16 @@ class SharpnessView: UIView {
                 if sharpness.white > 0 { count += 1 }
                 if sharpness.purple > 0 { count += 1 }
             }
-            
+
             if count == 1 {
                 oneValue = true
             }
-            
+
             setNeedsDisplay()
         }
     }
     var sharpnessHeight = 0
-    
+
     var paddingTop = 2
     var paddingBottom = 2
     var y = 0
@@ -37,16 +36,16 @@ class SharpnessView: UIView {
     var start = 0
     var end = 0 // width?
     var oneValue = false
-    
+
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-        
+
         if sharpness == nil {
             Color.Background.light.setFill()
             UIRectFill(frame)
             return
         }
-        
+
         y = paddingTop
         start = 0
         end = 2
@@ -55,7 +54,7 @@ class SharpnessView: UIView {
         ratio = oneValue ? width : width / Sharpness.max
         Color.Background.dark.setFill()
         UIRectFill(rect)
-        
+
         addColor(color: Color.Sharpness.red, amount: sharpness?.red )
         addColor(color: Color.Sharpness.orange, amount: sharpness?.orange)
         addColor(color: Color.Sharpness.yellow, amount: sharpness?.yellow)
@@ -64,7 +63,7 @@ class SharpnessView: UIView {
         addColor(color: Color.Sharpness.white, amount: sharpness?.white)
         addColor(color: Color.Sharpness.purple, amount: sharpness?.purple)
     }
-    
+
     func addColor(color: UIColor, amount: Int?) {
         start += end
         end = Int(Double(amount ?? 0) * ratio)

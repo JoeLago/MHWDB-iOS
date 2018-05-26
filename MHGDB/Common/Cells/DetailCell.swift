@@ -3,7 +3,6 @@
 // Copyright (c) Gathering Hall Studios
 //
 
-
 import UIKit
 
 protocol DetailCellModel {
@@ -23,80 +22,80 @@ extension DetailCellModel {
 
 class DetailCell: UITableViewCell {
     static let identifier = "detailCell"
-    
+
     var primaryTextLabel = UILabel()
     var subtitleTextLabel = UILabel()
     var secondaryTextLabel = UILabel()
     var iconImageView = UIImageView()
     var imageWidthConstraint: NSLayoutConstraint?
-    
+
     var model: DetailCellModel? {
         didSet {
             populateCell()
         }
     }
-    
+
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: DetailCell.identifier)
         //selectionStyle = .none
         addViews()
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("no")
     }
-    
+
     private func populateCell() {
         guard let model = model else {
             Log(error: "DetailCell model not set")
             return
         }
-        
+
         setIcon(named: model.imageName)
         primaryTextLabel.text = model.primary
         subtitleTextLabel.text = model.subtitle
         secondaryTextLabel.text = model.secondary
     }
-    
+
     func setIcon(named: String?) {
         guard let named = named, let image = UIImage(named: named) else {
             hideImage()
             return
         }
-        
+
         iconImageView.image = image
         imageWidthConstraint?.constant = 40
     }
-    
+
     func hideImage() {
         // TODO: Fix margins
         imageWidthConstraint?.constant = 0
     }
-    
+
     func addViews() {
         contentView.addSubview(primaryTextLabel)
         contentView.addSubview(secondaryTextLabel)
         contentView.addSubview(subtitleTextLabel)
         contentView.addSubview(iconImageView)
-        
+
         for view in contentView.subviews {
             view.translatesAutoresizingMaskIntoConstraints = false
         }
-        
+
         subtitleTextLabel.font = Font.subTitle
         subtitleTextLabel.textColor = Color.Text.primary
         subtitleTextLabel.numberOfLines = 0
-        
+
         secondaryTextLabel.font = Font.title
         secondaryTextLabel.textColor = Color.Text.secondary
-        
+
         iconImageView.contentMode = .scaleAspectFit
-        
+
         addConstraints()
     }
-    
+
     // TODO: Secondary needs compression resistance!
-    
+
     func addConstraints() {
         contentView.addConstraints(
             formatStrings: ["H:|-[image]-[primary]-(>=pad)-[secondary]-|",
@@ -115,7 +114,7 @@ class DetailCell: UITableViewCell {
                 "textPad": 4,
                 "pad": 6
             ])
-        
+
         contentView.addConstraint(
             NSLayoutConstraint(item: iconImageView,
                                attribute: .centerY,
@@ -124,7 +123,7 @@ class DetailCell: UITableViewCell {
                                attribute: .centerY,
                                multiplier: 1.0,
                                constant: 0))
-        
+
         imageWidthConstraint = NSLayoutConstraint(item: iconImageView,
                                                   attribute: .width,
                                                   relatedBy: .equal,
