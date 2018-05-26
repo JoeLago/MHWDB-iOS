@@ -907,6 +907,8 @@
 		14A2514C1EA9D05500755F6A /* WeaponTypeList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A24D731EA9D05400755F6A /* WeaponTypeList.swift */; };
 		14A251571EABCE0500755F6A /* SimpleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A251561EABCE0500755F6A /* SimpleTableViewController.swift */; };
 		14A251591EAC41B800755F6A /* String+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A251581EAC41B800755F6A /* String+Additions.swift */; };
+		14A8414820BA136E00F36963 /* LocationMonsters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8414720BA136E00F36963 /* LocationMonsters.swift */; };
+		14A8414A20BA137700F36963 /* LocationItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8414920BA137700F36963 /* LocationItems.swift */; };
 		14C36CD81EBCD1D900A41C6E /* SubSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C36CD71EBCD1D900A41C6E /* SubSection.swift */; };
 		14C36CDA1EBD701F00A41C6E /* SubSectionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C36CD91EBD701F00A41C6E /* SubSectionHeaderCell.swift */; };
 		14C4BE3A1F9D2DB6000DB8EC /* DataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C4BE381F9D2DA0000DB8EC /* DataTests.swift */; };
@@ -1844,6 +1846,8 @@
 		14A24D731EA9D05400755F6A /* WeaponTypeList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeaponTypeList.swift; sourceTree = "<group>"; };
 		14A251561EABCE0500755F6A /* SimpleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleTableViewController.swift; sourceTree = "<group>"; };
 		14A251581EAC41B800755F6A /* String+Additions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Additions.swift"; sourceTree = "<group>"; };
+		14A8414720BA136E00F36963 /* LocationMonsters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationMonsters.swift; sourceTree = "<group>"; };
+		14A8414920BA137700F36963 /* LocationItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationItems.swift; sourceTree = "<group>"; };
 		14C36CD71EBCD1D900A41C6E /* SubSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubSection.swift; sourceTree = "<group>"; };
 		14C36CD91EBD701F00A41C6E /* SubSectionHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubSectionHeaderCell.swift; sourceTree = "<group>"; };
 		14C4BE381F9D2DA0000DB8EC /* DataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTests.swift; sourceTree = "<group>"; };
@@ -2074,6 +2078,8 @@
 			isa = PBXGroup;
 			children = (
 				14A24D3C1EA9D05400755F6A /* Location.swift */,
+				14A8414920BA137700F36963 /* LocationItems.swift */,
+				14A8414720BA136E00F36963 /* LocationMonsters.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -2201,7 +2207,6 @@
 				1450DA7420AA0BB1000085C5 /* Charm */,
 				14A24D471EA9D05400755F6A /* Combination */,
 				14A24D4B1EA9D05400755F6A /* Decoration */,
-				14A24D531EA9D05400755F6A /* Location */,
 				14E704161EB8EB4100EA2E71 /* PalicoWeapon */,
 				14A24D631EA9D05400755F6A /* Quest */,
 				14A24D671EA9D05400755F6A /* Skill */,
@@ -3317,6 +3322,7 @@
 			children = (
 				14A24D431EA9D05400755F6A /* Armor */,
 				14A24D4F1EA9D05400755F6A /* Item */,
+				14A24D531EA9D05400755F6A /* Location */,
 				14A24D571EA9D05400755F6A /* Menu */,
 				14A24D5A1EA9D05400755F6A /* Monster */,
 				149CFE5E20B94F370004A57D /* TODO */,
@@ -4548,7 +4554,9 @@
 				14A251371EA9D05400755F6A /* ListMenu.swift in Sources */,
 				14A251221EA9D05400755F6A /* Location.swift in Sources */,
 				14A251341EA9D05400755F6A /* LocationDetails.swift in Sources */,
+				14A8414A20BA137700F36963 /* LocationItems.swift in Sources */,
 				14A251351EA9D05400755F6A /* LocationList.swift in Sources */,
+				14A8414820BA136E00F36963 /* LocationMonsters.swift in Sources */,
 				14E2B5131EB1041D002A2A89 /* Logging.swift in Sources */,
 				14A251361EA9D05400755F6A /* MapCell.swift in Sources */,
 				144306D5209EDC7600D60A5A /* Monster.swift in Sources */,

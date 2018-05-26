@@ -16,7 +16,7 @@ class LocationDetails: TableController, DetailScreen {
         id = location.id
         super.init()
         title = location.name
-        addCustomSection(data: [location], cellType: MapCell.self)
+        //addCustomSection(data: [location], cellType: MapCell.self)
         addSimpleSection(data: location.monsters, title: "Monsters") { MonsterDetails(id: $0.monsterId) }
         addItemSection(location: location, rank: .low, title: "Low Rank Items")
         addItemSection(location: location, rank: .high, title: "High Rank Items")
@@ -36,7 +36,7 @@ class LocationDetails: TableController, DetailScreen {
 }
 
 extension LocationMonster: DetailCellModel {
-    var primary: String? { return monster }
+    var primary: String? { return name }
     var subtitle: String? { return areas }
     var imageName: String? { return icon }
 }
@@ -44,5 +44,5 @@ extension LocationMonster: DetailCellModel {
 extension LocationItem: DetailCellModel {
     var primary: String? { return (name ?? "") + (stack ?? 0 > 1 ? " x\(stack ?? 0)": "") }
     var imageName: String? { return icon }
-    var secondary: String? { return "\(Int(chance ?? 0))%" }
+    var secondary: String? { return "\(Int(percentage ?? 0))%" }
 }
