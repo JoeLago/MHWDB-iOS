@@ -2224,7 +2224,7 @@
 				14E2B5141EB174A5002A2A89 /* AppDelegate+Testing.swift */,
 			);
 			name = App;
-			path = MHGDB/App;
+			path = MHWDB/App;
 			sourceTree = "<group>";
 		};
 		14A2496F1EA9D05300755F6A /* Assets */ = {
@@ -2243,7 +2243,7 @@
 				14A249711EA9D05300755F6A /* LaunchScreen.storyboard */,
 			);
 			name = Assets;
-			path = MHGDB/Assets;
+			path = MHWDB/Assets;
 			sourceTree = "<group>";
 		};
 		14A249731EA9D05300755F6A /* databases */ = {
@@ -3231,7 +3231,7 @@
 				1452DB1D1F71061F006A11D7 /* UserDefaults.swift */,
 			);
 			name = Common;
-			path = MHGDB/Common;
+			path = MHWDB/Common;
 			sourceTree = "<group>";
 		};
 		14A24D0E1EA9D05400755F6A /* Categories */ = {
@@ -3323,7 +3323,7 @@
 				14A24D6A1EA9D05400755F6A /* Weapon */,
 			);
 			name = Screens;
-			path = MHGDB/Screens;
+			path = MHWDB/Screens;
 			sourceTree = "<group>";
 		};
 		14A24D431EA9D05400755F6A /* Armor */ = {
@@ -3428,7 +3428,7 @@
 				145FEA781F78A82400BF9237 /* ReviewTests.swift */,
 			);
 			name = Tests;
-			path = MHGDB/Tests;
+			path = MHWDB/Tests;
 			sourceTree = "<group>";
 		};
 		14A2515A1EAC8E1400755F6A /* Cells */ = {
@@ -4766,7 +4766,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = YNK39UG84R;
-				INFOPLIST_FILE = MHGDB/Assets/Info.plist;
+				INFOPLIST_FILE = MHWDB/Assets/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ghstudios.MHWDB;
@@ -4782,7 +4782,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = YNK39UG84R;
-				INFOPLIST_FILE = MHGDB/Assets/Info.plist;
+				INFOPLIST_FILE = MHWDB/Assets/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ghstudios.MHWDB;
@@ -4799,9 +4799,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = P3987TZ3DB;
-				INFOPLIST_FILE = MHGDB/Tests/Info.plist;
+				INFOPLIST_FILE = MHWDB/Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ghstudios.MHGDBTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ghstudios.MHWDBTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MHWDB.app/MHWDB";
@@ -4815,9 +4815,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = P3987TZ3DB;
-				INFOPLIST_FILE = MHGDB/Tests/Info.plist;
+				INFOPLIST_FILE = MHWDB/Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ghstudios.MHGDBTests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ghstudios.MHWDBTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MHWDB.app/MHWDB";
