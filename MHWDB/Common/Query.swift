@@ -92,19 +92,21 @@ class Query {
         return parts.joined(separator: " ")
     }
 
+    static var languageId = "en"
+
     init(table: String, language: Filter? = nil) {
         self.table = table
         if let language = language {
             filters.append(language)
         } else {
-            filter("lang_id", equals: "en")
+            filter("lang_id", equals: Query.languageId)
         }
     }
 
     init(table: String, addLanguageFilter: Bool) {
         self.table = table
         if addLanguageFilter == true {
-            filter("lang_id", equals: "en")
+            filter("lang_id", equals: Query.languageId)
         }
     }
 
@@ -121,8 +123,11 @@ class Query {
     }
 
     @discardableResult
-    func join(table: String, on: String = "id", equals: String = "id") -> Query {
+    func join(table: String, on: String = "id", equals: String = "id", addLanguageFilter: Bool = false) -> Query {
         joins.append(Join(originTable: self.table, originAttribute: on, joinTable: table, joinAttribute: equals))
+        if addLanguageFilter {
+            filter("\(table).lang_id", equals: Query.languageId)
+        }
         return self
     }
 

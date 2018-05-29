@@ -10,30 +10,21 @@ import GRDB
 
 class ItemLocation: RowConvertible, Decodable {
     var id: Int
-    var name: String
-    var icon: String
-    var rank: String // TODO: use enum
-    var area: String
-    var site: String
-    var stack: Int
-    var chance: Int
-    var isFixed: Bool
-    var isRare: Bool
-    var group: Int
+    var name: String?
+    var icon: String?
+    var rank: String?
+    var percentage: Int?
+    var stack: Int?
 
-    var nodeName: String {
-        return "\(area) \(isFixed ? "Fixed" : "Random") \(site) \(group) \(isRare ? " Rare" : "")"
-    }
+    var nodeName: String { return "" } // Need to specify node when we get more data
 }
 
 extension Database {
     func locations(itemId: Int) -> [ItemLocation] {
-        let query = "SELECT *,"
-            + " locations.name AS locationname"
-            + " FROM gathering"
-            + " LEFT JOIN items on gathering.item_id = items._id"
-            + " LEFT JOIN locations on gathering.location_id = locations._id"
-            + " WHERE items._id == \(itemId)"
+        let query = Query(table: "location_item")
+            .join(table: "location_text", on: "location_id", equals: "id")
+            .filter("item_id", equals: itemId)
+            .order(by: "percentage", direction: .dec)
         return fetch(query)
     }
 }

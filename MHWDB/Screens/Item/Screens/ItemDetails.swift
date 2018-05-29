@@ -43,10 +43,10 @@ extension ItemQuest: DetailCellModel {
 }
 
 extension ItemLocation: DetailCellModel {
-    var primary: String? { return "\(rank) \(name)" }
+    var primary: String? { return [rank, name].compactMap({ $0 }).joined(separator: " ") }
     var imageName: String? { return icon }
     var subtitle: String? { return nodeName }
-    var secondary: String? { return "\(stack > 1 ? "x\(stack) ": "")\(Int(chance))%" }
+    var secondary: String? { return "\(stack ?? 0 > 1 ? "x\(stack ?? 0) ": "")\(percentage ?? 0)%" }
 }
 
 extension ItemMonster: DetailCellModel {

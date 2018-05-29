@@ -23,7 +23,7 @@ class ItemMonster: RowConvertible, Decodable {
 }
 
 extension Database {
-    func monsters(itemId: Int) -> [ItemMonster] {
+    func itemMonster(itemId: Int) -> [ItemMonster] {
         let query = Query(table: "monster_reward", addLanguageFilter: false)
             .column("monster_text.name", as: "name")
             .column("monster_reward_condition_text.name", as: "condition")

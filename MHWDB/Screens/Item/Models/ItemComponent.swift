@@ -20,7 +20,7 @@ class ItemComponent: RowConvertible, Decodable {
 }
 
 extension Database {
-    func armor(itemId: Int) -> [ItemComponent] {
+    func armorComponents(itemId: Int) -> [ItemComponent] {
         let query = Query(table: "armor_recipe")
             .column("armor_id", as: "created_id")
             .join(table: "armor", on: "armor_id")
@@ -29,7 +29,7 @@ extension Database {
         return fetch(query)
     }
 
-    func weapons(itemId: Int) -> [ItemComponent] {
+    func weaponComponents(itemId: Int) -> [ItemComponent] {
         let query = Query(table: "weapon_recipe")
             .column("weapon_id", as: "created_id")
             .join(table: "weapon", on: "weapon_id")
@@ -38,7 +38,7 @@ extension Database {
         return fetch(query)
     }
 
-    func charms(itemId: Int) -> [ItemComponent] {
+    func charmComponents(itemId: Int) -> [ItemComponent] {
         let query = Query(table: "charm_recipe")
             .column("charm_id", as: "created_id")
             .join(table: "charm", on: "charm_id")

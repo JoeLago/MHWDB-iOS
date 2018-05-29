@@ -29,6 +29,7 @@ class ListMenu: SimpleTableViewController {
         addCell(text: "Items", imageName: "Ore-Purple.png") { ItemList() }
         //addCell(text: "Combinations", imageName: "Liquid-Green.png") { CombinationList() }
         addCell(text: "Locations", imageName: "Map-Icon-White.png") { LocationList() }
+        addCell(text: "Charms", imageName: "Quest-Icon-White.png") { CharmList() }
         addCell(text: "Decorations", imageName: "Jewel-Cyan.png") { DecorationList() }
         addCell(text: "Skills", imageName: "Monster-Jewel-Teal.png") { SkillList() }
         //addCell(text: "Palico", imageName: "cutting3.png") { PalicoList() }

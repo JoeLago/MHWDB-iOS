@@ -23,10 +23,10 @@ class Item: Decodable, RowConvertible {
     lazy var quests: [ItemQuest] = { return Database.shared.rewards(itemId: self.id) }()
     lazy var combinations: [Combination] = { return Database.shared.combinations(itemId: self.id) }()
     lazy var locations: [ItemLocation] = { return Database.shared.locations(itemId: self.id) }()
-    lazy var monsters: [ItemMonster] = { return Database.shared.monsters(itemId: self.id) }()
-    lazy var armor: [ItemComponent] = { return Database.shared.armor(itemId: self.id) }()
-    lazy var weapons: [ItemComponent] = { return Database.shared.weapons(itemId: self.id) }()
-    lazy var charms: [ItemComponent] = { return Database.shared.charms(itemId: self.id) }()
+    lazy var monsters: [ItemMonster] = { return Database.shared.itemMonster(itemId: self.id) }()
+    lazy var armor: [ItemComponent] = { return Database.shared.armorComponents(itemId: self.id) }()
+    lazy var weapons: [ItemComponent] = { return Database.shared.weaponComponents(itemId: self.id) }()
+    lazy var charms: [ItemComponent] = { return Database.shared.charmComponents(itemId: self.id) }()
 }
 
 extension Database {
