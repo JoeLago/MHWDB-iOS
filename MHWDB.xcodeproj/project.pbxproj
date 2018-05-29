@@ -916,6 +916,7 @@
 		14A8415620BCE1ED00F36963 /* CharmDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8415520BCE1ED00F36963 /* CharmDetails.swift */; };
 		14A8415820BD024600F36963 /* SkillTreeItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8415720BD024600F36963 /* SkillTreeItems.swift */; };
 		14A8415A20BD025200F36963 /* SkillTreeSkills.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8415920BD025200F36963 /* SkillTreeSkills.swift */; };
+		14A8415C20BD214600F36963 /* DecorationDropSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8415B20BD214600F36963 /* DecorationDropSection.swift */; };
 		14C36CD81EBCD1D900A41C6E /* SubSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C36CD71EBCD1D900A41C6E /* SubSection.swift */; };
 		14C36CDA1EBD701F00A41C6E /* SubSectionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C36CD91EBD701F00A41C6E /* SubSectionHeaderCell.swift */; };
 		14C4BE3A1F9D2DB6000DB8EC /* DataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C4BE381F9D2DA0000DB8EC /* DataTests.swift */; };
@@ -1862,6 +1863,7 @@
 		14A8415520BCE1ED00F36963 /* CharmDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharmDetails.swift; sourceTree = "<group>"; };
 		14A8415720BD024600F36963 /* SkillTreeItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillTreeItems.swift; sourceTree = "<group>"; };
 		14A8415920BD025200F36963 /* SkillTreeSkills.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillTreeSkills.swift; sourceTree = "<group>"; };
+		14A8415B20BD214600F36963 /* DecorationDropSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecorationDropSection.swift; sourceTree = "<group>"; };
 		14C36CD71EBCD1D900A41C6E /* SubSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubSection.swift; sourceTree = "<group>"; };
 		14C36CD91EBD701F00A41C6E /* SubSectionHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubSectionHeaderCell.swift; sourceTree = "<group>"; };
 		14C4BE381F9D2DA0000DB8EC /* DataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTests.swift; sourceTree = "<group>"; };
@@ -2016,6 +2018,7 @@
 			children = (
 				14A24D4C1EA9D05400755F6A /* DecorationDetails.swift */,
 				14A24D4D1EA9D05400755F6A /* DecorationDetailSection.swift */,
+				14A8415B20BD214600F36963 /* DecorationDropSection.swift */,
 				14A24D4E1EA9D05400755F6A /* DecorationList.swift */,
 			);
 			path = Screens;
@@ -2223,7 +2226,6 @@
 			isa = PBXGroup;
 			children = (
 				14A24D471EA9D05400755F6A /* Combination */,
-				14A24D4B1EA9D05400755F6A /* Decoration */,
 				14E704161EB8EB4100EA2E71 /* PalicoWeapon */,
 				14A24D631EA9D05400755F6A /* Quest */,
 			);
@@ -3338,6 +3340,7 @@
 			children = (
 				14A24D431EA9D05400755F6A /* Armor */,
 				1450DA7420AA0BB1000085C5 /* Charm */,
+				14A24D4B1EA9D05400755F6A /* Decoration */,
 				14A24D4F1EA9D05400755F6A /* Item */,
 				14A24D531EA9D05400755F6A /* Location */,
 				14A24D571EA9D05400755F6A /* Menu */,
@@ -4573,6 +4576,7 @@
 				14A2511E1EA9D05400755F6A /* Decoration.swift in Sources */,
 				14A2512E1EA9D05400755F6A /* DecorationDetails.swift in Sources */,
 				14A2512F1EA9D05400755F6A /* DecorationDetailSection.swift in Sources */,
+				14A8415C20BD214600F36963 /* DecorationDropSection.swift in Sources */,
 				14A251301EA9D05400755F6A /* DecorationList.swift in Sources */,
 				14A251051EA9D05400755F6A /* DetailCell.swift in Sources */,
 				14A2511F1EA9D05400755F6A /* Element.swift in Sources */,

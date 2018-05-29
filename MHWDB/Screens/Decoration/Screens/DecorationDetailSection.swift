@@ -15,9 +15,6 @@ class DecorationDetailSection: MultiCellSection {
     }
 
     override func populateCells() {
-        addCell(MultiDetailCell(details: [
-            SingleDetailLabel(label: "Buy", value: decoration.buy),
-            SingleDetailLabel(label: "Sell", value: decoration.sell)
-            ]))
+        addCell(SingleDetailCell(label: "Slot Size", text: "\(decoration.slotSize)"))
     }
 }
