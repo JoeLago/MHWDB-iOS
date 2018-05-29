@@ -59,7 +59,7 @@
 		1488133520A4224F006B91EF /* jyuratodus.png in Resources */ = {isa = PBXBuildFile; fileRef = 1488131620A4224E006B91EF /* jyuratodus.png */; };
 		1488133620A4224F006B91EF /* great-jagras.png in Resources */ = {isa = PBXBuildFile; fileRef = 1488131720A4224E006B91EF /* great-jagras.png */; };
 		1488133720A4224F006B91EF /* great-girros.png in Resources */ = {isa = PBXBuildFile; fileRef = 1488131820A4224E006B91EF /* great-girros.png */; };
-		1488133820A4224F006B91EF /* puke-pukei.png in Resources */ = {isa = PBXBuildFile; fileRef = 1488131920A4224E006B91EF /* puke-pukei.png */; };
+		1488133820A4224F006B91EF /* pukei-pukei.png in Resources */ = {isa = PBXBuildFile; fileRef = 1488131920A4224E006B91EF /* pukei-pukei.png */; };
 		1488133920A4224F006B91EF /* nergigante.png in Resources */ = {isa = PBXBuildFile; fileRef = 1488131A20A4224E006B91EF /* nergigante.png */; };
 		1488133A20A4224F006B91EF /* paolumu.png in Resources */ = {isa = PBXBuildFile; fileRef = 1488131B20A4224E006B91EF /* paolumu.png */; };
 		1488133B20A4224F006B91EF /* rathalos.png in Resources */ = {isa = PBXBuildFile; fileRef = 1488131C20A4224E006B91EF /* rathalos.png */; };
@@ -1005,7 +1005,7 @@
 		1488131620A4224E006B91EF /* jyuratodus.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jyuratodus.png; sourceTree = "<group>"; };
 		1488131720A4224E006B91EF /* great-jagras.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "great-jagras.png"; sourceTree = "<group>"; };
 		1488131820A4224E006B91EF /* great-girros.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "great-girros.png"; sourceTree = "<group>"; };
-		1488131920A4224E006B91EF /* puke-pukei.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "puke-pukei.png"; sourceTree = "<group>"; };
+		1488131920A4224E006B91EF /* pukei-pukei.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pukei-pukei.png"; sourceTree = "<group>"; };
 		1488131A20A4224E006B91EF /* nergigante.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nergigante.png; sourceTree = "<group>"; };
 		1488131B20A4224E006B91EF /* paolumu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paolumu.png; sourceTree = "<group>"; };
 		1488131C20A4224E006B91EF /* rathalos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rathalos.png; sourceTree = "<group>"; };
@@ -2200,7 +2200,7 @@
 				1488130220A4224E006B91EF /* odogaron.png */,
 				1488131B20A4224E006B91EF /* paolumu.png */,
 				1488131120A4224E006B91EF /* pink-rathian.png */,
-				1488131920A4224E006B91EF /* puke-pukei.png */,
+				1488131920A4224E006B91EF /* pukei-pukei.png */,
 				1488131520A4224E006B91EF /* radobaan.png */,
 				1488131C20A4224E006B91EF /* rathalos.png */,
 				1488130520A4224E006B91EF /* rathian.png */,
@@ -4205,7 +4205,7 @@
 				14A24EE71EA9D05400755F6A /* Pickaxe-Yellow.png in Resources */,
 				1488133020A4224F006B91EF /* pink-rathian.png in Resources */,
 				14A2504A1EA9D05400755F6A /* Poison.png in Resources */,
-				1488133820A4224F006B91EF /* puke-pukei.png in Resources */,
+				1488133820A4224F006B91EF /* pukei-pukei.png in Resources */,
 				14A24EE81EA9D05400755F6A /* Quest-Icon-Green.png in Resources */,
 				14A24EE91EA9D05400755F6A /* Quest-Icon-Grey.png in Resources */,
 				14A24EEA1EA9D05400755F6A /* Quest-Icon-Red.png in Resources */,

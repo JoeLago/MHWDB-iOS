@@ -20,7 +20,7 @@ class MonsterDamage: Decodable, RowConvertible {
     var shot: Int
     var fire: Int
     var water: Int
-    var ice: Int
+    var ice: Int?
     var thunder: Int
     var dragon: Int
     var ko: Int
@@ -53,7 +53,7 @@ extension Database {
 
     func monsterDamage(monsterId: Int) -> [MonsterDamage] {
         let query = Query(table: "monster_hitzone")
-            .join(table: "monster_part_text", on: "part_id", equals: "id")
+            .join(table: "monster_hitzone_text")
             .filter("monster_id", equals: monsterId)
         return fetch(query)
     }

@@ -46,5 +46,11 @@ class MonsterList: TableController {
 
 extension Monster: DetailCellModel {
     var primary: String? { return name }
-    var imageName: String? { return icon }
+    var imageName: String? {
+        // TODO: get rid of hack to kill android folder
+        guard let icon = icon else { return nil }
+        let index = icon.index(icon.startIndex, offsetBy: 14)
+        let correctedIcon = String(icon.suffix(from: index))
+        return correctedIcon
+    }
 }

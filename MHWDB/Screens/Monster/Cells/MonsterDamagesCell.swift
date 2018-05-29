@@ -37,7 +37,7 @@ class MonsterDamagesCell: GridCell<MonsterDamageByPart> {
                 damage.shot,
                 damage.fire,
                 damage.water,
-                damage.ice,
+                damage.ice ?? 0,
                 damage.thunder,
                 damage.dragon,
                 damage.ko

@@ -117,8 +117,11 @@ class Query {
     }
 
     @discardableResult
-    func join(originTable: String, table: String, on: String = "id", equals: String = "id") -> Query {
+    func join(originTable: String, table: String, on: String = "id", equals: String = "id", addLanguageFilter: Bool = false) -> Query {
         joins.append(Join(originTable: originTable, originAttribute: on, joinTable: table, joinAttribute: equals))
+        if addLanguageFilter {
+            filter("\(table).lang_id", equals: Query.languageId)
+        }
         return self
     }
 

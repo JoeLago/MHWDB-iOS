@@ -18,7 +18,7 @@ class ItemMonster: RowConvertible, Decodable {
     let chance: Int
 
     enum CodingKeys: String, CodingKey {
-        case monsterId = "monster_id", name, icon, condition = "condition", rank, stack = "stack_size", chance = "percentage"
+        case monsterId = "monster_id", name, icon, condition = "condition", rank, stack, chance = "percentage"
     }
 }
 

@@ -25,9 +25,9 @@ class Quest: RowConvertible {
     var hasSubQuest = false
 
     enum Rank: String, Decodable {
-        case low = "lr"
-        case high = "hr"
-        case g = "g"
+        case low = "LR"
+        case high = "HR"
+        case g = "G"
     }
 
     enum Hub: String {

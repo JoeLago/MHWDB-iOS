@@ -18,7 +18,7 @@ class MonsterReward: RowConvertible, Decodable {
     var chance: Int?
 
     enum CodingKeys: String, CodingKey {
-        case itemId = "item_id", name = "item_name", icon, condition = "condition", rank, stackSize = "stack_size", chance = "percentage"
+        case itemId = "item_id", name = "item_name", icon, condition = "condition", rank, stackSize = "stack", chance = "percentage"
     }
 }
 
@@ -38,14 +38,11 @@ extension Database {
         let query = Query(table: "monster_reward", addLanguageFilter: false)
             .column("item_text.name", as: "item_name")
             .column("monster_reward_condition_text.name", as: "condition")
-            .join(table: "monster", on: "monster_id")
             .join(table: "item", on: "item_id")
-            .join(originTable: "item", table: "item_text")
-            .join(table: "monster_reward_condition_text", on: "condition_id")
+            .join(originTable: "item", table: "item_text", addLanguageFilter: true)
+            .join(table: "monster_reward_condition_text", on: "condition_id", addLanguageFilter: true)
             .filter("monster_id", equals: monsterId)
             .filter("rank", equals: rank.rawValue)
-            .filter("item_text.lang_id", equals: "en")
-            .filter("monster_reward_condition_text.lang_id", equals: "en")
             .order(by: "monster_reward_condition_text.name")
             .order(by: "percentage", direction: .dec)
         return fetch(query)

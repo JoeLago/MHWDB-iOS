@@ -26,7 +26,7 @@ extension Database {
             .column("item_id", as: "itemId")
             .join(table: "item_text", on: "item_id", equals: "id")
             .filter("location_id", equals: locationId)
-            .filter("rank", equals: rank.rawValue.uppercased())
+            .filter("rank", equals: rank.rawValue)
         return fetch(query)
     }
 }
