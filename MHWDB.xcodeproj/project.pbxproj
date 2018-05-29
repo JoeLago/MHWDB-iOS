@@ -914,6 +914,8 @@
 		14A8415220BCDF0F00F36963 /* CharmItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8415120BCDF0F00F36963 /* CharmItem.swift */; };
 		14A8415420BCDF3500F36963 /* CharmList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8415320BCDF3500F36963 /* CharmList.swift */; };
 		14A8415620BCE1ED00F36963 /* CharmDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8415520BCE1ED00F36963 /* CharmDetails.swift */; };
+		14A8415820BD024600F36963 /* SkillTreeItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8415720BD024600F36963 /* SkillTreeItems.swift */; };
+		14A8415A20BD025200F36963 /* SkillTreeSkills.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8415920BD025200F36963 /* SkillTreeSkills.swift */; };
 		14C36CD81EBCD1D900A41C6E /* SubSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C36CD71EBCD1D900A41C6E /* SubSection.swift */; };
 		14C36CDA1EBD701F00A41C6E /* SubSectionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C36CD91EBD701F00A41C6E /* SubSectionHeaderCell.swift */; };
 		14C4BE3A1F9D2DB6000DB8EC /* DataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C4BE381F9D2DA0000DB8EC /* DataTests.swift */; };
@@ -1858,6 +1860,8 @@
 		14A8415120BCDF0F00F36963 /* CharmItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharmItem.swift; sourceTree = "<group>"; };
 		14A8415320BCDF3500F36963 /* CharmList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharmList.swift; sourceTree = "<group>"; };
 		14A8415520BCE1ED00F36963 /* CharmDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharmDetails.swift; sourceTree = "<group>"; };
+		14A8415720BD024600F36963 /* SkillTreeItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillTreeItems.swift; sourceTree = "<group>"; };
+		14A8415920BD025200F36963 /* SkillTreeSkills.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillTreeSkills.swift; sourceTree = "<group>"; };
 		14C36CD71EBCD1D900A41C6E /* SubSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubSection.swift; sourceTree = "<group>"; };
 		14C36CD91EBD701F00A41C6E /* SubSectionHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubSectionHeaderCell.swift; sourceTree = "<group>"; };
 		14C4BE381F9D2DA0000DB8EC /* DataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTests.swift; sourceTree = "<group>"; };
@@ -1970,6 +1974,8 @@
 			isa = PBXGroup;
 			children = (
 				14A24D401EA9D05400755F6A /* SkillTree.swift */,
+				14A8415720BD024600F36963 /* SkillTreeItems.swift */,
+				14A8415920BD025200F36963 /* SkillTreeSkills.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -2220,7 +2226,6 @@
 				14A24D4B1EA9D05400755F6A /* Decoration */,
 				14E704161EB8EB4100EA2E71 /* PalicoWeapon */,
 				14A24D631EA9D05400755F6A /* Quest */,
-				14A24D671EA9D05400755F6A /* Skill */,
 			);
 			path = TODO;
 			sourceTree = "<group>";
@@ -3337,6 +3342,7 @@
 				14A24D531EA9D05400755F6A /* Location */,
 				14A24D571EA9D05400755F6A /* Menu */,
 				14A24D5A1EA9D05400755F6A /* Monster */,
+				14A24D671EA9D05400755F6A /* Skill */,
 				149CFE5E20B94F370004A57D /* TODO */,
 				14A24D6A1EA9D05400755F6A /* Weapon */,
 			);
@@ -4632,6 +4638,8 @@
 				14A251431EA9D05500755F6A /* SkillDetails.swift in Sources */,
 				14A251441EA9D05500755F6A /* SkillList.swift in Sources */,
 				14A251261EA9D05400755F6A /* SkillTree.swift in Sources */,
+				14A8415820BD024600F36963 /* SkillTreeItems.swift in Sources */,
+				14A8415A20BD025200F36963 /* SkillTreeSkills.swift in Sources */,
 				14A251591EAC41B800755F6A /* String+Additions.swift in Sources */,
 				14A2510F1EA9D05400755F6A /* Styles.swift in Sources */,
 				14C36CD81EBCD1D900A41C6E /* SubSection.swift in Sources */,

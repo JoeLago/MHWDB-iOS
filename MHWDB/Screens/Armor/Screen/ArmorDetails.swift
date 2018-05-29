@@ -29,7 +29,7 @@ class ArmorDetails: TableController, DetailScreen {
 
 extension ArmorSkill: DetailCellModel {
     var primary: String? { return name }
-    var secondary: String? { return "\(level)" }
+    var secondary: String? { return "+ \(level)" }
     var subtitle: String? { return "\(description)" }
 }
 
