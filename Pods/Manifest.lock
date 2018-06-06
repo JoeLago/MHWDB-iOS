@@ -1,18 +1,39 @@
 PODS:
+  - CocoaLumberjack (3.4.2):
+    - CocoaLumberjack/Default (= 3.4.2)
+    - CocoaLumberjack/Extensions (= 3.4.2)
+  - CocoaLumberjack/Default (3.4.2)
+  - CocoaLumberjack/Extensions (3.4.2):
+    - CocoaLumberjack/Default
   - GRDB.swift (2.10.0)
+  - SVGKit (2.0.1):
+    - CocoaLumberjack (~> 3.x)
   - SwiftLint (0.25.0)
   - SwiftyUserDefaults (3.0.1)
 
 DEPENDENCIES:
   - GRDB.swift
+  - SVGKit (from `https://github.com/SVGKit/SVGKit.git`, branch `2.x`)
   - SwiftLint
   - SwiftyUserDefaults
 
+EXTERNAL SOURCES:
+  SVGKit:
+    :branch: 2.x
+    :git: https://github.com/SVGKit/SVGKit.git
+
+CHECKOUT OPTIONS:
+  SVGKit:
+    :commit: d239c2b1b1476667e0470fc7d794649f70cff5a1
+    :git: https://github.com/SVGKit/SVGKit.git
+
 SPEC CHECKSUMS:
+  CocoaLumberjack: db7cc9e464771f12054c22ff6947c5a58d43a0fd
   GRDB.swift: 9859cab1b990eac62ee550d3d2208ec1b44f76af
+  SVGKit: 4055d9e809b5db8633755979cfb3b02dc5a8c20d
   SwiftLint: e14651157288e9e01d6e1a71db7014fb5744a8ea
   SwiftyUserDefaults: 3d273b1739b68ada3145dc754a70ec775bc5c8be
 
-PODFILE CHECKSUM: 5ee7052e25c24a5f344363bea4d4f584720cc4bc
+PODFILE CHECKSUM: 917bc4e166a03e59d9bf124f6a8457f10ff23dae
 
 COCOAPODS: 1.3.1
