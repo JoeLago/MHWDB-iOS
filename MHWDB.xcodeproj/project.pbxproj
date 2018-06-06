@@ -917,6 +917,7 @@
 		14A8415820BD024600F36963 /* SkillTreeItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8415720BD024600F36963 /* SkillTreeItems.swift */; };
 		14A8415A20BD025200F36963 /* SkillTreeSkills.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8415920BD025200F36963 /* SkillTreeSkills.swift */; };
 		14A8415C20BD214600F36963 /* DecorationDropSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8415B20BD214600F36963 /* DecorationDropSection.swift */; };
+		14AFF17020C6512100E4A41B /* ammo.svg in Resources */ = {isa = PBXBuildFile; fileRef = 14AFF16F20C6512100E4A41B /* ammo.svg */; };
 		14C36CD81EBCD1D900A41C6E /* SubSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C36CD71EBCD1D900A41C6E /* SubSection.swift */; };
 		14C36CDA1EBD701F00A41C6E /* SubSectionHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C36CD91EBD701F00A41C6E /* SubSectionHeaderCell.swift */; };
 		14C4BE3A1F9D2DB6000DB8EC /* DataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C4BE381F9D2DA0000DB8EC /* DataTests.swift */; };
@@ -1864,6 +1865,7 @@
 		14A8415720BD024600F36963 /* SkillTreeItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillTreeItems.swift; sourceTree = "<group>"; };
 		14A8415920BD025200F36963 /* SkillTreeSkills.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillTreeSkills.swift; sourceTree = "<group>"; };
 		14A8415B20BD214600F36963 /* DecorationDropSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecorationDropSection.swift; sourceTree = "<group>"; };
+		14AFF16F20C6512100E4A41B /* ammo.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = ammo.svg; sourceTree = "<group>"; };
 		14C36CD71EBCD1D900A41C6E /* SubSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubSection.swift; sourceTree = "<group>"; };
 		14C36CD91EBD701F00A41C6E /* SubSectionHeaderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubSectionHeaderCell.swift; sourceTree = "<group>"; };
 		14C4BE381F9D2DA0000DB8EC /* DataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTests.swift; sourceTree = "<group>"; };
@@ -2261,6 +2263,7 @@
 				14A24C601EA9D05400755F6A /* icons_weapons */,
 				148812FE20A4224E006B91EF /* monster-large */,
 				1488131D20A4224E006B91EF /* monster-small */,
+				14AFF16E20C6512100E4A41B /* svgs */,
 				14A249701EA9D05300755F6A /* Assets.xcassets */,
 				14A24D0C1EA9D05400755F6A /* Info.plist */,
 				14A249711EA9D05300755F6A /* LaunchScreen.storyboard */,
@@ -3486,6 +3489,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		14AFF16E20C6512100E4A41B /* svgs */ = {
+			isa = PBXGroup;
+			children = (
+				14AFF16F20C6512100E4A41B /* ammo.svg */,
+			);
+			path = svgs;
+			sourceTree = "<group>";
+		};
 		14E2B4FD1EAD2229002A2A89 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -3649,6 +3660,7 @@
 				14A24DBF1EA9D05400755F6A /* Ammo-Slime.png in Resources */,
 				14A24DC01EA9D05400755F6A /* Ammo-White.png in Resources */,
 				14A24DC11EA9D05400755F6A /* Ammo-Yellow.png in Resources */,
+				14AFF17020C6512100E4A41B /* ammo.svg in Resources */,
 				1488132820A4224F006B91EF /* anjanath.png in Resources */,
 				14A24D7C1EA9D05400755F6A /* arms1.png in Resources */,
 				14A24D7D1EA9D05400755F6A /* arms10.png in Resources */,
@@ -4499,12 +4511,16 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MHWDB/Pods-MHWDB-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
 				"${BUILT_PRODUCTS_DIR}/GRDB.swift/GRDB.framework",
+				"${BUILT_PRODUCTS_DIR}/SVGKit/SVGKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyUserDefaults/SwiftyUserDefaults.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVGKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUserDefaults.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

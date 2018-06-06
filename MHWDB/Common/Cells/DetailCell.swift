@@ -3,6 +3,7 @@
 // Copyright (c) Gathering Hall Studios
 //
 
+import SVGKit
 import UIKit
 
 protocol DetailCellModel {
@@ -23,11 +24,14 @@ extension DetailCellModel {
 class DetailCell: UITableViewCell {
     static let identifier = "detailCell"
 
+    let stack = UIStackView(axis: .horizontal, spacing: 6, distribution: .fill)
+    let detailStack = UIStackView(axis: .vertical, spacing: 4)
     var primaryTextLabel = UILabel()
     var subtitleTextLabel = UILabel()
     var secondaryTextLabel = UILabel()
-    var iconImageView = UIImageView()
+    var iconImageView = SVGKFastImageView(frame: .zero)
     var imageWidthConstraint: NSLayoutConstraint?
+    var imageHeightConstraint: NSLayoutConstraint?
 
     var model: DetailCellModel? {
         didSet {
@@ -37,7 +41,6 @@ class DetailCell: UITableViewCell {
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: .default, reuseIdentifier: DetailCell.identifier)
-        //selectionStyle = .none
         addViews()
     }
 
@@ -58,13 +61,14 @@ class DetailCell: UITableViewCell {
     }
 
     func setIcon(named: String?) {
-        guard let named = named, let image = UIImage(named: named) else {
+        guard /*let named = named, */let image = SVGKImage(named: "ammo.svg") else {
             hideImage()
             return
         }
 
+        let layer = image.layer(withIdentifier: "color") as? CAShapeLayer
+        layer?.fillColor = UIColor.red.cgColor
         iconImageView.image = image
-        imageWidthConstraint?.constant = 40
     }
 
     func hideImage() {
@@ -73,65 +77,39 @@ class DetailCell: UITableViewCell {
     }
 
     func addViews() {
-        contentView.addSubview(primaryTextLabel)
-        contentView.addSubview(secondaryTextLabel)
-        contentView.addSubview(subtitleTextLabel)
-        contentView.addSubview(iconImageView)
+        addSubview(stack)
+        stack.addArrangedSubview(iconImageView)
+        stack.addArrangedSubview(detailStack)
+        stack.addArrangedSubview(subtitleTextLabel)
+        detailStack.addArrangedSubview(primaryTextLabel)
+        detailStack.addArrangedSubview(secondaryTextLabel)
 
-        for view in contentView.subviews {
-            view.translatesAutoresizingMaskIntoConstraints = false
+        [iconImageView, detailStack, subtitleTextLabel, primaryTextLabel, secondaryTextLabel].forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
         }
 
         subtitleTextLabel.font = Font.subTitle
         subtitleTextLabel.textColor = Color.Text.primary
         subtitleTextLabel.numberOfLines = 0
-
         secondaryTextLabel.font = Font.title
         secondaryTextLabel.textColor = Color.Text.secondary
-
         iconImageView.contentMode = .scaleAspectFit
 
         addConstraints()
     }
 
-    // TODO: Secondary needs compression resistance!
-
     func addConstraints() {
-        contentView.addConstraints(
-            formatStrings: ["H:|-[image]-[primary]-(>=pad)-[secondary]-|",
-                            "H:|-[image]-[subtitle]-(>=pad)-[secondary]-|",
-                            "V:|-(pad)-[primary]-(textPad)-[subtitle]-(pad)-|",
-                            "V:|-(>=pad)-[image(<=maxImageHeight)]-(>=pad)-|",
-                            "V:|-(pad)-[secondary]-(pad)-|"],
-            views: [
-                "primary": primaryTextLabel,
-                "secondary": secondaryTextLabel,
-                "subtitle": subtitleTextLabel,
-                "image": iconImageView
-                ],
-            metrics: [
-                "maxImageHeight": 30, // Don't want this, should fit in less space than labels
-                "textPad": 4,
-                "pad": 6
-            ])
+        stack.matchParent(top: 8, left: 8, bottom: 8, right: 8)
 
-        contentView.addConstraint(
-            NSLayoutConstraint(item: iconImageView,
-                               attribute: .centerY,
-                               relatedBy: .equal,
-                               toItem: contentView,
-                               attribute: .centerY,
-                               multiplier: 1.0,
-                               constant: 0))
+        imageWidthConstraint = iconImageView.widthAnchor.constraint(equalToConstant: 50)
+        imageHeightConstraint = iconImageView.heightAnchor.constraint(equalToConstant: 50)
 
-        imageWidthConstraint = NSLayoutConstraint(item: iconImageView,
-                                                  attribute: .width,
-                                                  relatedBy: .equal,
-                                                  toItem: nil,
-                                                  attribute: .notAnAttribute,
-                                                  multiplier: 1.0,
-                                                  constant: 0)
-        addConstraint(imageWidthConstraint!)
+        addConstraints([//iconImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+                        imageWidthConstraint,
+                        imageHeightConstraint
+            ].compactMap({ $0 }))
+
+        primaryTextLabel.setContentHuggingPriority(.required, for: .vertical)
         secondaryTextLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
     }
 }
