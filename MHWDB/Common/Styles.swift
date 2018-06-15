@@ -33,6 +33,19 @@ struct Color {
     static func setDefaults() {
         //UIView.appearance().backgroundColor = lightBackground
     }
+
+    static func rarity(_ rarity: Int) -> UIColor {
+        switch rarity {
+        case 1, 2: return UIColor(hex: 0xCAC8C6)
+        case 3: return UIColor(hex: 0xA9B978)
+        case 4: return UIColor(hex: 0x6AAC85)
+        case 5: return UIColor(hex: 0x7CC2B1)
+        case 6: return UIColor(hex: 0x757DFF)
+        case 7: return UIColor(hex: 0x7B61AE)
+        case 8: return UIColor(hex: 0xB58377)
+        default:  return UIColor(hex: 0xCAC8C6)
+        }
+    }
 }
 
 struct Font {

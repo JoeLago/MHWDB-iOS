@@ -11,6 +11,7 @@ protocol DetailCellModel {
     var subtitle: String? { get }
     var secondary: String? { get }
     var imageName: String? { get }
+    var svgModel: SVGImageModel? { get }
 }
 
 // So that implementation is only required for non nil fields
@@ -19,6 +20,7 @@ extension DetailCellModel {
     var subtitle: String? { return nil }
     var secondary: String? { return nil }
     var imageName: String? { return nil }
+    var svgModel: SVGImageModel? { return nil }
 }
 
 class DetailCell: UITableViewCell {
@@ -29,9 +31,9 @@ class DetailCell: UITableViewCell {
     var primaryTextLabel = UILabel()
     var subtitleTextLabel = UILabel()
     var secondaryTextLabel = UILabel()
-    var iconImageView = SVGKFastImageView(frame: .zero)
-    var imageWidthConstraint: NSLayoutConstraint?
-    var imageHeightConstraint: NSLayoutConstraint?
+    let imageWrapper = UIView()
+    var iconImageView = UIImageView() // Should we separate cells with different image types somehow?
+    var svgImageView = SVGKFastImageView(frame: .zero)
 
     var model: DetailCellModel? {
         didSet {
@@ -54,37 +56,59 @@ class DetailCell: UITableViewCell {
             return
         }
 
-        setIcon(named: model.imageName)
+        imageWrapper.isHidden = true
+        svgImageView.isHidden = true
+        iconImageView.isHidden = true
+
+        if let image = model.imageName {
+            populate(image: image)
+        } else if let image = model.svgModel {
+            populate(svg: image)
+        }
+
         primaryTextLabel.text = model.primary
         subtitleTextLabel.text = model.subtitle
         secondaryTextLabel.text = model.secondary
+        subtitleTextLabel.isHidden = model.subtitle == nil
     }
 
-    func setIcon(named: String?) {
-        guard /*let named = named, */let image = SVGKImage(named: "ammo.svg") else {
-            hideImage()
+    func populate(svg: SVGImageModel) {
+        guard let image = SVGKImage(named: svg.name) else {
             return
         }
 
-        let layer = image.layer(withIdentifier: "color") as? CAShapeLayer
-        layer?.fillColor = UIColor.red.cgColor
+        imageWrapper.isHidden = false
+        svgImageView.isHidden = false
+        let layer = image.layer(withIdentifier: "base") as? CAShapeLayer
+        layer?.fillColor = svg.color.cgColor
+        svgImageView.image = image
+    }
+
+    func populate(image named: String) {
+        guard let image = UIImage(named: named) else {
+            return
+        }
+
+        imageWrapper.isHidden = false
+        iconImageView.isHidden = false
         iconImageView.image = image
     }
 
     func hideImage() {
-        // TODO: Fix margins
-        imageWidthConstraint?.constant = 0
+        imageWrapper.isHidden = true
     }
 
     func addViews() {
         addSubview(stack)
-        stack.addArrangedSubview(iconImageView)
+        imageWrapper.addSubview(svgImageView)
+        imageWrapper.addSubview(iconImageView)
+        stack.addArrangedSubview(imageWrapper)
         stack.addArrangedSubview(detailStack)
-        stack.addArrangedSubview(subtitleTextLabel)
+        stack.addArrangedSubview(secondaryTextLabel)
         detailStack.addArrangedSubview(primaryTextLabel)
-        detailStack.addArrangedSubview(secondaryTextLabel)
+        detailStack.addArrangedSubview(subtitleTextLabel)
 
-        [iconImageView, detailStack, subtitleTextLabel, primaryTextLabel, secondaryTextLabel].forEach {
+        [imageWrapper, iconImageView, detailStack, subtitleTextLabel, primaryTextLabel, secondaryTextLabel].forEach {
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
 
@@ -95,21 +119,26 @@ class DetailCell: UITableViewCell {
         secondaryTextLabel.textColor = Color.Text.secondary
         iconImageView.contentMode = .scaleAspectFit
 
-        addConstraints()
-    }
+        // Constraints
 
-    func addConstraints() {
-        stack.matchParent(top: 8, left: 8, bottom: 8, right: 8)
+        stack.matchParent(top: 8, left: 12, bottom: 8, right: 16)
+        svgImageView.matchParent(top: 0, left: 0, bottom: nil, right: 0)
+        iconImageView.matchParent(top: 0, left: 0, bottom: nil, right: 0)
 
-        imageWidthConstraint = iconImageView.widthAnchor.constraint(equalToConstant: 50)
-        imageHeightConstraint = iconImageView.heightAnchor.constraint(equalToConstant: 50)
-
-        addConstraints([//iconImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-                        imageWidthConstraint,
-                        imageHeightConstraint
+        addConstraints([
+            svgImageView.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor),
+            svgImageView.widthAnchor.constraint(equalToConstant: 30),
+            svgImageView.heightAnchor.constraint(equalToConstant: 30),
+            iconImageView.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor),
+            iconImageView.widthAnchor.constraint(equalToConstant: 30),
+            iconImageView.heightAnchor.constraint(equalToConstant: 30)
             ].compactMap({ $0 }))
 
+        svgImageView.setContentHuggingPriority(.required, for: .horizontal)
+        iconImageView.setContentHuggingPriority(.required, for: .horizontal)
         primaryTextLabel.setContentHuggingPriority(.required, for: .vertical)
+        primaryTextLabel.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        secondaryTextLabel.setContentHuggingPriority(.required, for: .horizontal)
         secondaryTextLabel.setContentCompressionResistancePriority(.required, for: .horizontal)
     }
 }
