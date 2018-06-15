@@ -11,6 +11,7 @@ import GRDB
 class ArmorSet: RowConvertible, Decodable {
     let id: Int
     let name: String
+    let rank: Quest.Rank
 
     lazy var armor: [Armor] = { return Database.shared.armorSetPieces(armorSetId: id) }()
 }
@@ -26,6 +27,11 @@ extension Database {
     func armorSet(_ search: String? = nil, rank: Quest.Rank? = nil, hrArmorType: Int? = nil) -> [ArmorSet] {
         let query = Query(table: "armorset")
             .join(table: "armorset_text")
+
+        if let rank = rank {
+            query.filter("rank", equals: rank.rawValue)
+        }
+
         return fetch(query)
     }
 }

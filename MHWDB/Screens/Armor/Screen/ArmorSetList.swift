@@ -23,7 +23,7 @@ class ArmorSetList: TableController {
         }
         add(section: list)
 
-        segment = populateToolbarSegment(items: ["Low", "High", "Alpha", "Beta"])
+        segment = populateToolbarSegment(items: ["Low", "High"])
         segment.selectedSegmentIndex = 1
         reloadData()
         isToolBarHidden = false
