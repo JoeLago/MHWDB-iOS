@@ -34,7 +34,7 @@ struct Color {
         //UIView.appearance().backgroundColor = lightBackground
     }
 
-    static func rarity(_ rarity: Int) -> UIColor {
+    static func colorForRarity(_ rarity: Int) -> UIColor {
         switch rarity {
         case 1, 2: return UIColor(hex: 0xCAC8C6)
         case 3: return UIColor(hex: 0xA9B978)
@@ -44,6 +44,40 @@ struct Color {
         case 7: return UIColor(hex: 0x7B61AE)
         case 8: return UIColor(hex: 0xB58377)
         default:  return UIColor(hex: 0xCAC8C6)
+        }
+    }
+}
+
+enum IconColor: String, Decodable {
+    case white = "White"
+    case gray = "Gray"
+    case red = "Red"
+    case khaki = "Khaki"
+    case gold = "Gold"
+    case violet = "Violet"
+    case blue = "Blue"
+    case green = "Green"
+    case darkRed = "DarkRed"
+    case yellow = "Yellow"
+    case cyan = "Cyan"
+    case orange = "Orange"
+    case darkGreen = "DarkGreen"
+
+    var color: UIColor {
+        switch self {
+        case .white: return UIColor(hex: 0xCCCCCC)
+        case .gray: return UIColor(hex: 0x929090)
+        case .red: return UIColor(hex: 0x9A3548)
+        case .khaki: return UIColor(hex: 0x8B7E69)
+        case .gold: return UIColor(hex: 0xC4AB80)
+        case .violet: return UIColor(hex: 0x757DFF)
+        case .blue: return UIColor(hex: 0x3f63a5)
+        case .green: return UIColor(hex: 0x6AAC85)
+        case .darkRed: return UIColor(hex: 0x781D38)
+        case .yellow: return UIColor(hex: 0xAFBB11)
+        case .cyan: return UIColor(hex: 0x48A0B3)
+        case .orange: return UIColor(hex: 0xAE5D40)
+        case .darkGreen: return UIColor(hex: 0x324C27)
         }
     }
 }

@@ -8,8 +8,18 @@ import GRDB
 
 class SkillTree: RowConvertible, Decodable {
     var id: Int
+    var color: IconColor?
     var name: String
     var description: String
+
+    enum CodingKeys: String, CodingKey {
+        case id, color = "icon_color", name, description
+    }
+
+    var svgIcon: SVGImageModel? {
+        let iconColor = (color ?? .white).color
+        return SVGImageModel(name: "armor-skill.svg", color: iconColor)
+    }
 
     lazy var skills: [SkillTreeSkill] = { return Database.shared.skillTreeSkills(skillTreeId: self.id) }()
     lazy var charms: [SkillTreeItem] = { return Database.shared.skillCharms(skillTreeId: self.id) }()

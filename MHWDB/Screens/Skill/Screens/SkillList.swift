@@ -16,4 +16,5 @@ class SkillList: TableController {
 extension SkillTree: DetailCellModel {
     var primary: String? { return name }
     var subtitle: String? { return description }
+    var svgModel: SVGImageModel? { return svgIcon }
 }
