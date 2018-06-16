@@ -126,10 +126,10 @@ class DetailCell: UITableViewCell {
         iconImageView.matchParent(top: 0, left: 0, bottom: nil, right: 0)
 
         addConstraints([
-            svgImageView.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor),
+            svgImageView.bottomAnchor.constraint(lessThanOrEqualTo: imageWrapper.bottomAnchor),
             svgImageView.widthAnchor.constraint(equalToConstant: 30),
             svgImageView.heightAnchor.constraint(equalToConstant: 30),
-            iconImageView.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor),
+            iconImageView.bottomAnchor.constraint(lessThanOrEqualTo: imageWrapper.bottomAnchor),
             iconImageView.widthAnchor.constraint(equalToConstant: 30),
             iconImageView.heightAnchor.constraint(equalToConstant: 30)
             ].compactMap({ $0 }))
