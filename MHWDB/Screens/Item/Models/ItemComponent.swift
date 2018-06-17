@@ -24,7 +24,7 @@ extension Database {
         let query = Query(table: "armor_recipe")
             .column("armor_id", as: "created_id")
             .join(table: "armor", on: "armor_id")
-            .join(originTable: "armor", table: "armor_text")
+            .join(origin: "armor", table: "armor_text")
             .filter("item_id", equals: itemId)
         return fetch(query)
     }
@@ -33,7 +33,7 @@ extension Database {
         let query = Query(table: "weapon_recipe")
             .column("weapon_id", as: "created_id")
             .join(table: "weapon", on: "weapon_id")
-            .join(originTable: "weapon", table: "weapon_text")
+            .join(origin: "weapon", table: "weapon_text")
             .filter("item_id", equals: itemId)
         return fetch(query)
     }
@@ -42,7 +42,7 @@ extension Database {
         let query = Query(table: "charm_recipe")
             .column("charm_id", as: "created_id")
             .join(table: "charm", on: "charm_id")
-            .join(originTable: "charm", table: "charm_text")
+            .join(origin: "charm", table: "charm_text")
             .filter("item_id", equals: itemId)
         return fetch(query)
     }

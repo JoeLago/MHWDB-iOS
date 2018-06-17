@@ -29,7 +29,7 @@ extension Database {
             .column("monster_reward_condition_text.name", as: "condition")
             .join(table: "monster", on: "monster_id")
             .join(table: "item", on: "item_id")
-            .join(originTable: "monster", table: "monster_text")
+            .join(origin: "monster", table: "monster_text")
             .join(table: "monster_reward_condition_text", on: "condition_id")
             .filter("item_id", equals: itemId)
             .filter("monster_text.lang_id", equals: "en")

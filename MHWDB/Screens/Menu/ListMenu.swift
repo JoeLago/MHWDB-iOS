@@ -27,7 +27,7 @@ class ListMenu: SimpleTableViewController {
         addCell(text: "Weapons", imageName: "great_sword8.png") { WeaponTypeList() }
         addCell(text: "Armor", imageName: "body4.png") { ArmorSetList() }
         addCell(text: "Items", imageName: "Ore-Purple.png") { ItemList() }
-        //addCell(text: "Combinations", imageName: "Liquid-Green.png") { CombinationList() }
+        addCell(text: "Combinations", imageName: "Liquid-Green.png") { CombinationList() }
         addCell(text: "Locations", imageName: "Map-Icon-White.png") { LocationList() }
         addCell(text: "Charms", imageName: "Quest-Icon-White.png") { CharmList() }
         addCell(text: "Decorations", imageName: "Jewel-Cyan.png") { DecorationList() }

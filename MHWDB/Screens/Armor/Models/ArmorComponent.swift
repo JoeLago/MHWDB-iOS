@@ -24,7 +24,7 @@ extension Database {
     func armorComponents(armorId: Int) -> [ArmorComponent] {
         let query = Query(table: "armor_recipe")
             .join(table: "item", on: "item_id")
-            .join(originTable: "item", table: "item_text")
+            .join(origin: "item", table: "item_text")
             .filter("armor_id", equals: armorId)
         return fetch(query)
     }

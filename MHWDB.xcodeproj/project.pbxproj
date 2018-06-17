@@ -2245,7 +2245,6 @@
 		149CFE5E20B94F370004A57D /* TODO */ = {
 			isa = PBXGroup;
 			children = (
-				14A24D471EA9D05400755F6A /* Combination */,
 				14E704161EB8EB4100EA2E71 /* PalicoWeapon */,
 				14A24D631EA9D05400755F6A /* Quest */,
 			);
@@ -3362,6 +3361,7 @@
 			children = (
 				14A24D431EA9D05400755F6A /* Armor */,
 				1450DA7420AA0BB1000085C5 /* Charm */,
+				14A24D471EA9D05400755F6A /* Combination */,
 				14A24D4B1EA9D05400755F6A /* Decoration */,
 				14A24D4F1EA9D05400755F6A /* Item */,
 				14A24D531EA9D05400755F6A /* Location */,

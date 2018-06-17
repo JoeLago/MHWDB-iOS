@@ -23,7 +23,7 @@ extension Database {
     func armorSkills(armorId: Int) -> [ArmorSkill] {
         let query = Query(table: "armor_skill")
             .join(table: "skilltree", on: "skilltree_id")
-            .join(originTable: "skilltree", table: "skilltree_text")
+            .join(origin: "skilltree", table: "skilltree_text")
             .filter("armor_id", equals: armorId)
         return fetch(query)
     }

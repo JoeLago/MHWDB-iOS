@@ -15,10 +15,14 @@ class Query {
         let originTable: String
         let originAttribute: String
         let joinTable: String
+        let joinTableAs: String?
         let joinAttribute: String
 
         var query: String {
-            return "LEFT JOIN \(joinTable) ON \(originTable).\(originAttribute) = \(joinTable).\(joinAttribute)"
+            let join = "LEFT JOIN \(joinTable)"
+            let joinAs = joinTableAs.map { "AS \($0)" } ?? nil
+            let joinOn = "ON \(originTable).\(originAttribute) = \(joinAttribute)"
+            return [join, joinAs, joinOn].compactMap({ $0 }).joined(separator: " ")
         }
     }
 
@@ -31,6 +35,14 @@ class Query {
 
         var query: String {
             return "\(attribute) \(direction == .asc ? "ASC" : "DESC")"
+        }
+    }
+
+    struct OrFilter {
+        let filters: [Filter]
+
+        var query: String {
+            return filters.map({ $0.query }).joined(separator: " OR ")
         }
     }
 
@@ -51,6 +63,12 @@ class Query {
             default: return "\(attribute) = '\(value)'"
             }
         }
+
+        init(attribute: String, value: Any, comparison: Comparison = .equal) {
+            self.attribute = attribute
+            self.value = value
+            self.comparison = comparison
+        }
     }
 
     struct Column {
@@ -67,6 +85,7 @@ class Query {
     var joins = [Join]()
     var orders = [Order]()
     var filters = [Filter]()
+    var orFilters = [OrFilter]()
 
     var query: String {
 
@@ -78,9 +97,10 @@ class Query {
         let action = "SELECT \(columnQuery) FROM \(table)"
         let join = joins.map({ $0.query }).joined(separator: " ")
 
-        var filter = "" // nil?
-        if filters.count > 0 {
-            filter = "WHERE " + filters.map({ $0.query }).joined(separator: " AND ")
+        var filter = ""
+        if filters.count > 0 || orFilters.count > 0 {
+            let allFitlers = filters.map({ $0.query }) + orFilters.map({ $0.query })
+            filter = "WHERE " + allFitlers.joined(separator: " AND ")
         }
 
         var order = "" // nil?
@@ -89,7 +109,8 @@ class Query {
         }
 
         let parts = [action, join, filter, order]
-        return parts.joined(separator: " ")
+        let query = parts.joined(separator: " ")
+        return query
     }
 
     static var languageId = "en"
@@ -117,20 +138,28 @@ class Query {
     }
 
     @discardableResult
-    func join(originTable: String, table: String, on: String = "id", equals: String = "id", addLanguageFilter: Bool = false) -> Query {
-        joins.append(Join(originTable: originTable, originAttribute: on, joinTable: table, joinAttribute: equals))
+    func join(origin: String, table: String, as named: String? = nil, on: String = "id", equals: String? = nil, addLanguageFilter: Bool = false) -> Query {
+        let joinAttribute = equals ?? named.map { "\($0).id" } ?? "\(table).id"
+        joins.append(Join(originTable: origin, originAttribute: on, joinTable: table, joinTableAs: named, joinAttribute: joinAttribute))
         if addLanguageFilter {
-            filter("\(table).lang_id", equals: Query.languageId)
+            filter("\(named ?? table).lang_id", equals: Query.languageId)
         }
         return self
     }
 
     @discardableResult
-    func join(table: String, on: String = "id", equals: String = "id", addLanguageFilter: Bool = false) -> Query {
-        joins.append(Join(originTable: self.table, originAttribute: on, joinTable: table, joinAttribute: equals))
+    func join(table: String, as named: String? = nil, on: String = "id", equals: String? = nil, addLanguageFilter: Bool = false) -> Query {
+        let joinAttribute = equals ?? named.map { "\($0).id" } ?? "\(table).id"
+        joins.append(Join(originTable: self.table, originAttribute: on, joinTable: table, joinTableAs: named, joinAttribute: joinAttribute))
         if addLanguageFilter {
-            filter("\(table).lang_id", equals: Query.languageId)
+            filter("\(named ?? table).lang_id", equals: Query.languageId)
         }
+        return self
+    }
+
+    @discardableResult
+    func orFilter(_ filters: [Filter]) -> Query {
+        orFilters.append(OrFilter(filters: filters))
         return self
     }
 

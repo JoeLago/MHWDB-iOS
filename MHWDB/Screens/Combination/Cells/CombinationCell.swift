@@ -52,9 +52,9 @@ class CombinationCell: CustomCell<CombinationCellModel> {
     }
 
     func populate(combo: CombinationCellModel) {
-        resultView.set(id: combo.combination.createdId,
-                       iconImage: combo.combination.createdIcon,
-                       name: combo.combination.createdName,
+        resultView.set(id: combo.combination.resultId,
+                       iconImage: combo.combination.resultIcon,
+                       name: combo.combination.resultName,
                        selected: combo.itemSelected)
 
         item1View.set(id: combo.combination.firstId,
@@ -103,7 +103,7 @@ class IconImage: UIStackView {
 
     func set(id: Int?, iconImage: String?, name: String, selected: ((Int) -> Void)? = nil) {
         self.id = id
-        icon.image = UIImage(named: iconImage ?? "")
+        icon.image = iconImage.map { UIImage(named: $0) } ?? nil
         label.text = name
         self.selected = selected
     }

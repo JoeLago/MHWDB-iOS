@@ -39,7 +39,7 @@ extension Database {
             .column("item_text.name", as: "item_name")
             .column("monster_reward_condition_text.name", as: "condition")
             .join(table: "item", on: "item_id")
-            .join(originTable: "item", table: "item_text", addLanguageFilter: true)
+            .join(origin: "item", table: "item_text", addLanguageFilter: true)
             .join(table: "monster_reward_condition_text", on: "condition_id", addLanguageFilter: true)
             .filter("monster_id", equals: monsterId)
             .filter("rank", equals: rank.rawValue)
