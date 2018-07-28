@@ -10,7 +10,7 @@ class Combination: RowConvertible, Decodable {
     var id: Int
     var quantity: Int
 
-    // TODO: Should try to get these in there own objects, is that possible with GRDB?
+    // TODO: Should try to abstract each item.  Possible with GRDB without adding a bunch of decodable boilerplate?
 
     var resultId: Int
     var resultName: String

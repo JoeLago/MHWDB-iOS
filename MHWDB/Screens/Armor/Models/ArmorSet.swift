@@ -20,6 +20,7 @@ extension Database {
     func armorSet(id: Int) -> ArmorSet {
         let query = Query(table: "armorset")
             .join(table: "armorset_text")
+            .filter(id: id)
         return fetch(query)[0]
     }
 

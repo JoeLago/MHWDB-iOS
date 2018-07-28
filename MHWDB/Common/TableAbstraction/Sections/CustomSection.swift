@@ -20,7 +20,7 @@ class CustomSection<T, U: CustomCell<T>>: TableSection {
         self.init(title: title, data: data, header: header, showCount: showCount, selectionBlock: selectionBlock)
     }
 
-    init(title: String?, data: [T], header: HeaderView? = nil, showCount: Bool = false, selectionBlock: ((T) -> Void)? = nil) {
+    init(title: String? = nil, data: [T], header: HeaderView? = nil, showCount: Bool = false, selectionBlock: ((T) -> Void)? = nil) {
         super.init()
         self.title = title
         self.rows = data

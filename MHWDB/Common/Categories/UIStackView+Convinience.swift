@@ -12,4 +12,10 @@ extension UIStackView {
         self.spacing = CGFloat(spacing)
         self.distribution = .fill
     }
+
+    func addArrangedSubviews(_ views: [UIView]) {
+        for view in views {
+            addArrangedSubview(view)
+        }
+    }
 }

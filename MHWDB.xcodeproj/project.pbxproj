@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1405268B207EF640001A5E96 /* mhw.db in Resources */ = {isa = PBXBuildFile; fileRef = 1405268A207EF640001A5E96 /* mhw.db */; };
 		140A133C1EDB57B9002FD025 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140A133B1EDB57B9002FD025 /* Search.swift */; };
+		141EEEBB210CFEBA0017539F /* deviljho.png in Resources */ = {isa = PBXBuildFile; fileRef = 141EEEBA210CFEBA0017539F /* deviljho.png */; };
 		144306D5209EDC7600D60A5A /* Monster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144306D4209EDC7600D60A5A /* Monster.swift */; };
 		144306D7209EEFFF00D60A5A /* Query.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144306D6209EEFFF00D60A5A /* Query.swift */; };
 		144306DA209F5BD300D60A5A /* MonsterHabitat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144306D9209F5BD300D60A5A /* MonsterHabitat.swift */; };
@@ -64,6 +65,8 @@
 		1488133A20A4224F006B91EF /* paolumu.png in Resources */ = {isa = PBXBuildFile; fileRef = 1488131B20A4224E006B91EF /* paolumu.png */; };
 		1488133B20A4224F006B91EF /* rathalos.png in Resources */ = {isa = PBXBuildFile; fileRef = 1488131C20A4224E006B91EF /* rathalos.png */; };
 		1493A9E11EB3A74A00133B47 /* TableController+SectionHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1493A9E01EB3A74A00133B47 /* TableController+SectionHelp.swift */; };
+		149445F020E82B3E00985128 /* ArmorSetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149445EF20E82B3E00985128 /* ArmorSetCell.swift */; };
+		149445F220E8340F00985128 /* IconImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149445F120E8340F00985128 /* IconImage.swift */; };
 		14A24D781EA9D05400755F6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A2496E1EA9D05300755F6A /* AppDelegate.swift */; };
 		14A24D791EA9D05400755F6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14A249701EA9D05300755F6A /* Assets.xcassets */; };
 		14A24D7A1EA9D05400755F6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14A249711EA9D05300755F6A /* LaunchScreen.storyboard */; };
@@ -963,6 +966,7 @@
 /* Begin PBXFileReference section */
 		1405268A207EF640001A5E96 /* mhw.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = mhw.db; sourceTree = "<group>"; };
 		140A133B1EDB57B9002FD025 /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		141EEEBA210CFEBA0017539F /* deviljho.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deviljho.png; sourceTree = "<group>"; };
 		144306D4209EDC7600D60A5A /* Monster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Monster.swift; sourceTree = "<group>"; };
 		144306D6209EEFFF00D60A5A /* Query.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Query.swift; sourceTree = "<group>"; };
 		144306D9209F5BD300D60A5A /* MonsterHabitat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterHabitat.swift; sourceTree = "<group>"; };
@@ -1020,6 +1024,8 @@
 		1488131B20A4224E006B91EF /* paolumu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = paolumu.png; sourceTree = "<group>"; };
 		1488131C20A4224E006B91EF /* rathalos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rathalos.png; sourceTree = "<group>"; };
 		1493A9E01EB3A74A00133B47 /* TableController+SectionHelp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TableController+SectionHelp.swift"; sourceTree = "<group>"; };
+		149445EF20E82B3E00985128 /* ArmorSetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArmorSetCell.swift; sourceTree = "<group>"; };
+		149445F120E8340F00985128 /* IconImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconImage.swift; sourceTree = "<group>"; };
 		14A2496E1EA9D05300755F6A /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14A249701EA9D05300755F6A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14A249721EA9D05300755F6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -2206,6 +2212,7 @@
 				1488130820A4224E006B91EF /* barroth.png */,
 				148812FF20A4224E006B91EF /* bazelgeuse.png */,
 				1488130620A4224E006B91EF /* black-diablos.png */,
+				141EEEBA210CFEBA0017539F /* deviljho.png */,
 				1488130B20A4224E006B91EF /* diablos.png */,
 				1488130A20A4224E006B91EF /* dodogama.png */,
 				1488131820A4224E006B91EF /* great-girros.png */,
@@ -2240,6 +2247,14 @@
 			children = (
 			);
 			path = "monster-small";
+			sourceTree = "<group>";
+		};
+		149445EE20E82B2600985128 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				149445EF20E82B3E00985128 /* ArmorSetCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		149CFE5E20B94F370004A57D /* TODO */ = {
@@ -3264,6 +3279,7 @@
 				14A24D261EA9D05400755F6A /* TableAbstraction */,
 				14A24D2E1EA9D05400755F6A /* Tree */,
 				14A24D1E1EA9D05400755F6A /* Database.swift */,
+				149445F120E8340F00985128 /* IconImage.swift */,
 				14E2B50A1EAD7AC9002A2A89 /* LabelStack.swift */,
 				14DF85441EC297E400F9AD1D /* ListGrid.swift */,
 				14E2B5121EB1041D002A2A89 /* Logging.swift */,
@@ -3378,6 +3394,7 @@
 		14A24D431EA9D05400755F6A /* Armor */ = {
 			isa = PBXGroup;
 			children = (
+				149445EE20E82B2600985128 /* Cells */,
 				144306EB209FB4A100D60A5A /* Models */,
 				144306EA209FB49400D60A5A /* Screen */,
 			);
@@ -3874,6 +3891,7 @@
 				14A2506A1EA9D05400755F6A /* cutting6.png in Resources */,
 				14A2506B1EA9D05400755F6A /* cutting7.png in Resources */,
 				14A2506C1EA9D05400755F6A /* cutting8.png in Resources */,
+				141EEEBB210CFEBA0017539F /* deviljho.png in Resources */,
 				1488132A20A4224F006B91EF /* diablos.png in Resources */,
 				1488132920A4224F006B91EF /* dodogama.png in Resources */,
 				14A2503E1EA9D05400755F6A /* Dragon.png in Resources */,
@@ -4608,6 +4626,7 @@
 				14A251281EA9D05400755F6A /* ArmorDetails.swift in Sources */,
 				14A2512A1EA9D05400755F6A /* ArmorList.swift in Sources */,
 				1450DA6920A963FC000085C5 /* ArmorSet.swift in Sources */,
+				149445F020E82B3E00985128 /* ArmorSetCell.swift in Sources */,
 				1450DA7320A96AB7000085C5 /* ArmorSetDetails.swift in Sources */,
 				1450DA6F20A96860000085C5 /* ArmorSetList.swift in Sources */,
 				1450DA6B20A96405000085C5 /* ArmorSkill.swift in Sources */,
@@ -4635,6 +4654,7 @@
 				14A250FC1EA9D05400755F6A /* Enum+OptionalStringRaw.swift in Sources */,
 				14E2B5091EAD7A8A002A2A89 /* GridCell.swift in Sources */,
 				14E2B5191EB2D856002A2A89 /* HeaderView.swift in Sources */,
+				149445F220E8340F00985128 /* IconImage.swift in Sources */,
 				14A251061EA9D05400755F6A /* ImageLabelCell.swift in Sources */,
 				14A250FD1EA9D05400755F6A /* Int+NullString.swift in Sources */,
 				1452DB201F7108F8006A11D7 /* Int+TimeInterval.swift in Sources */,

@@ -12,16 +12,19 @@ import UIKit
 
 class ArmorSetList: TableController {
     var list: SimpleDetailSection<ArmorSet>!
+    var customList: CustomSection<ArmorSetCellModel, ArmorSetCell>!
     var segment: UISegmentedControl!
 
     override func loadView() {
         super.loadView()
         title = "Armor Sets"
 
-        list = SimpleDetailSection(data: [ArmorSet]()) { [weak self] in
-            self?.push(ArmorSetDetails($0))
+        customList = CustomSection(data: [ArmorSetCellModel]()) { [weak self] in
+            self?.push(ArmorSetDetails(id: $0.id))
         }
-        add(section: list)
+
+        //add(section: list)
+        add(section: customList)
 
         segment = populateToolbarSegment(items: ["Low", "High"])
         segment.selectedSegmentIndex = 1
@@ -30,14 +33,27 @@ class ArmorSetList: TableController {
     }
 
     override func reloadData() {
+        let armorSets: [ArmorSet]
         switch segment.selectedSegmentIndex {
-        case 0: list.rows = Database.shared.armorSet(rank: .low)
-        case 1: list.rows = Database.shared.armorSet(rank: .high)
-        case 2: list.rows = Database.shared.armorSet(hrArmorType: 0)
-        case 3: list.rows = Database.shared.armorSet(hrArmorType: 1)
+        case 0: armorSets = Database.shared.armorSet(rank: .low)
+        case 1: armorSets = Database.shared.armorSet(rank: .high)
+        case 2: armorSets = Database.shared.armorSet(hrArmorType: 0)
+        case 3: armorSets = Database.shared.armorSet(hrArmorType: 1)
         default: return
         }
+
+        //list.rows = armorSets
+        customList.rows = armorSets.map { ArmorSetCellModel(set: $0) }
+
         tableView.reloadData()
+    }
+}
+
+extension ArmorSetCellModel {
+    init(set: ArmorSet) {
+        id = set.id
+        label = set.name
+        svgModels = set.armor.compactMap { $0.svgModel }
     }
 }
 
