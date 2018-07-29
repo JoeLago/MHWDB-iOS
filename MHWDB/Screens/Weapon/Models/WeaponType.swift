@@ -70,4 +70,24 @@ enum WeaponType: String, Decodable {
         case .unknown: return ""
         }
     }
+
+    var displayName: String {
+        switch self {
+        case .greatSword: return "Great Sword"
+        case .longSword: return "Long Sword"
+        case .swordAndShield: return "Sword and Shield"
+        case .dualBlades: return "Dual Blades"
+        case .hammer: return "Hammer"
+        case .huntingHorm: return "Hunting Horn"
+        case .lance: return "Lance"
+        case .gunlance: return "Gunlance"
+        case .switchAxe: return "Switch Axe"
+        case .chargeBlade: return "Charge Blade"
+        case .insectGlaive: return "Insect Glaive"
+        case .lightBowgun: return "Light Bowgun"
+        case .heavyBowgun: return "Heavy Bowgun"
+        case .bow: return "Bow"
+        case .unknown: return ""
+        }
+    }
 }
