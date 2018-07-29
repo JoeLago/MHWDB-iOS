@@ -8,6 +8,11 @@
 
 import SVGKit
 
+struct SVGImageModel {
+    let name: String
+    let color: UIColor
+}
+
 class SvgModelView: SVGKFastImageView {
     var imageName: String? // cache name so we don't reload same image
 

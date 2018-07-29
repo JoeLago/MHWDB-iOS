@@ -948,7 +948,6 @@
 		14F8185320CA4CB50010CD32 /* legs.svg in Resources */ = {isa = PBXBuildFile; fileRef = 14F8184B20CA4CB40010CD32 /* legs.svg */; };
 		14F8185420CA4CB50010CD32 /* waist.svg in Resources */ = {isa = PBXBuildFile; fileRef = 14F8184C20CA4CB50010CD32 /* waist.svg */; };
 		14F8185520CA4CB50010CD32 /* armor-skill.svg in Resources */ = {isa = PBXBuildFile; fileRef = 14F8184D20CA4CB50010CD32 /* armor-skill.svg */; };
-		14F8185720CA50850010CD32 /* SVGImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F8185620CA50850010CD32 /* SVGImageModel.swift */; };
 		3D4882AD20FD0490A2C25B6F /* Pods_MHGDBTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9892914A22C05CA6D6C7171 /* Pods_MHGDBTests.framework */; };
 		613A51D7ED0F8DD41DD8F38D /* Pods_MHWDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28A362D7A0E8494F3767C6D0 /* Pods_MHWDB.framework */; };
 		F78D3235AA09D8152D4C51CF /* Pods_MHWDBTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F77642DEAA528D99A1B9B18 /* Pods_MHWDBTests.framework */; };
@@ -1909,7 +1908,6 @@
 		14F8184B20CA4CB40010CD32 /* legs.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = legs.svg; sourceTree = "<group>"; };
 		14F8184C20CA4CB50010CD32 /* waist.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = waist.svg; sourceTree = "<group>"; };
 		14F8184D20CA4CB50010CD32 /* armor-skill.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "armor-skill.svg"; sourceTree = "<group>"; };
-		14F8185620CA50850010CD32 /* SVGImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SVGImageModel.swift; sourceTree = "<group>"; };
 		28A362D7A0E8494F3767C6D0 /* Pods_MHWDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MHWDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		36731F1082DA965761955EA5 /* Pods-MHGDBTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHGDBTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MHGDBTests/Pods-MHGDBTests.release.xcconfig"; sourceTree = "<group>"; };
 		3F77642DEAA528D99A1B9B18 /* Pods_MHWDBTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MHWDBTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -3289,7 +3287,6 @@
 				145FEA761F78A6C100BF9237 /* ReviewManager.swift */,
 				14A24D211EA9D05400755F6A /* SelectionManager.swift */,
 				14A24D251EA9D05400755F6A /* Styles.swift */,
-				14F8185620CA50850010CD32 /* SVGImageModel.swift */,
 				141EEEBC210D082B0017539F /* SvgModelView.swift */,
 				1452DB1D1F71061F006A11D7 /* UserDefaults.swift */,
 			);
@@ -4722,7 +4719,6 @@
 				14A2510F1EA9D05400755F6A /* Styles.swift in Sources */,
 				14C36CD81EBCD1D900A41C6E /* SubSection.swift in Sources */,
 				14C36CDA1EBD701F00A41C6E /* SubSectionHeaderCell.swift in Sources */,
-				14F8185720CA50850010CD32 /* SVGImageModel.swift in Sources */,
 				141EEEBD210D082B0017539F /* SvgModelView.swift in Sources */,
 				1493A9E11EB3A74A00133B47 /* TableController+SectionHelp.swift in Sources */,
 				14A251101EA9D05400755F6A /* TableController.swift in Sources */,

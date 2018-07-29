@@ -17,6 +17,7 @@ struct ArmorSetCellModel {
 class ArmorSetCell: CustomCell<ArmorSetCellModel> {
     let label = UILabel()
     let stack = UIStackView(axis: .horizontal, spacing: 5, distribution: .fillProportionally)
+    let iconStack = UIStackView(axis: .horizontal, spacing: -8)
     var icons = [UIView]()
 
     override var model: ArmorSetCellModel? {
@@ -39,22 +40,14 @@ class ArmorSetCell: CustomCell<ArmorSetCellModel> {
         label.setContentHuggingPriority(.defaultLow, for: .horizontal)
         addSubview(stack)
         stack.matchParent(top: 10, left: 15, bottom: 10, right: 15)
+        stack.addArrangedSubview(label)
+        stack.addArrangedSubview(iconStack)
     }
 
     func populate(model: ArmorSetCellModel) {
-        label.removeFromSuperview()
         icons.forEach { $0.removeFromSuperview() }
 
         label.text = model.label
-        stack.addArrangedSubview(label)
-
-        if model.svgModels.count == 5 {
-            let label = UILabel()
-            label.text = "Set"
-            label.textColor = Color.Text.subHeader
-            stack.addArrangedSubview(label)
-            return
-        }
 
         // inefficient, lets keep reference to each image
         icons = [UIView]()
@@ -64,6 +57,6 @@ class ArmorSetCell: CustomCell<ArmorSetCellModel> {
             imageView.widthAnchor.constraint(equalToConstant: 22).isActive = true
             icons.append(imageView)
         }
-        stack.addArrangedSubviews(icons)
+        iconStack.addArrangedSubviews(icons)
     }
 }
