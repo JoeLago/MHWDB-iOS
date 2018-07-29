@@ -9,7 +9,7 @@
 import Foundation
 import GRDB
 
-class LocationItem: RowConvertible, Decodable {
+class LocationItem: FetchableRecord, Decodable {
     var itemId: Int
     var name: String?
     var icon: String?

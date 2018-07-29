@@ -6,7 +6,7 @@
 import Foundation
 import GRDB
 
-class Location: RowConvertible, Decodable {
+class Location: FetchableRecord, Decodable {
     var id: Int
     var name: String
     var icon: String?

@@ -6,7 +6,7 @@
 import Foundation
 import GRDB
 
-class PalicoWeapon: RowConvertible {
+class PalicoWeapon: FetchableRecord {
     enum Balance: Int {
         case balanced = 0, meleePlus, rangedPlus
 

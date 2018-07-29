@@ -13,7 +13,7 @@ class MonsterDamageByPart {
     var damage = [MonsterDamage]()
 }
 
-class MonsterDamage: Decodable, RowConvertible {
+class MonsterDamage: Decodable, FetchableRecord {
     var bodyPart: String
     var cut: Int
     var impact: Int

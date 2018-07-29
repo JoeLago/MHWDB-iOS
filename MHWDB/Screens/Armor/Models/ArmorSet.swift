@@ -8,7 +8,7 @@
 
 import GRDB
 
-class ArmorSet: RowConvertible, Decodable {
+class ArmorSet: FetchableRecord, Decodable {
     let id: Int
     let name: String
     let rank: Quest.Rank

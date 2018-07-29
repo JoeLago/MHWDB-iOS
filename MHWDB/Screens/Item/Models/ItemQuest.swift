@@ -8,7 +8,7 @@
 
 import GRDB
 
-class ItemQuest: RowConvertible, Decodable {
+class ItemQuest: FetchableRecord, Decodable {
     let questId: Int
     let name: String
     let icon: String?

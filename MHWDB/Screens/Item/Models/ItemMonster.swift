@@ -8,7 +8,7 @@
 
 import GRDB
 
-class ItemMonster: RowConvertible, Decodable {
+class ItemMonster: FetchableRecord, Decodable {
     let monsterId: Int
     let name: String
     let icon: String?

@@ -8,7 +8,7 @@
 
 import GRDB
 
-class ArmorSkill: RowConvertible, Decodable {
+class ArmorSkill: FetchableRecord, Decodable {
     let skillTreeId: Int
     var name: String
     var description: String

@@ -23,7 +23,7 @@ class Database {
         }
     }
 
-    func fetch<T: RowConvertible>(_ query: String) -> T? {
+    func fetch<T: FetchableRecord>(_ query: String) -> T? {
         do {
             return try dbQueue.inDatabase { db in
                 return try T.fetchOne(db, query)
@@ -34,11 +34,11 @@ class Database {
     }
 
     // TODO: kill all the other fetch functions
-    func fetch<T: RowConvertible>(_ query: Query) -> [T] {
+    func fetch<T: FetchableRecord>(_ query: Query) -> [T] {
         return fetch(query.query)
     }
 
-    func fetch<T: RowConvertible>(_ query: String, params: [DatabaseValueConvertible?]? = nil) -> [T] {
+    func fetch<T: FetchableRecord>(_ query: String, params: [DatabaseValueConvertible?]? = nil) -> [T] {
         do {
             return try dbQueue.inDatabase { db in
                 var arguments: StatementArguments? = nil
@@ -67,7 +67,7 @@ class Database {
         return values
     }
 
-    func fetch<T: RowConvertible>(select: String, order: String? = nil, filter: String? = nil, search: String? = nil) -> [T] {
+    func fetch<T: FetchableRecord>(select: String, order: String? = nil, filter: String? = nil, search: String? = nil) -> [T] {
         var params = [DatabaseValueConvertible?]()
 
         let hasFilter = (filter?.count ?? 0) > 0
@@ -94,7 +94,7 @@ class Database {
     }
 }
 
-class RowString: RowConvertible {
+class RowString: FetchableRecord {
     static var column = "value"
     let value: String?
     required init(row: Row) {

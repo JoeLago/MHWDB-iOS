@@ -5,7 +5,7 @@
 
 import GRDB
 
-class Armor: RowConvertible, Decodable {
+class Armor: FetchableRecord, Decodable {
 
     enum Slot: String, Decodable {
         case head, chest, arms, waist, legs

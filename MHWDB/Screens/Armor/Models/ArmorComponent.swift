@@ -8,7 +8,7 @@
 
 import GRDB
 
-class ArmorComponent: RowConvertible, Decodable {
+class ArmorComponent: FetchableRecord, Decodable {
     var itemId: Int
     var name: String
     var icon: String?

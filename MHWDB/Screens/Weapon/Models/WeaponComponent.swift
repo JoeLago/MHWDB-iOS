@@ -6,7 +6,7 @@
 import Foundation
 import GRDB
 
-class WeaponComponent: RowConvertible, Decodable {
+class WeaponComponent: FetchableRecord, Decodable {
     let id: Int
     let name: String
     let icon: String?

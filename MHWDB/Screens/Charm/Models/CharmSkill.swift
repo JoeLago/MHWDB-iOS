@@ -9,7 +9,7 @@
 import Foundation
 import GRDB
 
-class CharmSkill: RowConvertible, Decodable {
+class CharmSkill: FetchableRecord, Decodable {
     var id: Int
     var name: String
     var description: String?

@@ -8,7 +8,7 @@
 
 import GRDB
 
-class MonsterReward: RowConvertible, Decodable {
+class MonsterReward: FetchableRecord, Decodable {
     var itemId: Int
     var name: String
     var icon: String?

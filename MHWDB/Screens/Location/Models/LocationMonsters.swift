@@ -9,7 +9,7 @@
 import Foundation
 import GRDB
 
-class LocationMonster: RowConvertible, Decodable {
+class LocationMonster: FetchableRecord, Decodable {
     let monsterId: Int
     var name: String?
     let icon: String?

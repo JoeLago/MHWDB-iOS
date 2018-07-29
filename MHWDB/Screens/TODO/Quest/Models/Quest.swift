@@ -6,7 +6,7 @@
 import Foundation
 import GRDB
 
-class Quest: RowConvertible {
+class Quest: FetchableRecord {
     var id: Int
     var name: String?
     var hub: String? // Switch to enum
@@ -143,7 +143,7 @@ class Quest: RowConvertible {
     }
 }
 
-class QuestReward: RowConvertible {
+class QuestReward: FetchableRecord {
     let itemId: Int
     var name: String
     var icon: String?
@@ -161,7 +161,7 @@ class QuestReward: RowConvertible {
     }
 }
 
-class QuestMonster: RowConvertible {
+class QuestMonster: FetchableRecord {
     let monsterId: Int
     let name: String
     var startArea: String?

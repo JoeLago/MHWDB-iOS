@@ -5,7 +5,7 @@
 
 import GRDB
 
-class Decoration: Decodable, RowConvertible {
+class Decoration: Decodable, FetchableRecord {
     var id: Int
     var name: String
     var icon: String?

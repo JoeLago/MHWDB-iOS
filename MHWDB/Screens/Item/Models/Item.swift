@@ -6,7 +6,7 @@
 import Foundation
 import GRDB
 
-class Item: Decodable, RowConvertible {
+class Item: Decodable, FetchableRecord {
     let id: Int
     var name: String
     var description: String?

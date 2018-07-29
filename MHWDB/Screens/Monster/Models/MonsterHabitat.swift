@@ -8,7 +8,7 @@
 
 import GRDB
 
-class MonsterHabitat: Decodable, RowConvertible {
+class MonsterHabitat: Decodable, FetchableRecord {
     var locationId: Int
     var name: String?
     var startArea: String?

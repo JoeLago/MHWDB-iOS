@@ -6,7 +6,7 @@
 import Foundation
 import GRDB
 
-class SkillTree: RowConvertible, Decodable {
+class SkillTree: FetchableRecord, Decodable {
     var id: Int
     var color: IconColor?
     var name: String

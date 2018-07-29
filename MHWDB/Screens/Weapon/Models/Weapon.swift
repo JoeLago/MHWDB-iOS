@@ -6,7 +6,7 @@
 import Foundation
 import GRDB
 
-class Weapon: Decodable, RowConvertible {
+class Weapon: Decodable, FetchableRecord {
 
     var id: Int
     var parentId: Int?

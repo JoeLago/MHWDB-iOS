@@ -9,7 +9,7 @@
 import Foundation
 import GRDB
 
-class SkillTreeSkill: RowConvertible, Decodable {
+class SkillTreeSkill: FetchableRecord, Decodable {
     let description: String
     let icon: String?
     let level: Int

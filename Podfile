@@ -4,7 +4,7 @@ target 'MHWDB' do
     use_frameworks!
     
     pod 'GRDB.swift'
-    pod 'SVGKit', :git => 'https://github.com/SVGKit/SVGKit.git', :branch => '2.x'
+    pod 'SVGKit', :git => 'https://github.com/SVGKit/SVGKit.git', :branch => '2.x', :inhibit_warnings => true
     pod 'SwiftLint'
     pod 'SwiftyUserDefaults'
     
