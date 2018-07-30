@@ -87,8 +87,10 @@ class DetailCell: UITableViewCell {
 
         imageWrapper.isHidden = false
         svgImageView.isHidden = false
-        let layer = image.layer(withIdentifier: "base") as? CAShapeLayer
-        layer?.fillColor = svg.color.cgColor
+        if let color = svg.color?.cgColor {
+            let layer = image.layer(withIdentifier: "base") as? CAShapeLayer
+            layer?.fillColor = color
+        }
         svgImageView.image = image
     }
 

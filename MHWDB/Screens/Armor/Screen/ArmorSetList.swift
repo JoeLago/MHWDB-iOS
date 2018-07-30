@@ -52,6 +52,6 @@ extension ArmorSetCellModel {
     init(set: ArmorSet) {
         id = set.id
         label = set.displayName
-        svgModels = set.armor.compactMap { $0.svgModel }
+        armor = set.armor
     }
 }

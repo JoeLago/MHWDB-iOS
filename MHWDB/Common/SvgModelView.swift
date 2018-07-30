@@ -10,7 +10,12 @@ import SVGKit
 
 struct SVGImageModel {
     let name: String
-    let color: UIColor
+    let color: UIColor?
+
+    init(name: String, color: UIColor? = nil) {
+        self.name = name
+        self.color = color
+    }
 }
 
 class SvgModelView: SVGKFastImageView {
@@ -19,8 +24,10 @@ class SvgModelView: SVGKFastImageView {
     init?(model: SVGImageModel) {
         imageName = model.name
         guard let image = SVGKImage(named: model.name) else { return nil }
-        let layer = image.layer(withIdentifier: "base") as? CAShapeLayer
-        layer?.fillColor = model.color.cgColor
+        if let color = model.color?.cgColor {
+            let layer = image.layer(withIdentifier: "base") as? CAShapeLayer
+            layer?.fillColor = color
+        }
         super.init(svgkImage: image)
     }
 
@@ -36,8 +43,10 @@ class SvgModelView: SVGKFastImageView {
     func configure(model: SVGImageModel) {
         guard let image = (imageName == model.name ? image : SVGKImage(named: model.name)) else { return }
         imageName = model.name
-        let layer = image.layer(withIdentifier: "base") as? CAShapeLayer
-        layer?.fillColor = model.color.cgColor
+        if let color = model.color?.cgColor {
+            let layer = image.layer(withIdentifier: "base") as? CAShapeLayer
+            layer?.fillColor = color
+        }
         self.image = image
     }
 }

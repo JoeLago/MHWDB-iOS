@@ -31,6 +31,5 @@ extension Armor: DetailCellModel {
     var primary: String? { return name }
     //var subtitle: String? { return slotsString }
     var subtitle: String? { return "\(defense) - \(defenseMax) def" }
-    var imageName: String? { return icon }
     var svgModel: SVGImageModel? { return svg }
 }
