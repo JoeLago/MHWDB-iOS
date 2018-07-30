@@ -11,7 +11,6 @@
 import UIKit
 
 class ArmorSetList: TableController {
-    var list: SimpleDetailSection<ArmorSet>!
     var customList: CustomSection<ArmorSetCellModel, ArmorSetCell>!
     var segment: UISegmentedControl!
 
@@ -52,12 +51,7 @@ class ArmorSetList: TableController {
 extension ArmorSetCellModel {
     init(set: ArmorSet) {
         id = set.id
-        label = set.name
+        label = set.displayName
         svgModels = set.armor.compactMap { $0.svgModel }
     }
-}
-
-extension ArmorSet: DetailCellModel {
-    var primary: String? { return name }
-    //var imageName: String? { return nil }
 }

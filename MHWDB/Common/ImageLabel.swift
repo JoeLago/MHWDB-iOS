@@ -8,7 +8,7 @@
 
 import UIKit
 
-class IconImage: UIStackView {
+class ImageLabel: UIStackView {
     var id: Int?
     let label = UILabel()
     let icon = UIImageView()

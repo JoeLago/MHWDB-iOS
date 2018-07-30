@@ -13,6 +13,10 @@ class ArmorSet: FetchableRecord, Decodable {
     let name: String
     let rank: Quest.Rank
 
+    var displayName: String {
+        return name.replacingOccurrences(of: "Alpha", with: "α").replacingOccurrences(of: "Beta", with: "β")
+    }
+
     lazy var armor: [Armor] = { return Database.shared.armorSetPieces(armorSetId: id) }()
 }
 

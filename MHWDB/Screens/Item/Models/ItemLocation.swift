@@ -21,8 +21,8 @@ class ItemLocation: FetchableRecord, Decodable {
 
 extension Database {
     func locations(itemId: Int) -> [ItemLocation] {
-        let query = Query(table: "location_item")
-            .join(table: "location_text", on: "location_id", equals: "id")
+        let query = Query(table: "location_item", addLanguageFilter: false)
+            .join(table: "location_text", on: "location_id", addLanguageFilter: true)
             .filter("item_id", equals: itemId)
             .order(by: "percentage", direction: .dec)
         return fetch(query)

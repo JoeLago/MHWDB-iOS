@@ -12,6 +12,8 @@ protocol DetailCellModel {
     var secondary: String? { get }
     var imageName: String? { get }
     var svgModel: SVGImageModel? { get }
+    var iconSize: CGFloat { get }
+    var spacing: CGFloat { get }
 }
 
 // So that implementation is only required for non nil fields
@@ -21,6 +23,8 @@ extension DetailCellModel {
     var secondary: String? { return nil }
     var imageName: String? { return nil }
     var svgModel: SVGImageModel? { return nil }
+    var iconSize: CGFloat { return 30 }
+    var spacing: CGFloat { return 6 }
 }
 
 class DetailCell: UITableViewCell {
@@ -34,6 +38,7 @@ class DetailCell: UITableViewCell {
     let imageWrapper = UIView()
     var iconImageView = UIImageView() // Should we separate cells with different image types somehow?
     var svgImageView = SVGKFastImageView(frame: .zero)
+    var iconSizeConstraints = [NSLayoutConstraint]()
 
     var model: DetailCellModel? {
         didSet {
@@ -70,6 +75,9 @@ class DetailCell: UITableViewCell {
         subtitleTextLabel.text = model.subtitle
         secondaryTextLabel.text = model.secondary
         subtitleTextLabel.isHidden = model.subtitle == nil
+
+        stack.spacing = model.spacing
+        iconSizeConstraints.forEach { $0.constant = model.iconSize }
     }
 
     func populate(svg: SVGImageModel) {
@@ -127,12 +135,15 @@ class DetailCell: UITableViewCell {
 
         addConstraints([
             svgImageView.bottomAnchor.constraint(lessThanOrEqualTo: imageWrapper.bottomAnchor),
+            iconImageView.bottomAnchor.constraint(lessThanOrEqualTo: imageWrapper.bottomAnchor)
+            ].compactMap({ $0 }))
+
+        iconSizeConstraints = [
             svgImageView.widthAnchor.constraint(equalToConstant: 30),
             svgImageView.heightAnchor.constraint(equalToConstant: 30),
-            iconImageView.bottomAnchor.constraint(lessThanOrEqualTo: imageWrapper.bottomAnchor),
             iconImageView.widthAnchor.constraint(equalToConstant: 30),
-            iconImageView.heightAnchor.constraint(equalToConstant: 30)
-            ].compactMap({ $0 }))
+            iconImageView.heightAnchor.constraint(equalToConstant: 30)]
+        addConstraints(iconSizeConstraints)
 
         svgImageView.setContentHuggingPriority(.required, for: .horizontal)
         iconImageView.setContentHuggingPriority(.required, for: .horizontal)

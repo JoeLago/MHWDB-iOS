@@ -11,9 +11,9 @@ struct CombinationCellModel {
 }
 
 class CombinationCell: CustomCell<CombinationCellModel> {
-    let resultView = IconImage()
-    let item1View = IconImage()
-    let item2View = IconImage()
+    let resultView = ImageLabel()
+    let item1View = ImageLabel()
+    let item2View = ImageLabel()
 
     override var model: CombinationCellModel? {
         didSet {
