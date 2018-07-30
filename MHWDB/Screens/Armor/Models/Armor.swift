@@ -12,7 +12,8 @@ class Armor: FetchableRecord, Decodable {
 
         var iconName: String {
             switch self {
-            case .chest: return "body" // too lazy to rename icon
+            case .arms: return "arm"
+            case .legs: return "leg"
             default: return rawValue
             }
         }
@@ -54,7 +55,11 @@ class Armor: FetchableRecord, Decodable {
 
     var icon: String { return "\(slot?.iconName ?? "")\(rarity).png" }
     //var slotsString: String { return String(repeating: "O", count: slots) + String(repeating: "-", count: 3 - slots) }
-    var svg: SVGImageModel { return SVGImageModel(name: "\(slot?.rawValue ?? "").svg", color: Color.colorForRarity(rarity)) }
+    var svg: SVGImageModel {
+        return SVGImageModel(name: "equipment_\(slot?.iconName ?? "")_base.svg",
+            color: Color.colorForRarity(rarity))
+
+    }
 
     lazy var skills: [ArmorSkill] = { return Database.shared.armorSkills(armorId: id) }()
     lazy var components: [ArmorComponent] = { return Database.shared.armorComponents(armorId: self.id) }()
