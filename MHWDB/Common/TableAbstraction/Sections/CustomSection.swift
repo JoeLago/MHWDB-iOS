@@ -18,6 +18,7 @@ class CustomSection<T, U: CustomCell<T>>: TableSection {
 
     convenience init(title: String?, data: [T], cellType: U.Type, header: HeaderView? = nil, showCount: Bool = false, selectionBlock: ((T) -> Void)? = nil) {
         self.init(title: title, data: data, header: header, showCount: showCount, selectionBlock: selectionBlock)
+        identifier = String(describing: cellType)
     }
 
     init(title: String? = nil, data: [T], header: HeaderView? = nil, showCount: Bool = false, selectionBlock: ((T) -> Void)? = nil) {
@@ -36,7 +37,7 @@ class CustomSection<T, U: CustomCell<T>>: TableSection {
 
     override func initialize() {
         super.initialize()
-        register(U.self)
+        register(U.self, identifier: identifier)
     }
 
     override func cell(row: Int) -> UITableViewCell? {

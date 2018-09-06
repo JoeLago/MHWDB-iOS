@@ -26,6 +26,11 @@ class ArmorSetCell: CustomCell<ArmorSetCellModel> {
     let levelOneSlotLabel = SvgLabel()
     let levelTwoSlotLabel = SvgLabel()
     let levelThreeSlotLabel = SvgLabel()
+    let headSvg = SvgModelView()
+    let armSvg = SvgModelView()
+    let chestSvg = SvgModelView()
+    let waistSvg = SvgModelView()
+    let legSvg = SvgModelView()
 
     override var model: ArmorSetCellModel? {
         didSet {
@@ -66,11 +71,24 @@ class ArmorSetCell: CustomCell<ArmorSetCellModel> {
 
         mainStack.addArrangedSubview(leftStack)
         mainStack.addArrangedSubview(rightStack)
+
+        NSLayoutConstraint.activate([
+            headSvg.heightAnchor.constraint(equalToConstant: 26),
+            headSvg.widthAnchor.constraint(equalToConstant: 26),
+            armSvg.heightAnchor.constraint(equalToConstant: 26),
+            armSvg.widthAnchor.constraint(equalToConstant: 26),
+            chestSvg.heightAnchor.constraint(equalToConstant: 26),
+            chestSvg.widthAnchor.constraint(equalToConstant: 26),
+            waistSvg.heightAnchor.constraint(equalToConstant: 26),
+            waistSvg.widthAnchor.constraint(equalToConstant: 26),
+            legSvg.heightAnchor.constraint(equalToConstant: 26),
+            legSvg.widthAnchor.constraint(equalToConstant: 26)
+            ])
+
+        iconStack.addArrangedSubviews([headSvg, armSvg, chestSvg, waistSvg, legSvg])
     }
 
     func populate(model: ArmorSetCellModel) {
-        icons.forEach { $0.removeFromSuperview() }
-
         label.text = model.label
 
         let armor = model.armor[0]
@@ -80,15 +98,23 @@ class ArmorSetCell: CustomCell<ArmorSetCellModel> {
         configureSlotLabel(model: model, socketLevel: .two, slotLabel: levelTwoSlotLabel, imageName: "ui_slot_2_empty.svg")
         configureSlotLabel(model: model, socketLevel: .three, slotLabel: levelThreeSlotLabel, imageName: "ui_slot_3_empty.svg")
 
-        // inefficient, lets keep reference to each image
-        icons = [UIView]()
-        for svgModel in model.armor.compactMap({ $0.svgModel }) {
-            guard let imageView = SvgModelView(model: svgModel) else { continue }
-            imageView.heightAnchor.constraint(equalToConstant: 26).isActive = true
-            imageView.widthAnchor.constraint(equalToConstant: 26).isActive = true
-            icons.append(imageView)
+        headSvg.isHidden = true
+        armSvg.isHidden = true
+        chestSvg.isHidden = true
+        waistSvg.isHidden = true
+        legSvg.isHidden = true
+
+        // head, chest, arms, waist, legs
+        for armor in model.armor {
+            guard let slot = armor.slot else { continue }
+            switch slot {
+            case .head: headSvg.configure(model: armor.svgModel)
+            case .chest: armSvg.configure(model: armor.svgModel)
+            case .arms: chestSvg.configure(model: armor.svgModel)
+            case .waist: waistSvg.configure(model: armor.svgModel)
+            case .legs: legSvg.configure(model: armor.svgModel)
+            }
         }
-        iconStack.addArrangedSubviews(icons)
     }
 
     func configureSlotLabel(model: ArmorSetCellModel, socketLevel: Armor.SocketLevel, slotLabel: SvgLabel, imageName: String) {
