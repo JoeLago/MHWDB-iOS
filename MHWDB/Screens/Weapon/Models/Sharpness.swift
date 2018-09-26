@@ -6,7 +6,7 @@
 import Foundation
 
 class Sharpness {
-    static let max = 40.0
+    static let maxValue = 390.0
 
     var red = 0
     var orange = 0
@@ -27,9 +27,18 @@ class Sharpness {
         }
     }
 
-    init(string: String) {
-        let components = string.components(separatedBy: ".")
+    init(string: String, subtracting: Int = 0) {
+        var components = string.components(separatedBy: ",")
         guard components.count >= 6  else { return }
+
+        var remaining = subtracting
+        for i in (0 ... components.count - 1).reversed() {
+            guard remaining > 0 else { break }
+            let value = Int(components[i]) ?? 0
+            let valueToSubstract = min(remaining, value)
+            components[i] = "\(value - valueToSubstract)"
+            remaining -= valueToSubstract
+        }
 
         // Make this int enum and loop incrementing int i
         red = Int(components[0]) ?? 0
@@ -38,6 +47,6 @@ class Sharpness {
         green = Int(components[3]) ?? 0
         blue = Int(components[4]) ?? 0
         white = Int(components[5]) ?? 0
-        //purple = Int(components[6]) ?? 0
+        purple = Int(components[6]) ?? 0
     }
 }

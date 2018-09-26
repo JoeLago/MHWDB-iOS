@@ -26,8 +26,8 @@ class SharpnessView: UIView {
             setNeedsDisplay()
         }
     }
-    var sharpnessHeight = 0
 
+    var sharpnessHeight = 0
     var paddingTop = 2
     var paddingBottom = 2
     var y = 0
@@ -51,11 +51,11 @@ class SharpnessView: UIView {
         end = 2
         height = Int(rect.size.height) - paddingTop - paddingBottom
         let width = Double(rect.size.width) - Double(end) * 2.0
-        ratio = oneValue ? width : width / Sharpness.max
+        ratio = oneValue ? width : width / Sharpness.maxValue
         Color.Background.dark.setFill()
         UIRectFill(rect)
 
-        addColor(color: Color.Sharpness.red, amount: sharpness?.red )
+        addColor(color: Color.Sharpness.red, amount: sharpness?.red)
         addColor(color: Color.Sharpness.orange, amount: sharpness?.orange)
         addColor(color: Color.Sharpness.yellow, amount: sharpness?.yellow)
         addColor(color: Color.Sharpness.green, amount: sharpness?.green)

@@ -6,19 +6,19 @@
 import UIKit
 
 class SharpnesesView: UIView {
-    var sharpnessViews = [SharpnessView]()
+    var sharpnessViewOne = SharpnessView()
+    var sharpnessViewTwo = SharpnessView()
 
     var sharpnesses: [Sharpness]? {
         didSet {
-            guard let sharpnesses = sharpnesses, sharpnesses.count == 3  else {
+            guard let sharpnesses = sharpnesses  else {
                 isHidden = true
                 return
             }
 
             isHidden = false
-            sharpnessViews[0].sharpness = sharpnesses[0]
-            sharpnessViews[1].sharpness = sharpnesses[1]
-            sharpnessViews[2].sharpness = sharpnesses[2]
+            sharpnessViewOne.sharpness = sharpnesses[0]
+            sharpnessViewTwo.sharpness = sharpnesses[1]
         }
     }
 
@@ -32,30 +32,20 @@ class SharpnesesView: UIView {
     }
 
     func createViews() {
-        sharpnessViews.append(SharpnessView())
-        sharpnessViews.append(SharpnessView())
-        sharpnessViews.append(SharpnessView())
+        addSubview(sharpnessViewOne)
+        addSubview(sharpnessViewTwo)
 
-        addSubview(sharpnessViews[0])
-        addSubview(sharpnessViews[1])
-        addSubview(sharpnessViews[2])
-
-        sharpnessViews[0].paddingBottom = 1
-        sharpnessViews[1].paddingTop = 1
-        sharpnessViews[1].paddingBottom = 1
-        sharpnessViews[2].paddingTop = 1
-
+        sharpnessViewOne.paddingBottom = 1
+        sharpnessViewTwo.paddingTop = 1
         useConstraintsOnly()
 
         addConstraints(
             formatStrings: ["H:|[one]|",
                             "H:|[two]|",
-                            "H:|[three]|",
-                            "V:|[one(==two)][two(==one)][three(==one)]|"],
+                            "V:|[one(==two)][two(==one)]|"],
             views: [
-                "one": sharpnessViews[0],
-                "two": sharpnessViews[1],
-                "three": sharpnessViews[2]
+                "one": sharpnessViewOne,
+                "two": sharpnessViewTwo
             ],
             metrics: [:])
     }

@@ -48,13 +48,19 @@ class Weapon: Decodable, FetchableRecord {
     var phialAttack: Int?
     var shellingType: String?
     var notes: String?
+    var sharpnessValues: String?
 
     enum CodingKeys: String, CodingKey {
-        case id, parentId = "previous_weapon_id", name, type = "weapon_type", depths, attack, element = "element_type", elementAttack = "element_damage", awakenElement, awakenAttack, defense, numSlots, creationCost, upgradeCost, sell, affinity, rarity, slotOne = "slot_1", slotTwo = "slot_2", slotThree = "slot_3", recoil, reloadSpeed, rapidFire, deviation, ammoString, specialAmmo, coatings, charges, phial, phialAttack, shellingType, notes
+        case id, parentId = "previous_weapon_id", name, type = "weapon_type", depths, attack, element = "element_type", elementAttack = "element_damage", awakenElement, awakenAttack, defense, numSlots, creationCost, upgradeCost, sell, affinity, rarity, slotOne = "slot_1", slotTwo = "slot_2", slotThree = "slot_3", recoil, reloadSpeed, rapidFire, deviation, ammoString, specialAmmo, coatings, charges, phial, phialAttack, shellingType, notes, sharpnessValues="sharpness"
     }
 
     var components: [WeaponComponent] {
         return Database.shared.components(weaponId: id)
+    }
+
+    var sharpness: [Sharpness]? {
+        guard let sharpnessValues = sharpnessValues, !sharpnessValues.isEmpty else { return nil }
+        return [Sharpness(string: sharpnessValues, subtracting: 50), Sharpness(string: sharpnessValues)]
     }
 
     var coatingImageNames: [String]? {

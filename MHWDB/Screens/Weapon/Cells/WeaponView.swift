@@ -40,7 +40,7 @@ class WeaponView: TreeCellView<Weapon> {
 
     private func populateCell() {
         primaryTextLabel.text = weapon.name
-        sharpnessesView.sharpnesses = nil //weapon.sharpnesses
+        sharpnessesView.sharpnesses = weapon.sharpness
         populateAttack()
         populateSlots()
         populateAlternate()
