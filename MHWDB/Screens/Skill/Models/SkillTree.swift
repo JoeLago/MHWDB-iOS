@@ -18,7 +18,7 @@ class SkillTree: FetchableRecord, Decodable {
 
     var svgIcon: SVGImageModel? {
         let iconColor = (color ?? .white).color
-        return SVGImageModel(name: "armor-skill.svg", color: iconColor)
+        return SVGImageModel(name: "ui_armor_skill_base.svg", color: iconColor)
     }
 
     lazy var skills: [SkillTreeSkill] = { return Database.shared.skillTreeSkills(skillTreeId: self.id) }()
