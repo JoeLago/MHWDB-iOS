@@ -17,7 +17,7 @@ class LabelStack: UIStackView {
     var count = 0
     var showSeparator = false
 
-    init(axis: UILayoutConstraintAxis, length: Int? = nil) {
+    init(axis: NSLayoutConstraint.Axis, length: Int? = nil) {
         super.init(frame: .zero)
         self.axis = axis
         self.spacing = 0
@@ -101,7 +101,7 @@ class MarginLabel: UILabel {
     }
 
     override func drawText(in rect: CGRect) {
-        super.drawText(in: UIEdgeInsetsInsetRect(rect, self.edgeInsets))
+        super.drawText(in: rect.inset(by: self.edgeInsets))
     }
 
     override var intrinsicContentSize: CGSize {

@@ -1,13 +1,15 @@
 #if SWIFT_PACKAGE
-    import CSQLite
+import CSQLite
+#elseif GRDBCIPHER
+import SQLCipher
 #elseif !GRDBCUSTOMSQLITE && !GRDBCIPHER
-    import SQLite3
+import SQLite3
 #endif
 
 extension Database {
-
+    
     // MARK: - Database Schema
-
+    
     /// Clears the database schema cache.
     ///
     /// You may need to clear the cache manually if the database schema is
@@ -25,9 +27,8 @@ extension Database {
     }
     
     /// Returns whether a table exists.
-    public func tableExists(_ tableName: String) throws -> Bool {
-        // SQlite identifiers are case-insensitive, case-preserving (http://www.alberton.info/dbms_identifiers_and_case_sensitivity.html)
-        return try Row.fetchOne(self, "SELECT 1 FROM (SELECT sql, type, name FROM sqlite_master UNION SELECT sql, type, name FROM sqlite_temp_master) WHERE type = 'table' AND LOWER(name) = ?", arguments: [tableName.lowercased()]) != nil
+    public func tableExists(_ name: String) throws -> Bool {
+        return try exists(type: .table, name: name)
     }
     
     /// Returns whether a table is an internal SQLite table.
@@ -53,17 +54,24 @@ extension Database {
     }
     
     /// Returns whether a view exists.
-    public func viewExists(_ viewName: String) throws -> Bool {
-        // SQlite identifiers are case-insensitive, case-preserving (http://www.alberton.info/dbms_identifiers_and_case_sensitivity.html)
-        return try Row.fetchOne(self, "SELECT 1 FROM (SELECT sql, type, name FROM sqlite_master UNION SELECT sql, type, name FROM sqlite_temp_master) WHERE type = 'view' AND LOWER(name) = ?", arguments: [viewName.lowercased()]) != nil
+    public func viewExists(_ name: String) throws -> Bool {
+        return try exists(type: .view, name: name)
     }
     
     /// Returns whether a trigger exists.
-    public func triggerExists(_ triggerName: String) throws -> Bool {
-        // SQlite identifiers are case-insensitive, case-preserving (http://www.alberton.info/dbms_identifiers_and_case_sensitivity.html)
-        return try Row.fetchOne(self, "SELECT 1 FROM (SELECT sql, type, name FROM sqlite_master UNION SELECT sql, type, name FROM sqlite_temp_master) WHERE type = 'trigger' AND LOWER(name) = ?", arguments: [triggerName.lowercased()]) != nil
+    public func triggerExists(_ name: String) throws -> Bool {
+        return try exists(type: .trigger, name: name)
     }
-
+    
+    private func exists(type: SchemaObjectType, name: String) throws -> Bool {
+        // SQlite identifiers are case-insensitive, case-preserving:
+        // http://www.alberton.info/dbms_identifiers_and_case_sensitivity.html
+        let name = name.lowercased()
+        return try schema()
+            .names(ofType: type)
+            .contains { $0.lowercased() == name }
+    }
+    
     /// The primary key for table named `tableName`.
     ///
     /// All tables have a primary key, even when it is not explicit. When a
@@ -164,14 +172,21 @@ extension Database {
             return indexes
         }
         
-        let indexes = try Row.fetchAll(self, "PRAGMA index_list(\(tableName.quotedDatabaseIdentifier))").map { row -> IndexInfo in
-            let indexName: String = row[1]
-            let unique: Bool = row[2]
-            let columns = try Row.fetchAll(self, "PRAGMA index_info(\(indexName.quotedDatabaseIdentifier))")
-                .map { ($0[0] as Int, $0[2] as String) }
-                .sorted { $0.0 < $1.0 }
-                .map { $0.1 }
-            return IndexInfo(name: indexName, columns: columns, unique: unique)
+        let indexes = try Row
+            .fetchAll(self, sql: "PRAGMA index_list(\(tableName.quotedDatabaseIdentifier))")
+            .map { row -> IndexInfo in
+                // [seq:0 name:"index" unique:0 origin:"c" partial:0]
+                let indexName: String = row[1]
+                let unique: Bool = row[2]
+                let columns = try Row
+                    .fetchAll(self, sql: "PRAGMA index_info(\(indexName.quotedDatabaseIdentifier))")
+                    .map { row -> (Int, String) in
+                        // [seqno:0 cid:2 name:"column"]
+                        (row[0] as Int, row[2] as String)
+                    }
+                    .sorted { $0.0 < $1.0 }
+                    .map { $0.1 }
+                return IndexInfo(name: indexName, columns: columns, unique: unique)
         }
         
         if indexes.isEmpty {
@@ -188,7 +203,12 @@ extension Database {
     
     /// True if a sequence of columns uniquely identifies a row, that is to say
     /// if the columns are the primary key, or if there is a unique index on them.
-    public func table<T: Sequence>(_ tableName: String, hasUniqueKey columns: T) throws -> Bool where T.Iterator.Element == String {
+    public func table<T: Sequence>(
+        _ tableName: String,
+        hasUniqueKey columns: T)
+        throws -> Bool
+        where T.Iterator.Element == String
+    {
         return try columnsForUniqueKey(Array(columns), in: tableName) != nil
     }
     
@@ -198,9 +218,11 @@ extension Database {
             return foreignKeys
         }
         
-        var rawForeignKeys: [(destinationTable: String, mapping: [(origin: String, destination: String?, seq: Int)])] = []
+        var rawForeignKeys: [(
+            destinationTable: String,
+            mapping: [(origin: String, destination: String?, seq: Int)])] = []
         var previousId: Int? = nil
-        for row in try Row.fetchAll(self, "PRAGMA foreign_key_list(\(tableName.quotedDatabaseIdentifier))") {
+        for row in try Row.fetchAll(self, sql: "PRAGMA foreign_key_list(\(tableName.quotedDatabaseIdentifier))") {
             // row = [id:0 seq:0 table:"parents" from:"parentId" to:"id" on_update:"..." on_delete:"..." match:"..."]
             let id: Int = row[0]
             let seq: Int = row[1]
@@ -209,9 +231,13 @@ extension Database {
             let destination: String? = row[4]
             
             if previousId == id {
-                rawForeignKeys[rawForeignKeys.count - 1].mapping.append((origin: origin, destination: destination, seq: seq))
+                rawForeignKeys[rawForeignKeys.count - 1]
+                    .mapping
+                    .append((origin: origin, destination: destination, seq: seq))
             } else {
-                rawForeignKeys.append((destinationTable: table, mapping: [(origin: origin, destination: destination, seq: seq)]))
+                rawForeignKeys.append((
+                    destinationTable: table,
+                    mapping: [(origin: origin, destination: destination, seq: seq)]))
                 previousId = id
             }
         }
@@ -249,32 +275,24 @@ extension Database {
     
     /// Returns the actual name of the database table
     func canonicalTableName(_ tableName: String) throws -> String {
-        if let canonicalTableName = schemaCache.canonicalTableName(tableName) {
-            return canonicalTableName
-        }
-        
-        guard let canonicalTableName = try String.fetchOne(self, """
-            SELECT name FROM (
-                SELECT name, type FROM sqlite_master
-                UNION
-                SELECT name, type FROM sqlite_temp_master)
-            WHERE type = 'table' AND LOWER(name) = ?
-            """, arguments: [tableName.lowercased()])
-        else {
+        guard let name = try schema().canonicalName(tableName, ofType: .table) else {
             throw DatabaseError(message: "no such table: \(tableName)")
         }
-        
-        schemaCache.set(canonicalTableName: canonicalTableName, forTable: tableName)
-        return canonicalTableName
+        return name
     }
     
     func schema() throws -> SchemaInfo {
-        return try SchemaInfo(self)
+        if let schemaInfo = schemaCache.schemaInfo {
+            return schemaInfo
+        }
+        let schemaInfo = try SchemaInfo(self)
+        schemaCache.schemaInfo = schemaInfo
+        return schemaInfo
     }
 }
 
 extension Database {
-
+    
     /// The columns in the table named `tableName`
     ///
     /// - throws: A DatabaseError if table does not exist.
@@ -306,7 +324,7 @@ extension Database {
         // 0   | id    | INTEGER | 0       | NULL       | 1  |
         // 1   | name  | TEXT    | 0       | NULL       | 0  |
         // 2   | score | INTEGER | 0       | NULL       | 0  |
-
+        
         if sqlite3_libversion_number() < 3008005 {
             // Work around a bug in SQLite where PRAGMA table_info would
             // return a result even after the table was deleted.
@@ -315,9 +333,9 @@ extension Database {
             }
         }
         let columns = try ColumnInfo
-            .fetchAll(self, "PRAGMA table_info(\(tableName.quotedDatabaseIdentifier))")
+            .fetchAll(self, sql: "PRAGMA table_info(\(tableName.quotedDatabaseIdentifier))")
             .sorted(by: { $0.cid < $1.cid })
-        guard columns.count > 0 else {
+        if columns.isEmpty {
             throw DatabaseError(message: "no such table: \(tableName)")
         }
         
@@ -328,14 +346,25 @@ extension Database {
     /// If there exists a unique key on columns, return the columns
     /// ordered as the matching index (or primay key). Case of returned columns
     /// is not guaranteed.
-    func columnsForUniqueKey<T: Sequence>(_ columns: T, in tableName: String) throws -> [String]? where T.Iterator.Element == String {
-        let primaryKey = try self.primaryKey(tableName) // first, so that we fail early and consistently should the table not exist
+    func columnsForUniqueKey<T: Sequence>(
+        _ columns: T,
+        in tableName: String)
+        throws -> [String]?
+        where T.Iterator.Element == String
+    {
+        // Check primaryKey first, so that we fail early if the table does not exist
+        let primaryKey = try self.primaryKey(tableName)
         let lowercasedColumns = Set(columns.map { $0.lowercased() })
         if Set(primaryKey.columns.map { $0.lowercased() }) == lowercasedColumns {
             return primaryKey.columns
         }
-        if let index = try indexes(on: tableName).first(where: { index in index.isUnique && Set(index.columns.map { $0.lowercased() }) == lowercasedColumns }) {
-            // There is an explicit unique index on the columns
+        
+        // Is there is an explicit unique index on the columns?
+        let indexes = try self.indexes(on: tableName)
+        let matchingIndex = indexes.first { index in
+            index.isUnique && Set(index.columns.map { $0.lowercased() }) == lowercasedColumns
+        }
+        if let index = matchingIndex {
             return index.columns
         }
         return nil
@@ -359,7 +388,7 @@ extension Database {
 ///     2     score  INTEGER  0         NULL        0
 ///
 /// See `Database.columns(in:)` and https://www.sqlite.org/pragma.html#pragma_table_info
-public struct ColumnInfo : FetchableRecord {
+public struct ColumnInfo: FetchableRecord {
     let cid: Int
     
     /// The column name
@@ -381,7 +410,7 @@ public struct ColumnInfo : FetchableRecord {
     ///
     /// For example:
     ///
-    ///     try db.execute("""
+    ///     try db.execute(sql: """
     ///         CREATE TABLE player(
     ///             id INTEGER PRIMARY KEY,
     ///             name TEXT DEFAULT 'Anonymous',
@@ -563,23 +592,47 @@ public struct ForeignKeyInfo {
     }
 }
 
+enum SchemaObjectType: String {
+    case index
+    case table
+    case trigger
+    case view
+}
+
 struct SchemaInfo: Equatable {
-    var objects: [SchemaKey: String?]
+    private var objects: Set<SchemaObject>
     
     init(_ db: Database) throws {
-        objects = try Dictionary(uniqueKeysWithValues: Row
-            .fetchAll(db, "SELECT type, name, tbl_name, sql FROM sqlite_master")
-            .map { row in (SchemaKey(row: row), row["sql"]) })
+        objects = try Set(SchemaObject.fetchCursor(db, sql: """
+            SELECT type, name, tbl_name, sql, 0 AS isTemporary FROM sqlite_master \
+            UNION \
+            SELECT type, name, tbl_name, sql, 1 FROM sqlite_temp_master
+            """))
     }
     
-    struct SchemaKey: Codable, Hashable, FetchableRecord {
+    /// All names for a given type
+    func names(ofType type: SchemaObjectType) -> Set<String> {
+        return objects.reduce(into: []) { (set, key) in
+            if key.type == type.rawValue {
+                set.insert(key.name)
+            }
+        }
+    }
+    
+    /// Returns the canonical name of the object:
+    ///
+    ///     try db.execute(sql: "CREATE TABLE FooBar (...)")
+    ///     try db.schema().canonicalName("foobar", ofType: .table) // "FooBar"
+    func canonicalName(_ name: String, ofType type: SchemaObjectType) -> String? {
+        let name = name.lowercased()
+        return objects.first { $0.name.lowercased() == name }?.name
+    }
+    
+    private struct SchemaObject: Codable, Hashable, FetchableRecord {
         var type: String
         var name: String
         var tbl_name: String?
-        
-        // TODO: remove when Hashable conformance is synthesized
-        var hashValue: Int {
-            return type.hashValue ^ name.hashValue ^ (tbl_name?.hashValue ?? 0)
-        }
+        var sql: String?
+        var isTemporary: Bool
     }
 }

@@ -12,7 +12,6 @@ class SearchAllController: UISearchController {
         searchListController.mainViewController = mainViewController
         super.init(searchResultsController: searchListController)
         searchResultsUpdater = searchListController
-        dimsBackgroundDuringPresentation = true
         hidesNavigationBarDuringPresentation = true
     }
 
@@ -31,7 +30,7 @@ class SearchAllListController: TableController {
     var searchText: String?
     var deferredSearch: String?
     var searchRequest: SearchRequest?
-    let spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+    let spinner = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
 
     override func viewDidLoad() {
         super.viewDidLoad()

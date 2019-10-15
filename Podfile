@@ -1,10 +1,10 @@
-platform :ios, '8.0'
+platform :ios, '13.0'
 
 target 'MHWDB' do
     use_frameworks!
     
     pod 'GRDB.swift'
-    pod 'SVGKit', :git => 'https://github.com/SVGKit/SVGKit.git', :branch => '2.x', :inhibit_warnings => true
+    pod 'SVGKit', :git => 'https://github.com/SVGKit/SVGKit.git', :branch => '3.x', :inhibit_warnings => true
     pod 'SwiftLint'
     pod 'SwiftyUserDefaults'
     

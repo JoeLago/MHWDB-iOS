@@ -22,7 +22,7 @@ import Dispatch
 /// - preconditionValidQueue() crashes whenever a database is used in an invalid
 ///   dispatch queue.
 final class SchedulingWatchdog {
-    private static let specificKey = DispatchSpecificKey<SchedulingWatchdog>()
+    private static let watchDogKey = DispatchSpecificKey<SchedulingWatchdog>()
     private(set) var allowedDatabases: [Database]
     var databaseObservationBroker: DatabaseObservationBroker?
     
@@ -30,11 +30,10 @@ final class SchedulingWatchdog {
         allowedDatabases = [database]
     }
     
-    static func makeSerializedQueue(allowingDatabase database: Database, label: String) -> DispatchQueue {
-        let queue = DispatchQueue(label: label)
+    static func allowDatabase(_ database: Database, onQueue queue: DispatchQueue) {
+        precondition(queue.getSpecific(key: watchDogKey) == nil)
         let watchdog = SchedulingWatchdog(allowedDatabase: database)
-        queue.setSpecific(key: specificKey, value: watchdog)
-        return queue
+        queue.setSpecific(key: watchDogKey, value: watchdog)
     }
     
     func inheritingAllowedDatabases<T>(from other: SchedulingWatchdog, execute body: () throws -> T) rethrows -> T {
@@ -44,12 +43,17 @@ final class SchedulingWatchdog {
         return try body()
     }
     
-    static func preconditionValidQueue(_ db: Database, _ message: @autoclosure() -> String = "Database was not used on the correct thread.", file: StaticString = #file, line: UInt = #line) {
-        GRDBPrecondition(current?.allows(db) ?? false, message, file: file, line: line)
+    static func preconditionValidQueue(
+        _ db: Database,
+        _ message: @autoclosure() -> String = "Database was not used on the correct thread.",
+        file: StaticString = #file,
+        line: UInt = #line)
+    {
+        GRDBPrecondition(current?.allows(db) ?? false, message(), file: file, line: line)
     }
     
     static var current: SchedulingWatchdog? {
-        return DispatchQueue.getSpecific(key: specificKey)
+        return DispatchQueue.getSpecific(key: watchDogKey)
     }
     
     func allows(_ db: Database) -> Bool {

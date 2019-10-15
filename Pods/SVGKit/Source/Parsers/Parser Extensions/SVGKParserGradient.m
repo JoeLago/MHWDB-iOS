@@ -13,41 +13,44 @@
 #import "SVGGradientStop.h"
 
 #import "SVGGradientElement.h"
+#import "SVGLinearGradientElement.h"
+#import "SVGRadialGradientElement.h"
+
+@interface SVGKParserGradient ()
+@property (nonatomic) NSArray *supportedNamespaces;
+@property (nonatomic) NSArray *supportedTags;
+@end
 
 @implementation SVGKParserGradient
 
-//-(NSSet*) supportedNamespaces
-//{
-//    if( self->_supportedNamespaces == nil )
-//        self->_supportedNamespaces = [[NSSet alloc] initWithObjects:
-//                        @"http://www.w3.org/2000/svg",
-//                        nil];
-//	return self->_supportedNamespaces;
-//}
-
-static NSSet *_svgGradientParserSupportedTags = nil;
--(NSSet *)supportedTags
+-(NSArray *)supportedNamespaces
 {
-//    static NSSet *supportedTags = nil;
-    if( _svgGradientParserSupportedTags == nil )
-        _svgGradientParserSupportedTags = [[NSSet alloc] initWithObjects:@"linearGradient", @"radialGradient", @"stop", nil];
-    return _svgGradientParserSupportedTags;
+    if( _supportedNamespaces == nil )
+        _supportedNamespaces = @[@"http://www.w3.org/2000/svg"];
+    return _supportedNamespaces;
+}
+
+-(NSArray *)supportedTags
+{
+    if( _supportedTags == nil )
+        _supportedTags = @[@"linearGradient", @"radialGradient", @"stop"];
+    return _supportedTags;
 }
 
 -(Node *)handleStartElement:(NSString *)name document:(SVGKSource *)document namePrefix:(NSString *)prefix namespaceURI:(NSString *)XMLNSURI attributes:(NSMutableDictionary *)attributes parseResult:(SVGKParseResult *)parseResult parentNode:(Node *)parentNode
-{
-//    SVGColor startColor = SVGColorFromString(<#const char *string#>)
-//    CGPoint startPos = CGPointMake([attributes objectFor, <#CGFloat y#>)
-    
+{    
     Node *returnObject = nil;
     
-    NSRange range = [name rangeOfString:@"Gradient"];
-    if( ( range.location != NSNotFound) )
+    if( [name isEqualToString:@"linearGradient"] )
     {
-        returnObject = currentElement = [[SVGGradientElement alloc] initWithQualifiedName:name inNameSpaceURI:XMLNSURI attributes:attributes];
+        returnObject = currentElement = [[SVGLinearGradientElement alloc] initWithQualifiedName:name inNameSpaceURI:XMLNSURI attributes:attributes];
         [currentElement postProcessAttributesAddingErrorsTo:parseResult];
         
 		/** No need to "store" anything; the node has been parsed, it'll be added to the DOM tree, and accessible later via DOM methods -- which is what the SVG spec expects us to do */
+    }
+    else if( [name isEqualToString:@"radialGradient"] ) {
+        returnObject = currentElement = [[SVGRadialGradientElement alloc] initWithQualifiedName:name inNameSpaceURI:XMLNSURI attributes:attributes];
+        [currentElement postProcessAttributesAddingErrorsTo:parseResult];
     }
     else if( [name isEqualToString:@"stop"] )
     {
@@ -93,12 +96,6 @@ static NSSet *_svgGradientParserSupportedTags = nil;
 //    currentElement = nil;
 //    [super dealloc];
 //}
-
-
-+(void)trim
-{
-    _svgGradientParserSupportedTags = nil;
-}
 
 
 @end

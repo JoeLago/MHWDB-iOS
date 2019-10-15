@@ -120,6 +120,19 @@ static float cachedDevicePixelsPerInch;
     return [self pixelsValue];
 }
 
+-(float) pixelsValueWithGradientDimension:(float)dimension
+{
+    if (self.internalCSSPrimitiveValue.primitiveType == CSS_PERCENTAGE) {
+        return dimension * self.value / 100.0;
+    } else if (self.internalCSSPrimitiveValue.primitiveType == CSS_NUMBER) {
+        if (self.value >= 0 && self.value <= 1) {
+            return dimension * self.value;
+        }
+    }
+    
+    return [self pixelsValue];
+}
+
 -(float) numberValue
 {
 	return [self.internalCSSPrimitiveValue getFloatValue:CSS_NUMBER];
@@ -196,7 +209,8 @@ static float cachedDevicePixelsPerInch;
 	|| [platform hasPrefix:@"iPad5,3"]
     || [platform hasPrefix:@"iPad5,4"]
 	|| [platform hasPrefix:@"iPad6"]
-    || [platform hasPrefix:@"iPad7"])
+    || [platform hasPrefix:@"iPad7"]
+    || [platform hasPrefix:@"iPad8"])
 		return 264.0f;
     
 	if( [platform hasPrefix:@"iPad"]) // catch-all for higher-end devices not yet existing

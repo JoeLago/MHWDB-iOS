@@ -23,7 +23,7 @@ class Node<T> {
         var branches = parent?.getBranches(childNode: self) ?? [Bool]()
 
         if let childNode = childNode {
-            let index = children.index(where: { (node: Node<T>) -> Bool in
+            let index = children.firstIndex(where: { (node: Node<T>) -> Bool in
                 node === childNode
             })
 

@@ -1,18 +1,20 @@
+import Dispatch
+
 /// A DatabaseSnapshot sees an unchanging database content, as it existed at the
 /// moment it was created.
 ///
 /// See DatabasePool.makeSnapshot()
 ///
 /// For more information, read about "snapshot isolation" at https://sqlite.org/isolation.html
-public class DatabaseSnapshot : DatabaseReader {
+public class DatabaseSnapshot: DatabaseReader {
     private var serializedDatabase: SerializedDatabase
     
     /// The database configuration
-    var configuration: Configuration {
+    public var configuration: Configuration {
         return serializedDatabase.configuration
     }
     
-    init(path: String, configuration: Configuration = Configuration(), labelSuffix: String) throws {
+    init(path: String, configuration: Configuration = Configuration(), defaultLabel: String, purpose: String) throws {
         var configuration = configuration
         configuration.readonly = true
         configuration.allowsUnsafeTransactions = true // Snaphost keeps a long-lived transaction
@@ -21,21 +23,16 @@ public class DatabaseSnapshot : DatabaseReader {
             path: path,
             configuration: configuration,
             schemaCache: SimpleDatabaseSchemaCache(),
-            label: (configuration.label ?? "GRDB.DatabasePool") + labelSuffix)
+            defaultLabel: defaultLabel,
+            purpose: purpose)
         
         try serializedDatabase.sync { db in
             // Assert WAL mode
-            let journalMode = try String.fetchOne(db, "PRAGMA journal_mode")
+            let journalMode = try String.fetchOne(db, sql: "PRAGMA journal_mode")
             guard journalMode == "wal" else {
                 throw DatabaseError(message: "WAL mode is not activated at path: \(path)")
             }
-            
-            // Establish snapshot isolation (see deinit)
-            try db.beginTransaction(.deferred)
-            
-            // Take snapshot
-            // See DatabasePool.readFromCurrentState for a complete discussion
-            try db.makeSelectStatement("SELECT rootpage FROM sqlite_master").cursor().next()
+            try db.beginSnapshotIsolation()
         }
     }
     
@@ -65,6 +62,24 @@ extension DatabaseSnapshot {
         return try serializedDatabase.sync(block)
     }
     
+    #if compiler(>=5.0)
+    /// Asynchronously executes a read-only block in a protected dispatch queue.
+    ///
+    ///     let players = try snapshot.asyncRead { result in
+    ///         do {
+    ///             let db = try result.get()
+    ///             let count = try Player.fetchCount(db)
+    ///         } catch {
+    ///             // Handle error
+    ///         }
+    ///     }
+    ///
+    /// - parameter block: A block that accesses the database.
+    public func asyncRead(_ block: @escaping (Result<Database, Error>) -> Void) {
+        serializedDatabase.async { block(.success($0)) }
+    }
+    #endif
+    
     /// Alias for `read`. See `DatabaseReader.unsafeRead`.
     ///
     /// :nodoc:
@@ -81,45 +96,79 @@ extension DatabaseSnapshot {
     
     // MARK: - Functions
     
-    /// Add or redefine an SQL function.
-    ///
-    ///     let fn = DatabaseFunction("succ", argumentCount: 1) { dbValues in
-    ///         guard let int = Int.fromDatabaseValue(dbValues[0]) else {
-    ///             return nil
-    ///         }
-    ///         return int + 1
-    ///     }
-    ///     snapshot.add(function: fn)
-    ///     try snapshot.read { db in
-    ///         try Int.fetchOne(db, "SELECT succ(1)") // 2
-    ///     }
     public func add(function: DatabaseFunction) {
         serializedDatabase.sync { $0.add(function: function) }
     }
     
-    /// Remove an SQL function.
     public func remove(function: DatabaseFunction) {
         serializedDatabase.sync { $0.remove(function: function) }
     }
     
     // MARK: - Collations
     
-    /// Add or redefine a collation.
-    ///
-    ///     let collation = DatabaseCollation("localized_standard") { (string1, string2) in
-    ///         return (string1 as NSString).localizedStandardCompare(string2)
-    ///     }
-    ///     snapshot.add(collation: collation)
-    ///     let files = try snapshot.read { db in
-    ///         try File.fetchAll(db, "SELECT * FROM file ORDER BY name COLLATE localized_standard")
-    ///     }
     public func add(collation: DatabaseCollation) {
         serializedDatabase.sync { $0.add(collation: collation) }
     }
     
-    /// Remove a collation.
     public func remove(collation: DatabaseCollation) {
         serializedDatabase.sync { $0.remove(collation: collation) }
     }
+    
+    // MARK: - Value Observation
+    
+    public func add<Reducer: ValueReducer>(
+        observation: ValueObservation<Reducer>,
+        onError: @escaping (Error) -> Void,
+        onChange: @escaping (Reducer.Value) -> Void)
+        -> TransactionObserver
+    {
+        // TODO: fetch asynchronously when possible
+        do {
+            // Deal with initial value
+            switch observation.scheduling {
+            case .mainQueue:
+                if let value = try unsafeReentrantRead(observation.fetchFirst) {
+                    if DispatchQueue.isMain {
+                        onChange(value)
+                    } else {
+                        DispatchQueue.main.async {
+                            onChange(value)
+                        }
+                    }
+                }
+            case let .async(onQueue: queue, startImmediately: startImmediately):
+                if startImmediately {
+                    if let value = try unsafeReentrantRead(observation.fetchFirst) {
+                        queue.async {
+                            onChange(value)
+                        }
+                    }
+                }
+            case let .unsafe(startImmediately: startImmediately):
+                if startImmediately {
+                    if let value = try unsafeReentrantRead(observation.fetchFirst) {
+                        onChange(value)
+                    }
+                }
+            }
+        } catch {
+            onError(error)
+        }
+        
+        // Return a dummy observer, because snapshots never change
+        return SnapshotValueObserver()
+    }
+    
+    public func remove(transactionObserver: TransactionObserver) {
+        // Can't remove an observer which could not be added :-)
+    }
 }
 
+/// An observer that does nothing, support for
+/// `DatabaseSnapshot.add(observation:onError:onChange:)`.
+private class SnapshotValueObserver: TransactionObserver {
+    func observes(eventsOfKind eventKind: DatabaseEventKind) -> Bool { return false }
+    func databaseDidChange(with event: DatabaseEvent) { }
+    func databaseDidCommit(_ db: Database) { }
+    func databaseDidRollback(_ db: Database) { }
+}

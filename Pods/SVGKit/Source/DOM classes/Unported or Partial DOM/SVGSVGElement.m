@@ -7,10 +7,6 @@
 
 #import "SVGElement_ForParser.h" // to resolve Xcode circular dependencies; in long term, parsing SHOULD NOT HAPPEN inside any class whose name starts "SVG" (because those are reserved classes for the SVG Spec)
 
-#if TARGET_OS_IPHONE
-#import <UIKit/UIKit.h>
-#endif
-
 @interface SVGSVGElement()
 #pragma mark - elements REQUIRED to implement the spec but not included in SVG Spec due to bugs in the spec writing!
 @property(nonatomic,readwrite) SVGRect requestedViewport;
@@ -158,6 +154,19 @@
 	NSString* stringWidth = [self getAttribute:@"width"];
 	NSString* stringHeight = [self getAttribute:@"height"];
 	
+    NSString* pos_x = [self getAttribute:@"x"];
+    NSString* pos_y = [self getAttribute:@"y"];
+    
+    if (pos_x == nil || pos_x.length < 1)
+        self.x = 0; // i.e. undefined
+    else
+        self.x = [SVGLength svgLengthFromNSString:pos_x];
+    
+    if (pos_y == nil || pos_y.length < 1)
+        self.y = 0; // i.e. undefined
+    else
+        self.y = [SVGLength svgLengthFromNSString:pos_y];
+    
 	if( stringWidth == nil || stringWidth.length < 1 )
 		self.width = nil; // i.e. undefined
 	else
@@ -181,11 +190,11 @@
 	if( self.height.unitType == SVG_LENGTHTYPE_PERCENTAGE )
 		self.height = nil;
 	
-	/* set the frameRequestedViewport appropriately (NB: spec doesn't allow for this but it REQUIRES it to be done and saved!) */
-	if( self.width != nil && self.height != nil )
-		self.requestedViewport = SVGRectMake( 0, 0, [self.width pixelsValue], [self.height pixelsValue] );
-	else
-		self.requestedViewport = SVGRectUninitialized();
+    /* set the frameRequestedViewport appropriately (NB: spec doesn't allow for this but it REQUIRES it to be done and saved!) */
+    if( self.width != nil && self.height != nil )
+        self.requestedViewport = SVGRectMake( [self.x pixelsValue], [self.y pixelsValue], [self.width pixelsValue], [self.height pixelsValue] );
+    else
+        self.requestedViewport = SVGRectUninitialized();
 	
 	
 	/**
@@ -221,14 +230,8 @@
 		self.width = nil; // i.e. undefined
 	else
 		self.width = [SVGLength svgLengthFromNSString:[self getAttribute:@"width"]];
-	    //osx logging
-#if TARGET_OS_IPHONE        
-        SVGKitLogVerbose(@"[%@] DEBUG INFO: set document viewBox = %@", [self class], NSStringFromCGRect( CGRectFromSVGRect(self.viewBox)));
-#else
-        //mac logging
-     SVGKitLogVerbose(@"[%@] DEBUG INFO: set document viewBox = %@", [self class], NSStringFromRect(self.viewBox));
-#endif   
-	
+    // logging
+    SVGKitLogVerbose(@"[%@] DEBUG INFO: set document viewBox = %@", [self class], NSStringFromSVGRect(self.viewBox));
 }
 
 - (SVGElement *)findFirstElementOfClass:(Class)classParameter {

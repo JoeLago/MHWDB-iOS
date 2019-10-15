@@ -7,29 +7,15 @@
 #import "SVGKImage.h"
 #import "SVGKSourceURL.h"
 #import "SVGKSourceNSData.h"
+#import "SVGKInlineResource.h"
 
-#if TARGET_OS_IPHONE
-
-#import <UIKit/UIKit.h>
-
-#else
-#endif
-
-#if TARGET_OS_IPHONE
-#define AppleNativeImage UIImage
-#else
-#define AppleNativeImage CIImage
-#endif
-
-#define AppleNativeImageRef AppleNativeImage*
-
-CGImageRef SVGImageCGImage(AppleNativeImageRef img)
+CGImageRef SVGImageCGImage(UIImage *img)
 {
-#if TARGET_OS_IPHONE
+#if SVGKIT_UIKIT
     return img.CGImage;
 #else
-    NSBitmapImageRep* rep = [[[NSBitmapImageRep alloc] initWithCIImage:img] autorelease];
-    return rep.CGImage;
+    CGImageRef cgImage = [img CGImageForProposedRect:NULL context:nil hints:nil];
+    return cgImage;
 #endif
 }
 
@@ -98,17 +84,21 @@ CGImageRef SVGImageCGImage(AppleNativeImageRef img)
 	{
 		effectiveSource = [self.rootOfCurrentDocumentFragment.source sourceFromRelativePath:_href];
 		NSInputStream *stream = effectiveSource.stream;
-		[stream open]; // if we do this, we CANNOT parse from this source again in future
-        NSError *error = nil;
-		imageData = [NSData dataWithContentsOfStream:stream initialCapacity:NSUIntegerMax error:&error];
-		if( error )
-			SVGKitLogError(@"[%@] ERROR: unable to read stream from %@ into NSData: %@", [self class], _href, error);
+        if (stream) {
+            [stream open]; // if we do this, we CANNOT parse from this source again in future
+            NSError *error = nil;
+            imageData = [NSData dataWithContentsOfStream:stream initialCapacity:NSUIntegerMax error:&error];
+            if( error )
+                SVGKitLogError(@"[%@] ERROR: unable to read stream from %@ into NSData: %@", [self class], _href, error);
+        } else {
+            SVGKitLogError(@"[%@] ERROR: unable to load the source from URL: %@", [self class], _href);
+        }
 	}
 	
 	/** Now we have some raw bytes, try to load using Apple's image loaders
 	 (will fail if the image is an SVG file)
 	 */
-	AppleNativeImageRef image = [AppleNativeImage imageWithData:imageData];
+	UIImage *image = [[UIImage alloc] initWithData:imageData];
 	
     if( image == nil ) // NSData doesn't contain an imageformat Apple supports; might be an SVG instead
     {
@@ -139,6 +129,11 @@ CGImageRef SVGImageCGImage(AppleNativeImageRef img)
             {
                 image = svg.UIImage;
             }
+        }
+        
+        // If still fail, use the broken image placeholder
+        if (!image) {
+            image = SVGKGetBrokenImageRepresentation();
         }
     }
     

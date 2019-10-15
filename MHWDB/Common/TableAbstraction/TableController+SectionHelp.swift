@@ -10,7 +10,7 @@ import UIKit
 extension TableController {
 
     func getPushBlock<T>(_ vcBlock: ((T) -> UIViewController)?) -> ((T) -> Void)? {
-        var pushBlock: ((T) -> Void)? = nil
+        var pushBlock: ((T) -> Void)?
         if let selectionBlock = vcBlock {
             pushBlock = { [unowned self] (model: T) in
                 self.push(selectionBlock(model))

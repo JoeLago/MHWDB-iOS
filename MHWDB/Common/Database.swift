@@ -26,7 +26,7 @@ class Database {
     func fetch<T: FetchableRecord>(_ query: String) -> T? {
         do {
             return try dbQueue.inDatabase { db in
-                return try T.fetchOne(db, query)
+                return try T.fetchOne(db, sql: query)
             }
         } catch {
             return nil
@@ -41,12 +41,8 @@ class Database {
     func fetch<T: FetchableRecord>(_ query: String, params: [DatabaseValueConvertible?]? = nil) -> [T] {
         do {
             return try dbQueue.inDatabase { db in
-                var arguments: StatementArguments? = nil
-                if let params = params {
-                    arguments = StatementArguments(params)
-                }
-
-                return try T.fetchAll(db, query, arguments: arguments, adapter: nil)
+                let arguments = params.map { StatementArguments($0) } ??  StatementArguments()
+                return try T.fetchAll(db, sql: query, arguments: arguments, adapter: nil)
             }
         } catch let error as DatabaseError {
             print(error.description)

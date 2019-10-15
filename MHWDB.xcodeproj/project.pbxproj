@@ -933,7 +933,6 @@
 		14E704041EB6506400EA2E71 /* MonsterDamagesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E704031EB6506300EA2E71 /* MonsterDamagesCell.swift */; };
 		14E704141EB8E9FC00EA2E71 /* PalicoWeapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E704131EB8E9FC00EA2E71 /* PalicoWeapon.swift */; };
 		14E704181EB8EB5100EA2E71 /* PalicoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E704171EB8EB5100EA2E71 /* PalicoList.swift */; };
-		3D4882AD20FD0490A2C25B6F /* Pods_MHGDBTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9892914A22C05CA6D6C7171 /* Pods_MHGDBTests.framework */; };
 		613A51D7ED0F8DD41DD8F38D /* Pods_MHWDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28A362D7A0E8494F3767C6D0 /* Pods_MHWDB.framework */; };
 		F78D3235AA09D8152D4C51CF /* Pods_MHWDBTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F77642DEAA528D99A1B9B18 /* Pods_MHWDBTests.framework */; };
 /* End PBXBuildFile section */
@@ -1888,7 +1887,6 @@
 		9DC8FEAA00F92625E1C49D7B /* Pods_MHGDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MHGDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1F779AA8AA898125FD4B1A5 /* Pods-MHGDBTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHGDBTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MHGDBTests/Pods-MHGDBTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BC142E68CE1D130ADF025186 /* Pods-MHWDB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHWDB.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MHWDB/Pods-MHWDB.debug.xcconfig"; sourceTree = "<group>"; };
-		C9892914A22C05CA6D6C7171 /* Pods_MHGDBTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MHGDBTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F481373F95A51309BFE3C1FD /* Pods-MHGDB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHGDB.release.xcconfig"; path = "Pods/Target Support Files/Pods-MHGDB/Pods-MHGDB.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1905,7 +1903,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3D4882AD20FD0490A2C25B6F /* Pods_MHGDBTests.framework in Frameworks */,
 				F78D3235AA09D8152D4C51CF /* Pods_MHWDBTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3514,7 +3511,6 @@
 			isa = PBXGroup;
 			children = (
 				9DC8FEAA00F92625E1C49D7B /* Pods_MHGDB.framework */,
-				C9892914A22C05CA6D6C7171 /* Pods_MHGDBTests.framework */,
 				28A362D7A0E8494F3767C6D0 /* Pods_MHWDB.framework */,
 				3F77642DEAA528D99A1B9B18 /* Pods_MHWDBTests.framework */,
 			);
@@ -3533,7 +3529,6 @@
 				145495611EA9CEC5004FA5FA /* Frameworks */,
 				145495621EA9CEC5004FA5FA /* Resources */,
 				ACA9E2710F7866E5627A84A2 /* [CP] Embed Pods Frameworks */,
-				42814B82B542D5C95628D589 /* [CP] Copy Pods Resources */,
 				149CFE5D20B93D940004A57D /* ShellScript */,
 			);
 			buildRules = (
@@ -3553,8 +3548,6 @@
 				145495741EA9CEC5004FA5FA /* Sources */,
 				145495751EA9CEC5004FA5FA /* Frameworks */,
 				145495761EA9CEC5004FA5FA /* Resources */,
-				D98C1CB66DD2FFCEE96DCD94 /* [CP] Embed Pods Frameworks */,
-				D9E8C6F65F10CA0E7A444145 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -3573,12 +3566,13 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1110;
 				ORGANIZATIONNAME = "Gathering Hall Studios";
 				TargetAttributes = {
 					145495631EA9CEC5004FA5FA = {
 						CreatedOnToolsVersion = 8.3.1;
 						DevelopmentTeam = YNK39UG84R;
+						LastSwiftMigration = 1110;
 						ProvisioningStyle = Automatic;
 					};
 					145495771EA9CEC5004FA5FA = {
@@ -3591,7 +3585,7 @@
 			};
 			buildConfigurationList = 1454955F1EA9CEC5004FA5FA /* Build configuration list for PBXProject "MHWDB" */;
 			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -4455,21 +4449,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		42814B82B542D5C95628D589 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MHWDB/Pods-MHWDB-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		9B23B679CB901212E20737DD /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -4494,7 +4473,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MHWDB/Pods-MHWDB-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-MHWDB/Pods-MHWDB-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
 				"${BUILT_PRODUCTS_DIR}/GRDB.swift/GRDB.framework",
 				"${BUILT_PRODUCTS_DIR}/SVGKit/SVGKit.framework",
@@ -4509,37 +4488,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MHWDB/Pods-MHWDB-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D98C1CB66DD2FFCEE96DCD94 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MHWDBTests/Pods-MHWDBTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D9E8C6F65F10CA0E7A444145 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MHWDBTests/Pods-MHWDBTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MHWDB/Pods-MHWDB-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -4713,6 +4662,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -4772,6 +4722,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -4827,11 +4778,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = YNK39UG84R;
 				INFOPLIST_FILE = MHWDB/Assets/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ghstudios.MHWDB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -4843,11 +4794,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = YNK39UG84R;
 				INFOPLIST_FILE = MHWDB/Assets/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ghstudios.MHWDB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

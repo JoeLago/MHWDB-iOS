@@ -32,7 +32,7 @@ class TableController: UITableViewController {
 
     override func loadView() {
         super.loadView()
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 40
 
         // This makes collapse/expand animations very glitchy
