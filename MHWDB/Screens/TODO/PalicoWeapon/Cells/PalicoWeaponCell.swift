@@ -62,13 +62,13 @@ class PalicoWeaponCell: CustomCell<PalicoWeapon> {
 
     func addViews() {
         nameLabel.font = Font.titleMedium
-        nameLabel.textColor = Color.Text.primary
+        nameLabel.textColor = DepracatedColor.Text.primary
         meleeLabel.font = Font.subTitle
-        meleeLabel.textColor = Color.Text.primary
+        meleeLabel.textColor = DepracatedColor.Text.primary
         rangedLabel.font = Font.subTitle
-        rangedLabel.textColor = Color.Text.primary
+        rangedLabel.textColor = DepracatedColor.Text.primary
         balanceLabel.font = Font.subTitle
-        balanceLabel.textColor = Color.Text.secondary
+        balanceLabel.textColor = DepracatedColor.Text.secondary
 
         contentView.addSubview(mainStack)
 

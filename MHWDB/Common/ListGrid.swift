@@ -55,7 +55,7 @@ class ListGrid: UICollectionViewController {
 
         super.init(collectionViewLayout: flowLayout)
         collectionView?.register(ListGridCell.self, forCellWithReuseIdentifier: "cell")
-        collectionView?.backgroundColor = Color.Background.light
+        collectionView?.backgroundColor = DepracatedColor.Background.light
     }
 
     override func viewDidLoad() {

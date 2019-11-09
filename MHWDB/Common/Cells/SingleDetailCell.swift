@@ -50,7 +50,7 @@ class SingleDetailCell: UITableViewCell {
         stack.addArrangedSubview(detail)
 
         label.font = Font.subTitle
-        label.textColor = Color.Text.primary
+        label.textColor = DepracatedColor.Text.primary
         label.numberOfLines = 0
         detail.numberOfLines = 0
         detail.font = Font.title

@@ -50,7 +50,7 @@ class ArmorSetCell: CustomCell<ArmorSetCellModel> {
 
     func setupViews() {
         defenseLabel.label.font = Font.subTitle
-        defenseLabel.label.textColor = Color.Text.secondary
+        defenseLabel.label.textColor = DepracatedColor.Text.secondary
 
         label.setContentHuggingPriority(.defaultLow, for: .horizontal)
         addSubview(mainStack)
@@ -128,7 +128,7 @@ class ArmorSetCell: CustomCell<ArmorSetCellModel> {
         if count > 0 {
             slotLabel.isHidden = false
             slotLabel.label.font = Font.subTitle
-            slotLabel.label.textColor = Color.Text.secondary
+            slotLabel.label.textColor = DepracatedColor.Text.secondary
             slotLabel.configure(svgModel: SVGImageModel(name: imageName), text: "x\(count)", size: 22)
         } else {
             slotLabel.isHidden = true

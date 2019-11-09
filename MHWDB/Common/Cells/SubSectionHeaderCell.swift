@@ -30,7 +30,7 @@ class SubSectionHeaderCell: UITableViewCell {
         label.matchParent(top: 15, left: 15, bottom: 8, right: 15)
 
         label.font = Font.titleMedium
-        label.textColor = Color.Text.subHeader
+        label.textColor = DepracatedColor.Text.subHeader
         label.numberOfLines = 0
 
         separatorInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10000)

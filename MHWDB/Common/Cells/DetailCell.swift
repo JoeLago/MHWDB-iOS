@@ -123,10 +123,10 @@ class DetailCell: UITableViewCell {
         }
 
         subtitleTextLabel.font = Font.subTitle
-        subtitleTextLabel.textColor = Color.Text.primary
+        subtitleTextLabel.textColor = DepracatedColor.Text.primary
         subtitleTextLabel.numberOfLines = 0
         secondaryTextLabel.font = Font.title
-        secondaryTextLabel.textColor = Color.Text.secondary
+        secondaryTextLabel.textColor = DepracatedColor.Text.secondary
         iconImageView.contentMode = .scaleAspectFit
 
         // Constraints

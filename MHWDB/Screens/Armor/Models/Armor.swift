@@ -57,7 +57,7 @@ class Armor: FetchableRecord, Decodable {
     //var slotsString: String { return String(repeating: "O", count: slots) + String(repeating: "-", count: 3 - slots) }
     var svg: SVGImageModel {
         return SVGImageModel(name: "equipment_\(slot?.iconName ?? "")_base.svg",
-            color: Color.colorForRarity(rarity))
+            color: DepracatedColor.colorForRarity(rarity))
 
     }
 

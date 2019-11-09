@@ -79,7 +79,7 @@ class SingleDetailView: UIStackView {
     func initializeViews() {
         labelView.text = label
         labelView.font = Font.subTitle
-        labelView.textColor = Color.Text.primary
+        labelView.textColor = DepracatedColor.Text.primary
         labelView.numberOfLines = 0
         addArrangedSubview(labelView)
         addArrangedSubview(detailView)

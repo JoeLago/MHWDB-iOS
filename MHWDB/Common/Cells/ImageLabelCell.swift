@@ -79,7 +79,7 @@ class ImageLabelCell<T: ImageLabelCellProtocol>: CustomCell<T> {
         rows.addArrangedSubview(valuesLabel)
 
         stateLabel.font = UIFont.systemFont(ofSize: stateFontSize)
-        stateLabel.textColor = Color.Text.primary
+        stateLabel.textColor = DepracatedColor.Text.primary
 
         rows.matchParent(top: 8, left: 25, bottom: 8, right: 25)
 

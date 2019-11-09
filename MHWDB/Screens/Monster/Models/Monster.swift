@@ -8,7 +8,7 @@
 
 import GRDB
 
-class Monster: Decodable, FetchableRecord {
+class Monster: Decodable, FetchableRecord, Identifiable {
     enum Size: String, Decodable {
         case large
         case small

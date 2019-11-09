@@ -35,11 +35,11 @@ class HeaderView: UIView {
     }
 
     func setupViews() {
-        backgroundColor = Color.Background.header
+        backgroundColor = DepracatedColor.Background.header
         label.font = Font.header
         indicator.textAlignment = .right
         indicator.font = Font.header
-        seperator.backgroundColor = Color.Background.seperator
+        seperator.backgroundColor = DepracatedColor.Background.seperator
 
         addSubview(label)
         addSubview(indicator)

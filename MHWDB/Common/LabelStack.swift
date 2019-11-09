@@ -32,7 +32,7 @@ class LabelStack: UIStackView {
         let label = MarginLabel()
         label.textAlignment = textAlignment ?? .right
         label.font = UIFont.systemFont(ofSize: fontSize)
-        label.textColor = Color.Text.primary
+        label.textColor = DepracatedColor.Text.primary
         let verticalPadding: CGFloat = showSeparator ? 2 : 0
         label.edgeInsets = UIEdgeInsets(top: verticalPadding, left: 5, bottom: verticalPadding, right: 5)
 
@@ -49,7 +49,7 @@ class LabelStack: UIStackView {
 
     func addTopSeparator(view: UIView) {
         let separator = UIView()
-        separator.backgroundColor = Color.Background.seperator
+        separator.backgroundColor = DepracatedColor.Background.seperator
         view.addSubview(separator)
         separator.matchParent(top: 0, left: 0, bottom: nil, right: 0)
         separator.heightConstraint(1)

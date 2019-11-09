@@ -83,7 +83,7 @@ class TreeCell<T, U: TreeCellView<T>>: UITableViewCell {
 
             if i + 1 == branches.count {
                 let line = UIView()
-                line.backgroundColor = Color.Background.branch
+                line.backgroundColor = DepracatedColor.Background.branch
                 branchView.addSubview(line)
 
                 line.frame = hasBranch
@@ -91,14 +91,14 @@ class TreeCell<T, U: TreeCellView<T>>: UITableViewCell {
                     : CGRect(x: (i + 1) * WIDTH, y: 0, width: 1, height: Int(frame.size.height / 2))
 
                 let pointer = UIView()
-                pointer.backgroundColor = Color.Background.branch
+                pointer.backgroundColor = DepracatedColor.Background.branch
                 branchView.addSubview(pointer)
                 pointer.frame = CGRect(x: (i + 1) * WIDTH, y: Int(frame.size.height / 2), width: 3, height: 1)
             }
 
             if hasBranch {
                 let line = UIView()
-                line.backgroundColor = Color.Background.branch
+                line.backgroundColor = DepracatedColor.Background.branch
                 branchView.addSubview(line)
 
                 line.matchParent(top: 0, left: Float((i + 1) * WIDTH), bottom: -1, right: nil)

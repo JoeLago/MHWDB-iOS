@@ -3,9 +3,21 @@
 // Copyright (c) Gathering Hall Studios
 //
 
+import SwiftUI
 import UIKit
 
-struct Color {
+extension Color {
+    struct Background {
+        static let bar = Color("background_bar")
+        static let header = Color("background_header")
+    }
+
+    struct Text {
+        static let secondary = Color("text_secondary")
+    }
+}
+
+struct DepracatedColor {
     struct Text {
         static let primary = UIColor(hex: 0x292E37)
         static let secondary = UIColor(hex: 0x555555)

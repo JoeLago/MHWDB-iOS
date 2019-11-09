@@ -41,7 +41,7 @@ class SharpnessView: UIView {
         super.draw(rect)
 
         if sharpness == nil {
-            Color.Background.light.setFill()
+            DepracatedColor.Background.light.setFill()
             UIRectFill(frame)
             return
         }
@@ -52,16 +52,16 @@ class SharpnessView: UIView {
         height = Int(rect.size.height) - paddingTop - paddingBottom
         let width = Double(rect.size.width) - Double(end) * 2.0
         ratio = oneValue ? width : width / Sharpness.maxValue
-        Color.Background.dark.setFill()
+        DepracatedColor.Background.dark.setFill()
         UIRectFill(rect)
 
-        addColor(color: Color.Sharpness.red, amount: sharpness?.red)
-        addColor(color: Color.Sharpness.orange, amount: sharpness?.orange)
-        addColor(color: Color.Sharpness.yellow, amount: sharpness?.yellow)
-        addColor(color: Color.Sharpness.green, amount: sharpness?.green)
-        addColor(color: Color.Sharpness.blue, amount: sharpness?.blue)
-        addColor(color: Color.Sharpness.white, amount: sharpness?.white)
-        addColor(color: Color.Sharpness.purple, amount: sharpness?.purple)
+        addColor(color: DepracatedColor.Sharpness.red, amount: sharpness?.red)
+        addColor(color: DepracatedColor.Sharpness.orange, amount: sharpness?.orange)
+        addColor(color: DepracatedColor.Sharpness.yellow, amount: sharpness?.yellow)
+        addColor(color: DepracatedColor.Sharpness.green, amount: sharpness?.green)
+        addColor(color: DepracatedColor.Sharpness.blue, amount: sharpness?.blue)
+        addColor(color: DepracatedColor.Sharpness.white, amount: sharpness?.white)
+        addColor(color: DepracatedColor.Sharpness.purple, amount: sharpness?.purple)
     }
 
     func addColor(color: UIColor, amount: Int?) {

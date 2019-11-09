@@ -18,7 +18,7 @@ class ImageLabel: UIStackView {
         super.init(frame: .zero)
         axis = .horizontal
         spacing = 5
-        label.textColor = Color.Text.primary
+        label.textColor = DepracatedColor.Text.primary
         label.font = Font.title
 
         let iconWrapper = UIView()
