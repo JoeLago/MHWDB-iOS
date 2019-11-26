@@ -10,9 +10,11 @@ import SwiftUI
 
 struct MonsterDetailSwift: View {
     var monster: Monster
+    var lowRankRewards: [RewardConditions]
 
     init(monsterId: Int) {
         monster = Database.shared.monster(id: monsterId)
+        lowRankRewards = Database.shared.rewardsByReward(monsterId: monster.id, rank: .low)
     }
 
     var body: some View {
@@ -23,37 +25,35 @@ struct MonsterDetailSwift: View {
                     ItemDetailCell(titleText: $0.name, detailText: $0.string, destination: MonsterListSwift())
                 }
             }
-//            CollapsableSection(title: "Low Rank Rewards") {
-//                ForEach(monster.rewardsByCondition(rank: .low)) {
-//                    ForEach($0.keys.compactMap)
-//                    //ItemDetailCell(titleText: $0.name, detailText: $0.string, destination: MonsterListSwift())
-//                }
-//            }
+
+            if !lowRankRewards.isEmpty {
+                CollapsableSection(title: "Low Rank Rewards") {
+                    ForEach(lowRankRewards) {
+                        RewardCell(imageName: $0.iconName, titleText: $0.name, rewards: $0.conditions)
+                    }
+                }
+            }
 
         }
         .navigationBarTitle(monster.name)
     }
 }
 
-//RewardSection(monster: monster, rank: .low, title: "Low Rank Rewards"),
-//
-//class RewardSection: SubSection {
-//    init(monster: Monster, rank: Quest.Rank, title: String) {
-//        let rewards = monster.rewardsByCondition(rank: rank)
-//        let sections = rewards.keys.compactMap { key in
-//            rewards[key].map { SimpleDetailSection(title: key, data: $0, showCountMinRows: -1, viewController: {
-//                ItemDetails(id: $0.itemId)
-//            }) } ?? nil
-//        }
-//        super.init(subSections: sections, title: title)
-//    }
-//}
-//
-//extension MonsterReward: DetailCellModel {
-//    var primary: String? { return name + (stackSize ?? 0 > 1 ? " x\(stackSize ?? 0)": "") }
-//    var imageName: String? { return icon }
-//    var secondary: String? { return "\(Int(chance ?? 0))%" }
-//}
+struct RewardCell: View {
+
+    @State var imageName: String?
+    @State var titleText: String?
+    @State var rewards: [MonsterReward]
+
+    var body: some View {
+        VStack(alignment: .trailing, spacing: 3) {
+            ItemCell(iconSize: 30, imageName: imageName, titleText: titleText)
+            ForEach(rewards) {
+                Text("\(($0.stackSize ?? 0 > 1 ? "x\($0.stackSize ?? 0) ": ""))\($0.condition) - \($0.chance ?? 0)%")
+            }
+        }
+    }
+}
 
 struct MonsterDetailSwif_Previews: PreviewProvider {
     static var previews: some View {

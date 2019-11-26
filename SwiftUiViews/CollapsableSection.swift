@@ -22,7 +22,9 @@ struct CollapsableSection<Content>: View where Content: View {
     var body: some View {
         Section(header:
             CustomeHeader(title: title, isCollapsed: isCollapsed)
-            .onTapGesture { self.isCollapsed.toggle() }) {
+            .onTapGesture {
+                self.isCollapsed.toggle()
+            }) {
                 if !isCollapsed {
                     content
                 }
@@ -32,7 +34,7 @@ struct CollapsableSection<Content>: View where Content: View {
 
 struct CustomeHeader: View {
     let title: String
-    @State var isCollapsed = false
+    var isCollapsed = false
 
     var body: some View {
         HStack {
