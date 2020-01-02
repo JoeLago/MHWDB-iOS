@@ -6,7 +6,6 @@
 
 import SwiftUI
 
-
 extension View {
   public func keyboardObserving() -> some View {
     self.modifier(KeyboardObserving())

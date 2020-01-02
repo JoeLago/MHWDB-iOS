@@ -18,7 +18,7 @@ public struct HiddenWhenKeyboardVisibleView<Content: View>: View {
   }
 
   public var body: some View {
-  
+
   #if targetEnvironment(macCatalyst)
   return content
   #else

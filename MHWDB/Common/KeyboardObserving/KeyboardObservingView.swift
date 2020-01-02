@@ -21,7 +21,7 @@ public struct KeyboardObservingView<Content: View>: View {
   }
 
   public var body: some View {
-  
+
   // for some reason, this can cause stuttering
   // in mac catalyst applications
   // and we don't need to observe the keyboard

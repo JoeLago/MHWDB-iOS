@@ -8,7 +8,6 @@ import Foundation
 import SwiftUI
 import UIKit
 
-
 struct KeyboardObserving: ViewModifier {
 
   @State var keyboardHeight: CGFloat = 0
