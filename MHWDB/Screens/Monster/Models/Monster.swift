@@ -19,10 +19,15 @@ class Monster: Decodable, FetchableRecord, Identifiable {
     var icon: String?
     var size: Size?
 
+    lazy var lowRankRewards: [RewardConditions] = { rewardsByReward(rank: .low) }()
+    lazy var highRankRewards: [RewardConditions] = { rewardsByReward(rank: .high) }()
+    lazy var gRankRewards: [RewardConditions] = { rewardsByReward(rank: .g) }()
+
     lazy var habitats: [MonsterHabitat] = { return Database.shared.habitats(monsterId: id) }()
     lazy var damageByPart: [MonsterDamageByPart] = { return Database.shared.damageByPart(monsterId: id) }()
     func rewards(rank: Quest.Rank) -> [MonsterReward] { return Database.shared.rewards(monsterId: id, rank: rank) }
     func rewardsByCondition(rank: Quest.Rank) -> [String: [MonsterReward]] { return Database.shared.rewardsByCondition(monsterId: id, rank: rank)}
+    func rewardsByReward(rank: Quest.Rank) -> [RewardConditions] { return Database.shared.rewardsByReward(monsterId: id, rank: rank) }
 }
 
 extension Database {

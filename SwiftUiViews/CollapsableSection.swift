@@ -8,7 +8,35 @@
 
 import SwiftUI
 
-struct CollapsableSection<Content>: View where Content: View {
+struct CollapsableSection<Data, Content>: View where Data: RandomAccessCollection, Data.Element: Identifiable, Content: View {
+
+    let title: String
+    @State var isCollapsed = false
+    let data: Data
+    let dataContent: (Data.Element) -> Content
+
+    public init(title: String, data: Data, dataContent: @escaping (Data.Element) -> Content) {
+        self.title = title
+        self.data = data
+        self.dataContent = dataContent
+    }
+
+    var body: some View {
+        return Section(header:
+            CustomeHeader(title: title, isCollapsed: isCollapsed)
+            .onTapGesture {
+                self.isCollapsed.toggle()
+            }) {
+                if !isCollapsed {
+                    ForEach(data) {
+                        self.dataContent($0)
+                    }
+                }
+            }
+    }
+}
+
+struct StaticCollapsableSection<Content>: View where Content: View {
 
     let title: String
     @State var isCollapsed = false

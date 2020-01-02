@@ -10,30 +10,35 @@ import SwiftUI
 
 struct MonsterDetailSwift: View {
     var monster: Monster
-    var lowRankRewards: [RewardConditions]
 
     init(monsterId: Int) {
         monster = Database.shared.monster(id: monsterId)
-        lowRankRewards = Database.shared.rewardsByReward(monsterId: monster.id, rank: .low)
     }
 
     var body: some View {
         List() {
-            // Could combine the ForEach part into the init
-            CollapsableSection(title: "Habitats") {
-                ForEach(monster.habitats) {
-                    ItemDetailCell(titleText: $0.name, detailText: $0.string, destination: MonsterListSwift())
+            CollapsableSection(title: "Habitats", data: monster.habitats) {
+                ItemDetailCell(titleText: $0.name, detailText: $0.string, destination: MonsterListSwift())
+            }
+
+            // Too much boilerplate, need to figure out how to automatically omit section for empty array
+            if !monster.lowRankRewards.isEmpty {
+                CollapsableSection(title: "Low Rank Rewards", data: monster.lowRankRewards) {
+                    RewardCell(imageName: $0.iconName, titleText: $0.name, rewards: $0.conditions)
                 }
             }
 
-            if !lowRankRewards.isEmpty {
-                CollapsableSection(title: "Low Rank Rewards") {
-                    ForEach(lowRankRewards) {
-                        RewardCell(imageName: $0.iconName, titleText: $0.name, rewards: $0.conditions)
-                    }
+            if !monster.highRankRewards.isEmpty {
+                CollapsableSection(title: "High Rank Rewards", data: monster.highRankRewards) {
+                    RewardCell(imageName: $0.iconName, titleText: $0.name, rewards: $0.conditions)
                 }
             }
 
+            if !monster.gRankRewards.isEmpty {
+                CollapsableSection(title: "Low Rank Rewards", data: monster.gRankRewards) {
+                    RewardCell(imageName: $0.iconName, titleText: $0.name, rewards: $0.conditions)
+                }
+            }
         }
         .navigationBarTitle(monster.name)
     }
