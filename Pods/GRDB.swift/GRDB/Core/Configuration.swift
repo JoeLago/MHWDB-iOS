@@ -168,6 +168,30 @@ public struct Configuration {
     ///
     /// Default: nil
     public var targetQueue: DispatchQueue? = nil
+
+    public enum KeyDecodingStrategy {
+        case convertToLowercase, convertFromSnakeCase
+
+        func decode(key: String) -> String {
+            switch self {
+            case .convertToLowercase:
+                return key.lowercased()
+            case .convertFromSnakeCase:
+                return toCamelCaseFromSnake(key: key)
+            }
+        }
+
+        // put in Utils.swift
+        func toCamelCaseFromSnake(key: String) -> String {
+            return key.split(separator: "_")
+            .map { String($0) }
+            .enumerated()
+            .map { $0.offset > 0 ? $0.element.capitalized : $0.element.lowercased() }
+            .joined()
+        }
+    }
+
+    public var keyDecodingStrategy: KeyDecodingStrategy = .convertToLowercase
     
     // MARK: - Factory Configuration
     

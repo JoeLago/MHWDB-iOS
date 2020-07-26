@@ -48,27 +48,3 @@ struct MonsterListSwift_Previews: PreviewProvider {
         MonsterListSwift()
     }
 }
-
-// Want to eventually use overlay where list can bleed under toolbar but List doesn't yet support insets
-//var body: some View {
-//    VStack(spacing: 0) {
-//        List() {
-//            ForEach(monsters) { monster in
-//                ItemDetailCell(imageName: monster.size == .large ? "\(monster.id)" : nil, titleText: monster.name, destination: MonsterListSwift())
-//            }
-//            Color.white.frame(width: 0, height: 100)
-//        }
-//        .overlay(
-//            BottomToolBar() {
-//                Spacer()
-//                Picker(selection: $monsterTypeSelection, label: Text("")) {
-//                    Text("Large").tag(0)
-//                    Text("Small").tag(1)
-//                    Text("All").tag(2)
-//                }.pickerStyle(SegmentedPickerStyle())
-//                Spacer()
-//        }, alignment: .bottom)
-//    }
-//    //.navigationBarItems(trailing: Text("Home"))
-//    .navigationBarTitle("Monsters")
-//}

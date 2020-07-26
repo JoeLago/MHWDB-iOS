@@ -22,7 +22,7 @@ class MonsterReward: FetchableRecord, Decodable, Identifiable {
     var iconName: String? { "\(icon ?? "")-\(iconColor ?? "")" }
 
     enum CodingKeys: String, CodingKey {
-        case itemId = "item_id", name = "item_name", icon = "icon_name", iconColor = "icon_color", condition = "condition", rank, stackSize = "stack", chance = "percentage"
+        case itemId, name = "itemName", icon = "iconName", iconColor, condition, rank, stackSize = "stack", chance = "percentage"
     }
 }
 

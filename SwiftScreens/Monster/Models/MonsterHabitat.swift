@@ -20,11 +20,6 @@ class MonsterHabitat: Decodable, FetchableRecord, Identifiable {
     var string: String {
         return [startArea, moveArea, restArea].compactMap { $0 }.joined(separator: " > ")
     }
-
-    // TODO: Figure out how to support convertFromSnakeCase in GRDB
-    enum CodingKeys: String, CodingKey {
-        case locationId = "location_id", name, startArea = "start_area", moveArea = "move_area", restArea = "rest_area"
-    }
 }
 
 extension Database {

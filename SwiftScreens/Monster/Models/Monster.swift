@@ -19,6 +19,17 @@ class Monster: Decodable, FetchableRecord, Identifiable {
     var icon: String?
     var size: Size?
 
+    var weaknessBlast: Int?
+    var weaknessDragon: Int?
+    var weaknessFire: Int?
+    var weaknessIce: Int?
+    var weaknessParalysis: Int?
+    var weaknessPoison: Int?
+    var weaknessSleep: Int?
+    var weaknessStun: Int?
+    var weaknessThunder: Int?
+    var weaknessWater: Int?
+
     lazy var lowRankRewards: [RewardConditions] = { rewardsByReward(rank: .low) }()
     lazy var highRankRewards: [RewardConditions] = { rewardsByReward(rank: .high) }()
     lazy var gRankRewards: [RewardConditions] = { rewardsByReward(rank: .g) }()

@@ -18,12 +18,14 @@ struct ListMenuSwift: View {
                 ItemDetailCell(imageName: "body4", titleText: "Armor", destination: MonsterListSwift())
                 ItemDetailCell(imageName: "Ore-Purple", titleText: "Items", destination: MonsterListSwift())
                 ItemDetailCell(imageName: "Liquid-Green", titleText: "Combinations", destination: MonsterListSwift())
-                ItemDetailCell(imageName: "Map-Icon-White", titleText: "Locations", destination: MonsterListSwift())
+                ItemDetailCell(imageName: "Map-Icon-White", titleText: "Locations", destination: LocationListSwift())
                 ItemDetailCell(imageName: "Quest-Icon-White", titleText: "Charms", destination: MonsterListSwift())
                 ItemDetailCell(imageName: "Jewel-Cyan", titleText: "Decorations", destination: MonsterListSwift())
                 ItemDetailCell(imageName: "Monster-Jewel-Teal", titleText: "Skills", destination: MonsterListSwift())
             }
             .navigationBarTitle("MHWDB")
+        }.onAppear {
+            ReviewManager.presentReviewControllerIfElligible()
         }
     }
 }

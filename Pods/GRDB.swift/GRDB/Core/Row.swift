@@ -1752,16 +1752,17 @@ private struct StatementCopyRowImpl: RowImpl {
 private struct StatementRowImpl: RowImpl {
     let statementRef: Unmanaged<SelectStatement>
     let sqliteStatement: SQLiteStatement
-    let lowercaseColumnIndexes: [String: Int]
+    let decodedColumnIndexes: [String: Int]
     
     init(sqliteStatement: SQLiteStatement, statementRef: Unmanaged<SelectStatement>) {
         self.statementRef = statementRef
         self.sqliteStatement = sqliteStatement
         // Optimize row[columnName]
-        let lowercaseColumnNames = (0..<sqlite3_column_count(sqliteStatement))
-            .map { String(cString: sqlite3_column_name(sqliteStatement, Int32($0))).lowercased() }
-        self.lowercaseColumnIndexes = Dictionary(
-            lowercaseColumnNames
+        let keyDecodingStrategy = statementRef.takeUnretainedValue().database.configuration.keyDecodingStrategy
+        let decodedColumnNames = (0..<sqlite3_column_count(sqliteStatement))
+            .map { keyDecodingStrategy.decode(key: String(cString: sqlite3_column_name(sqliteStatement, Int32($0)))) }
+        self.decodedColumnIndexes = Dictionary(
+            decodedColumnNames
                 .enumerated()
                 .map { ($0.element, $0.offset) },
             uniquingKeysWith: { (left, _) in left }) // keep leftmost indexes
@@ -1814,10 +1815,10 @@ private struct StatementRowImpl: RowImpl {
     }
     
     func index(ofColumn name: String) -> Int? {
-        if let index = lowercaseColumnIndexes[name] {
+        if let index = decodedColumnIndexes[name] {
             return index
         }
-        return lowercaseColumnIndexes[name.lowercased()]
+        return decodedColumnIndexes[name.lowercased()]
     }
     
     func copiedRow(_ row: Row) -> Row {

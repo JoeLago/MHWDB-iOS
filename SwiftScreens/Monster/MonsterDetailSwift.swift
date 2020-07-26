@@ -21,7 +21,13 @@ struct MonsterDetailSwift: View {
                 ItemDetailCell(titleText: $0.name, detailText: $0.string, destination: MonsterListSwift())
             }
 
-            // Too much boilerplate, need to figure out how to automatically omit section for empty array
+            // TODO: Damages
+            // TODO: Statuses
+
+            StaticCollapsableSection(title: "Weaknesses") {
+                AttributedText(monster.weaknessAttributedString)
+            }
+
             if !monster.lowRankRewards.isEmpty {
                 CollapsableSection(title: "Low Rank Rewards", data: monster.lowRankRewards) {
                     RewardCell(imageName: $0.iconName, titleText: $0.name, rewards: $0.conditions)
@@ -35,7 +41,7 @@ struct MonsterDetailSwift: View {
             }
 
             if !monster.gRankRewards.isEmpty {
-                CollapsableSection(title: "Low Rank Rewards", data: monster.gRankRewards) {
+                CollapsableSection(title: "G Rank Rewards", data: monster.gRankRewards) {
                     RewardCell(imageName: $0.iconName, titleText: $0.name, rewards: $0.conditions)
                 }
             }
@@ -45,7 +51,6 @@ struct MonsterDetailSwift: View {
 }
 
 struct RewardCell: View {
-
     @State var imageName: String?
     @State var titleText: String?
     @State var rewards: [MonsterReward]
@@ -56,7 +61,7 @@ struct RewardCell: View {
             ForEach(rewards) {
                 Text("\(($0.stackSize ?? 0 > 1 ? "x\($0.stackSize ?? 0) ": ""))\($0.condition) - \($0.chance ?? 0)%")
             }
-        }
+        }.padding([.vertical], 3)
     }
 }
 

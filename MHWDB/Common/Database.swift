@@ -17,7 +17,9 @@ class Database {
     init() {
         do {
             guard let path = Bundle.main.path(forResource: "mhw", ofType: "db") else { throw LoadingError.invalidPath }
-            dbQueue = try DatabaseQueue(path: path)
+            var configuration = Configuration()
+            configuration.keyDecodingStrategy = .convertFromSnakeCase
+            dbQueue = try DatabaseQueue(path: path, configuration: configuration)
         } catch {
             fatalError("Could not load DB")
         }
