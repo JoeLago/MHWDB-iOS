@@ -23,10 +23,12 @@ struct MonsterListSwift: View {
 
     var body: some View {
         VStack(spacing: 0) {
-            List() {
-                ForEach(monsters) { monster in
-                    ItemDetailCell(imageName: monster.size == .large ? "\(monster.id)" : nil, titleText: monster.name, destination: MonsterDetailSwift(monsterId: monster.id))
-                }
+            List(monsters) { monster in
+                ItemDetailCell(
+                    imageName: monster.icon,
+                    titleText: monster.name,
+                    destination: MonsterDetailSwift(monsterId: monster.id)
+                )
             }
             BottomToolBar() {
                 Spacer()

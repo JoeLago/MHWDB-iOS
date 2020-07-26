@@ -16,9 +16,13 @@ struct MonsterDetailSwift: View {
     }
 
     var body: some View {
-        List() {
+        List {
             CollapsableSection(title: "Habitats", data: monster.habitats) {
-                ItemDetailCell(titleText: $0.name, detailText: $0.string, destination: MonsterListSwift())
+                ItemDetailCell(
+                    titleText: $0.name,
+                    detailText: $0.string,
+                    destination: MonsterListSwift()
+                )
             }
 
             // TODO: Damages

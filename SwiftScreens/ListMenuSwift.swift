@@ -21,7 +21,7 @@ struct ListMenuSwift: View {
                 ItemDetailCell(imageName: "Map-Icon-White", titleText: "Locations", destination: LocationListSwift())
                 ItemDetailCell(imageName: "Quest-Icon-White", titleText: "Charms", destination: MonsterListSwift())
                 ItemDetailCell(imageName: "Jewel-Cyan", titleText: "Decorations", destination: MonsterListSwift())
-                ItemDetailCell(imageName: "Monster-Jewel-Teal", titleText: "Skills", destination: MonsterListSwift())
+                ItemDetailCell(imageName: "Monster-Jewel-Teal", titleText: "Skills", destination: SkillListSwift())
             }
             .navigationBarTitle("MHWDB")
         }.onAppear {

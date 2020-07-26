@@ -16,7 +16,7 @@ struct LocationListSwift: View {
             ItemDetailCell(
                 imageName: location.icon,
                 titleText: location.name,
-                destination: MonsterDetailSwift(monsterId: location.id)
+                destination: LocationDetailSwift(locationId: location.id)
             )
         }
         .navigationBarTitle("Locations")

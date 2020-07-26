@@ -9,10 +9,12 @@
 import Foundation
 import GRDB
 
-class LocationMonster: FetchableRecord, Decodable {
+class LocationMonster: FetchableRecord, Decodable, Identifiable {
+    var id: Int { return monsterId }
     let monsterId: Int
     var name: String?
-    let icon: String?
+    var icon: String? { return size == .large ? "\(monsterId)" : nil }
+    var size: Monster.Size?
     var startArea: String?
     var moveArea: String
     var restArea: String?
@@ -20,15 +22,12 @@ class LocationMonster: FetchableRecord, Decodable {
     var areas: String {
         return [startArea, moveArea, restArea].compactMap { $0 }.joined(separator: " > ")
     }
-
-    enum CodingKeys: String, CodingKey {
-        case monsterId = "monster_id", name, icon, startArea = "start_area", moveArea = "move_area", restArea = "rest_area"
-    }
 }
 
 extension Database {
     func locationMonsters(locationId: Int) -> [LocationMonster] {
         let query = Query(table: "monster_habitat")
+            .join(table: "monster", on: "monster_id")
             .join(table: "monster_text", on: "monster_id")
             .filter("location_id", equals: locationId)
         return fetch(query)

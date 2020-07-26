@@ -219,6 +219,9 @@
 		14F9697324CD03D100BF0BDC /* ListMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F9697224CD03D100BF0BDC /* ListMenu.swift */; };
 		14F9697824CD03DD00BF0BDC /* MonsterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F9697624CD03DD00BF0BDC /* MonsterList.swift */; };
 		14F9697924CD03DD00BF0BDC /* MonsterDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F9697724CD03DD00BF0BDC /* MonsterDetails.swift */; };
+		14F9697B24CD05B400BF0BDC /* LocationDetailsSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F9697A24CD05B400BF0BDC /* LocationDetailsSwift.swift */; };
+		14F9697E24CD0ECD00BF0BDC /* SkillListSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F9697D24CD0ECD00BF0BDC /* SkillListSwift.swift */; };
+		14F9698024CD10E700BF0BDC /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F9697F24CD10E700BF0BDC /* PlaceholderView.swift */; };
 		613A51D7ED0F8DD41DD8F38D /* Pods_MHWDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28A362D7A0E8494F3767C6D0 /* Pods_MHWDB.framework */; };
 		F78D3235AA09D8152D4C51CF /* Pods_MHWDBTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F77642DEAA528D99A1B9B18 /* Pods_MHWDBTests.framework */; };
 /* End PBXBuildFile section */
@@ -449,6 +452,9 @@
 		14F9697224CD03D100BF0BDC /* ListMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListMenu.swift; sourceTree = "<group>"; };
 		14F9697624CD03DD00BF0BDC /* MonsterList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterList.swift; sourceTree = "<group>"; };
 		14F9697724CD03DD00BF0BDC /* MonsterDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MonsterDetails.swift; sourceTree = "<group>"; };
+		14F9697A24CD05B400BF0BDC /* LocationDetailsSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailsSwift.swift; sourceTree = "<group>"; };
+		14F9697D24CD0ECD00BF0BDC /* SkillListSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillListSwift.swift; sourceTree = "<group>"; };
+		14F9697F24CD10E700BF0BDC /* PlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
 		28A362D7A0E8494F3767C6D0 /* Pods_MHWDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MHWDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		36731F1082DA965761955EA5 /* Pods-MHGDBTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHGDBTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MHGDBTests/Pods-MHGDBTests.release.xcconfig"; sourceTree = "<group>"; };
 		3F77642DEAA528D99A1B9B18 /* Pods_MHWDBTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MHWDBTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -504,6 +510,7 @@
 				14580B6923BDD2B50018B89B /* CollapsableSection.swift */,
 				1437A718235D2A7000910125 /* ItemDetailCell.swift */,
 				144E526D23D67D6A00E919C5 /* AttributedText.swift */,
+				14F9697F24CD10E700BF0BDC /* PlaceholderView.swift */,
 			);
 			path = SwiftUiViews;
 			sourceTree = "<group>";
@@ -1061,7 +1068,6 @@
 		14A24D671EA9D05400755F6A /* Skill */ = {
 			isa = PBXGroup;
 			children = (
-				144306E2209FB36200D60A5A /* Models */,
 				144306E1209FB34F00D60A5A /* Screens */,
 			);
 			path = Skill;
@@ -1154,6 +1160,7 @@
 				1437A716235996F200910125 /* ListMenuSwift.swift */,
 				14F9696E24CD00B700BF0BDC /* Location */,
 				14F9696C24CCFF6500BF0BDC /* Monster */,
+				14F9697C24CD0EA200BF0BDC /* Skill */,
 			);
 			path = SwiftScreens;
 			sourceTree = "<group>";
@@ -1171,6 +1178,7 @@
 		14F9696E24CD00B700BF0BDC /* Location */ = {
 			isa = PBXGroup;
 			children = (
+				14F9697A24CD05B400BF0BDC /* LocationDetailsSwift.swift */,
 				14F9696F24CD012C00BF0BDC /* LocationListSwift.swift */,
 				144306EE209FB50D00D60A5A /* Models */,
 			);
@@ -1203,6 +1211,15 @@
 				14F9697724CD03DD00BF0BDC /* MonsterDetails.swift */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		14F9697C24CD0EA200BF0BDC /* Skill */ = {
+			isa = PBXGroup;
+			children = (
+				14F9697D24CD0ECD00BF0BDC /* SkillListSwift.swift */,
+				144306E2209FB36200D60A5A /* Models */,
+			);
+			path = Skill;
 			sourceTree = "<group>";
 		};
 		CBCF59F9BE521D8FDE547F73 /* Frameworks */ = {
@@ -1519,6 +1536,7 @@
 				14A251311EA9D05400755F6A /* ItemDetails.swift in Sources */,
 				14A251321EA9D05400755F6A /* ItemDetailSection.swift in Sources */,
 				14A251331EA9D05400755F6A /* ItemList.swift in Sources */,
+				14F9697E24CD0ECD00BF0BDC /* SkillListSwift.swift in Sources */,
 				1450DA6320A95915000085C5 /* ItemLocation.swift in Sources */,
 				1450DA6520A95927000085C5 /* ItemMonster.swift in Sources */,
 				1450DA6120A95900000085C5 /* ItemQuest.swift in Sources */,
@@ -1541,6 +1559,7 @@
 				144306DA209F5BD300D60A5A /* MonsterHabitat.swift in Sources */,
 				144306DE209FA95C00D60A5A /* MonsterRewards.swift in Sources */,
 				14E2B50D1EAE5E46002A2A89 /* MonsterStatusesCell.swift in Sources */,
+				14F9698024CD10E700BF0BDC /* PlaceholderView.swift in Sources */,
 				14A251141EA9D05400755F6A /* MultiCellSection.swift in Sources */,
 				14F9697324CD03D100BF0BDC /* ListMenu.swift in Sources */,
 				14A251071EA9D05400755F6A /* MultiDetailCell.swift in Sources */,
@@ -1607,6 +1626,7 @@
 				14A2514A1EA9D05500755F6A /* WeaponList.swift in Sources */,
 				148812F920A2C31E006B91EF /* WeaponType.swift in Sources */,
 				14A2514C1EA9D05500755F6A /* WeaponTypeList.swift in Sources */,
+				14F9697B24CD05B400BF0BDC /* LocationDetailsSwift.swift in Sources */,
 				14E2B5071EAD2229002A2A89 /* WeaponView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

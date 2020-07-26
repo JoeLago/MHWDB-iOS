@@ -16,7 +16,7 @@ class Monster: Decodable, FetchableRecord, Identifiable {
 
     var id: Int
     var name: String
-    var icon: String?
+    var icon: String? { return size == .large ? "\(id)" : nil }
     var size: Size?
 
     var weaknessBlast: Int?

@@ -34,9 +34,7 @@ extension Database {
 
     func skillTrees(_ search: String? = nil) -> [SkillTree] {
         let query = Query(table: "skilltree").join(table: "skilltree_text").order(by: "name")
-        if let search = search {
-            query.filter("name", contains: search)
-        }
+        if let search = search { query.filter("name", contains: search) }
         return fetch(query)
     }
 }
