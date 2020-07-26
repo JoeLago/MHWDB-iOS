@@ -9,10 +9,11 @@
 import Foundation
 import GRDB
 
-class SkillTreeSkill: FetchableRecord, Decodable {
+class SkillTreeSkill: FetchableRecord, Decodable, Identifiable {
     let description: String
     let icon: String?
     let level: Int
+    var id: Int { return level }
 }
 
 extension Database {

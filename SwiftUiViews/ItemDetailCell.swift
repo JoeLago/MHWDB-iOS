@@ -66,9 +66,9 @@ struct ItemCell: View {
                 Image($0).resizable()
                     .frame(width: iconSize, height: iconSize)
             }
-            VStack {
+            VStack(alignment: .leading) {
                 titleText.map { Text($0).font(.body) }
-                subtitleText.map { Text($0).font(.body) }
+                subtitleText.map { Text($0).font(.caption).foregroundColor(.secondary) }
             }
             Spacer()
             detailText.map { Text($0).font(.body).foregroundColor(Color.Text.secondary) }

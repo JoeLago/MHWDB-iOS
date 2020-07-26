@@ -7,7 +7,7 @@ import GRDB
 
 class Armor: FetchableRecord, Decodable {
 
-    enum Slot: String, Decodable {
+    enum Slot: String, Decodable, CaseIterable {
         case head, chest, arms, waist, legs
 
         var iconName: String {

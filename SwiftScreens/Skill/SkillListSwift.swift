@@ -17,7 +17,7 @@ struct SkillListSwift: View {
                 imageName: nil, //$0.icon,
                 titleText: $0.name,
                 subtitleText: $0.description,
-                destination: PlaceholderView()
+                destination: SkillDetailSwift(id: $0.id)
             )
         }
         .navigationBarTitle("Skills")

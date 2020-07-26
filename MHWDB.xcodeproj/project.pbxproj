@@ -12,6 +12,8 @@
 		1405268B207EF640001A5E96 /* mhw.db in Resources */ = {isa = PBXBuildFile; fileRef = 1405268A207EF640001A5E96 /* mhw.db */; };
 		140A133C1EDB57B9002FD025 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140A133B1EDB57B9002FD025 /* Search.swift */; };
 		141EEEBD210D082B0017539F /* SvgModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141EEEBC210D082B0017539F /* SvgModelView.swift */; };
+		142443BA24CD6C9B00301E57 /* SkillDetailsSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142443B924CD6C9B00301E57 /* SkillDetailsSwift.swift */; };
+		142443BC24CD6D2800301E57 /* RewardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142443BB24CD6D2800301E57 /* RewardCell.swift */; };
 		1437A71323597C0B00910125 /* MonsterListSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1437A71223597C0B00910125 /* MonsterListSwift.swift */; };
 		1437A7152359833500910125 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1437A7142359833500910125 /* SceneDelegate.swift */; };
 		1437A717235996F200910125 /* ListMenuSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1437A716235996F200910125 /* ListMenuSwift.swift */; };
@@ -242,6 +244,8 @@
 		1405268A207EF640001A5E96 /* mhw.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = mhw.db; sourceTree = "<group>"; };
 		140A133B1EDB57B9002FD025 /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		141EEEBC210D082B0017539F /* SvgModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SvgModelView.swift; sourceTree = "<group>"; };
+		142443B924CD6C9B00301E57 /* SkillDetailsSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillDetailsSwift.swift; sourceTree = "<group>"; };
+		142443BB24CD6D2800301E57 /* RewardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardCell.swift; sourceTree = "<group>"; };
 		1437A71223597C0B00910125 /* MonsterListSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterListSwift.swift; sourceTree = "<group>"; };
 		1437A7142359833500910125 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		1437A716235996F200910125 /* ListMenuSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMenuSwift.swift; sourceTree = "<group>"; };
@@ -1170,6 +1174,7 @@
 			children = (
 				1437A71F235D9F7500910125 /* MonsterDetailSwift.swift */,
 				1437A71223597C0B00910125 /* MonsterListSwift.swift */,
+				142443BB24CD6D2800301E57 /* RewardCell.swift */,
 				144306D8209F5A5400D60A5A /* Models */,
 			);
 			path = Monster;
@@ -1216,6 +1221,7 @@
 		14F9697C24CD0EA200BF0BDC /* Skill */ = {
 			isa = PBXGroup;
 			children = (
+				142443B924CD6C9B00301E57 /* SkillDetailsSwift.swift */,
 				14F9697D24CD0ECD00BF0BDC /* SkillListSwift.swift */,
 				144306E2209FB36200D60A5A /* Models */,
 			);
@@ -1562,6 +1568,7 @@
 				14F9698024CD10E700BF0BDC /* PlaceholderView.swift in Sources */,
 				14A251141EA9D05400755F6A /* MultiCellSection.swift in Sources */,
 				14F9697324CD03D100BF0BDC /* ListMenu.swift in Sources */,
+				142443BC24CD6D2800301E57 /* RewardCell.swift in Sources */,
 				14A251071EA9D05400755F6A /* MultiDetailCell.swift in Sources */,
 				14A251161EA9D05400755F6A /* Node.swift in Sources */,
 				148812FD20A2C3AE006B91EF /* Notes.swift in Sources */,
@@ -1575,6 +1582,7 @@
 				14612B171EB9B49900DB7F64 /* PalicoWeaponDetailSection.swift in Sources */,
 				144306D7209EEFFF00D60A5A /* Query.swift in Sources */,
 				14A251241EA9D05400755F6A /* Quest.swift in Sources */,
+				142443BA24CD6C9B00301E57 /* SkillDetailsSwift.swift in Sources */,
 				14A251401EA9D05500755F6A /* QuestDetails.swift in Sources */,
 				14A251411EA9D05500755F6A /* QuestDetailSection.swift in Sources */,
 				14A251421EA9D05500755F6A /* QuestList.swift in Sources */,

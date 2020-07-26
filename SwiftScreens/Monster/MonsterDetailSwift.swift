@@ -53,24 +53,3 @@ struct MonsterDetailSwift: View {
         .navigationBarTitle(monster.name)
     }
 }
-
-struct RewardCell: View {
-    @State var imageName: String?
-    @State var titleText: String?
-    @State var rewards: [MonsterReward]
-
-    var body: some View {
-        VStack(alignment: .trailing, spacing: 3) {
-            ItemCell(iconSize: 30, imageName: imageName, titleText: titleText)
-            ForEach(rewards) {
-                Text("\(($0.stackSize ?? 0 > 1 ? "x\($0.stackSize ?? 0) ": ""))\($0.condition) - \($0.chance ?? 0)%")
-            }
-        }.padding([.vertical], 3)
-    }
-}
-
-struct MonsterDetailSwif_Previews: PreviewProvider {
-    static var previews: some View {
-        MonsterDetailSwift(monsterId: 1)
-    }
-}
