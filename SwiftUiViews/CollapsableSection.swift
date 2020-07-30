@@ -21,18 +21,20 @@ struct CollapsableSection<Data, Content>: View where Data: RandomAccessCollectio
         self.dataContent = dataContent
     }
 
+    // Seems like there should be able to do this without anyview?
     var body: some View {
-        return Section(header:
+        guard data.count > 0 else { return AnyView(EmptyView()) }
+
+        return AnyView(Section(header:
             CustomeHeader(title: title, isCollapsed: isCollapsed)
-            .onTapGesture {
-                self.isCollapsed.toggle()
-            }) {
-                if !isCollapsed {
-                    ForEach(data) {
-                        self.dataContent($0)
-                    }
+            .onTapGesture { self.isCollapsed.toggle() }
+        ) {
+            if !isCollapsed {
+                ForEach(data) {
+                    self.dataContent($0)
                 }
             }
+        })
     }
 }
 

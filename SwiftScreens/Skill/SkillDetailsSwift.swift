@@ -21,7 +21,7 @@ struct SkillDetailSwift: View {
             + Armor.Slot.allCases.compactMap {
                 let armor = skillTree.armor(slot: $0)
                 return ($0.rawValue.capitalized, armor)
-            }).filter { $0.1.count > 0 }
+            })
     }
 
     var body: some View {
