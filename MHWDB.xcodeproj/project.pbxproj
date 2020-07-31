@@ -14,6 +14,12 @@
 		141EEEBD210D082B0017539F /* SvgModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141EEEBC210D082B0017539F /* SvgModelView.swift */; };
 		142443BA24CD6C9B00301E57 /* SkillDetailsSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142443B924CD6C9B00301E57 /* SkillDetailsSwift.swift */; };
 		142443BC24CD6D2800301E57 /* RewardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142443BB24CD6D2800301E57 /* RewardCell.swift */; };
+		142443BF24CE1B6800301E57 /* CombinationListSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142443BE24CE1B6800301E57 /* CombinationListSwift.swift */; };
+		142443C324CE1DC000301E57 /* ImageLabelSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142443C224CE1DC000301E57 /* ImageLabelSwift.swift */; };
+		142443C524D3FEFA00301E57 /* InternalLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142443C424D3FEFA00301E57 /* InternalLink.swift */; };
+		142443C824D4032400301E57 /* ItemDetailSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142443C724D4032400301E57 /* ItemDetailSwift.swift */; };
+		142443CA24D4A99700301E57 /* CharmListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142443C924D4A99700301E57 /* CharmListView.swift */; };
+		142443CD24D4AA0C00301E57 /* CharmDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142443CC24D4AA0C00301E57 /* CharmDetailView.swift */; };
 		1437A71323597C0B00910125 /* MonsterListSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1437A71223597C0B00910125 /* MonsterListSwift.swift */; };
 		1437A7152359833500910125 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1437A7142359833500910125 /* SceneDelegate.swift */; };
 		1437A717235996F200910125 /* ListMenuSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1437A716235996F200910125 /* ListMenuSwift.swift */; };
@@ -246,6 +252,12 @@
 		141EEEBC210D082B0017539F /* SvgModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SvgModelView.swift; sourceTree = "<group>"; };
 		142443B924CD6C9B00301E57 /* SkillDetailsSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillDetailsSwift.swift; sourceTree = "<group>"; };
 		142443BB24CD6D2800301E57 /* RewardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardCell.swift; sourceTree = "<group>"; };
+		142443BE24CE1B6800301E57 /* CombinationListSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinationListSwift.swift; sourceTree = "<group>"; };
+		142443C224CE1DC000301E57 /* ImageLabelSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLabelSwift.swift; sourceTree = "<group>"; };
+		142443C424D3FEFA00301E57 /* InternalLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalLink.swift; sourceTree = "<group>"; };
+		142443C724D4032400301E57 /* ItemDetailSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailSwift.swift; sourceTree = "<group>"; };
+		142443C924D4A99700301E57 /* CharmListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharmListView.swift; sourceTree = "<group>"; };
+		142443CC24D4AA0C00301E57 /* CharmDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharmDetailView.swift; sourceTree = "<group>"; };
 		1437A71223597C0B00910125 /* MonsterListSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterListSwift.swift; sourceTree = "<group>"; };
 		1437A7142359833500910125 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		1437A716235996F200910125 /* ListMenuSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListMenuSwift.swift; sourceTree = "<group>"; };
@@ -507,6 +519,33 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		142443BD24CE1B3800301E57 /* Combination */ = {
+			isa = PBXGroup;
+			children = (
+				142443BE24CE1B6800301E57 /* CombinationListSwift.swift */,
+				144306F2209FB55500D60A5A /* Models */,
+			);
+			path = Combination;
+			sourceTree = "<group>";
+		};
+		142443C624D4030400301E57 /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				142443C724D4032400301E57 /* ItemDetailSwift.swift */,
+			);
+			path = Item;
+			sourceTree = "<group>";
+		};
+		142443CB24D4A9D600301E57 /* Charm */ = {
+			isa = PBXGroup;
+			children = (
+				142443CC24D4AA0C00301E57 /* CharmDetailView.swift */,
+				142443C924D4A99700301E57 /* CharmListView.swift */,
+				14A8414C20BCDE9C00F36963 /* Models */,
+			);
+			path = Charm;
+			sourceTree = "<group>";
+		};
 		1437A71A235D7A7800910125 /* SwiftUiViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -515,6 +554,8 @@
 				1437A718235D2A7000910125 /* ItemDetailCell.swift */,
 				144E526D23D67D6A00E919C5 /* AttributedText.swift */,
 				14F9697F24CD10E700BF0BDC /* PlaceholderView.swift */,
+				142443C224CE1DC000301E57 /* ImageLabelSwift.swift */,
+				142443C424D3FEFA00301E57 /* InternalLink.swift */,
 			);
 			path = SwiftUiViews;
 			sourceTree = "<group>";
@@ -719,7 +760,6 @@
 		1450DA7420AA0BB1000085C5 /* Charm */ = {
 			isa = PBXGroup;
 			children = (
-				14A8414C20BCDE9C00F36963 /* Models */,
 				14A8414B20BCDE7200F36963 /* Screens */,
 			);
 			path = Charm;
@@ -1027,7 +1067,6 @@
 			isa = PBXGroup;
 			children = (
 				149CFE5F20B94FA80004A57D /* Cells */,
-				144306F2209FB55500D60A5A /* Models */,
 				144306F1209FB54F00D60A5A /* Screens */,
 			);
 			path = Combination;
@@ -1162,6 +1201,9 @@
 			isa = PBXGroup;
 			children = (
 				1437A716235996F200910125 /* ListMenuSwift.swift */,
+				142443CB24D4A9D600301E57 /* Charm */,
+				142443BD24CE1B3800301E57 /* Combination */,
+				142443C624D4030400301E57 /* Item */,
 				14F9696E24CD00B700BF0BDC /* Location */,
 				14F9696C24CCFF6500BF0BDC /* Monster */,
 				14F9697C24CD0EA200BF0BDC /* Skill */,
@@ -1501,6 +1543,7 @@
 				149445F020E82B3E00985128 /* ArmorSetCell.swift in Sources */,
 				1450DA7320A96AB7000085C5 /* ArmorSetDetails.swift in Sources */,
 				1450DA6F20A96860000085C5 /* ArmorSetList.swift in Sources */,
+				142443C324CE1DC000301E57 /* ImageLabelSwift.swift in Sources */,
 				1450DA6B20A96405000085C5 /* ArmorSkill.swift in Sources */,
 				14A250FB1EA9D05400755F6A /* Array+Remove.swift in Sources */,
 				14A8414E20BCDEAB00F36963 /* Charm.swift in Sources */,
@@ -1534,6 +1577,7 @@
 				1437A71323597C0B00910125 /* MonsterListSwift.swift in Sources */,
 				14E2B5191EB2D856002A2A89 /* HeaderView.swift in Sources */,
 				149445F220E8340F00985128 /* ImageLabel.swift in Sources */,
+				142443BF24CE1B6800301E57 /* CombinationListSwift.swift in Sources */,
 				14A251061EA9D05400755F6A /* ImageLabelCell.swift in Sources */,
 				14A250FD1EA9D05400755F6A /* Int+NullString.swift in Sources */,
 				1452DB201F7108F8006A11D7 /* Int+TimeInterval.swift in Sources */,
@@ -1563,6 +1607,7 @@
 				14E704041EB6506400EA2E71 /* MonsterDamagesCell.swift in Sources */,
 				14F9697924CD03DD00BF0BDC /* MonsterDetails.swift in Sources */,
 				144306DA209F5BD300D60A5A /* MonsterHabitat.swift in Sources */,
+				142443CD24D4AA0C00301E57 /* CharmDetailView.swift in Sources */,
 				144306DE209FA95C00D60A5A /* MonsterRewards.swift in Sources */,
 				14E2B50D1EAE5E46002A2A89 /* MonsterStatusesCell.swift in Sources */,
 				14F9698024CD10E700BF0BDC /* PlaceholderView.swift in Sources */,
@@ -1591,6 +1636,7 @@
 				140A133C1EDB57B9002FD025 /* Search.swift in Sources */,
 				14A251381EA9D05400755F6A /* SearchAllListController.swift in Sources */,
 				14A2510B1EA9D05400755F6A /* SelectionManager.swift in Sources */,
+				142443C524D3FEFA00301E57 /* InternalLink.swift in Sources */,
 				14A251251EA9D05400755F6A /* Sharpness.swift in Sources */,
 				14E2B5031EAD2229002A2A89 /* SharpnessesView.swift in Sources */,
 				14E2B5041EAD2229002A2A89 /* SharpnessView.swift in Sources */,
@@ -1614,12 +1660,14 @@
 				14A251121EA9D05400755F6A /* TableSection.swift in Sources */,
 				14A251171EA9D05400755F6A /* Tree.swift in Sources */,
 				14A251181EA9D05400755F6A /* TreeCell.swift in Sources */,
+				142443CA24D4A99700301E57 /* CharmListView.swift in Sources */,
 				14A251191EA9D05400755F6A /* TreeCellView.swift in Sources */,
 				14A2511A1EA9D05400755F6A /* TreeSection.swift in Sources */,
 				14E82E8B23696B1F008B3B70 /* View+KeyboardObserving.swift in Sources */,
 				14A251001EA9D05400755F6A /* UIAlertController+Block.swift in Sources */,
 				14A251011EA9D05400755F6A /* UIBarButtonItem+Buttons.swift in Sources */,
 				14A251021EA9D05400755F6A /* UIImage+Scale.swift in Sources */,
+				142443C824D4032400301E57 /* ItemDetailSwift.swift in Sources */,
 				14A2510E1EA9D05400755F6A /* UIStackView+Convinience.swift in Sources */,
 				14A251031EA9D05400755F6A /* UIView+AutoLayout.swift in Sources */,
 				1452DB1E1F71061F006A11D7 /* UserDefaults.swift in Sources */,

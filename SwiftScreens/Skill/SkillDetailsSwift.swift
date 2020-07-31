@@ -36,10 +36,11 @@ struct SkillDetailSwift: View {
 
             ForEach(skillItems, id: \.0) { item in
                 CollapsableSection(title: item.0, data: item.1) {
-                    ItemCell(
+                    ItemDetailCell(
                         //imageName: $0.icon,
                         titleText: $0.name,
-                        detailText: "+ \($0.level)"
+                        detailText: "+ \($0.level)",
+                        destination: ItemDetailSwift(id: $0.id)
                     )
                 }
             }

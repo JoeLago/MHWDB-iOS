@@ -14,13 +14,13 @@ struct ListMenuSwift: View {
         NavigationView {
             List {
                 ItemDetailCell(imageName: "17", titleText: "Monsters", destination: MonsterListSwift())
-                ItemDetailCell(imageName: "great_sword8", titleText: "Weapons", destination: MonsterListSwift())
-                ItemDetailCell(imageName: "body4", titleText: "Armor", destination: MonsterListSwift())
-                ItemDetailCell(imageName: "Ore-Purple", titleText: "Items", destination: MonsterListSwift())
-                ItemDetailCell(imageName: "Liquid-Green", titleText: "Combinations", destination: MonsterListSwift())
+                ItemDetailCell(imageName: "great_sword8", titleText: "Weapons", destination: MonsterListSwift()) // TODO
+                ItemDetailCell(imageName: "body4", titleText: "Armor", destination: MonsterListSwift()) // TODO
+                ItemDetailCell(imageName: "Ore-Purple", titleText: "Items", destination: MonsterListSwift()) // TODO
+                ItemDetailCell(imageName: "Liquid-Green", titleText: "Combinations", destination: CombinationListSwift())
                 ItemDetailCell(imageName: "Map-Icon-White", titleText: "Locations", destination: LocationListSwift())
-                ItemDetailCell(imageName: "Quest-Icon-White", titleText: "Charms", destination: MonsterListSwift())
-                ItemDetailCell(imageName: "Jewel-Cyan", titleText: "Decorations", destination: MonsterListSwift())
+                ItemDetailCell(imageName: "Quest-Icon-White", titleText: "Charms", destination: CharmListView())
+                ItemDetailCell(imageName: "Jewel-Cyan", titleText: "Decorations", destination: MonsterListSwift()) // TODO
                 ItemDetailCell(imageName: "Monster-Jewel-Teal", titleText: "Skills", destination: SkillListSwift())
             }
             .navigationBarTitle("MHWDB")
