@@ -14,12 +14,12 @@ class Decoration: Decodable, FetchableRecord {
     var mysteriousFeystoneChance: Double
     var warpedFeystoneChance: Double
     var wornFeystoneChance: Double
-    var skillTreeId: Int
+    var skilltreeId: Int
 
-    lazy var skillTree: SkillTree = { return Database.shared.skillTree(id: self.skillTreeId) }()
+    lazy var skillTree: SkillTree = { return Database.shared.skillTree(id: self.skilltreeId) }()
 
     enum CodingKeys: String, CodingKey {
-        case id, name, icon, slotSize = "slot", glowingFeystoneChance = "glowing_feystone_chance", mysteriousFeystoneChance = "mysterious_feystone_chance", warpedFeystoneChance = "warped_feystone_chance", wornFeystoneChance = "worn_feystone_chance", skillTreeId = "skilltree_id"
+        case id, name, icon, slotSize = "slot", glowingFeystoneChance, mysteriousFeystoneChance, warpedFeystoneChance, wornFeystoneChance, skilltreeId
     }
 }
 

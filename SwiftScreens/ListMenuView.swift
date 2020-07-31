@@ -16,11 +16,11 @@ struct ListMenuView: View {
                 ItemDetailCell(imageName: "17", titleText: "Monsters", destination: MonsterListView())
                 ItemDetailCell(imageName: "great_sword8", titleText: "Weapons", destination: MonsterListView()) // TODO
                 ItemDetailCell(imageName: "body4", titleText: "Armor", destination: MonsterListView()) // TODO
-                ItemDetailCell(imageName: "Ore-Purple", titleText: "Items", destination: MonsterListView()) // TODO
+                ItemDetailCell(imageName: "Ore-Purple", titleText: "Items", destination: ItemListView())
                 ItemDetailCell(imageName: "Liquid-Green", titleText: "Combinations", destination: CombinationListView())
                 ItemDetailCell(imageName: "Map-Icon-White", titleText: "Locations", destination: LocationListView())
                 ItemDetailCell(imageName: "Quest-Icon-White", titleText: "Charms", destination: CharmListView())
-                ItemDetailCell(imageName: "Jewel-Cyan", titleText: "Decorations", destination: MonsterListView()) // TODO
+                ItemDetailCell(imageName: "Jewel-Cyan", titleText: "Decorations", destination: DecorationListView())
                 ItemDetailCell(imageName: "Monster-Jewel-Teal", titleText: "Skills", destination: SkillListView())
             }
             .navigationBarTitle("MHWDB")
