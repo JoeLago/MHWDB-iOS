@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct SkillListSwift: View {
+struct SkillListView: View {
     private var skillTrees = Database.shared.skillTrees()
 
     var body: some View {
@@ -17,7 +17,7 @@ struct SkillListSwift: View {
                 imageName: nil, //$0.icon,
                 titleText: $0.name,
                 subtitleText: $0.description,
-                destination: SkillDetailSwift(id: $0.id)
+                destination: SkillDetailView(id: $0.id)
             )
         }
         .navigationBarTitle("Skills")

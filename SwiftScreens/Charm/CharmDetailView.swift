@@ -23,7 +23,7 @@ struct CharmDetailView: View {
                     titleText: $0.name,
                     subtitleText: $0.description,
                     detailText: "\($0.level)",
-                    destination: SkillDetailSwift(id: $0.id)
+                    destination: SkillDetailView(id: $0.id)
                 )
             }
 
@@ -32,7 +32,7 @@ struct CharmDetailView: View {
                     imageName: $0.icon,
                     titleText: $0.name,
                     detailText: "x \($0.quantity)",
-                    destination: ItemDetailSwift(id: $0.id)
+                    destination: ItemDetailView(id: $0.id)
                 )
             }
         }

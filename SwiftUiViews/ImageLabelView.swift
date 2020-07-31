@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct ImageLabelSwift: View {
+struct ImageLabelView: View {
     var iconSize: CGFloat = 40
     var imageName: String?
     var text: String

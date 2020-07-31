@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct ItemDetailSwift: View {
+struct ItemDetailView: View {
     var item: Item
 
     init(id: Int) {

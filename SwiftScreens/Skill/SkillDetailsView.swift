@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct SkillDetailSwift: View {
+struct SkillDetailView: View {
     var skillTree: SkillTree
     var skillItems: [(String, [SkillTreeItem])]
 
@@ -40,7 +40,7 @@ struct SkillDetailSwift: View {
                         //imageName: $0.icon,
                         titleText: $0.name,
                         detailText: "+ \($0.level)",
-                        destination: ItemDetailSwift(id: $0.id)
+                        destination: ItemDetailView(id: $0.id)
                     )
                 }
             }

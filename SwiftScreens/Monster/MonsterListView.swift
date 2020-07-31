@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct MonsterListSwift: View {
+struct MonsterListView: View {
 
     @State private var monsterTypeSelection = 0
     private var monsterSize: Monster.Size? {
@@ -27,10 +27,10 @@ struct MonsterListSwift: View {
                 ItemDetailCell(
                     imageName: monster.icon,
                     titleText: monster.name,
-                    destination: MonsterDetailSwift(monsterId: monster.id)
+                    destination: MonsterDetailView(monsterId: monster.id)
                 )
             }
-            BottomToolBar() {
+            BottomToolBarView() {
                 Spacer()
                 Picker(selection: $monsterTypeSelection, label: Text("")) {
                     Text("Large").tag(0)
@@ -47,6 +47,6 @@ struct MonsterListSwift: View {
 
 struct MonsterListSwift_Previews: PreviewProvider {
     static var previews: some View {
-        MonsterListSwift()
+        MonsterListView()
     }
 }

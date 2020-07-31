@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct MonsterDetailSwift: View {
+struct MonsterDetailView: View {
     var monster: Monster
 
     init(monsterId: Int) {
@@ -21,7 +21,7 @@ struct MonsterDetailSwift: View {
                 ItemDetailCell(
                     titleText: $0.name,
                     detailText: $0.string,
-                    destination: MonsterListSwift()
+                    destination: MonsterListView()
                 )
             }
 
@@ -33,15 +33,15 @@ struct MonsterDetailSwift: View {
             }
 
             CollapsableSection(title: "Low Rank Rewards", data: monster.lowRankRewards) {
-                RewardCell(imageName: $0.iconName, titleText: $0.name, rewards: $0.conditions)
+                RewardCellView(imageName: $0.iconName, titleText: $0.name, rewards: $0.conditions)
             }
 
             CollapsableSection(title: "High Rank Rewards", data: monster.highRankRewards) {
-                RewardCell(imageName: $0.iconName, titleText: $0.name, rewards: $0.conditions)
+                RewardCellView(imageName: $0.iconName, titleText: $0.name, rewards: $0.conditions)
             }
 
             CollapsableSection(title: "G Rank Rewards", data: monster.gRankRewards) {
-                RewardCell(imageName: $0.iconName, titleText: $0.name, rewards: $0.conditions)
+                RewardCellView(imageName: $0.iconName, titleText: $0.name, rewards: $0.conditions)
             }
         }
         .navigationBarTitle(monster.name)

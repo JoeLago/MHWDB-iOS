@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct BottomToolBar<Content>: View where Content: View {
+struct BottomToolBarView<Content>: View where Content: View {
 
     let content: Content
 

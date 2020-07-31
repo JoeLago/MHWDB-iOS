@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct LocationDetailSwift: View {
+struct LocationDetailView: View {
     var location: Location
 
     init(locationId: Int) {
@@ -24,7 +24,7 @@ struct LocationDetailSwift: View {
                     imageName: monster.icon,
                     titleText: monster.name,
                     detailText: monster.areas,
-                    destination: MonsterDetailSwift(monsterId: monster.id)
+                    destination: MonsterDetailView(monsterId: monster.id)
                 )
             }
 

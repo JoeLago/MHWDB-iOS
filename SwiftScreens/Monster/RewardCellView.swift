@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct RewardCell: View {
+struct RewardCellView: View {
     @State var imageName: String?
     @State var titleText: String?
     @State var rewards: [MonsterReward]

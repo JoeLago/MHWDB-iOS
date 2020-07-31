@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct LocationListSwift: View {
+struct LocationListView: View {
     private var locations = Database.shared.locations()
 
     var body: some View {
@@ -16,7 +16,7 @@ struct LocationListSwift: View {
             ItemDetailCell(
                 imageName: location.icon,
                 titleText: location.name,
-                destination: LocationDetailSwift(locationId: location.id)
+                destination: LocationDetailView(locationId: location.id)
             )
         }
         .navigationBarTitle("Locations")
