@@ -8,15 +8,12 @@
 
 import GRDB
 
-class ArmorSkill: FetchableRecord, Decodable {
-    let skillTreeId: Int
+class ArmorSkill: FetchableRecord, Decodable, Identifiable {
+    var id: Int { return skilltreeId }
+    let skilltreeId: Int
     var name: String
     var description: String
     var level: Int
-
-    enum CodingKeys: String, CodingKey {
-        case skillTreeId = "skilltree_id", name, description, level
-    }
 }
 
 extension Database {

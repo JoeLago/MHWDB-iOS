@@ -24,7 +24,7 @@ struct LocationDetailView: View {
                     imageName: monster.icon,
                     titleText: monster.name,
                     detailText: monster.areas,
-                    destination: MonsterDetailView(monsterId: monster.id)
+                    destination: MonsterDetailView(id: monster.id)
                 )
             }
 

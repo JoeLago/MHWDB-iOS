@@ -8,16 +8,13 @@
 
 import GRDB
 
-class ArmorComponent: FetchableRecord, Decodable {
+class ArmorComponent: FetchableRecord, Decodable, Identifiable {
+    var id: Int { return itemId }
     var itemId: Int
     var name: String
     var icon: String?
     var type: String?
     var quantity: Int?
-
-    enum CodingKeys: String, CodingKey {
-        case itemId = "item_id", name, icon, type, quantity
-    }
 }
 
 extension Database {

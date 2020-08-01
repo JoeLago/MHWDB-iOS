@@ -17,7 +17,7 @@ class ArmorDetails: TableController, DetailScreen {
         super.init()
         title = armor.name
         addSimpleSection(data: [armor])
-        addSimpleSection(data: armor.skills, title: "Skills") { SkillDetails(id: $0.skillTreeId) }
+        addSimpleSection(data: armor.skills, title: "Skills") { SkillDetails(id: $0.skilltreeId) }
         //addCustomSection(title: "Resistances", data: [armor.resistances], cellType: ImageLabelCell.self)
         addSimpleSection(data: armor.components, title: "Components") { ItemDetails(id: $0.itemId) }
     }

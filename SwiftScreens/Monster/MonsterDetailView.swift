@@ -11,8 +11,8 @@ import SwiftUI
 struct MonsterDetailView: View {
     var monster: Monster
 
-    init(monsterId: Int) {
-        monster = Database.shared.monster(id: monsterId)
+    init(id: Int) {
+        monster = Database.shared.monster(id: id)
     }
 
     var body: some View {

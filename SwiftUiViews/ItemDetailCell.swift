@@ -35,7 +35,7 @@ struct ItemDetailCell<Destination>: View where Destination: View {
 
     var body: some View {
         NavigationLink(destination: NavigationLazyView(destination)) {
-            HStack {
+            HStack(spacing: 16) {
                 imageName.map {
                     Image($0).resizable()
                         .frame(width: iconSize, height: iconSize)

@@ -17,7 +17,7 @@ class Item: Decodable, FetchableRecord {
     let rarity: Int?
 
     enum CodingKeys: String, CodingKey {
-        case id, name, description, icon, stack = "carry_limit", buy = "buy_price", sell = "sell_price", rarity
+        case id, name, description, icon, stack = "carryLimit", buy = "buyPrice", sell = "sellPrice", rarity
     }
 
     lazy var quests: [ItemQuest] = { return Database.shared.rewards(itemId: self.id) }()

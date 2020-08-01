@@ -27,7 +27,7 @@ struct MonsterListView: View {
                 ItemDetailCell(
                     imageName: monster.icon,
                     titleText: monster.name,
-                    destination: MonsterDetailView(monsterId: monster.id)
+                    destination: MonsterDetailView(id: monster.id)
                 )
             }
             BottomToolBarView() {

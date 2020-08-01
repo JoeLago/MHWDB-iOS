@@ -8,15 +8,12 @@
 
 import GRDB
 
-class ItemComponent: FetchableRecord, Decodable {
+class ItemComponent: FetchableRecord, Decodable, Identifiable {
+    var id: Int { return createdId }
     var createdId: Int
     var name: String
     var icon: String?
     var quantity: Int
-
-    enum CodingKeys: String, CodingKey {
-        case createdId = "created_id", name, icon, quantity
-    }
 }
 
 extension Database {

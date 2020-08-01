@@ -32,7 +32,7 @@ struct ArmorSetListView: View {
                 // TODO: If it's one piece we should just go to it?
                 // TODO: Show all slots
                 // TODO: Show defense (per piece maybe? They should always match?)
-                NavigationLink(destination: ItemDetailView(id: armorSet.id)) {
+                NavigationLink(destination: ArmorSetDetailView(id: armorSet.id)) {
                     HStack(spacing: -25) {
                         Text(armorSet.displayName).font(.body)
                         Spacer()

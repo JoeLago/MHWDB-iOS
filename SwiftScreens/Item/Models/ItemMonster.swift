@@ -8,7 +8,8 @@
 
 import GRDB
 
-class ItemMonster: FetchableRecord, Decodable {
+class ItemMonster: FetchableRecord, Decodable, Identifiable {
+    var id: Int { return monsterId }
     let monsterId: Int
     let name: String
     let icon: String?
@@ -18,7 +19,7 @@ class ItemMonster: FetchableRecord, Decodable {
     let chance: Int
 
     enum CodingKeys: String, CodingKey {
-        case monsterId = "monster_id", name, icon, condition = "condition", rank, stack, chance = "percentage"
+        case monsterId, name, icon, condition, rank, stack, chance = "percentage"
     }
 }
 
