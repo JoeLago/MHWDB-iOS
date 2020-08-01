@@ -6,13 +6,13 @@
 import Foundation
 import GRDB
 
-class Weapon: Decodable, FetchableRecord {
+class Weapon: Decodable, FetchableRecord, Identifiable {
 
     var id: Int
     var parentId: Int?
     var name: String
     var icon: String? {
-        return "\(type.imagePrefix)\(rarity).png"
+        return "\(type.imagePrefix)\(rarity)"
     }
     var type: WeaponType
     var depths: [Bool]?
@@ -51,7 +51,7 @@ class Weapon: Decodable, FetchableRecord {
     var sharpnessValues: String?
 
     enum CodingKeys: String, CodingKey {
-        case id, parentId = "previous_weapon_id", name, type = "weapon_type", depths, attack, element = "element_type", elementAttack = "element_damage", awakenElement, awakenAttack, defense, numSlots, creationCost, upgradeCost, sell, affinity, rarity, slotOne = "slot_1", slotTwo = "slot_2", slotThree = "slot_3", recoil, reloadSpeed, rapidFire, deviation, ammoString, specialAmmo, coatings, charges, phial, phialAttack, shellingType, notes, sharpnessValues="sharpness"
+        case id, parentId = "previousWeaponId", name, type = "weaponType", depths, attack, element = "elementType", elementAttack = "elementDamage", awakenElement, awakenAttack, defense, numSlots, creationCost, upgradeCost, sell, affinity, rarity, slotOne = "slot1", slotTwo = "slot2", slotThree = "slot3", recoil, reloadSpeed, rapidFire, deviation, ammoString, specialAmmo, coatings, charges, phial, phialAttack, shellingType = "shelling", notes, sharpnessValues="sharpness"
     }
 
     var components: [WeaponComponent] {
@@ -67,13 +67,13 @@ class Weapon: Decodable, FetchableRecord {
         if let coatings = Int(coatings) {
             var coatingImageNames = [String]()
 
-            if (coatings & 0x0400) > 0 || (coatings & 0x0200) > 0 { coatingImageNames.append("Bottle-Red.png") }
-            if (coatings & 0x20) > 0 { coatingImageNames.append("Bottle-Purple.png") }
-            if (coatings & 0x10) > 0 { coatingImageNames.append("Bottle-Yellow.png") }
-            if (coatings & 0x08) > 0 { coatingImageNames.append("Bottle-Cyan.png") }
-            if (coatings & 0x40) > 0 { coatingImageNames.append("Bottle-White.png") }
-            if (coatings & 0x04) > 0 { coatingImageNames.append("Bottle-Blue.png") }
-            if (coatings & 0x02) > 0 { coatingImageNames.append("Bottle-Orange.png") }
+            if (coatings & 0x0400) > 0 || (coatings & 0x0200) > 0 { coatingImageNames.append("Bottle-Red") }
+            if (coatings & 0x20) > 0 { coatingImageNames.append("Bottle-Purple") }
+            if (coatings & 0x10) > 0 { coatingImageNames.append("Bottle-Yellow") }
+            if (coatings & 0x08) > 0 { coatingImageNames.append("Bottle-Cyan") }
+            if (coatings & 0x40) > 0 { coatingImageNames.append("Bottle-White") }
+            if (coatings & 0x04) > 0 { coatingImageNames.append("Bottle-Blue") }
+            if (coatings & 0x02) > 0 { coatingImageNames.append("Bottle-Orange") }
 
             return coatingImageNames
         } else {

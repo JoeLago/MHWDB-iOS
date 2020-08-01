@@ -6,7 +6,7 @@
 import Foundation
 import GRDB
 
-class WeaponComponent: FetchableRecord, Decodable {
+class WeaponComponent: FetchableRecord, Decodable, Identifiable {
     let id: Int
     let name: String
     let icon: String?
@@ -14,7 +14,7 @@ class WeaponComponent: FetchableRecord, Decodable {
     let quantity: Int
 
     enum CodingKeys: String, CodingKey {
-        case id = "item_id", name, icon, type = "recipe_type", quantity
+        case id = "itemId", name, icon, type = "recipeType", quantity
     }
 }
 

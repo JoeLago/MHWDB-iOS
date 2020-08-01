@@ -45,7 +45,7 @@ struct ItemDetailCell<Destination>: View where Destination: View {
                     subtitleText.map { Text($0).font(.caption).foregroundColor(.secondary) }
                 }
                 Spacer()
-                detailText.map { Text($0).font(.body).foregroundColor(Color.Text.secondary) }
+                detailText.map { Text($0).font(.body).foregroundColor(.secondary) }
             }
         }
     }
@@ -71,7 +71,7 @@ struct ItemCell: View {
                 subtitleText.map { Text($0).font(.caption).foregroundColor(.secondary) }
             }
             Spacer()
-            detailText.map { Text($0).font(.body).foregroundColor(Color.Text.secondary) }
+            detailText.map { Text($0).font(.body).foregroundColor(.secondary) }
         }
     }
 }

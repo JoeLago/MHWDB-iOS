@@ -17,14 +17,14 @@ extension Weapon {
         if let notes = notes {
             return notes.compactMap({ (c: Character) -> String? in
                 switch c {
-                case "A": return "Note.aqua.png"
-                case "B": return "Note.blue.png"
-                case "G": return "Note.green.png"
-                case "O": return "Note.orange.png"
-                case "P": return "Note.purple.png"
-                case "R": return "Note.red.png"
-                case "W": return "Note.white.png"
-                case "Y": return "Note.yellow.png"
+                case "A": return "Note.aqua"
+                case "B": return "Note.blue"
+                case "G": return "Note.green"
+                case "O": return "Note.orange"
+                case "P": return "Note.purple"
+                case "R": return "Note.red"
+                case "W": return "Note.white"
+                case "Y": return "Note.yellow"
                 default: return nil
                 }
             })
