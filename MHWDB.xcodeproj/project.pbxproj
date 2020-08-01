@@ -52,6 +52,9 @@
 		14612B131EB8EEA000DB7F64 /* PalicoWeaponDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14612B121EB8EEA000DB7F64 /* PalicoWeaponDetail.swift */; };
 		14612B171EB9B49900DB7F64 /* PalicoWeaponDetailSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14612B161EB9B49900DB7F64 /* PalicoWeaponDetailSection.swift */; };
 		14612B1A1EBA3EC800DB7F64 /* PalicoWeaponCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14612B191EBA3EC800DB7F64 /* PalicoWeaponCell.swift */; };
+		1480482424D4D355001E407E /* ArmorSetListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480482324D4D355001E407E /* ArmorSetListView.swift */; };
+		1480482624D4FCF8001E407E /* ArmorSetDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480482524D4FCF8001E407E /* ArmorSetDetailView.swift */; };
+		1480482824D4FD06001E407E /* ArmorDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480482724D4FD06001E407E /* ArmorDetailView.swift */; };
 		148812F920A2C31E006B91EF /* WeaponType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148812F820A2C31E006B91EF /* WeaponType.swift */; };
 		148812FB20A2C378006B91EF /* WeaponAmmo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148812FA20A2C378006B91EF /* WeaponAmmo.swift */; };
 		148812FD20A2C3AE006B91EF /* Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148812FC20A2C3AE006B91EF /* Notes.swift */; };
@@ -295,6 +298,9 @@
 		14612B121EB8EEA000DB7F64 /* PalicoWeaponDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PalicoWeaponDetail.swift; sourceTree = "<group>"; };
 		14612B161EB9B49900DB7F64 /* PalicoWeaponDetailSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PalicoWeaponDetailSection.swift; sourceTree = "<group>"; };
 		14612B191EBA3EC800DB7F64 /* PalicoWeaponCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PalicoWeaponCell.swift; sourceTree = "<group>"; };
+		1480482324D4D355001E407E /* ArmorSetListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArmorSetListView.swift; sourceTree = "<group>"; };
+		1480482524D4FCF8001E407E /* ArmorSetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArmorSetDetailView.swift; sourceTree = "<group>"; };
+		1480482724D4FD06001E407E /* ArmorDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArmorDetailView.swift; sourceTree = "<group>"; };
 		148812F820A2C31E006B91EF /* WeaponType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponType.swift; sourceTree = "<group>"; };
 		148812FA20A2C378006B91EF /* WeaponAmmo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponAmmo.swift; sourceTree = "<group>"; };
 		148812FC20A2C3AE006B91EF /* Notes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notes.swift; sourceTree = "<group>"; };
@@ -816,6 +822,24 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		1480482224D4D302001E407E /* Armor */ = {
+			isa = PBXGroup;
+			children = (
+				1480482724D4FD06001E407E /* ArmorDetailView.swift */,
+				1480482524D4FCF8001E407E /* ArmorSetDetailView.swift */,
+				1480482324D4D355001E407E /* ArmorSetListView.swift */,
+				144306EB209FB4A100D60A5A /* Models */,
+			);
+			path = Armor;
+			sourceTree = "<group>";
+		};
+		1480482924D5083E001E407E /* Quests_TODO */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Quests_TODO;
+			sourceTree = "<group>";
+		};
 		149445EE20E82B2600985128 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -1075,7 +1099,6 @@
 			isa = PBXGroup;
 			children = (
 				149445EE20E82B2600985128 /* Cells */,
-				144306EB209FB4A100D60A5A /* Models */,
 				144306EA209FB49400D60A5A /* Screen */,
 			);
 			path = Armor;
@@ -1217,6 +1240,7 @@
 			isa = PBXGroup;
 			children = (
 				1437A716235996F200910125 /* ListMenuView.swift */,
+				1480482224D4D302001E407E /* Armor */,
 				142443CB24D4A9D600301E57 /* Charm */,
 				142443BD24CE1B3800301E57 /* Combination */,
 				142443D324D4B1E800301E57 /* Decoration */,
@@ -1224,6 +1248,7 @@
 				14F9696E24CD00B700BF0BDC /* Location */,
 				14F9696C24CCFF6500BF0BDC /* Monster */,
 				14F9697C24CD0EA200BF0BDC /* Skill */,
+				1480482924D5083E001E407E /* Quests_TODO */,
 			);
 			path = SwiftScreens;
 			sourceTree = "<group>";
@@ -1559,6 +1584,7 @@
 				14E82E8A23696B1F008B3B70 /* KeyboardObserving.swift in Sources */,
 				149445F020E82B3E00985128 /* ArmorSetCell.swift in Sources */,
 				1450DA7320A96AB7000085C5 /* ArmorSetDetails.swift in Sources */,
+				1480482824D4FD06001E407E /* ArmorDetailView.swift in Sources */,
 				1450DA6F20A96860000085C5 /* ArmorSetList.swift in Sources */,
 				142443C324CE1DC000301E57 /* ImageLabelView.swift in Sources */,
 				1450DA6B20A96405000085C5 /* ArmorSkill.swift in Sources */,
@@ -1606,6 +1632,7 @@
 				14F9697E24CD0ECD00BF0BDC /* SkillListView.swift in Sources */,
 				1450DA6320A95915000085C5 /* ItemLocation.swift in Sources */,
 				1450DA6520A95927000085C5 /* ItemMonster.swift in Sources */,
+				1480482624D4FCF8001E407E /* ArmorSetDetailView.swift in Sources */,
 				1450DA6120A95900000085C5 /* ItemQuest.swift in Sources */,
 				14E2B50B1EAD7AC9002A2A89 /* LabelStack.swift in Sources */,
 				14DF85451EC297E400F9AD1D /* ListGrid.swift in Sources */,
@@ -1627,6 +1654,7 @@
 				144306DA209F5BD300D60A5A /* MonsterHabitat.swift in Sources */,
 				142443CD24D4AA0C00301E57 /* CharmDetailView.swift in Sources */,
 				144306DE209FA95C00D60A5A /* MonsterRewards.swift in Sources */,
+				1480482424D4D355001E407E /* ArmorSetListView.swift in Sources */,
 				14E2B50D1EAE5E46002A2A89 /* MonsterStatusesCell.swift in Sources */,
 				14F9698024CD10E700BF0BDC /* PlaceholderView.swift in Sources */,
 				14A251141EA9D05400755F6A /* MultiCellSection.swift in Sources */,

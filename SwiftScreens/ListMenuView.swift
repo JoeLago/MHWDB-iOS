@@ -15,7 +15,7 @@ struct ListMenuView: View {
             List {
                 ItemDetailCell(imageName: "17", titleText: "Monsters", destination: MonsterListView())
                 ItemDetailCell(imageName: "great_sword8", titleText: "Weapons", destination: MonsterListView()) // TODO
-                ItemDetailCell(imageName: "body4", titleText: "Armor", destination: MonsterListView()) // TODO
+                ItemDetailCell(imageName: "body4", titleText: "Armor", destination: ArmorSetListView())
                 ItemDetailCell(imageName: "Ore-Purple", titleText: "Items", destination: ItemListView())
                 ItemDetailCell(imageName: "Liquid-Green", titleText: "Combinations", destination: CombinationListView())
                 ItemDetailCell(imageName: "Map-Icon-White", titleText: "Locations", destination: LocationListView())

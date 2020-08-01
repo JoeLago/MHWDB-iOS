@@ -8,7 +8,7 @@
 
 import GRDB
 
-class ArmorSet: FetchableRecord, Decodable {
+class ArmorSet: FetchableRecord, Decodable, Identifiable {
     let id: Int
     let name: String
     let rank: Quest.Rank
@@ -35,6 +35,15 @@ extension Database {
 
         if let rank = rank {
             query.filter("rank", equals: rank.rawValue)
+        }
+
+        // TODO: not positive this works for all languages, should probably be a value in db
+        if let hrArmorType = hrArmorType {
+            switch hrArmorType {
+            case 0: query.filter("name", contains: "α")
+            case 1: query.filter("name", contains: "β")
+            default: break
+            }
         }
 
         return fetch(query)

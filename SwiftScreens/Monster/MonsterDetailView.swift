@@ -40,7 +40,7 @@ struct MonsterDetailView: View {
                 RewardCellView(imageName: $0.iconName, titleText: $0.name, rewards: $0.conditions)
             }
 
-            CollapsableSection(title: "G Rank Rewards", data: monster.gRankRewards) {
+            CollapsableSection(title: "Master Rank Rewards", data: monster.gRankRewards) {
                 RewardCellView(imageName: $0.iconName, titleText: $0.name, rewards: $0.conditions)
             }
         }

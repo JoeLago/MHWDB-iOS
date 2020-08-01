@@ -5,16 +5,18 @@
 
 import GRDB
 
-class Armor: FetchableRecord, Decodable {
+class Armor: FetchableRecord, Decodable, Identifiable {
 
     enum Slot: String, Decodable, CaseIterable {
         case head, chest, arms, waist, legs
 
         var iconName: String {
             switch self {
-            case .arms: return "arm"
-            case .legs: return "leg"
-            default: return rawValue
+            case .head: return "head"
+            case .chest: return "body"
+            case .arms: return "arms"
+            case .waist: return "waist"
+            case .legs: return "legs"
             }
         }
     }
@@ -53,7 +55,7 @@ class Armor: FetchableRecord, Decodable {
     var iceResistance: Int
     var dragonResistance: Int
 
-    var icon: String { return "\(slot?.iconName ?? "")\(rarity).png" }
+    var icon: String { return "\(slot?.iconName ?? "")\(rarity)" }
     //var slotsString: String { return String(repeating: "O", count: slots) + String(repeating: "-", count: 3 - slots) }
     var svg: SVGImageModel {
         return SVGImageModel(name: "equipment_\(slot?.iconName ?? "")_base.svg",
@@ -65,7 +67,7 @@ class Armor: FetchableRecord, Decodable {
     lazy var components: [ArmorComponent] = { return Database.shared.armorComponents(armorId: self.id) }()
 
     enum CodingKeys: String, CodingKey {
-        case id, name, defense="defense_base", defenseMax="defense_max", defenseAugment="defense_augment_max", rarity, slot="armor_type", socketOne="slot_1", socketTwo="slot_2", socketThree="slot_3", isFemale="female", isMale="male", fireResistance="fire", waterResistance="water", thunderResistance="thunder", iceResistance="ice", dragonResistance="dragon"
+        case id, name, defense="defenseBase", defenseMax, defenseAugment="defenseAugmentMax", rarity, slot="armorType", socketOne="slot1", socketTwo="slot2", socketThree="slot3", isFemale="female", isMale="male", fireResistance="fire", waterResistance="water", thunderResistance="thunder", iceResistance="ice", dragonResistance="dragon"
     }
 }
 
