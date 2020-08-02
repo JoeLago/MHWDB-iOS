@@ -26,18 +26,9 @@ extension NSAttributedString {
     }
 }
 
-struct BoldText: StyledText {
-    var text = ""
-    var isBold: Bool { return true }
-}
-
 extension String {
     var attributedImage: NSAttributedString {
         return NSAttributedString(imageName: self)
-    }
-
-    var bold: BoldText {
-        return BoldText(text: self)
     }
 }
 

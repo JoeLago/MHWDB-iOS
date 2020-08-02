@@ -74,7 +74,7 @@ class Ammo {
     }
 }
 
-class AmmoType: StyledText {
+class AmmoType {
     // TODO: text should be int value and isbold should be named whatever that represents
     // text and isBold should be in separate extension
     // (in AmmoCell.swift since it's a UI thing)

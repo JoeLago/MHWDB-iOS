@@ -104,20 +104,6 @@ enum IconColor: String, Decodable {
     }
 }
 
-struct Font {
-    struct Size {
-        static let header: CGFloat = 16
-        static let title: CGFloat = 14
-        static let subTitle: CGFloat = 12
-    }
-
-    static let header = UIFont.systemFont(ofSize: Size.header)
-    static let title = UIFont.systemFont(ofSize: Size.title)
-    static let titleMedium = UIFont.systemFont(ofSize: Size.title, weight: UIFont.Weight.medium)
-    static let titleBold = UIFont.boldSystemFont(ofSize: Size.title)
-    static let subTitle = UIFont.systemFont(ofSize: Size.subTitle)
-}
-
 extension UIColor {
     convenience init(hex: Int) {
         self.init(red: CGFloat((hex >> 16) & 0xff) / 255.0,
