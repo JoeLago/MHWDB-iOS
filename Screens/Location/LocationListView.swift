@@ -16,7 +16,7 @@ struct LocationListView: View {
             ItemDetailCell(
                 imageName: location.icon,
                 titleText: location.name,
-                destination: LocationDetailView(locationId: location.id)
+                destination: LocationDetailView(id: location.id)
             )
         }
         .navigationBarTitle("Locations")

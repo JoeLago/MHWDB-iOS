@@ -21,7 +21,7 @@ struct MonsterDetailView: View {
                 ItemDetailCell(
                     titleText: $0.name,
                     detailText: $0.string,
-                    destination: MonsterListView()
+                    destination: LocationDetailView(id: $0.id)
                 )
             }
 

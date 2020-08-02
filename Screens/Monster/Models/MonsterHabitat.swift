@@ -9,14 +9,12 @@
 import GRDB
 
 class MonsterHabitat: Decodable, FetchableRecord, Identifiable {
+    var id: Int { return locationId }
     var locationId: Int
     var name: String?
     var startArea: String?
     var moveArea: String
     var restArea: String?
-
-    var id: String { "habitat-\(locationId)" }
-
     var string: String {
         return [startArea, moveArea, restArea].compactMap { $0 }.joined(separator: " > ")
     }

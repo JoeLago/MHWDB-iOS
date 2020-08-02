@@ -11,8 +11,8 @@ import SwiftUI
 struct LocationDetailView: View {
     var location: Location
 
-    init(locationId: Int) {
-        location = Database.shared.location(id: locationId)
+    init(id: Int) {
+        location = Database.shared.location(id: id)
     }
 
     var body: some View {
