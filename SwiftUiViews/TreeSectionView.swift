@@ -34,7 +34,7 @@ struct TreeSectionView<Data, Content>: View where Data: Identifiable, Content: V
             if !isCollapsed {
                 ForEach(tree.nodeArray) { node in
                     HStack(spacing: 4) {
-                        BranchesView(branches: node.getBranches()).edgesIgnoringSafeArea(.all)
+                        BranchesView(node: node).edgesIgnoringSafeArea(.all)
                         self.dataContent(node.object).padding(.vertical, 8)
                         Spacer()
                     }.listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
@@ -44,24 +44,40 @@ struct TreeSectionView<Data, Content>: View where Data: Identifiable, Content: V
     }
 }
 
+// This could look better I think
 struct BranchesView: View {
+    let lineWidth: CGFloat = 1
+    let spacing: CGFloat = 4
     var width: CGFloat
-    var branches = [Int]()
+    var branches = [CGFloat]()
+    var hasParent: Bool
 
-    init(branches: [Bool]) {
-        self.width = CGFloat(branches.count * 10) + 10
-        self.branches = branches.enumerated().compactMap { $0.element == true ? $0.offset * 10 + 10 : nil }
+    init<NodeType>(node: Node<NodeType>) {
+        let nodeBranches = node.getBranches()
+        self.width = spacing * CGFloat(nodeBranches.count) + spacing
+        self.hasParent = node.parent != nil
+        self.branches = nodeBranches.enumerated().compactMap {
+            $0.element == true ? CGFloat($0.offset) * spacing + spacing : nil
+        }
     }
 
     var body: some View {
         GeometryReader { geometry in
             Path { path in
-                for branch in self.branches {
-                    path.move(to: CGPoint(x: branch, y: 0))
-                    path.addLine(to: CGPoint(x: CGFloat(branch), y: CGFloat(geometry.size.height)))
+                let height = geometry.size.height
+
+                for branchOffset in self.branches {
+                    path.move(to: CGPoint(x: branchOffset, y: 0))
+                    path.addLine(to: CGPoint(x: branchOffset, y: height))
                 }
+
+                guard self.hasParent else { return }
+                let xOffset = self.width - self.spacing
+                path.move(to: CGPoint(x: xOffset, y: 0))
+                path.addLine(to: CGPoint(x: xOffset, y: height/2))
+                path.addLine(to: CGPoint(x: xOffset + self.spacing, y: height/2))
             }
-            .stroke(Color.primary, lineWidth: 2)
+            .stroke(Color.primary, lineWidth: self.lineWidth)
         }
         .frame(width: self.width, height: nil, alignment: .leading)
     }
