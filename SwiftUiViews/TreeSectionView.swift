@@ -24,7 +24,6 @@ struct TreeSectionView<Data, Content>: View where Data: Identifiable, Content: V
     var body: some View {
         guard tree.array.count > 0 else { return AnyView(EmptyView()) }
 
-        // Probably don't want header for this
         return AnyView(Section(header:
             title.map {
                 CustomeHeader(title: $0, isCollapsed: isCollapsed)
