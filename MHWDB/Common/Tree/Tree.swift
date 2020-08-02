@@ -5,7 +5,7 @@
 
 import Foundation
 
-class Tree<T> {
+class Tree<T: Identifiable> {
     var roots = [Node<T>]()
 
     init() {

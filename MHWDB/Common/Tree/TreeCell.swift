@@ -5,7 +5,7 @@
 
 import UIKit
 
-class TreeCell<T, U: TreeCellView<T>>: UITableViewCell {
+class TreeCell<T: Identifiable, U: TreeCellView<T>>: UITableViewCell {
     let WIDTH = 5
 
     var node: Node<T>? {

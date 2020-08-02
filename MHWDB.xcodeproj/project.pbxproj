@@ -36,6 +36,7 @@
 		144306DE209FA95C00D60A5A /* MonsterRewards.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144306DD209FA95C00D60A5A /* MonsterRewards.swift */; };
 		144E526E23D67D6A00E919C5 /* AttributedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144E526D23D67D6A00E919C5 /* AttributedText.swift */; };
 		14506ED924D60157001BD9FF /* ValueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14506ED824D60157001BD9FF /* ValueView.swift */; };
+		14506EDB24D61ED4001BD9FF /* TreeSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14506EDA24D61ED4001BD9FF /* TreeSectionView.swift */; };
 		1450DA6120A95900000085C5 /* ItemQuest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1450DA6020A95900000085C5 /* ItemQuest.swift */; };
 		1450DA6320A95915000085C5 /* ItemLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1450DA6220A95915000085C5 /* ItemLocation.swift */; };
 		1450DA6520A95927000085C5 /* ItemMonster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1450DA6420A95927000085C5 /* ItemMonster.swift */; };
@@ -284,6 +285,7 @@
 		144306DD209FA95C00D60A5A /* MonsterRewards.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterRewards.swift; sourceTree = "<group>"; };
 		144E526D23D67D6A00E919C5 /* AttributedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedText.swift; sourceTree = "<group>"; };
 		14506ED824D60157001BD9FF /* ValueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueView.swift; sourceTree = "<group>"; };
+		14506EDA24D61ED4001BD9FF /* TreeSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeSectionView.swift; sourceTree = "<group>"; };
 		1450DA6020A95900000085C5 /* ItemQuest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemQuest.swift; sourceTree = "<group>"; };
 		1450DA6220A95915000085C5 /* ItemLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemLocation.swift; sourceTree = "<group>"; };
 		1450DA6420A95927000085C5 /* ItemMonster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemMonster.swift; sourceTree = "<group>"; };
@@ -589,6 +591,7 @@
 				142443C224CE1DC000301E57 /* ImageLabelView.swift */,
 				142443C424D3FEFA00301E57 /* InternalLink.swift */,
 				14506ED824D60157001BD9FF /* ValueView.swift */,
+				14506EDA24D61ED4001BD9FF /* TreeSectionView.swift */,
 			);
 			path = SwiftUiViews;
 			sourceTree = "<group>";
@@ -1670,6 +1673,7 @@
 				14E2B5131EB1041D002A2A89 /* Logging.swift in Sources */,
 				14A251361EA9D05400755F6A /* MapCell.swift in Sources */,
 				14E82E8923696B1F008B3B70 /* KeyboardObservingView.swift in Sources */,
+				14506EDB24D61ED4001BD9FF /* TreeSectionView.swift in Sources */,
 				144306D5209EDC7600D60A5A /* Monster.swift in Sources */,
 				144306DC209F72C800D60A5A /* MonsterDamage.swift in Sources */,
 				14E704041EB6506400EA2E71 /* MonsterDamagesCell.swift in Sources */,

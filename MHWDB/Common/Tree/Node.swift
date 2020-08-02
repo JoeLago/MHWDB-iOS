@@ -5,7 +5,8 @@
 
 import Foundation
 
-class Node<T> {
+class Node<T: Identifiable>: Identifiable {
+    var id: T.ID { return object.id }
     var object: T
     var parent: Node?
     var children = [Node<T>]()
