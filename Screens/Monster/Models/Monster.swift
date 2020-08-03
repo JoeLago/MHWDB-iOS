@@ -16,7 +16,7 @@ class Monster: Decodable, FetchableRecord, Identifiable {
 
     var id: Int
     var name: String
-    var icon: String? { return size == .large ? "\(id)" : nil }
+    var icon: String? { return "\(id)" }
     var size: Size?
 
     var weaknessBlast: Int?
@@ -48,7 +48,9 @@ extension Database {
     }
 
     func monsters(_ search: String? = nil, size: Monster.Size? = nil) -> [Monster] {
-        let query = Query(table: "monster").join(table: "monster_text").order(by: "name")
+        let query = Query(table: "monster")
+            .join(table: "monster_text")
+            .order(by: "order_id")
         if let size = size {
             query.filter("size", equals: size.rawValue)
         }

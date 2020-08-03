@@ -12,9 +12,10 @@ class Charm: Decodable, FetchableRecord {
     var id: Int
     var name: String
     var icon: String?
+    var recipeId: Int?
 
     lazy var skills: [CharmSkill] = { return Database.shared.charmSkills(charmId: self.id) }()
-    lazy var items: [CharmItem] = { return Database.shared.charmItems(charmId: self.id) }()
+    lazy var items: [RecipeComponent] = { self.recipeId.map({ return Database.shared.recipeComponents(id: $0) }) ?? [RecipeComponent]() }()
 }
 
 extension Database {

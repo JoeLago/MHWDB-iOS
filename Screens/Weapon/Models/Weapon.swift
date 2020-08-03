@@ -49,13 +49,14 @@ class Weapon: Decodable, FetchableRecord, Identifiable {
     var shellingType: String?
     var notes: String?
     var sharpnessValues: String?
+    var recipeId: Int
 
     enum CodingKeys: String, CodingKey {
-        case id, parentId = "previousWeaponId", name, type = "weaponType", depths, attack, element = "elementType", elementAttack = "elementDamage", awakenElement, awakenAttack, defense, numSlots, creationCost, upgradeCost, sell, affinity, rarity, slotOne = "slot1", slotTwo = "slot2", slotThree = "slot3", recoil, reloadSpeed, rapidFire, deviation, ammoString, specialAmmo, coatings, charges, phial, phialAttack, shellingType = "shelling", notes, sharpnessValues="sharpness"
+        case id, parentId = "previousWeaponId", name, type = "weaponType", depths, attack, element = "elementType", elementAttack = "elementDamage", awakenElement, awakenAttack, defense, numSlots, creationCost, upgradeCost, sell, affinity, rarity, slotOne = "slot1", slotTwo = "slot2", slotThree = "slot3", recoil, reloadSpeed, rapidFire, deviation, ammoString, specialAmmo, coatings, charges, phial, phialAttack, shellingType = "shelling", notes, sharpnessValues="sharpness", recipeId
     }
 
-    var components: [WeaponComponent] {
-        return Database.shared.components(weaponId: id)
+    var components: [RecipeComponent] {
+        return Database.shared.recipeComponents(id: self.recipeId)
     }
 
     var sharpness: [Sharpness]? {

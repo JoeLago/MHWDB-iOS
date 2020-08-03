@@ -8,7 +8,7 @@
 
 import GRDB
 
-class ArmorComponent: FetchableRecord, Decodable, Identifiable {
+class RecipeComponent: FetchableRecord, Decodable, Identifiable {
     var id: Int { return itemId }
     var itemId: Int
     var name: String
@@ -18,11 +18,11 @@ class ArmorComponent: FetchableRecord, Decodable, Identifiable {
 }
 
 extension Database {
-    func armorComponents(armorId: Int) -> [ArmorComponent] {
-        let query = Query(table: "armor_recipe")
+    func recipeComponents(id recipeId: Int) -> [RecipeComponent] {
+        let query = Query(table: "recipe_item")
             .join(table: "item", on: "item_id")
             .join(origin: "item", table: "item_text")
-            .filter("armor_id", equals: armorId)
+            .filter("recipe_id", equals: recipeId)
         return fetch(query)
     }
 }

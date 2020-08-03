@@ -76,7 +76,7 @@ struct WeaponDetailView: View {
                 ItemDetailCell(
                     imageName: $0.icon,
                     titleText: $0.name,
-                    detailText: "x \($0.quantity)",
+                    detailText: $0.quantity.map { "x \($0)" },
                     destination: ItemDetailView(id: $0.id)
                 )
             }

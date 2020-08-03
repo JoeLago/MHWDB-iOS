@@ -13,7 +13,7 @@ class MonsterHabitat: Decodable, FetchableRecord, Identifiable {
     var locationId: Int
     var name: String?
     var startArea: String?
-    var moveArea: String
+    var moveArea: String?
     var restArea: String?
     var string: String {
         return [startArea, moveArea, restArea].compactMap { $0 }.joined(separator: " > ")

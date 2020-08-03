@@ -54,6 +54,7 @@ class Armor: FetchableRecord, Decodable, Identifiable {
     var thunderResistance: Int
     var iceResistance: Int
     var dragonResistance: Int
+    var recipeId: Int
 
     var icon: String { return "\(slot?.iconName ?? "")\(rarity)" }
     //var slotsString: String { return String(repeating: "O", count: slots) + String(repeating: "-", count: 3 - slots) }
@@ -64,10 +65,10 @@ class Armor: FetchableRecord, Decodable, Identifiable {
     }
 
     lazy var skills: [ArmorSkill] = { return Database.shared.armorSkills(armorId: id) }()
-    lazy var components: [ArmorComponent] = { return Database.shared.armorComponents(armorId: self.id) }()
+    lazy var components: [RecipeComponent] = { return Database.shared.recipeComponents(id: self.recipeId) }()
 
     enum CodingKeys: String, CodingKey {
-        case id, name, defense="defenseBase", defenseMax, defenseAugment="defenseAugmentMax", rarity, slot="armorType", socketOne="slot1", socketTwo="slot2", socketThree="slot3", isFemale="female", isMale="male", fireResistance="fire", waterResistance="water", thunderResistance="thunder", iceResistance="ice", dragonResistance="dragon"
+        case id, name, defense="defenseBase", defenseMax, defenseAugment="defenseAugmentMax", rarity, slot="armorType", socketOne="slot1", socketTwo="slot2", socketThree="slot3", isFemale="female", isMale="male", fireResistance="fire", waterResistance="water", thunderResistance="thunder", iceResistance="ice", dragonResistance="dragon", recipeId
     }
 }
 

@@ -18,27 +18,27 @@ class ItemComponent: FetchableRecord, Decodable, Identifiable {
 
 extension Database {
     func armorComponents(itemId: Int) -> [ItemComponent] {
-        let query = Query(table: "armor_recipe")
-            .column("armor_id", as: "created_id")
-            .join(table: "armor", on: "armor_id")
+        let query = Query(table: "recipe_item")
+            .column("armor.id", as: "created_id")
+            .join(table: "armor", on: "recipe_id", equals: "armor.recipe_id")
             .join(origin: "armor", table: "armor_text")
             .filter("item_id", equals: itemId)
         return fetch(query)
     }
 
     func weaponComponents(itemId: Int) -> [ItemComponent] {
-        let query = Query(table: "weapon_recipe")
-            .column("weapon_id", as: "created_id")
-            .join(table: "weapon", on: "weapon_id")
+        let query = Query(table: "recipe_item")
+            .column("weapon.id", as: "created_id")
+            .join(table: "weapon", on: "recipe_id", equals: "weapon.upgrade_recipe_id") // TODO: OR weapon.create_recipe_id
             .join(origin: "weapon", table: "weapon_text")
             .filter("item_id", equals: itemId)
         return fetch(query)
     }
 
     func charmComponents(itemId: Int) -> [ItemComponent] {
-        let query = Query(table: "charm_recipe")
-            .column("charm_id", as: "created_id")
-            .join(table: "charm", on: "charm_id")
+        let query = Query(table: "recipe_item")
+            .column("charm.id", as: "created_id")
+            .join(table: "charm", on: "recipe_id", equals: "charm.recipe_id")
             .join(origin: "charm", table: "charm_text")
             .filter("item_id", equals: itemId)
         return fetch(query)

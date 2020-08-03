@@ -23,7 +23,7 @@ struct LocationDetailView: View {
                 ItemDetailCell(
                     imageName: monster.icon,
                     titleText: monster.name,
-                    detailText: monster.areas,
+                    subtitleText: monster.areas,
                     destination: MonsterDetailView(id: monster.id)
                 )
             }

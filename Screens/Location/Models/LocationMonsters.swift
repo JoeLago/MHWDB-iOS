@@ -13,10 +13,10 @@ class LocationMonster: FetchableRecord, Decodable, Identifiable {
     var id: Int { return monsterId }
     let monsterId: Int
     var name: String?
-    var icon: String? { return size == .large ? "\(monsterId)" : nil }
+    var icon: String? { "\(monsterId)" }
     var size: Monster.Size?
     var startArea: String?
-    var moveArea: String
+    var moveArea: String?
     var restArea: String?
 
     var areas: String {
