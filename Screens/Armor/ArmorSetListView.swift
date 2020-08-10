@@ -15,7 +15,7 @@ struct ArmorSetListView: View {
         switch rankSelection {
         case 0: return .low
         case 1: return .high
-        case 2: return .g
+        case 2: return .master
         default: return nil
         }
     }

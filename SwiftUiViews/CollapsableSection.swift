@@ -15,8 +15,9 @@ struct CollapsableSection<Data, Content>: View where Data: RandomAccessCollectio
     let data: Data
     let dataContent: (Data.Element) -> Content
 
-    public init(title: String, data: Data, dataContent: @escaping (Data.Element) -> Content) {
+    public init(title: String, isCollapsed: Bool = false, data: Data, dataContent: @escaping (Data.Element) -> Content) {
         self.title = title
+        _isCollapsed = .init(initialValue: isCollapsed)
         self.data = data
         self.dataContent = dataContent
     }

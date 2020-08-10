@@ -32,7 +32,7 @@ class Monster: Decodable, FetchableRecord, Identifiable {
 
     lazy var lowRankRewards: [RewardConditions] = { rewardsByReward(rank: .low) }()
     lazy var highRankRewards: [RewardConditions] = { rewardsByReward(rank: .high) }()
-    lazy var gRankRewards: [RewardConditions] = { rewardsByReward(rank: .g) }()
+    lazy var gRankRewards: [RewardConditions] = { rewardsByReward(rank: .master) }()
 
     lazy var habitats: [MonsterHabitat] = { return Database.shared.habitats(monsterId: id) }()
     lazy var damageByPart: [MonsterDamageByPart] = { return Database.shared.damageByPart(monsterId: id) }()

@@ -49,6 +49,8 @@
 		145FEA771F78A6C100BF9237 /* ReviewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145FEA761F78A6C100BF9237 /* ReviewManager.swift */; };
 		145FEA7A1F78A85200BF9237 /* ReviewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145FEA781F78A82400BF9237 /* ReviewTests.swift */; };
 		147408DC24E11455006BC15E /* IconImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147408DB24E11455006BC15E /* IconImage.swift */; };
+		147408DE24E13ECD006BC15E /* QuestReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147408DD24E13ECD006BC15E /* QuestReward.swift */; };
+		147408E024E13EE9006BC15E /* QuestMonster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147408DF24E13EE9006BC15E /* QuestMonster.swift */; };
 		1480482424D4D355001E407E /* ArmorSetListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480482324D4D355001E407E /* ArmorSetListView.swift */; };
 		1480482624D4FCF8001E407E /* ArmorSetDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480482524D4FCF8001E407E /* ArmorSetDetailView.swift */; };
 		1480482824D4FD06001E407E /* ArmorDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480482724D4FD06001E407E /* ArmorDetailView.swift */; };
@@ -225,6 +227,8 @@
 		145FEA761F78A6C100BF9237 /* ReviewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewManager.swift; sourceTree = "<group>"; };
 		145FEA781F78A82400BF9237 /* ReviewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTests.swift; sourceTree = "<group>"; };
 		147408DB24E11455006BC15E /* IconImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconImage.swift; sourceTree = "<group>"; };
+		147408DD24E13ECD006BC15E /* QuestReward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestReward.swift; sourceTree = "<group>"; };
+		147408DF24E13EE9006BC15E /* QuestMonster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestMonster.swift; sourceTree = "<group>"; };
 		1480482324D4D355001E407E /* ArmorSetListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArmorSetListView.swift; sourceTree = "<group>"; };
 		1480482524D4FCF8001E407E /* ArmorSetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArmorSetDetailView.swift; sourceTree = "<group>"; };
 		1480482724D4FD06001E407E /* ArmorDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArmorDetailView.swift; sourceTree = "<group>"; };
@@ -533,6 +537,8 @@
 			isa = PBXGroup;
 			children = (
 				14A24D3E1EA9D05400755F6A /* Quest.swift */,
+				147408DF24E13EE9006BC15E /* QuestMonster.swift */,
+				147408DD24E13ECD006BC15E /* QuestReward.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1133,6 +1139,7 @@
 				1437A720235D9F7500910125 /* MonsterDetailView.swift in Sources */,
 				1437A719235D2A7000910125 /* ItemDetailCell.swift in Sources */,
 				14A8415020BCDEDF00F36963 /* CharmSkill.swift in Sources */,
+				147408E024E13EE9006BC15E /* QuestMonster.swift in Sources */,
 				14506ED924D60157001BD9FF /* ValueView.swift in Sources */,
 				14014BD123D6AED300D9F7EB /* Image+Tinting.swift in Sources */,
 				14A2511C1EA9D05400755F6A /* Combination.swift in Sources */,
@@ -1143,6 +1150,7 @@
 				1483AC1C24D550BE00D6BB65 /* WeaponDetailView.swift in Sources */,
 				14A2511F1EA9D05400755F6A /* Element.swift in Sources */,
 				14A251201EA9D05400755F6A /* ElementStats.swift in Sources */,
+				147408DE24E13ECD006BC15E /* QuestReward.swift in Sources */,
 				144E526E23D67D6A00E919C5 /* AttributedText.swift in Sources */,
 				147408DC24E11455006BC15E /* IconImage.swift in Sources */,
 				14C885AB24D80A8B00CF9465 /* QuestDetailView.swift in Sources */,

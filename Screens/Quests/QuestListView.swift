@@ -10,66 +10,48 @@ import SwiftUI
 
 struct QuestListView: View {
 
-    @State private var showingAlert = false
-    @State private var hub = "assigned"
-    private var quests: [[Quest]] { return Database.shared.quests() }
+    @State private var hub = "Assigned"
+    private var quests: [(stars: Int, quests: [Quest])] {
+        return Database.shared.quests(category: hub.lowercased(), stars: nil)
+            .sorted { $0.stars < $1.stars }
+    }
     private var hubs: [String]
 
     init() {
-        hubs = Database.shared.questCategories()
+        hubs = Database.shared.questCategories().map { $0.capitalizingFirstLetter() }
     }
 
     var body: some View {
         VStack(spacing: 0) {
-//            List(quests[0]) {
-//                ItemDetailCell(
-//                    imageName: $0.icon,
-//                    titleText: $0.name,
-//                    destination: QuestDetailView(id: $0.id)
-//                )
-//            }
-
-            PlaceholderView()
-            Spacer()
+            List {
+                ForEach(quests, id: \.stars) { questsForStar in
+                    CollapsableSection(
+                        title: Quest.titleForStars(count: questsForStar.stars),
+                        isCollapsed: true,
+                        data: questsForStar.quests
+                    ) {
+                        ItemDetailCell(
+                            imageName: $0.icon,
+                            titleText: $0.name,
+                            destination: QuestDetailView(id: $0.id)
+                        )
+                    }
+                }
+            }
 
             BottomToolBarView() {
                 Spacer()
-
-                Text("Hub")
-                .contextMenu {
-                    Button(
-                        action: { self.hub = "assigned"},
-                        label: { Text("Red") }
-                    )
-
-                    Button(action: {
-                        self.hub = "assigned"
-                    }, label: {
-                        Text("Green")
-                    })
-
-                    Button(action: {
-                        self.hub = "assigned"
-                    }, label: {
-                        Text("Blue")
-                    })
+                Text(hub)
+                .contextMenu { // TODO: Want a regular tap, need to fix
+                    ForEach(hubs, id: \.self) { hub in
+                        Button(
+                            action: { self.hub = hub },
+                            label: { Text(hub) }
+                        )
+                    }
                 }
-
-//                Picker(selection: $hub, label: EmptyView()) {
-//                    ForEach(hubs, id: \.self) {
-//                        Text($0.capitalized).tag($0)
-//                    }
-//                }.pickerStyle(SegmentedPickerStyle())
-
                 Spacer()
             }
-        }
-        .alert(isPresented: $showingAlert) {
-            Alert(
-                title: Text("Important message"),
-                message: Text("Wear sunscreen"),
-                dismissButton: .default(Text("Got it!"))
-            )
         }
         .navigationBarTitle("Quests")
     }

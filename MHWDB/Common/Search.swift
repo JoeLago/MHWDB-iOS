@@ -46,7 +46,7 @@ class SearchRequest {
         if self.isCanceled { return nil }
         let armor = Database.shared.armor(searchText)
         if self.isCanceled { return nil }
-        let quests = Database.shared.quests(searchText)[0] // TODO: Only returning Village
+        let quests = Database.shared.quests(searchText)
         if self.isCanceled { return nil }
         let locations = Database.shared.locations(searchText)
         if self.isCanceled { return nil }
@@ -60,7 +60,7 @@ class SearchRequest {
             items: items,
             weapons: weapons,
             armor: armor,
-            quests: quests,
+            quests: quests.map({ $0.quests }).reduce([], +),
             locations: locations,
             skills: skills,
             palico: palico)
