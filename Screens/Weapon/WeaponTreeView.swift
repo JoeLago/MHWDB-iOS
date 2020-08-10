@@ -22,7 +22,7 @@ struct WeaponTreeView: View {
             weapons.map { weapons in
                 TreeSectionView(tree: weapons) {
                     ItemDetailCell(
-                        imageName: $0.icon,
+                        icon: $0.icon,
                         titleText: $0.name,
                         destination: WeaponDetailView(id: $0.id)
                     )

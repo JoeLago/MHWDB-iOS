@@ -36,8 +36,8 @@ struct ArmorSetListView: View {
                     HStack(spacing: -25) {
                         Text(armorSet.displayName).font(.body)
                         Spacer()
-                        ForEach(armorSet.armor) { piece in
-                            Image(piece.icon).resizable().frame(width: 40, height: 40)
+                        ForEach(armorSet.armor) {
+                            IconImage($0.icon)
                         }
                     }
                 }

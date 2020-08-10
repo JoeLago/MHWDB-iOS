@@ -14,7 +14,7 @@ struct DecorationListView: View {
     var body: some View {
         List(decorations, id: \.id) {
             ItemDetailCell(
-                imageName: $0.icon,
+                icon: $0.icon,
                 titleText: $0.name,
                 detailText: $0.skillTree.name,
                 destination: DecorationDetailView(id: $0.id)

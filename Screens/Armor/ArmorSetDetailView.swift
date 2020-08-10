@@ -19,7 +19,7 @@ struct ArmorSetDetailView: View {
         List {
             CollapsableSection(title: "Pieces", data: armorSet.armor) {
                 ItemDetailCell(
-                    imageName: $0.icon,
+                    icon: $0.icon,
                     titleText: $0.name,
                     destination: ArmorDetailView(id: $0.id)
                 )

@@ -11,7 +11,7 @@ import SwiftUI
 struct ItemDetailCell<Destination>: View where Destination: View {
 
     @State var iconSize: CGFloat
-    @State var imageName: String?
+    @State var icon: Icon?
     @State var titleText: String?
     @State var subtitleText: String?
     @State var detailText: String?
@@ -19,14 +19,32 @@ struct ItemDetailCell<Destination>: View where Destination: View {
 
     init(
         iconSize: CGFloat = 40,
-        imageName: String? = nil,
+        imageName: String?,
+        titleText: String? = nil,
+        subtitleText: String? = nil,
+        detailText: String? = nil,
+        destination: Destination
+    ) {
+        self.init(
+            iconSize: iconSize,
+            icon: Icon(name: imageName),
+            titleText: titleText,
+            subtitleText: subtitleText,
+            detailText: detailText,
+            destination: destination
+        )
+    }
+
+    init(
+        iconSize: CGFloat = 40,
+        icon: Icon? = nil,
         titleText: String? = nil,
         subtitleText: String? = nil,
         detailText: String? = nil,
         destination: @autoclosure @escaping () -> Destination
     ) {
         _iconSize = .init(initialValue: iconSize)
-        _imageName = .init(initialValue: imageName)
+        _icon = .init(initialValue: icon)
         _titleText = .init(initialValue: titleText)
         _subtitleText = .init(initialValue: subtitleText)
         _detailText = .init(initialValue: detailText)
@@ -36,10 +54,7 @@ struct ItemDetailCell<Destination>: View where Destination: View {
     var body: some View {
         NavigationLink(destination: NavigationLazyView(destination)) {
             HStack(spacing: 16) {
-                imageName.map {
-                    Image($0).resizable()
-                        .frame(width: iconSize, height: iconSize)
-                }
+                icon.map { IconImage($0) }
                 VStack(alignment: .leading) {
                     titleText.map { Text($0).font(.body) }
                     subtitleText.map { Text($0).font(.caption).foregroundColor(.secondary) }

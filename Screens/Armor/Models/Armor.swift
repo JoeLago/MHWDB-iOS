@@ -12,11 +12,11 @@ class Armor: FetchableRecord, Decodable, Identifiable {
 
         var iconName: String {
             switch self {
-            case .head: return "head"
-            case .chest: return "body"
-            case .arms: return "arms"
-            case .waist: return "waist"
-            case .legs: return "legs"
+            case .head: return "icon_armor_head"
+            case .chest: return "icon_armor_body"
+            case .arms: return "icon_armor_arms"
+            case .waist: return "icon_armor_waist"
+            case .legs: return "icon_armor_legs"
             }
         }
     }
@@ -56,13 +56,7 @@ class Armor: FetchableRecord, Decodable, Identifiable {
     var dragonResistance: Int
     var recipeId: Int
 
-    var icon: String { return "\(slot?.iconName ?? "")\(rarity)" }
-    //var slotsString: String { return String(repeating: "O", count: slots) + String(repeating: "-", count: 3 - slots) }
-    var svg: SVGImageModel {
-        return SVGImageModel(name: "equipment_\(slot?.iconName ?? "")_base.svg",
-            color: DepracatedColor.colorForRarity(rarity))
-
-    }
+    var icon: Icon { return Icon(name: slot?.iconName ?? "", rarity: rarity) }
 
     lazy var skills: [ArmorSkill] = { return Database.shared.armorSkills(armorId: id) }()
     lazy var components: [RecipeComponent] = { return Database.shared.recipeComponents(id: self.recipeId) }()

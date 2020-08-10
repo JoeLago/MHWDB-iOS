@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		14014BCF23D6AE9900D9F7EB /* Icon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14014BCE23D6AE9900D9F7EB /* Icon.swift */; };
 		14014BD123D6AED300D9F7EB /* Image+Tinting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14014BD023D6AED300D9F7EB /* Image+Tinting.swift */; };
 		1405268B207EF640001A5E96 /* mhw.db in Resources */ = {isa = PBXBuildFile; fileRef = 1405268A207EF640001A5E96 /* mhw.db */; };
 		140A133C1EDB57B9002FD025 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140A133B1EDB57B9002FD025 /* Search.swift */; };
@@ -49,6 +48,7 @@
 		14580B6A23BDD2B50018B89B /* CollapsableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14580B6923BDD2B50018B89B /* CollapsableSection.swift */; };
 		145FEA771F78A6C100BF9237 /* ReviewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145FEA761F78A6C100BF9237 /* ReviewManager.swift */; };
 		145FEA7A1F78A85200BF9237 /* ReviewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145FEA781F78A82400BF9237 /* ReviewTests.swift */; };
+		147408DC24E11455006BC15E /* IconImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147408DB24E11455006BC15E /* IconImage.swift */; };
 		1480482424D4D355001E407E /* ArmorSetListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480482324D4D355001E407E /* ArmorSetListView.swift */; };
 		1480482624D4FCF8001E407E /* ArmorSetDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480482524D4FCF8001E407E /* ArmorSetDetailView.swift */; };
 		1480482824D4FD06001E407E /* ArmorDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480482724D4FD06001E407E /* ArmorDetailView.swift */; };
@@ -152,6 +152,8 @@
 		14A8415A20BD025200F36963 /* SkillTreeSkills.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8415920BD025200F36963 /* SkillTreeSkills.swift */; };
 		14C4BE3A1F9D2DB6000DB8EC /* DataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C4BE381F9D2DA0000DB8EC /* DataTests.swift */; };
 		14C885A324D6838B00CF9465 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C885A224D6838B00CF9465 /* AppDelegate.swift */; };
+		14C885A924D80A3000CF9465 /* QuestListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C885A824D80A3000CF9465 /* QuestListView.swift */; };
+		14C885AB24D80A8B00CF9465 /* QuestDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C885AA24D80A8B00CF9465 /* QuestDetailView.swift */; };
 		14E2B5041EAD2229002A2A89 /* SharpnessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E2B4FF1EAD2229002A2A89 /* SharpnessView.swift */; };
 		14E2B5131EB1041D002A2A89 /* Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E2B5121EB1041D002A2A89 /* Logging.swift */; };
 		14E704141EB8E9FC00EA2E71 /* PalicoWeapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E704131EB8E9FC00EA2E71 /* PalicoWeapon.swift */; };
@@ -179,7 +181,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		14014BCE23D6AE9900D9F7EB /* Icon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icon.swift; sourceTree = "<group>"; };
 		14014BD023D6AED300D9F7EB /* Image+Tinting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Tinting.swift"; sourceTree = "<group>"; };
 		1405268A207EF640001A5E96 /* mhw.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = mhw.db; sourceTree = "<group>"; };
 		140A133B1EDB57B9002FD025 /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
@@ -223,6 +224,7 @@
 		14580B6923BDD2B50018B89B /* CollapsableSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollapsableSection.swift; sourceTree = "<group>"; };
 		145FEA761F78A6C100BF9237 /* ReviewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewManager.swift; sourceTree = "<group>"; };
 		145FEA781F78A82400BF9237 /* ReviewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTests.swift; sourceTree = "<group>"; };
+		147408DB24E11455006BC15E /* IconImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconImage.swift; sourceTree = "<group>"; };
 		1480482324D4D355001E407E /* ArmorSetListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArmorSetListView.swift; sourceTree = "<group>"; };
 		1480482524D4FCF8001E407E /* ArmorSetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArmorSetDetailView.swift; sourceTree = "<group>"; };
 		1480482724D4FD06001E407E /* ArmorDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArmorDetailView.swift; sourceTree = "<group>"; };
@@ -327,6 +329,8 @@
 		14A8415920BD025200F36963 /* SkillTreeSkills.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillTreeSkills.swift; sourceTree = "<group>"; };
 		14C4BE381F9D2DA0000DB8EC /* DataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTests.swift; sourceTree = "<group>"; };
 		14C885A224D6838B00CF9465 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		14C885A824D80A3000CF9465 /* QuestListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestListView.swift; sourceTree = "<group>"; };
+		14C885AA24D80A8B00CF9465 /* QuestDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestDetailView.swift; sourceTree = "<group>"; };
 		14E2B4FF1EAD2229002A2A89 /* SharpnessView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharpnessView.swift; sourceTree = "<group>"; };
 		14E2B5121EB1041D002A2A89 /* Logging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logging.swift; sourceTree = "<group>"; };
 		14E704131EB8E9FC00EA2E71 /* PalicoWeapon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PalicoWeapon.swift; sourceTree = "<group>"; };
@@ -429,15 +433,16 @@
 		1437A71A235D7A7800910125 /* SwiftUiViews */ = {
 			isa = PBXGroup;
 			children = (
+				144E526D23D67D6A00E919C5 /* AttributedText.swift */,
 				1437A71B235D7AC500910125 /* BottomToolbar.swift */,
 				14580B6923BDD2B50018B89B /* CollapsableSection.swift */,
-				1437A718235D2A7000910125 /* ItemDetailCell.swift */,
-				144E526D23D67D6A00E919C5 /* AttributedText.swift */,
-				14F9697F24CD10E700BF0BDC /* PlaceholderView.swift */,
+				147408DB24E11455006BC15E /* IconImage.swift */,
 				142443C224CE1DC000301E57 /* ImageLabelView.swift */,
 				142443C424D3FEFA00301E57 /* InternalLink.swift */,
-				14506ED824D60157001BD9FF /* ValueView.swift */,
+				1437A718235D2A7000910125 /* ItemDetailCell.swift */,
+				14F9697F24CD10E700BF0BDC /* PlaceholderView.swift */,
 				14506EDA24D61ED4001BD9FF /* TreeSectionView.swift */,
+				14506ED824D60157001BD9FF /* ValueView.swift */,
 			);
 			path = SwiftUiViews;
 			sourceTree = "<group>";
@@ -578,6 +583,8 @@
 		1480482924D5083E001E407E /* Quests */ = {
 			isa = PBXGroup;
 			children = (
+				14C885AA24D80A8B00CF9465 /* QuestDetailView.swift */,
+				14C885A824D80A3000CF9465 /* QuestListView.swift */,
 				144306F0209FB53B00D60A5A /* Models */,
 			);
 			path = Quests;
@@ -701,7 +708,6 @@
 		14A24D0D1EA9D05400755F6A /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				14014BCE23D6AE9900D9F7EB /* Icon.swift */,
 				14E2B5121EB1041D002A2A89 /* Logging.swift */,
 				145FEA761F78A6C100BF9237 /* ReviewManager.swift */,
 				140A133B1EDB57B9002FD025 /* Search.swift */,
@@ -1138,6 +1144,8 @@
 				14A2511F1EA9D05400755F6A /* Element.swift in Sources */,
 				14A251201EA9D05400755F6A /* ElementStats.swift in Sources */,
 				144E526E23D67D6A00E919C5 /* AttributedText.swift in Sources */,
+				147408DC24E11455006BC15E /* IconImage.swift in Sources */,
+				14C885AB24D80A8B00CF9465 /* QuestDetailView.swift in Sources */,
 				1437A71323597C0B00910125 /* MonsterListView.swift in Sources */,
 				142443BF24CE1B6800301E57 /* CombinationListView.swift in Sources */,
 				14A250FD1EA9D05400755F6A /* Int+NullString.swift in Sources */,
@@ -1151,7 +1159,6 @@
 				1480482624D4FCF8001E407E /* ArmorSetDetailView.swift in Sources */,
 				1450DA6120A95900000085C5 /* ItemQuest.swift in Sources */,
 				14A251221EA9D05400755F6A /* Location.swift in Sources */,
-				14014BCF23D6AE9900D9F7EB /* Icon.swift in Sources */,
 				14C885A324D6838B00CF9465 /* AppDelegate.swift in Sources */,
 				14A8414A20BA137700F36963 /* LocationItems.swift in Sources */,
 				143587C024D4B8FB00C3C4A5 /* DecorationDetailView.swift in Sources */,
@@ -1163,6 +1170,7 @@
 				144306DC209F72C800D60A5A /* MonsterDamage.swift in Sources */,
 				144306DA209F5BD300D60A5A /* MonsterHabitat.swift in Sources */,
 				142443CD24D4AA0C00301E57 /* CharmDetailView.swift in Sources */,
+				14C885A924D80A3000CF9465 /* QuestListView.swift in Sources */,
 				144306DE209FA95C00D60A5A /* MonsterRewards.swift in Sources */,
 				1480482424D4D355001E407E /* ArmorSetListView.swift in Sources */,
 				14F9698024CD10E700BF0BDC /* PlaceholderView.swift in Sources */,

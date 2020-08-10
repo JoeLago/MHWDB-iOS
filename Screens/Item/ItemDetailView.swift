@@ -32,7 +32,7 @@ struct ItemDetailView: View {
                     titleText: [$0.rank, $0.name].compactMap({ $0 }).joined(separator: " "),
                     subtitleText: $0.nodeName,
                     detailText: "\($0.stack ?? 0 > 1 ? "x\($0.stack ?? 0) ": "")\($0.percentage ?? 0)%",
-                    destination: ItemDetailView(id: $0.id)
+                    destination: LocationDetailView(id: $0.id)
                 )
             }
 
@@ -60,7 +60,7 @@ struct ItemDetailView: View {
                     imageName: $0.icon,
                     titleText: $0.name,
                     detailText: "x \($0.quantity)",
-                    destination: ItemDetailView(id: $0.id) // TODO
+                    destination: WeaponDetailView(id: $0.id)
                 )
             }
 

@@ -72,7 +72,7 @@ struct WeaponDetailView: View {
                 }
             }
 
-            CollapsableSection(title: "Recipe", data: weapon.components) {
+            CollapsableSection(title: "Recipe", data: weapon.components ?? []) {
                 ItemDetailCell(
                     imageName: $0.icon,
                     titleText: $0.name,

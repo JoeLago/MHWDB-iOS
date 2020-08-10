@@ -25,12 +25,12 @@ struct DecorationDetailView: View {
                     // do we need to worry about capturing self?
                     destination: SkillDetailView(id: self.decoration.skillTree.id)
                 )
-                ItemCell(titleText: "Slot Size", detailText: "\(decoration.slotSize)")
+                ItemCell(titleText: "Slot Size", detailText: "\(decoration.skilltreeLevel)")
                 VStack {
-                    ItemCell(titleText: "Warped", detailText: "\(decoration.warpedFeystoneChance)%")
-                    ItemCell(titleText: "Worn", detailText: "\(decoration.wornFeystoneChance)%")
-                    ItemCell(titleText: "Glowing", detailText: "\(decoration.glowingFeystoneChance)%")
-                    ItemCell(titleText: "Mysterious", detailText: "\(decoration.mysteriousFeystoneChance)%")
+                    ItemCell(titleText: "Warped", detailText: "\(decoration.warpedFeystonePercent)%")
+                    ItemCell(titleText: "Worn", detailText: "\(decoration.wornFeystonePercent)%")
+                    ItemCell(titleText: "Glowing", detailText: "\(decoration.glowingFeystonePercent)%")
+                    ItemCell(titleText: "Mysterious", detailText: "\(decoration.mysteriousFeystonePercent)%")
                 }
             }
         }

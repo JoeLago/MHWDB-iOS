@@ -8,19 +8,15 @@ import GRDB
 class Decoration: Decodable, FetchableRecord {
     var id: Int
     var name: String
-    var icon: String?
-    var slotSize: Int
-    var glowingFeystoneChance: Double
-    var mysteriousFeystoneChance: Double
-    var warpedFeystoneChance: Double
-    var wornFeystoneChance: Double
+    var icon: Icon? { return nil } // TODO
+    var skilltreeLevel: Int
+    var glowingFeystonePercent: Double
+    var mysteriousFeystonePercent: Double
+    var warpedFeystonePercent: Double
+    var wornFeystonePercent: Double
     var skilltreeId: Int
 
     lazy var skillTree: SkillTree = { return Database.shared.skillTree(id: self.skilltreeId) }()
-
-    enum CodingKeys: String, CodingKey {
-        case id, name, icon, slotSize = "slot", glowingFeystoneChance, mysteriousFeystoneChance, warpedFeystoneChance, wornFeystoneChance, skilltreeId
-    }
 }
 
 extension Database {

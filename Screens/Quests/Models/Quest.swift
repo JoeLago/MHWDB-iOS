@@ -6,7 +6,7 @@
 import Foundation
 import GRDB
 
-class Quest: FetchableRecord {
+class Quest: FetchableRecord, Identifiable {
     var id: Int
     var name: String?
     var hub: String? // Switch to enum
@@ -161,7 +161,8 @@ class QuestReward: FetchableRecord {
     }
 }
 
-class QuestMonster: FetchableRecord {
+class QuestMonster: FetchableRecord, Identifiable {
+    var id: Int { return monsterId }
     let monsterId: Int
     let name: String
     var startArea: String?
@@ -232,8 +233,8 @@ extension Database {
         return questGroups
     }
 
-    func questHubs() -> [String] {
-        return getStrings("SELECT hub as value FROM quests GROUP BY hub")
+    func questCategories() -> [String] {
+        return getStrings("SELECT category as value FROM quest GROUP BY category")
     }
 
     var rewardsQuery: String {

@@ -11,8 +11,8 @@ class Weapon: Decodable, FetchableRecord, Identifiable {
     var id: Int
     var parentId: Int?
     var name: String
-    var icon: String? {
-        return "\(type.imagePrefix)\(rarity)"
+    var icon: Icon? {
+        return Icon(name: "icon_\(type.imagePrefix)", rarity: rarity)
     }
     var type: WeaponType
     var depths: [Bool]?
@@ -49,14 +49,15 @@ class Weapon: Decodable, FetchableRecord, Identifiable {
     var shellingType: String?
     var notes: String?
     var sharpnessValues: String?
-    var recipeId: Int
+    var createRecipeId: Int?
+    var upgradeRecipeId: Int?
 
     enum CodingKeys: String, CodingKey {
-        case id, parentId = "previousWeaponId", name, type = "weaponType", depths, attack, element = "elementType", elementAttack = "elementDamage", awakenElement, awakenAttack, defense, numSlots, creationCost, upgradeCost, sell, affinity, rarity, slotOne = "slot1", slotTwo = "slot2", slotThree = "slot3", recoil, reloadSpeed, rapidFire, deviation, ammoString, specialAmmo, coatings, charges, phial, phialAttack, shellingType = "shelling", notes, sharpnessValues="sharpness", recipeId
+        case id, parentId = "previousWeaponId", name, type = "weaponType", depths, attack, element = "elementType", elementAttack = "elementDamage", awakenElement, awakenAttack, defense, numSlots, creationCost, upgradeCost, sell, affinity, rarity, slotOne = "slot1", slotTwo = "slot2", slotThree = "slot3", recoil, reloadSpeed, rapidFire, deviation, ammoString, specialAmmo, coatings, charges, phial, phialAttack, shellingType = "shelling", notes, sharpnessValues="sharpness", createRecipeId, upgradeRecipeId
     }
 
-    var components: [RecipeComponent] {
-        return Database.shared.recipeComponents(id: self.recipeId)
+    var components: [RecipeComponent]? {
+        return upgradeRecipeId.map { Database.shared.recipeComponents(id: $0) }
     }
 
     var sharpness: [Sharpness]? {
