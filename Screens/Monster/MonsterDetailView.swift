@@ -17,6 +17,8 @@ struct MonsterDetailView: View {
 
     var body: some View {
         List {
+            monster.description.map { Text($0).font(.subheadline) }
+
             CollapsableSection(title: "Habitats", data: monster.habitats) {
                 ItemDetailCell(
                     titleText: $0.name,
@@ -25,11 +27,22 @@ struct MonsterDetailView: View {
                 )
             }
 
-            // TODO: Damages
-            // TODO: Statuses
+            if monster.hasWeakness {
+                StaticCollapsableSection(title: "Weaknesses") {
+                    AttributedText(monster.weaknessAttributedString)
+                }
+            }
 
-            StaticCollapsableSection(title: "Weaknesses") {
-                AttributedText(monster.weaknessAttributedString)
+            monster.weaknessAltAttributedString.map { weaknessAltAttributedString in
+                StaticCollapsableSection(title: "Weaknesses in Mud") {
+                    AttributedText(weaknessAltAttributedString)
+                }
+            }
+
+            if monster.hitzones.count > 0 {
+                StaticCollapsableSection(title: "Damage") {
+                    MonsterHitzoneView(hitzones: monster.hitzones)
+                }
             }
 
             CollapsableSection(title: "Low Rank Rewards", data: monster.lowRankRewards) {

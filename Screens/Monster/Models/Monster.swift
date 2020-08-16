@@ -16,9 +16,11 @@ class Monster: Decodable, FetchableRecord, Identifiable {
 
     var id: Int
     var name: String
+    var description: String?
     var icon: String? { return "\(id)" }
     var size: Size?
 
+    var hasWeakness: Bool
     var weaknessBlast: Int?
     var weaknessDragon: Int?
     var weaknessFire: Int?
@@ -30,12 +32,47 @@ class Monster: Decodable, FetchableRecord, Identifiable {
     var weaknessThunder: Int?
     var weaknessWater: Int?
 
+    var hasAltWeakness: Bool
+    var altWeaknessBlast: Int?
+    var altWeaknessDragon: Int?
+    var altWeaknessFire: Int?
+    var altWeaknessIce: Int?
+    var altWeaknessParalysis: Int?
+    var altWeaknessPoison: Int?
+    var altWeaknessSleep: Int?
+    var altWeaknessStun: Int?
+    var altWeaknessThunder: Int?
+    var altWeaknessWater: Int?
+
+    var pitfallTrap: Bool
+    var shockTrap: Bool
+    var vineTrap: Bool
+
+    var ailmentBlastblight: Bool?
+    var ailmentBleed: Bool?
+    var ailmentDefensedown: Bool?
+    var ailmentDragonblight: Bool?
+    var ailmentEffluvia: Bool?
+    var ailmentFireblight: Bool?
+    var ailmentIceblight: Bool?
+    var ailmentMud: Bool?
+    var ailmentParalysis: Bool?
+    var ailmentPoison: Bool?
+    var ailmentRegional: Bool?
+    var ailmentRoar: String?
+    var ailmentSleep: Bool?
+    var ailmentStun: Bool?
+    var ailmentThunderblight: Bool?
+    var ailmentTremor: String?
+    var ailmentWaterblight: Bool?
+    var ailmentWind: String?
+
     lazy var lowRankRewards: [RewardConditions] = { rewardsByReward(rank: .low) }()
     lazy var highRankRewards: [RewardConditions] = { rewardsByReward(rank: .high) }()
     lazy var gRankRewards: [RewardConditions] = { rewardsByReward(rank: .master) }()
 
     lazy var habitats: [MonsterHabitat] = { return Database.shared.habitats(monsterId: id) }()
-    lazy var damageByPart: [MonsterDamageByPart] = { return Database.shared.damageByPart(monsterId: id) }()
+    lazy var hitzones: [MonsterHitzone] = { return Database.shared.hitzones(monsterId: id) }()
     func rewards(rank: Quest.Rank) -> [MonsterReward] { return Database.shared.rewards(monsterId: id, rank: rank) }
     func rewardsByCondition(rank: Quest.Rank) -> [String: [MonsterReward]] { return Database.shared.rewardsByCondition(monsterId: id, rank: rank)}
     func rewardsByReward(rank: Quest.Rank) -> [RewardConditions] { return Database.shared.rewardsByReward(monsterId: id, rank: rank) }
