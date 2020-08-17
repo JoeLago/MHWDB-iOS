@@ -45,19 +45,6 @@ struct DepracatedColor {
     static func setDefaults() {
         //UIView.appearance().backgroundColor = lightBackground
     }
-
-    static func colorForRarity(_ rarity: Int) -> UIColor {
-        switch rarity {
-        case 1, 2: return UIColor(hex: 0xCAC8C6)
-        case 3: return UIColor(hex: 0xA9B978)
-        case 4: return UIColor(hex: 0x6AAC85)
-        case 5: return UIColor(hex: 0x7CC2B1)
-        case 6: return UIColor(hex: 0x757DFF)
-        case 7: return UIColor(hex: 0x7B61AE)
-        case 8: return UIColor(hex: 0xB58377)
-        default:  return UIColor(hex: 0xCAC8C6)
-        }
-    }
 }
 
 enum IconColor: String, Decodable {
@@ -65,41 +52,68 @@ enum IconColor: String, Decodable {
     case blue = "Blue"
     case cyan = "Cyan"
     case darkBeige = "DarkBeige"
+    case darkBlue = "DarkBlue"
     case darkGreen = "DarkGreen"
     case darkPurple = "DarkPurple"
     case darkRed = "DarkRed"
     case gold = "Gold"
     case gray = "Gray"
     case green = "Green"
-    case khaki = "Khaki"
     case lightBeige = "LightBeige"
     case lime = "Lime"
     case orange = "Orange"
+    case pink = "Pink"
     case red = "Red"
     case violet = "Violet"
     case white = "White"
     case yellow = "Yellow"
 
+    // Rarity Only
+    case dullCyan = "DullCyan"
+
+    // bright-orange is in Android defs but not used?
+
+    // swiftlint:disable cyclomatic_complexity
+    init(rarity: Int) {
+        switch rarity {
+        case 1: self = .gray
+        case 2: self = .white
+        case 3: self = .lime
+        case 4: self = .green
+        case 5: self = .dullCyan
+        case 6: self = .darkPurple
+        case 7: self = .violet
+        case 8: self = .orange
+        case 9: self = .red
+        case 10: self = .blue
+        case 11: self = .gold
+        case 12: self = .cyan
+        default: self = .white
+        }
+    }
+
     var color: UIColor {
         switch self {
-        case .beige: return UIColor(hex: 0x3f63a5) // FIX
-        case .blue: return UIColor(hex: 0x3f63a5)
-        case .cyan: return UIColor(hex: 0x48A0B3)
-        case .darkBeige: return UIColor(hex: 0x324C27) // FIX
-        case .darkGreen: return UIColor(hex: 0x324C27) // FIX
-        case .darkPurple: return UIColor(hex: 0x324C27)
+        case .beige: return UIColor(hex: 0xE8A669)
+        case .blue: return UIColor(hex: 0x5e8efc)
+        case .cyan: return UIColor(hex: 0x55D1F0)
+        case .darkBeige: return UIColor(hex: 0xd4a55a)
+        case .darkBlue: return UIColor(hex: 0x4A49D1)
+        case .darkGreen: return UIColor(hex: 0x324C27)
+        case .darkPurple: return UIColor(hex: 0x58349b)
         case .darkRed: return UIColor(hex: 0x781D38)
-        case .gold: return UIColor(hex: 0xC4AB80)
-        case .gray: return UIColor(hex: 0x929090)
+        case .gold: return UIColor(hex: 0xEFCD1E)
+        case .gray: return UIColor(hex: 0xC2BFBF)
         case .green: return UIColor(hex: 0x6AAC85)
-        case .khaki: return UIColor(hex: 0x8B7E69) // FIX
-        case .lightBeige: return UIColor(hex: 0x8B7E69)
-        case .lime: return UIColor(hex: 0x8B7E69) // FIX
-        case .orange: return UIColor(hex: 0xAE5D40)
+        case .lightBeige: return UIColor(hex: 0xf7d99b) // Android app says this is temp
+        case .lime: return UIColor(hex: 0xA9B978)
+        case .orange: return UIColor(hex: 0xB58377)
+        case .pink: return UIColor(hex: 0xF399A6)
         case .red: return UIColor(hex: 0x9A3548)
-        case .violet: return UIColor(hex: 0x757DFF)
-        case .white: return UIColor(hex: 0xCCCCCC)
-        case .yellow: return UIColor(hex: 0xAFBB11)
+        case .violet: return UIColor(hex: 0x9D93E7)
+        case .white: return UIColor(hex: 0xF3F3F3)
+        case .yellow: return UIColor(hex: 0xE6EE09)
+        case .dullCyan: return UIColor(hex: 0x418189)
         }
     }
 }

@@ -16,7 +16,7 @@ extension UIImage {
         guard let icon = icon else { return nil }
         var image = UIImage(named: icon.name, in: nil, compatibleWith: nil)
         if let color = icon.color {
-            image = image?.tint(color.color)
+            image = image?.tint(color)
         }
         return image
     }

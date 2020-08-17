@@ -8,6 +8,8 @@
 
 import Foundation
 
+// TODO: using old icons for most of these
+
 extension Monster {
     var weaknessAttributedString: NSAttributedString {
         return ImageValueString(values: [
@@ -18,8 +20,8 @@ extension Monster {
             ImageValue("Dragon.png", weaknessDragon),
             ImageValue("Poison.png", weaknessPoison),
             ImageValue("Paralysis", weaknessParalysis),
-            ImageValue("Sleep.png", weaknessSleep),
-            ImageValue("Blast.png", weaknessBlast),
+            ImageValue("status_sleep.png", weaknessSleep),
+            ImageValue("status_blast.png", weaknessBlast),
             ImageValue("Stun.png", weaknessStun)
         ]).attributedText
     }
@@ -34,8 +36,8 @@ extension Monster {
             ImageValue("Dragon.png", altWeaknessDragon),
             ImageValue("Poison.png", altWeaknessPoison),
             ImageValue("Paralysis", altWeaknessParalysis),
-            ImageValue("Sleep.png", altWeaknessSleep),
-            ImageValue("Blast.png", altWeaknessBlast),
+            ImageValue("status_sleep.png", altWeaknessSleep),
+            ImageValue("status_blast.png", altWeaknessBlast),
             ImageValue("Stun.png", altWeaknessStun)
         ]).attributedText
     }

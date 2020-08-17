@@ -22,7 +22,7 @@ class Armor: FetchableRecord, Decodable, Identifiable {
     }
 
     enum SocketLevel: Int, Decodable {
-        case none, one, two, three
+        case none, one, two, three, four
 
         var iconName: String? {
             switch self {
@@ -30,6 +30,7 @@ class Armor: FetchableRecord, Decodable, Identifiable {
             case .one: return "DecorationLevelOne"
             case .two: return "DecorationLevelTwo"
             case .three: return "DecorationLevelThree"
+            case .four: return "DecorationLevelFour"
             }
         }
     }

@@ -9,14 +9,14 @@
 import SwiftUI
 
 struct MonsterRewardView: View {
-    @State var imageName: String?
+    @State var icon: Icon?
     @State var titleText: String?
     @State var rewards: [MonsterReward]
     var itemId: Int { rewards.first?.itemId ?? 0 }
 
     var body: some View {
         VStack(alignment: .trailing, spacing: 3) {
-            ItemDetailCell(iconSize: 30, imageName: imageName, titleText: titleText, destination: ItemDetailView(id: itemId))
+            ItemDetailCell(iconSize: 30, icon: icon, titleText: titleText, destination: ItemDetailView(id: self.itemId))
             ForEach(rewards) {
                 Text("\(($0.stackSize ?? 0 > 1 ? "x\($0.stackSize ?? 0) ": ""))\($0.condition) - \($0.chance ?? 0)%")
             }

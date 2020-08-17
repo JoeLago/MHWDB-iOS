@@ -14,7 +14,7 @@ struct ItemListView: View {
     var body: some View {
         List(items, id: \.id) {
             ItemDetailCell(
-                imageName: $0.icon,
+                icon: $0.icon,
                 titleText: $0.name,
                 destination: ItemDetailView(id: $0.id)
             )

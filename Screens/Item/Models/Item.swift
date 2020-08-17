@@ -6,18 +6,19 @@
 import Foundation
 import GRDB
 
-class Item: Decodable, FetchableRecord {
+class Item: Decodable, FetchableRecord, IconRepresentable {
     let id: Int
     var name: String
     var description: String?
-    var icon: String?
+    var iconName: String?
+    var iconColor: IconColor?
     let stack: Int?
     let buy: Int?
     let sell: Int?
-    let rarity: Int?
+    let rarity: Int
 
     enum CodingKeys: String, CodingKey {
-        case id, name, description, icon, stack = "carryLimit", buy = "buyPrice", sell = "sellPrice", rarity
+        case id, name, description, iconName, iconColor, stack = "carryLimit", buy = "buyPrice", sell = "sellPrice", rarity
     }
 
     lazy var quests: [ItemQuest] = { return Database.shared.rewards(itemId: self.id) }()

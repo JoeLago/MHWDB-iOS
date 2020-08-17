@@ -17,12 +17,12 @@ struct ListMenuView: View {
                 ItemDetailCell(icon: Icon(name: "icon_quest", color: .red), titleText: "Quests", destination: QuestListView())
                 ItemDetailCell(icon: Icon(name: "icon_great_sword", color: .cyan), titleText: "Weapons", destination: WeaponTypeListView())
                 ItemDetailCell(icon: Icon(name: "icon_armor_body", color: .pink), titleText: "Armor", destination: ArmorSetListView())
-                ItemDetailCell(icon: Icon(name: "icon_ore", color: .purple), titleText: "Items", destination: ItemListView())
+                ItemDetailCell(icon: Icon(name: "icon_ore", color: .darkBlue), titleText: "Items", destination: ItemListView())
                 ItemDetailCell(icon: Icon(name: "icon_liquid", color: .green), titleText: "Combinations", destination: CombinationListView())
                 ItemDetailCell(icon: Icon(name: "icon_map_icon", color: .white), titleText: "Locations", destination: LocationListView())
-                ItemDetailCell(icon: Icon(name: "icon_quest", color: .teal), titleText: "Charms", destination: CharmListView())
+                ItemDetailCell(icon: Icon(name: "icon_quest", color: .orange), titleText: "Charms", destination: CharmListView())
                 ItemDetailCell(icon: Icon(name: "icon_jewel", color: .cyan), titleText: "Decorations", destination: DecorationListView())
-                ItemDetailCell(icon: Icon(name: "icon_monster_jewel", color: .teal), titleText: "Skills", destination: SkillListView())
+                ItemDetailCell(icon: Icon(name: "icon_monster_jewel", color: .violet), titleText: "Skills", destination: SkillListView())
             }
             .navigationBarTitle("MHWDB")
         }.onAppear {

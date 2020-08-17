@@ -8,21 +8,19 @@
 
 import GRDB
 
-class MonsterReward: FetchableRecord, Decodable, Identifiable {
+class MonsterReward: FetchableRecord, Decodable, Identifiable, IconRepresentable {
     var id: String { "\(itemId)-\(condition)" }
     var itemId: Int
     var name: String
-    var icon: String?
-    var iconColor: String?
+    var iconName: String?
+    var iconColor: IconColor?
     var condition: String
     var rank: Quest.Rank?
     var stackSize: Int?
     var chance: Int?
 
-    var iconName: String? { "\(icon ?? "")-\(iconColor ?? "")" }
-
     enum CodingKeys: String, CodingKey {
-        case itemId, name = "itemName", icon = "iconName", iconColor, condition, rank, stackSize = "stack", chance = "percentage"
+        case itemId, name = "itemName", iconName, iconColor, condition, rank, stackSize = "stack", chance = "percentage"
     }
 }
 
@@ -30,9 +28,8 @@ struct RewardConditions: Identifiable {
     var id: Int { itemId }
     var itemId: Int
     var name: String
-    // Need an icon struct that gives us the value we need base on icon name/color, in this case just the image name
-    var iconName: String?
     var conditions: [MonsterReward]
+    var icon: Icon? { return conditions.first?.icon }
 }
 
 extension Database {
@@ -43,7 +40,7 @@ extension Database {
         var conditionsByItemId = [Int: RewardConditions]()
         for reward in allRewards {
             var rewardCondition = conditionsByItemId[reward.itemId]
-                ?? RewardConditions(itemId: reward.itemId, name: reward.name, iconName: reward.iconName, conditions: [MonsterReward]())
+                ?? RewardConditions(itemId: reward.itemId, name: reward.name, conditions: [MonsterReward]())
             rewardCondition.conditions.append(reward)
             conditionsByItemId[reward.itemId] = rewardCondition
         }
