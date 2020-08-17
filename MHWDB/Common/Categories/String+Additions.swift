@@ -5,6 +5,10 @@
 
 import UIKit
 
+extension String: Identifiable {
+    public var id: String { return self }
+}
+
 extension String {
     // http://www.colourlovers.com/palette/452030/you_will_be_free
 

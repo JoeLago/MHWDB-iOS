@@ -13,7 +13,7 @@
 		140A133C1EDB57B9002FD025 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140A133B1EDB57B9002FD025 /* Search.swift */; };
 		141EEEBD210D082B0017539F /* SvgModelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 141EEEBC210D082B0017539F /* SvgModelView.swift */; };
 		142443BA24CD6C9B00301E57 /* SkillDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142443B924CD6C9B00301E57 /* SkillDetailsView.swift */; };
-		142443BC24CD6D2800301E57 /* RewardCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142443BB24CD6D2800301E57 /* RewardCellView.swift */; };
+		142443BC24CD6D2800301E57 /* MonsterRewardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142443BB24CD6D2800301E57 /* MonsterRewardView.swift */; };
 		142443BF24CE1B6800301E57 /* CombinationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142443BE24CE1B6800301E57 /* CombinationListView.swift */; };
 		142443C324CE1DC000301E57 /* ImageLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142443C224CE1DC000301E57 /* ImageLabelView.swift */; };
 		142443C524D3FEFA00301E57 /* InternalLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142443C424D3FEFA00301E57 /* InternalLink.swift */; };
@@ -54,6 +54,7 @@
 		147408E024E13EE9006BC15E /* QuestMonster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147408DF24E13EE9006BC15E /* QuestMonster.swift */; };
 		147408E224E14D6B006BC15E /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147408E124E14D6B006BC15E /* BlurView.swift */; };
 		147408E424E15208006BC15E /* View+Hidden.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147408E324E15208006BC15E /* View+Hidden.swift */; };
+		147D663024EA02CD0079FA8E /* MonsterAilments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147D662F24EA02CD0079FA8E /* MonsterAilments.swift */; };
 		1480482424D4D355001E407E /* ArmorSetListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480482324D4D355001E407E /* ArmorSetListView.swift */; };
 		1480482624D4FCF8001E407E /* ArmorSetDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480482524D4FCF8001E407E /* ArmorSetDetailView.swift */; };
 		1480482824D4FD06001E407E /* ArmorDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480482724D4FD06001E407E /* ArmorDetailView.swift */; };
@@ -195,7 +196,7 @@
 		140A133B1EDB57B9002FD025 /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		141EEEBC210D082B0017539F /* SvgModelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SvgModelView.swift; sourceTree = "<group>"; };
 		142443B924CD6C9B00301E57 /* SkillDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillDetailsView.swift; sourceTree = "<group>"; };
-		142443BB24CD6D2800301E57 /* RewardCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardCellView.swift; sourceTree = "<group>"; };
+		142443BB24CD6D2800301E57 /* MonsterRewardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterRewardView.swift; sourceTree = "<group>"; };
 		142443BE24CE1B6800301E57 /* CombinationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinationListView.swift; sourceTree = "<group>"; };
 		142443C224CE1DC000301E57 /* ImageLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLabelView.swift; sourceTree = "<group>"; };
 		142443C424D3FEFA00301E57 /* InternalLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalLink.swift; sourceTree = "<group>"; };
@@ -238,6 +239,7 @@
 		147408DF24E13EE9006BC15E /* QuestMonster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestMonster.swift; sourceTree = "<group>"; };
 		147408E124E14D6B006BC15E /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		147408E324E15208006BC15E /* View+Hidden.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Hidden.swift"; sourceTree = "<group>"; };
+		147D662F24EA02CD0079FA8E /* MonsterAilments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterAilments.swift; sourceTree = "<group>"; };
 		1480482324D4D355001E407E /* ArmorSetListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArmorSetListView.swift; sourceTree = "<group>"; };
 		1480482524D4FCF8001E407E /* ArmorSetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArmorSetDetailView.swift; sourceTree = "<group>"; };
 		1480482724D4FD06001E407E /* ArmorDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArmorDetailView.swift; sourceTree = "<group>"; };
@@ -474,6 +476,7 @@
 				144306D9209F5BD300D60A5A /* MonsterHabitat.swift */,
 				144306DD209FA95C00D60A5A /* MonsterRewards.swift */,
 				1495C57C24E8E5D600A56ECA /* MonsterWeaknessString.swift */,
+				147D662F24EA02CD0079FA8E /* MonsterAilments.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -859,7 +862,7 @@
 				1437A71F235D9F7500910125 /* MonsterDetailView.swift */,
 				14012DE224E912BB00AE1909 /* MonsterHitzoneView.swift */,
 				1437A71223597C0B00910125 /* MonsterListView.swift */,
-				142443BB24CD6D2800301E57 /* RewardCellView.swift */,
+				142443BB24CD6D2800301E57 /* MonsterRewardView.swift */,
 				144306D8209F5A5400D60A5A /* Models */,
 			);
 			path = Monster;
@@ -1185,6 +1188,7 @@
 				1495C57B24E8E56600A56ECA /* ImageValueString.swift in Sources */,
 				1450DA6320A95915000085C5 /* ItemLocation.swift in Sources */,
 				1450DA6520A95927000085C5 /* ItemMonster.swift in Sources */,
+				147D663024EA02CD0079FA8E /* MonsterAilments.swift in Sources */,
 				1480482624D4FCF8001E407E /* ArmorSetDetailView.swift in Sources */,
 				1450DA6120A95900000085C5 /* ItemQuest.swift in Sources */,
 				14A251221EA9D05400755F6A /* Location.swift in Sources */,
@@ -1206,7 +1210,7 @@
 				1480482424D4D355001E407E /* ArmorSetListView.swift in Sources */,
 				14F9698024CD10E700BF0BDC /* PlaceholderView.swift in Sources */,
 				1480482C24D54E0B001E407E /* WeaponTypeListView.swift in Sources */,
-				142443BC24CD6D2800301E57 /* RewardCellView.swift in Sources */,
+				142443BC24CD6D2800301E57 /* MonsterRewardView.swift in Sources */,
 				14A251161EA9D05400755F6A /* Node.swift in Sources */,
 				148812FD20A2C3AE006B91EF /* Notes.swift in Sources */,
 				14A250FE1EA9D05400755F6A /* NSAttributedString+Swift.swift in Sources */,

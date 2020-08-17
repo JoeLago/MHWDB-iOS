@@ -45,16 +45,20 @@ struct MonsterDetailView: View {
                 }
             }
 
+            CollapsableSection(title: "Ailments", data: monster.ailments) {
+                Text($0)
+            }
+
             CollapsableSection(title: "Low Rank Rewards", data: monster.lowRankRewards) {
-                RewardCellView(imageName: $0.iconName, titleText: $0.name, rewards: $0.conditions)
+                MonsterRewardView(imageName: $0.iconName, titleText: $0.name, rewards: $0.conditions)
             }
 
             CollapsableSection(title: "High Rank Rewards", data: monster.highRankRewards) {
-                RewardCellView(imageName: $0.iconName, titleText: $0.name, rewards: $0.conditions)
+                MonsterRewardView(imageName: $0.iconName, titleText: $0.name, rewards: $0.conditions)
             }
 
             CollapsableSection(title: "Master Rank Rewards", data: monster.gRankRewards) {
-                RewardCellView(imageName: $0.iconName, titleText: $0.name, rewards: $0.conditions)
+                MonsterRewardView(imageName: $0.iconName, titleText: $0.name, rewards: $0.conditions)
             }
         }
         .navigationBarTitle(monster.name)

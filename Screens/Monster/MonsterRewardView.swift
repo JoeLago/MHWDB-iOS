@@ -8,14 +8,15 @@
 
 import SwiftUI
 
-struct RewardCellView: View {
+struct MonsterRewardView: View {
     @State var imageName: String?
     @State var titleText: String?
     @State var rewards: [MonsterReward]
+    var itemId: Int { rewards.first?.itemId ?? 0 }
 
     var body: some View {
         VStack(alignment: .trailing, spacing: 3) {
-            ItemCell(iconSize: 30, imageName: imageName, titleText: titleText)
+            ItemDetailCell(iconSize: 30, imageName: imageName, titleText: titleText, destination: ItemDetailView(id: itemId))
             ForEach(rewards) {
                 Text("\(($0.stackSize ?? 0 > 1 ? "x\($0.stackSize ?? 0) ": ""))\($0.condition) - \($0.chance ?? 0)%")
             }
