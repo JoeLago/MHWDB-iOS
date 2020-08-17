@@ -15,28 +15,20 @@ class Combination: FetchableRecord, Decodable {
     var resultId: Int
     var resultName: String
     var resultIconName: String?
-    var resultIconColor: String?
-    var resultIcon: String? {
-        guard let resultIconName = resultIconName, resultIconName.count > 0 else { return nil }
-        return "\(resultIconName)-\(resultIconColor ?? "White").png"
-    }
+    var resultIconColor: IconColor?
+    var resultIcon: Icon? { Icon(name: resultIconName.map { "items_\($0)".lowercased() }, color: resultIconColor) }
 
     var firstId: Int
     var firstName: String
     var firstIconName: String?
-    var firstIconColor: String?
-    var firstIcon: String? {
-        guard let firstIconName = firstIconName, firstIconName.count > 0 else { return nil }
-        return "\(firstIconName)-\(firstIconColor ?? "White").png"
-    }
+    var firstIconColor: IconColor?
+    var firstIcon: Icon? { Icon(name: firstIconName.map { "items_\($0)".lowercased() }, color: firstIconColor) }
+
     var secondId: Int
     var secondName: String
     var secondIconName: String?
-    var secondIconColor: String?
-    var secondIcon: String? {
-        guard let secondIconName = secondIconName, secondIconName.count > 0 else { return nil }
-        return "\(secondIconName)-\(secondIconColor ?? "White").png"
-    }
+    var secondIconColor: IconColor?
+    var secondIcon: Icon? { Icon(name: secondIconName.map { "items_\($0)".lowercased() }, color: secondIconColor) }
 
     lazy var created: Item = { return Database.shared.item(id: self.resultId) }()
     lazy var first: Item = { return Database.shared.item(id: self.firstId) }()

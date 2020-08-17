@@ -15,7 +15,7 @@ struct CombinationListView: View {
         List(combinations, id: \.id) {
             CombinationView(combination: $0)
         }
-        .navigationBarTitle("Locations")
+        .navigationBarTitle("Combinations")
     }
 }
 
@@ -23,18 +23,30 @@ struct CombinationView: View {
     var combination: Combination
 
     var body: some View {
-        HStack {
-            VStack {
-                InternalLink(destination: ItemDetailView(id: combination.firstId)) {
-                    ImageLabelView(imageName: self.combination.firstIconName, text: self.combination.firstName)
-                }
-                InternalLink(destination: ItemDetailView(id: combination.secondId)) {
-                    ImageLabelView(imageName: self.combination.secondIconName, text: self.combination.secondName)
+        HStack(alignment: .top) {
+            InternalLink(destination: ItemDetailView(id: combination.resultId)) {
+                HStack {
+                    self.combination.resultIcon.map { IconImage($0) }
+                    VStack(alignment: .leading) {
+                        Text(self.combination.resultName).font(.body)
+                        Text("x\(self.combination.quantity)").font(.body).foregroundColor(.secondary)
+                    }
                 }
             }
             Spacer()
-            InternalLink(destination: ItemDetailView(id: combination.resultId)) {
-                ImageLabelView(imageName: self.combination.resultIconName, text: self.combination.resultName)
+            VStack(alignment: .trailing) {
+                InternalLink(destination: ItemDetailView(id: combination.firstId)) {
+                    HStack {
+                        Text(self.combination.firstName).font(.footnote)
+                        self.combination.firstIcon.map { IconImage($0, iconSize: 30) }
+                    }
+                }
+                InternalLink(destination: ItemDetailView(id: combination.secondId)) {
+                    HStack {
+                        Text(self.combination.secondName).font(.footnote)
+                        self.combination.secondIcon.map { IconImage($0, iconSize: 30) }
+                    }
+                }
             }
         }
     }

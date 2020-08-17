@@ -10,15 +10,12 @@ import SwiftUI
 
 struct ImageLabelView: View {
     var iconSize: CGFloat = 40
-    var imageName: String?
+    var icon: Icon?
     var text: String
 
     var body: some View {
         HStack {
-            imageName.map {
-                Image($0).resizable()
-                .frame(width: iconSize, height: iconSize)
-            }
+            icon.map { IconImage($0) }
             Text(text).font(.body)
         }
     }
