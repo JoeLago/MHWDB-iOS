@@ -50,7 +50,7 @@ struct Icon {
     }
 
     init(name: String?, color: IconColor? = nil) {
-        self.name = name ?? "icon_quest_mark"
+        self.name = name ?? "question_mark"
         self.color = (color ?? .white).color
     }
 

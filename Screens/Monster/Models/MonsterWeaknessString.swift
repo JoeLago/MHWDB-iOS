@@ -13,32 +13,32 @@ import Foundation
 extension Monster {
     var weaknessAttributedString: NSAttributedString {
         return ImageValueString(values: [
-            ImageValue("Fire.png", weaknessFire),
-            ImageValue("Water.png", weaknessWater),
-            ImageValue("Thunder.png", weaknessThunder),
-            ImageValue("Ice.png", weaknessIce),
-            ImageValue("Dragon.png", weaknessDragon),
-            ImageValue("Poison.png", weaknessPoison),
-            ImageValue("Paralysis", weaknessParalysis),
-            ImageValue("status_sleep.png", weaknessSleep),
-            ImageValue("status_blast.png", weaknessBlast),
-            ImageValue("Stun.png", weaknessStun)
+            ImageValue("element_fire", weaknessFire),
+            ImageValue("element_water", weaknessWater),
+            ImageValue("element_thunder", weaknessThunder),
+            ImageValue("element_ice", weaknessIce),
+            ImageValue("element_dragon", weaknessDragon),
+            ImageValue("status_poison", weaknessPoison),
+            ImageValue("status_paralysis", weaknessParalysis),
+            ImageValue("status_sleep", weaknessSleep),
+            ImageValue("status_blast", weaknessBlast),
+            ImageValue("status_stun", weaknessStun)
         ]).attributedText
     }
 
     var weaknessAltAttributedString: NSAttributedString? {
         guard hasAltWeakness else { return nil }
         return ImageValueString(values: [
-            ImageValue("Fire.png", altWeaknessFire),
-            ImageValue("Water.png", altWeaknessWater),
-            ImageValue("Thunder.png", altWeaknessThunder),
-            ImageValue("Ice.png", altWeaknessIce),
-            ImageValue("Dragon.png", altWeaknessDragon),
-            ImageValue("Poison.png", altWeaknessPoison),
-            ImageValue("Paralysis", altWeaknessParalysis),
-            ImageValue("status_sleep.png", altWeaknessSleep),
-            ImageValue("status_blast.png", altWeaknessBlast),
-            ImageValue("Stun.png", altWeaknessStun)
+            ImageValue("element_fire", altWeaknessFire),
+            ImageValue("element_water", altWeaknessWater),
+            ImageValue("element_thunder", altWeaknessThunder),
+            ImageValue("element_ice", altWeaknessIce),
+            ImageValue("element_dragon", altWeaknessDragon),
+            ImageValue("status_poison", altWeaknessPoison),
+            ImageValue("status_paralysis", altWeaknessParalysis),
+            ImageValue("status_sleep", altWeaknessSleep),
+            ImageValue("status_blast", altWeaknessBlast),
+            ImageValue("status_stun", altWeaknessStun)
         ]).attributedText
     }
 }

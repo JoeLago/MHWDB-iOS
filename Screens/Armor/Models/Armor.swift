@@ -12,11 +12,11 @@ class Armor: FetchableRecord, Decodable, Identifiable {
 
         var iconName: String {
             switch self {
-            case .head: return "icon_armor_head"
-            case .chest: return "icon_armor_body"
-            case .arms: return "icon_armor_arms"
-            case .waist: return "icon_armor_waist"
-            case .legs: return "icon_armor_legs"
+            case .head: return "equipment_head"
+            case .chest: return "equipment_chest"
+            case .arms: return "equipment_arm"
+            case .waist: return "equipment_waist"
+            case .legs: return "equipment_leg"
             }
         }
     }
