@@ -38,6 +38,8 @@ extension IconRepresentable {
     }
 }
 
+// TODO: Used default svg conversion to png makes many icons have black color in the wront parts.
+
 struct Icon {
     let name: String
     let color: UIColor?

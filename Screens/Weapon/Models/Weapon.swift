@@ -11,9 +11,7 @@ class Weapon: Decodable, FetchableRecord, Identifiable {
     var id: Int
     var parentId: Int?
     var name: String
-    var icon: Icon? {
-        return Icon(name: "icon_\(type.imagePrefix)", rarity: rarity)
-    }
+    var icon: Icon? { return Icon(name: type.imageName, rarity: rarity) }
     var type: WeaponType
     var depths: [Bool]?
     var children = [Weapon]()

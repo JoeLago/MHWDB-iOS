@@ -33,7 +33,7 @@ struct QuestListView: View {
                             data: questsForStar.quests
                         ) {
                             ItemDetailCell(
-                                imageName: $0.icon,
+                                icon: $0.icon,
                                 titleText: $0.name,
                                 destination: QuestDetailView(id: $0.id)
                             )

@@ -31,43 +31,47 @@ enum WeaponType: String, Decodable {
                 .bow]
     }
 
-    var imagePrefix: String {
+    var imageName: String {
         switch self {
-        case .greatSword: return "great_sword"
-        case .longSword: return "long_sword"
-        case .swordAndShield: return "sword_and_shield"
-        case .dualBlades: return "dual_blades"
-        case .hammer: return "hammer"
-        case .huntingHorm: return "hunting_horn"
-        case .lance: return "lance"
-        case .gunlance: return "gunlance"
-        case .switchAxe: return "switch_axe"
-        case .chargeBlade: return "charge_blade"
-        case .insectGlaive: return "insect_glaive"
-        case .lightBowgun: return "light_bowgun"
-        case .heavyBowgun: return "heavy_bowgun"
-        case .bow: return "bow"
+        case .greatSword: return "equipment_greatsword"
+        case .longSword: return "equipment_longsword"
+        case .swordAndShield: return "equipment_sword_and_shield"
+        case .dualBlades: return "equipment_dual_blades"
+        case .hammer: return "equipment_hammer"
+        case .huntingHorm: return "equipment_hunting_horn"
+        case .lance: return "equipment_lance"
+        case .gunlance: return "equipment_gunlance"
+        case .switchAxe: return "equipment_switch_axe"
+        case .chargeBlade: return "equipment_charge_blade"
+        case .insectGlaive: return "equipment_insect_glaive"
+        case .lightBowgun: return "equipment_light_bowgun"
+        case .heavyBowgun: return "equipment_heavy_bowgun"
+        case .bow: return "equipment_bow"
         case .unknown: return ""
         }
     }
 
-    var imageName: String {
+    var displayListIcon: Icon {
+        return Icon(name: "\(imageName)", rarity: displayListRarity)
+    }
+
+    var displayListRarity: Int {
         switch self {
-        case .greatSword: return "great_sword8"
-        case .longSword: return "long_sword2"
-        case .swordAndShield: return "sword_and_shield3"
-        case .dualBlades: return "dual_blades4"
-        case .hammer: return "hammer5"
-        case .huntingHorm: return "hunting_horn6"
-        case .lance: return "lance7"
-        case .gunlance: return "gunlance8"
-        case .switchAxe: return "switch_axe9"
-        case .chargeBlade: return "charge_blade10"
-        case .insectGlaive: return "insect_glaive2"
-        case .lightBowgun: return "light_bowgun3"
-        case .heavyBowgun: return "heavy_bowgun4"
-        case .bow: return "bow5"
-        case .unknown: return ""
+        case .greatSword: return 8
+        case .longSword: return 2
+        case .swordAndShield: return 3
+        case .dualBlades: return 4
+        case .hammer: return 5
+        case .huntingHorm: return 6
+        case .lance: return 7
+        case .gunlance: return 8
+        case .switchAxe: return 9
+        case .chargeBlade: return 10
+        case .insectGlaive: return 2
+        case .lightBowgun: return 3
+        case .heavyBowgun: return 4
+        case .bow: return 5
+        case .unknown: return 1
         }
     }
 

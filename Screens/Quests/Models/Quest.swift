@@ -10,12 +10,22 @@ class Quest: Decodable, FetchableRecord, Identifiable {
     var id: Int
     var name: String?
     var category: String?
-    var icon: String? { return nil } // TODO
     var questType: String?
     var stars: Int
     var rank: String
     var locationId: Int
     var zenny: Int
+
+    var icon: Icon? {
+        switch questType {
+        case "hunt": return Icon(name: "ui_quest_hunt")
+        case "slay": return Icon(name: "ui_quest_slay")
+        case "assignment": return Icon(name: "ui_quest_assignment")
+        case "deliver": return Icon(name: "ui_quest_deliver")
+        case "capture": return Icon(name: "ui_quest_capture")
+        default: return nil
+        }
+    }
 
     enum Rank: String, Decodable {
         case low = "LR"

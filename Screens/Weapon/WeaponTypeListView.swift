@@ -13,7 +13,7 @@ struct WeaponTypeListView: View {
     var body: some View {
         List(WeaponType.allValues, id: \.self) {
             ItemDetailCell(
-                imageName: $0.imageName,
+                icon: $0.displayListIcon,
                 titleText: $0.displayName,
                 destination: WeaponTreeView(weaponType: $0)
             )
