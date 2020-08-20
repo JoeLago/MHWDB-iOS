@@ -26,7 +26,7 @@ struct TreeSectionView<Data, Content>: View where Data: Identifiable, Content: V
 
         return AnyView(Section(header:
             title.map {
-                CustomeHeader(title: $0, isCollapsed: isCollapsed)
+                CustomeHeader(title: $0, titleColor: nil, isCollapsed: isCollapsed)
                 .onTapGesture { self.isCollapsed.toggle() }
             }
         ) {

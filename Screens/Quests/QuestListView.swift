@@ -28,7 +28,8 @@ struct QuestListView: View {
                 List {
                     ForEach(quests, id: \.stars) { questsForStar in
                         CollapsableSection(
-                            title: Quest.titleForStars(count: questsForStar.stars),
+                            title: questsForStar.quests.first.map { Quest.titleForStars(count: $0.stars) } ?? "Unknown",
+                            titleColor: questsForStar.quests.first?.rank.color,
                             isCollapsed: true,
                             data: questsForStar.quests
                         ) {

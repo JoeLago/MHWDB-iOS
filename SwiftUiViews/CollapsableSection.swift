@@ -11,12 +11,14 @@ import SwiftUI
 struct CollapsableSection<Data, Content>: View where Data: RandomAccessCollection, Data.Element: Identifiable, Content: View {
 
     let title: String
+    let titleColor: UIColor?
     @State var isCollapsed = false
     let data: Data
     let dataContent: (Data.Element) -> Content
 
-    public init(title: String, isCollapsed: Bool = false, data: Data, dataContent: @escaping (Data.Element) -> Content) {
+    public init(title: String, titleColor: UIColor? = nil, isCollapsed: Bool = false, data: Data, dataContent: @escaping (Data.Element) -> Content) {
         self.title = title
+        self.titleColor = titleColor
         _isCollapsed = .init(initialValue: isCollapsed)
         self.data = data
         self.dataContent = dataContent
@@ -27,7 +29,7 @@ struct CollapsableSection<Data, Content>: View where Data: RandomAccessCollectio
         guard data.count > 0 else { return AnyView(EmptyView()) }
 
         return AnyView(Section(header:
-            CustomeHeader(title: title, isCollapsed: isCollapsed)
+            CustomeHeader(title: title, titleColor: titleColor, isCollapsed: isCollapsed)
             .onTapGesture { self.isCollapsed.toggle() }
         ) {
             if !isCollapsed {
@@ -45,14 +47,15 @@ struct StaticCollapsableSection<Content>: View where Content: View {
     @State var isCollapsed = false
     let content: Content
 
-    public init(title: String, @ViewBuilder content: () -> Content) {
+    public init(title: String, isCollapsed: Bool = false, @ViewBuilder content: () -> Content) {
         self.title = title
+        _isCollapsed = .init(initialValue: isCollapsed)
         self.content = content()
     }
 
     var body: some View {
         Section(header:
-            CustomeHeader(title: title, isCollapsed: isCollapsed)
+            CustomeHeader(title: title, titleColor: nil, isCollapsed: isCollapsed)
             .onTapGesture {
                 self.isCollapsed.toggle()
             }) {
@@ -65,11 +68,12 @@ struct StaticCollapsableSection<Content>: View where Content: View {
 
 struct CustomeHeader: View {
     let title: String
+    let titleColor: UIColor?
     var isCollapsed = false
 
     var body: some View {
         HStack {
-            Text(title)
+            titleColor.map { Text(title).foregroundColor(Color($0)) } ?? Text(title)
             Spacer()
             Text(isCollapsed ? "+" : "-")
         }

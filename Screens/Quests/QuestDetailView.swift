@@ -17,11 +17,44 @@ struct QuestDetailView: View {
 
     var body: some View {
         List {
+            StaticCollapsableSection(title: "Details") {
+                Text([
+                        "\(quest.stars)\(String.star)",
+                        quest.rank.fullName,
+                        quest.category?.capitalized,
+                        quest.questType?.capitalized
+                    ].compactMap({ $0 }).joined(separator: " "))
+                quest.objective.map { Text($0) }
+                ItemDetailCell(
+                    imageName: quest.location.icon,
+                    titleText: quest.location.name,
+                    destination: LocationDetailView(id: quest.location.id)
+                )
+            }
+
+            StaticCollapsableSection(title: "Description", isCollapsed: true) {
+                quest.description.map { Text($0).font(.subheadline) }
+            }
+
             CollapsableSection(title: "Monsters", data: quest.monsters) {
                 ItemDetailCell(
-                    imageName: $0.icon,
+                    icon: $0.icon,
                     titleText: $0.name,
+                    // Might be nicer to just make the name bold
+                    subtitleText: $0.isObjective ? "Objective" : nil,
+                    // Would be nice to put locations? Query needs to get fixed
+                    //subtitleText: $0.locations,
+                    detailText: "x\($0.quantity)",
                     destination: MonsterDetailView(id: $0.id)
+                )
+            }
+
+            CollapsableSection(title: "Rewards", data: quest.rewards) {
+                ItemDetailCell(
+                    icon: $0.icon,
+                    titleText: "\($0.name)\($0.stack > 1 ? " x\($0.stack)" : "")",
+                    detailText: "\($0.percentage)%",
+                    destination: ItemDetailView(id: $0.itemId)
                 )
             }
         }

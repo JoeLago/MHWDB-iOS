@@ -12,29 +12,28 @@ class QuestMonster: Decodable, FetchableRecord, Identifiable {
     var id: Int { return monsterId }
     let monsterId: Int
     let name: String
-    var startArea: String?
-    var moveArea: String?
-    var restArea: String?
-    var locations: String {
-      return [startArea, moveArea, restArea].compactMap { $0 }.joined(separator: " > ")
+    let quantity: Int
+    let isObjective: Bool
+    let startArea: String?
+    let moveArea: String?
+    let restArea: String?
+    var locations: String? {
+      let locations = [startArea, moveArea, restArea].compactMap { $0 }.joined(separator: " > ")
+        return locations.count > 0 ? locations : nil
     }
-    let icon: String?
+    var icon: Icon? { return Icon(name: "\(id)") }
 }
 
 extension Database {
 
     func monsters(questId: Int) -> [QuestMonster] {
-        // The monster_habitat night locations use day counterpart id 100 off
-        let query = "SELECT *,"
-            + " monsters._id AS monsterid,"
-            + " monsters.name AS monstername,"
-            + " monsters.icon_name as monstericon"
-            + " FROM monster_to_quest"
-            + " LEFT JOIN quests on monster_to_quest.quest_id = quests._id"
-            + " LEFT JOIN monsters on monster_to_quest.monster_id = monsters._id"
-            + " LEFT JOIN monster_habitat on monster_habitat.monster_id = monsters._id"
-            + " AND (monster_habitat.location_id = quests.location_id OR monster_habitat.location_id = quests.location_id - 100)"
-            + " WHERE quests._id == \(questId)"
+        let query = Query(table: "quest_monster", addLanguageFilter: false)
+            .join(table: "monster", on: "monster_id")
+            .join(origin: "monster", table: "monster_text", addLanguageFilter: true)
+            // TODO: We need to be able join on location_id and monster_id to get monster_habitat
+            //.join(origin: "monster", table: "monster_habitat")
+            .filter("quest_id", equals: questId)
+            .order(by: "is_objective", direction: .dec)
         return fetch(query)
     }
 }

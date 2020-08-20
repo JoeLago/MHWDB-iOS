@@ -9,28 +9,47 @@ import GRDB
 class Quest: Decodable, FetchableRecord, Identifiable {
     var id: Int
     var name: String?
+    var description: String?
+    var objective: String?
     var category: String?
     var questType: String?
     var stars: Int
-    var rank: String
+    var starsRaw: Int
+    var rank: Rank
     var locationId: Int
     var zenny: Int
 
     var icon: Icon? {
         switch questType {
-        case "hunt": return Icon(name: "ui_quest_hunt")
-        case "slay": return Icon(name: "ui_quest_slay")
-        case "assignment": return Icon(name: "ui_quest_assignment")
-        case "deliver": return Icon(name: "ui_quest_deliver")
-        case "capture": return Icon(name: "ui_quest_capture")
+        case "hunt": return Icon(name: "quest_hunt")
+        case "slay": return Icon(name: "quest_slay")
+        case "assignment": return Icon(name: "quest_assignment")
+        case "deliver": return Icon(name: "quest_deliver")
+        case "capture": return Icon(name: "quest_capture")
         default: return nil
         }
     }
 
-    enum Rank: String, Decodable {
+    enum Rank: String, Equatable, Decodable {
         case low = "LR"
         case high = "HR"
         case master = "MR"
+
+        var fullName: String {
+            switch self {
+            case .low: return "Low Rank"
+            case .high: return "High Rank"
+            case .master: return "Master Rank"
+            }
+        }
+
+        var color: UIColor {
+            switch self {
+            case .low: return IconColor.blue.color
+            case .high: return IconColor.red.color
+            case .master: return IconColor.yellow.color
+            }
+        }
     }
 
     class func titleForStars(count: Int) -> String {
@@ -38,20 +57,9 @@ class Quest: Decodable, FetchableRecord, Identifiable {
         return String(repeating: String.star, count: count)
     }
 
-    lazy var rewards: [QuestReward] = { return Database.shared.rewards(questId: self.id) }()
-    lazy var prereqQuests: [Quest] = { return Database.shared.prereqQuests(questId: self.id) }()
+    lazy var rewards: [QuestReward] = { return Database.shared.questRewards(questId: self.id) }()
     lazy var monsters: [QuestMonster] = { return Database.shared.monsters(questId: self.id) }()
-
-    lazy var rewardsBySlot: [String: [QuestReward]] = {
-        let allRewards = Database.shared.rewards(questId: self.id)
-        var rewardsBySlot = [String: [QuestReward]]()
-        for reward in allRewards {
-            var slot = rewardsBySlot[reward.slot] ?? [QuestReward]()
-            slot.append(reward)
-            rewardsBySlot[reward.slot] = slot
-        }
-        return rewardsBySlot
-    }()
+    lazy var location: Location = { return Database.shared.location(id: locationId) }()
 }
 
 extension Database {
@@ -79,9 +87,9 @@ extension Database {
 
         var questsByStars = [Int: [Quest]]()
         for quest in quests {
-            var questsForStars = questsByStars[quest.stars] ?? []
+            var questsForStars = questsByStars[quest.starsRaw] ?? []
             questsForStars.append(quest)
-            questsByStars[quest.stars] = questsForStars
+            questsByStars[quest.starsRaw] = questsForStars
         }
 
         return questsByStars.map { ($0.key, $0.value) }
@@ -89,12 +97,5 @@ extension Database {
 
     func questCategories() -> [String] {
         return getStrings("SELECT category as value FROM quest GROUP BY category")
-    }
-
-    func prereqQuests(questId: Int) -> [Quest] {
-        let query = "SELECT *, quest_prereqs.prereq_id as _id FROM quest_prereqs"
-            + " LEFT JOIN quests ON quests._id = quest_prereqs.prereq_id"
-            + " WHERE quest_id == \(questId)"
-        return fetch(query)
     }
 }
