@@ -15,7 +15,7 @@ struct DecorationDetailView: View {
         decoration = Database.shared.decoration(id: id)
     }
 
-    var skillTrees: [(tree: SkillTree, level: Int)] { return [decoration.skillTree, decoration.skillTreeTwo].compactMap { $0 } }
+    var skillTrees: [(tree: Skilltree, level: Int)] { return [decoration.skilltree, decoration.skillTreeTwo].compactMap { $0 } }
 
     var body: some View {
         List {

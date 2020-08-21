@@ -12,9 +12,9 @@ struct CharmListView: View {
     private var charms = Database.shared.charms()
 
     var body: some View {
-        List(charms, id: \.id) {
+        List(charms) {
             ItemDetailCell(
-                imageName: $0.icon,
+                icon: $0.icon,
                 titleText: $0.name,
                 destination: CharmDetailView(id: $0.id)
             )

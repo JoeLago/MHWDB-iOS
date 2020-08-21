@@ -9,42 +9,61 @@
 import SwiftUI
 
 struct SkillDetailView: View {
-    var skillTree: SkillTree
-    var skillItems: [(String, [SkillTreeItem])]
+    var skilltree: Skilltree
+    var skillArmors: [(String, [SkilltreeArmor])]
 
     init(id: Int) {
-        let skillTree = Database.shared.skillTree(id: id)
-        self.skillTree = skillTree
+        let skillTree = Database.shared.skilltree(id: id)
+        self.skilltree = skillTree
 
-        skillItems = (
-            [("Charms", skillTree.charms)]
-            + Armor.Slot.allCases.compactMap {
-                let armor = skillTree.armor(slot: $0)
-                return ($0.rawValue.capitalized, armor)
-            })
+        skillArmors = Armor.Slot.allCases.compactMap {
+            let armor = skillTree.armor(slot: $0)
+            return ($0.rawValue.capitalized, armor)
+        }
     }
 
     var body: some View {
         List {
-            CollapsableSection(title: "Skills", data: skillTree.skills) {
-                ItemCell(
-                    imageName: $0.icon,
-                    titleText: $0.description,
-                    detailText: "\($0.level)"
+            skilltree.description.map { Text($0).font(.subheadline) }
+
+            CollapsableSection(title: "Skills", data: skilltree.skills) { skill in
+                HStack(spacing: 16) {
+                    Text("Lv \(skill.level)").font(.subheadline).foregroundColor(Color("accent"))
+                    Text(skill.description).font(.subheadline)
+                }
+            }
+
+            CollapsableSection(title: "Decorations", data: skilltree.decorations) {
+                ItemDetailCell(
+                    icon: $0.icon,
+                    titleText: $0.name,
+                    detailText: "+ \($0.skilltreeLevel)",
+                    destination: CharmDetailView(id: $0.id)
                 )
             }
 
-            ForEach(skillItems, id: \.0) { item in
+            CollapsableSection(title: "Charms", data: skilltree.charms) {
+                ItemDetailCell(
+                    icon: $0.icon,
+                    titleText: $0.name,
+                    detailText: "+ \($0.level)",
+                    destination: CharmDetailView(id: $0.id)
+                )
+            }
+
+            ForEach(skillArmors, id: \.0) { item in
                 CollapsableSection(title: item.0, data: item.1) {
                     ItemDetailCell(
-                        //imageName: $0.icon,
+                        icon: $0.icon,
                         titleText: $0.name,
                         detailText: "+ \($0.level)",
-                        destination: ItemDetailView(id: $0.id)
+                        destination: ArmorDetailView(id: $0.id)
                     )
                 }
             }
+
+            // TODO: Set bonuses
         }
-        .navigationBarTitle(skillTree.name)
+        .navigationBarTitle(skilltree.name)
     }
 }

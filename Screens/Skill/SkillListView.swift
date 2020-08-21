@@ -9,12 +9,12 @@
 import SwiftUI
 
 struct SkillListView: View {
-    private var skillTrees = Database.shared.skillTrees()
+    private var skillTrees = Database.shared.skilltrees()
 
     var body: some View {
         List(skillTrees, id: \.id) {
             ItemDetailCell(
-                imageName: nil, //$0.icon,
+                icon: $0.icon,
                 titleText: $0.name,
                 subtitleText: $0.description,
                 destination: SkillDetailView(id: $0.id)

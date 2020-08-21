@@ -6,28 +6,27 @@
 import Foundation
 import GRDB
 
-class SkillTree: FetchableRecord, Decodable, Identifiable {
+class Skilltree: FetchableRecord, Decodable, Identifiable {
     var id: Int
-    var color: IconColor?
+    var iconColor: IconColor?
     var name: String
-    var description: String
+    var description: String?
 
-    enum CodingKeys: String, CodingKey {
-        case id, color = "icon_color", name, description
-    }
+    var icon: Icon { return Icon(name: "armor_skill", color: iconColor) }
 
-    lazy var skills: [SkillTreeSkill] = { return Database.shared.skillTreeSkills(skillTreeId: self.id) }()
-    lazy var charms: [SkillTreeItem] = { return Database.shared.skillCharms(skillTreeId: self.id) }()
-    func armor(slot: Armor.Slot) -> [SkillTreeItem] { return Database.shared.skillArmor(skillTreeId: self.id, slot: slot) }
+    lazy var skills: [SkilltreeSkill] = { return Database.shared.skilltreeSkills(skilltreeId: self.id) }()
+    lazy var charms: [SkilltreeCharm] = { return Database.shared.skillCharms(skilltreeId: self.id) }()
+    lazy var decorations: [Decoration] = { return Database.shared.skillDecorations(skilltreeId: self.id) }()
+    func armor(slot: Armor.Slot) -> [SkilltreeArmor] { return Database.shared.skillArmor(skilltreeId: self.id, slot: slot) }
 }
 
 extension Database {
-    func skillTree(id: Int) -> SkillTree {
+    func skilltree(id: Int) -> Skilltree {
         let query = Query(table: "skilltree").join(table: "skilltree_text").filter(id: id)
         return fetch(query)[0]
     }
 
-    func skillTrees(_ search: String? = nil) -> [SkillTree] {
+    func skilltrees(_ search: String? = nil) -> [Skilltree] {
         let query = Query(table: "skilltree").join(table: "skilltree_text").order(by: "name")
         if let search = search { query.filter("name", contains: search) }
         return fetch(query)

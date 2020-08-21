@@ -28,7 +28,7 @@ struct ArmorDetailView: View {
 
             CollapsableSection(title: "Components", data: armor.components) {
                 ItemDetailCell(
-                    imageName: $0.icon,
+                    icon: $0.icon,
                     titleText: $0.name,
                     detailText: "x \($0.quantity ?? 0)",
                     destination: ItemDetailView(id: $0.itemId)

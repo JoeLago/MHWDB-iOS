@@ -8,11 +8,12 @@
 
 import GRDB
 
-class RecipeComponent: FetchableRecord, Decodable, Identifiable {
+class RecipeComponent: FetchableRecord, Decodable, IconRepresentable, Identifiable {
     var id: Int { return itemId }
     var itemId: Int
     var name: String
-    var icon: String?
+    var iconName: String?
+    var iconColor: IconColor?
     var type: String?
     var quantity: Int?
 }

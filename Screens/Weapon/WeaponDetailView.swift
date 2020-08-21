@@ -74,7 +74,7 @@ struct WeaponDetailView: View {
 
             CollapsableSection(title: "Recipe", data: weapon.components ?? []) {
                 ItemDetailCell(
-                    imageName: $0.icon,
+                    icon: $0.icon,
                     titleText: $0.name,
                     detailText: $0.quantity.map { "x \($0)" },
                     destination: ItemDetailView(id: $0.id)

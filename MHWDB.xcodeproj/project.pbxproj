@@ -91,8 +91,10 @@
 		14A8414A20BA137700F36963 /* LocationItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8414920BA137700F36963 /* LocationItems.swift */; };
 		14A8414E20BCDEAB00F36963 /* Charm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8414D20BCDEAB00F36963 /* Charm.swift */; };
 		14A8415020BCDEDF00F36963 /* CharmSkill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8414F20BCDEDF00F36963 /* CharmSkill.swift */; };
-		14A8415820BD024600F36963 /* SkillTreeItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8415720BD024600F36963 /* SkillTreeItems.swift */; };
-		14A8415A20BD025200F36963 /* SkillTreeSkills.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8415920BD025200F36963 /* SkillTreeSkills.swift */; };
+		14A8415820BD024600F36963 /* SkilltreeCharm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8415720BD024600F36963 /* SkilltreeCharm.swift */; };
+		14A8415A20BD025200F36963 /* SkilltreeSkills.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8415920BD025200F36963 /* SkilltreeSkills.swift */; };
+		14AD5F8D24EFAA490042421F /* SkilltreeArmor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AD5F8C24EFAA490042421F /* SkilltreeArmor.swift */; };
+		14AD5F8F24EFB3440042421F /* SkilltreeDecoration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AD5F8E24EFB3440042421F /* SkilltreeDecoration.swift */; };
 		14C4BE3A1F9D2DB6000DB8EC /* DataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C4BE381F9D2DA0000DB8EC /* DataTests.swift */; };
 		14C885A324D6838B00CF9465 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C885A224D6838B00CF9465 /* AppDelegate.swift */; };
 		14C885A924D80A3000CF9465 /* QuestListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C885A824D80A3000CF9465 /* QuestListView.swift */; };
@@ -211,8 +213,10 @@
 		14A8414920BA137700F36963 /* LocationItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationItems.swift; sourceTree = "<group>"; };
 		14A8414D20BCDEAB00F36963 /* Charm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Charm.swift; sourceTree = "<group>"; };
 		14A8414F20BCDEDF00F36963 /* CharmSkill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharmSkill.swift; sourceTree = "<group>"; };
-		14A8415720BD024600F36963 /* SkillTreeItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillTreeItems.swift; sourceTree = "<group>"; };
-		14A8415920BD025200F36963 /* SkillTreeSkills.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillTreeSkills.swift; sourceTree = "<group>"; };
+		14A8415720BD024600F36963 /* SkilltreeCharm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkilltreeCharm.swift; sourceTree = "<group>"; };
+		14A8415920BD025200F36963 /* SkilltreeSkills.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkilltreeSkills.swift; sourceTree = "<group>"; };
+		14AD5F8C24EFAA490042421F /* SkilltreeArmor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkilltreeArmor.swift; sourceTree = "<group>"; };
+		14AD5F8E24EFB3440042421F /* SkilltreeDecoration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkilltreeDecoration.swift; sourceTree = "<group>"; };
 		14C4BE381F9D2DA0000DB8EC /* DataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTests.swift; sourceTree = "<group>"; };
 		14C885A224D6838B00CF9465 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14C885A824D80A3000CF9465 /* QuestListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestListView.swift; sourceTree = "<group>"; };
@@ -353,8 +357,10 @@
 			isa = PBXGroup;
 			children = (
 				14A24D401EA9D05400755F6A /* SkillTree.swift */,
-				14A8415720BD024600F36963 /* SkillTreeItems.swift */,
-				14A8415920BD025200F36963 /* SkillTreeSkills.swift */,
+				14AD5F8C24EFAA490042421F /* SkilltreeArmor.swift */,
+				14A8415720BD024600F36963 /* SkilltreeCharm.swift */,
+				14AD5F8E24EFB3440042421F /* SkilltreeDecoration.swift */,
+				14A8415920BD025200F36963 /* SkilltreeSkills.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -925,6 +931,7 @@
 				14C885A324D6838B00CF9465 /* AppDelegate.swift in Sources */,
 				14A8414A20BA137700F36963 /* LocationItems.swift in Sources */,
 				1495C57D24E8E5D600A56ECA /* MonsterWeaknessString.swift in Sources */,
+				14AD5F8D24EFAA490042421F /* SkilltreeArmor.swift in Sources */,
 				143587C024D4B8FB00C3C4A5 /* DecorationDetailView.swift in Sources */,
 				14A8414820BA136E00F36963 /* LocationMonsters.swift in Sources */,
 				14E2B5131EB1041D002A2A89 /* Logging.swift in Sources */,
@@ -947,6 +954,7 @@
 				142443D224D4B1E200301E57 /* DecorationListView.swift in Sources */,
 				14E82E8C23696B1F008B3B70 /* HiddenWhenKeyboardVisibleView.swift in Sources */,
 				1495C57924E89FE000A56ECA /* GridView.swift in Sources */,
+				14AD5F8F24EFB3440042421F /* SkilltreeDecoration.swift in Sources */,
 				144306D7209EEFFF00D60A5A /* Query.swift in Sources */,
 				14A251241EA9D05400755F6A /* Quest.swift in Sources */,
 				142443BA24CD6C9B00301E57 /* SkillDetailsView.swift in Sources */,
@@ -958,8 +966,8 @@
 				14E2B5041EAD2229002A2A89 /* SharpnessView.swift in Sources */,
 				1437A717235996F200910125 /* ListMenuView.swift in Sources */,
 				14A251261EA9D05400755F6A /* SkillTree.swift in Sources */,
-				14A8415820BD024600F36963 /* SkillTreeItems.swift in Sources */,
-				14A8415A20BD025200F36963 /* SkillTreeSkills.swift in Sources */,
+				14A8415820BD024600F36963 /* SkilltreeCharm.swift in Sources */,
+				14A8415A20BD025200F36963 /* SkilltreeSkills.swift in Sources */,
 				14A251591EAC41B800755F6A /* String+Additions.swift in Sources */,
 				14A2510F1EA9D05400755F6A /* Color.swift in Sources */,
 				14A251171EA9D05400755F6A /* Tree.swift in Sources */,

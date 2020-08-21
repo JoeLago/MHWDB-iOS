@@ -14,7 +14,6 @@ class CharmSkill: FetchableRecord, Decodable, Identifiable {
     var name: String
     var description: String?
     var level: Int
-    var icon: String?
 }
 
 extension Database {

@@ -15,7 +15,7 @@ struct SearchResponse {
     let armor: [Armor]
     let quests: [Quest]
     let locations: [Location]
-    let skills: [SkillTree]
+    let skills: [Skilltree]
     let palico: [PalicoWeapon]
 }
 
@@ -50,7 +50,7 @@ class SearchRequest {
         if self.isCanceled { return nil }
         let locations = Database.shared.locations(searchText)
         if self.isCanceled { return nil }
-        let skills = Database.shared.skillTrees(searchText)
+        let skills = Database.shared.skilltrees(searchText)
         if self.isCanceled { return nil }
         let palico = Database.shared.palicoWeapons(searchText)
         if self.isCanceled { return nil }

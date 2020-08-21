@@ -5,7 +5,7 @@
 
 import GRDB
 
-class Decoration: Decodable, FetchableRecord {
+class Decoration: Decodable, Identifiable, FetchableRecord {
     let id: Int
     let name: String
     let iconColor: IconColor?
@@ -27,17 +27,17 @@ class Decoration: Decodable, FetchableRecord {
 
     var icon: Icon? { return Icon(name: "decoration_\(slot)", color: iconColor) }
 
-    var skillTrees: [(tree: SkillTree, level: Int)] { return [skillTree, skillTreeTwo].compactMap { $0 } }
+    var skillTrees: [(tree: Skilltree, level: Int)] { return [skilltree, skillTreeTwo].compactMap { $0 } }
 
-    lazy var skillTree: (SkillTree, Int) = {
-        return (Database.shared.skillTree(id: self.skilltreeId), skilltreeLevel)
+    lazy var skilltree: (Skilltree, Int) = {
+        return (Database.shared.skilltree(id: self.skilltreeId), skilltreeLevel)
     }()
 
-    lazy var skillTreeTwo: (SkillTree, Int)? = {
+    lazy var skillTreeTwo: (Skilltree, Int)? = {
         guard let skilltreeId = self.skilltree2Id,
             let skilltreeLevel = self.skilltree2Level
             else { return nil }
-        return (Database.shared.skillTree(id: skilltreeId), skilltreeLevel)
+        return (Database.shared.skilltree(id: skilltreeId), skilltreeLevel)
     }()
 
     var feystoneRates: [FeystoneRate] {

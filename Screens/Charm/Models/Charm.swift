@@ -8,11 +8,13 @@
 
 import GRDB
 
-class Charm: Decodable, FetchableRecord {
-    var id: Int
-    var name: String
-    var icon: String?
-    var recipeId: Int?
+class Charm: Decodable, FetchableRecord, Identifiable {
+    let id: Int
+    let name: String
+    let rarity: Int
+    let recipeId: Int?
+
+    var icon: Icon { return Icon(name: "equipment_charm", rarity: rarity) }
 
     lazy var skills: [CharmSkill] = { return Database.shared.charmSkills(charmId: self.id) }()
     lazy var items: [RecipeComponent] = { self.recipeId.map({ return Database.shared.recipeComponents(id: $0) }) ?? [RecipeComponent]() }()
@@ -25,7 +27,7 @@ extension Database {
     }
 
     func charms(_ search: String? = nil) -> [Charm] {
-        let query = Query(table: "charm").join(table: "charm_text").order(by: "name")
+        let query = Query(table: "charm").join(table: "charm_text").order(by: "order_id")
         if let search = search {
             query.filter("name", contains: search)
         }
