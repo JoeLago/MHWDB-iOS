@@ -16,7 +16,7 @@ struct DecorationListView: View {
             ItemDetailCell(
                 icon: $0.icon,
                 titleText: $0.name,
-                detailText: $0.skillTree.name,
+                subtitleText: $0.skillTrees.map({ $0.tree.name }).joined(separator: "\n"),
                 destination: DecorationDetailView(id: $0.id)
             )
         }

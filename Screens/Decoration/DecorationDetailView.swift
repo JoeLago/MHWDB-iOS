@@ -15,22 +15,28 @@ struct DecorationDetailView: View {
         decoration = Database.shared.decoration(id: id)
     }
 
+    var skillTrees: [(tree: SkillTree, level: Int)] { return [decoration.skillTree, decoration.skillTreeTwo].compactMap { $0 } }
+
     var body: some View {
         List {
             Section {
-                // Can't there be multiple skills now?
-                ItemDetailCell(
-                    titleText: decoration.skillTree.name,
-                    subtitleText: decoration.skillTree.description,
-                    // do we need to worry about capturing self?
-                    destination: SkillDetailView(id: self.decoration.skillTree.id)
-                )
-                ItemCell(titleText: "Slot Size", detailText: "\(decoration.skilltreeLevel)")
-                VStack {
-                    ItemCell(titleText: "Warped", detailText: "\(decoration.warpedFeystonePercent)%")
-                    ItemCell(titleText: "Worn", detailText: "\(decoration.wornFeystonePercent)%")
-                    ItemCell(titleText: "Glowing", detailText: "\(decoration.glowingFeystonePercent)%")
-                    ItemCell(titleText: "Mysterious", detailText: "\(decoration.mysteriousFeystonePercent)%")
+                ItemCell(icon: decoration.icon, titleText: "Rarity", detailText: "\(decoration.rarity)")
+
+                ForEach(skillTrees, id: \.tree.id) {
+                    ItemDetailCell(
+                        titleText: $0.tree.name,
+                        subtitleText: $0.tree.description,
+                        detailText: "+\($0.level)",
+                        destination: SkillDetailView(id: $0.tree.id)
+                    )
+                }
+
+                CollapsableSection(title: "Drop Rates", data: decoration.feystoneRates) {
+                    ItemCell(
+                        icon: Icon(name: "items_feystone", color: $0.color),
+                        titleText: "\($0.title) Feystone",
+                        detailText: "\($0.percentage > 0 ? "\($0.percentage)%" : "-")"
+                    )
                 }
             }
         }

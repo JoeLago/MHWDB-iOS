@@ -71,6 +71,7 @@ struct ItemCell: View {
 
     @State var iconSize: CGFloat = 40
     @State var imageName: String?
+    @State var icon: Icon?
     @State var titleText: String?
     @State var subtitleText: String?
     @State var detailText: String?
@@ -81,6 +82,7 @@ struct ItemCell: View {
                 Image($0).resizable()
                     .frame(width: iconSize, height: iconSize)
             }
+            icon.map { IconImage($0) }
             VStack(alignment: .leading) {
                 titleText.map { Text($0).font(.body) }
                 subtitleText.map { Text($0).font(.caption).foregroundColor(.secondary) }

@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+// TODO: would be nice if we could pass in the id path instead of requiring Identifiable
 struct CollapsableSection<Data, Content>: View where Data: RandomAccessCollection, Data.Element: Identifiable, Content: View {
 
     let title: String
