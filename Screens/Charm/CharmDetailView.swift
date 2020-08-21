@@ -19,12 +19,22 @@ struct CharmDetailView: View {
         List {
             CollapsableSection(title: "Skills", data: charm.skills) {
                 ItemDetailCell(
-                    icon: nil, //$0.icon,
+                    icon: $0.icon,
                     titleText: $0.name,
                     subtitleText: $0.description,
                     detailText: "+ \($0.level)",
                     destination: SkillDetailView(id: $0.id)
                 )
+            }
+
+            charm.parentCharm.map { charm in
+                StaticCollapsableSection(title: "Upgrades From") {
+                    ItemDetailCell(
+                        icon: charm.icon,
+                        titleText: charm.name,
+                        destination: CharmDetailView(id: charm.id)
+                    )
+                }
             }
 
             CollapsableSection(title: "Recipe", data: charm.items) {

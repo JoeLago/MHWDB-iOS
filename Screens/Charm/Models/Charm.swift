@@ -13,9 +13,11 @@ class Charm: Decodable, FetchableRecord, Identifiable {
     let name: String
     let rarity: Int
     let recipeId: Int?
+    let previousId: Int?
 
     var icon: Icon { return Icon(name: "equipment_charm", rarity: rarity) }
 
+    lazy var parentCharm: Charm? = { return self.previousId.map { Database.shared.charm(id: $0) } }()
     lazy var skills: [CharmSkill] = { return Database.shared.charmSkills(charmId: self.id) }()
     lazy var items: [RecipeComponent] = { self.recipeId.map({ return Database.shared.recipeComponents(id: $0) }) ?? [RecipeComponent]() }()
 }

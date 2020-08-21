@@ -9,16 +9,20 @@
 import Foundation
 import GRDB
 
-class CharmSkill: FetchableRecord, Decodable, Identifiable {
-    var id: Int
-    var name: String
-    var description: String?
-    var level: Int
+struct CharmSkill: FetchableRecord, Decodable, Identifiable {
+    let id: Int
+    let name: String
+    let description: String?
+    var iconColor: IconColor?
+    let level: Int
+
+    var icon: Icon { return Icon(name: "armor_skill", color: iconColor) }
 }
 
 extension Database {
     func charmSkills(charmId: Int) -> [CharmSkill] {
         let query = Query(table: "charm_skill")
+        .join(table: "skilltree", on: "skilltree_id")
             .join(table: "skilltree_text", on: "skilltree_id", addLanguageFilter: true)
             .filter("charm_id", equals: charmId)
         return fetch(query)
