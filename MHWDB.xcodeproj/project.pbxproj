@@ -96,6 +96,7 @@
 		14AD5F8D24EFAA490042421F /* SkilltreeArmor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AD5F8C24EFAA490042421F /* SkilltreeArmor.swift */; };
 		14AD5F8F24EFB3440042421F /* SkilltreeDecoration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AD5F8E24EFB3440042421F /* SkilltreeDecoration.swift */; };
 		14AD5F9124F0B4B80042421F /* LocationCamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AD5F9024F0B4B80042421F /* LocationCamp.swift */; };
+		14AD5F9324F0C1130042421F /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AD5F9224F0C1130042421F /* SearchBar.swift */; };
 		14C4BE3A1F9D2DB6000DB8EC /* DataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C4BE381F9D2DA0000DB8EC /* DataTests.swift */; };
 		14C885A324D6838B00CF9465 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C885A224D6838B00CF9465 /* AppDelegate.swift */; };
 		14C885A924D80A3000CF9465 /* QuestListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C885A824D80A3000CF9465 /* QuestListView.swift */; };
@@ -219,6 +220,7 @@
 		14AD5F8C24EFAA490042421F /* SkilltreeArmor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkilltreeArmor.swift; sourceTree = "<group>"; };
 		14AD5F8E24EFB3440042421F /* SkilltreeDecoration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkilltreeDecoration.swift; sourceTree = "<group>"; };
 		14AD5F9024F0B4B80042421F /* LocationCamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCamp.swift; sourceTree = "<group>"; };
+		14AD5F9224F0C1130042421F /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		14C4BE381F9D2DA0000DB8EC /* DataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTests.swift; sourceTree = "<group>"; };
 		14C885A224D6838B00CF9465 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14C885A824D80A3000CF9465 /* QuestListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestListView.swift; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 				14506EDA24D61ED4001BD9FF /* TreeSectionView.swift */,
 				14506ED824D60157001BD9FF /* ValueView.swift */,
 				147408E324E15208006BC15E /* View+Hidden.swift */,
+				14AD5F9224F0C1130042421F /* SearchBar.swift */,
 			);
 			path = SwiftUiViews;
 			sourceTree = "<group>";
@@ -934,6 +937,7 @@
 				14012DE324E912BB00AE1909 /* MonsterHitzoneView.swift in Sources */,
 				14C885A324D6838B00CF9465 /* AppDelegate.swift in Sources */,
 				14A8414A20BA137700F36963 /* LocationItems.swift in Sources */,
+				14AD5F9324F0C1130042421F /* SearchBar.swift in Sources */,
 				1495C57D24E8E5D600A56ECA /* MonsterWeaknessString.swift in Sources */,
 				14AD5F8D24EFAA490042421F /* SkilltreeArmor.swift in Sources */,
 				143587C024D4B8FB00C3C4A5 /* DecorationDetailView.swift in Sources */,

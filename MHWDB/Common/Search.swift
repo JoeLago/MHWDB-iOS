@@ -9,23 +9,25 @@
 import Foundation
 
 struct SearchResponse {
-    let monsters: [Monster]
-    let items: [Item]
-    let weapons: [Weapon]
-    let armor: [Armor]
-    let quests: [Quest]
-    let locations: [Location]
-    let skills: [Skilltree]
-    let palico: [PalicoWeapon]
+    var monsters: [Monster] = []
+    var items: [Item] = []
+    var weapons: [Weapon] = []
+    var armor: [Armor] = []
+    var quests: [Quest] = []
+    var locations: [Location] = []
+    var skills: [Skilltree] = []
+    var palico: [PalicoWeapon] = []
 }
 
 class SearchRequest {
     let searchText: String
+    var itemsOnly: Bool
     var isCanceled = false
     var cancelBlock: (() -> Void)?
 
-    init(_ text: String) {
+    init(_ text: String, itemsOnly: Bool = false) {
         self.searchText = text
+        self.itemsOnly = itemsOnly
     }
 
     func cancel() {
@@ -35,8 +37,13 @@ class SearchRequest {
         }
     }
 
+    // TODO: Have a better way to pick sets of data to search
     func search() -> SearchResponse? {
         let searchText = self.searchText
+
+        if itemsOnly {
+            return SearchResponse(items: Database.shared.items(searchText))
+        }
 
         let monsters = Database.shared.monsters(searchText)
         if self.isCanceled { return nil }
@@ -63,14 +70,15 @@ class SearchRequest {
             quests: quests.map({ $0.quests }).reduce([], +),
             locations: locations,
             skills: skills,
-            palico: palico)
+            palico: palico
+        )
     }
 
     @discardableResult
     func then(_ completed: @escaping (SearchResponse) -> Void) -> SearchRequest {
         DispatchQueue.global(qos: .background).async {
             guard let response = self.search() else {
-                    return
+                return
             }
 
             DispatchQueue.main.async {
