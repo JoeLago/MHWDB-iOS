@@ -95,6 +95,7 @@
 		14A8415A20BD025200F36963 /* SkilltreeSkills.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A8415920BD025200F36963 /* SkilltreeSkills.swift */; };
 		14AD5F8D24EFAA490042421F /* SkilltreeArmor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AD5F8C24EFAA490042421F /* SkilltreeArmor.swift */; };
 		14AD5F8F24EFB3440042421F /* SkilltreeDecoration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AD5F8E24EFB3440042421F /* SkilltreeDecoration.swift */; };
+		14AD5F9124F0B4B80042421F /* LocationCamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AD5F9024F0B4B80042421F /* LocationCamp.swift */; };
 		14C4BE3A1F9D2DB6000DB8EC /* DataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C4BE381F9D2DA0000DB8EC /* DataTests.swift */; };
 		14C885A324D6838B00CF9465 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C885A224D6838B00CF9465 /* AppDelegate.swift */; };
 		14C885A924D80A3000CF9465 /* QuestListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C885A824D80A3000CF9465 /* QuestListView.swift */; };
@@ -217,6 +218,7 @@
 		14A8415920BD025200F36963 /* SkilltreeSkills.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkilltreeSkills.swift; sourceTree = "<group>"; };
 		14AD5F8C24EFAA490042421F /* SkilltreeArmor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkilltreeArmor.swift; sourceTree = "<group>"; };
 		14AD5F8E24EFB3440042421F /* SkilltreeDecoration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkilltreeDecoration.swift; sourceTree = "<group>"; };
+		14AD5F9024F0B4B80042421F /* LocationCamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCamp.swift; sourceTree = "<group>"; };
 		14C4BE381F9D2DA0000DB8EC /* DataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTests.swift; sourceTree = "<group>"; };
 		14C885A224D6838B00CF9465 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14C885A824D80A3000CF9465 /* QuestListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestListView.swift; sourceTree = "<group>"; };
@@ -420,6 +422,7 @@
 			isa = PBXGroup;
 			children = (
 				14A24D3C1EA9D05400755F6A /* Location.swift */,
+				14AD5F9024F0B4B80042421F /* LocationCamp.swift */,
 				14A8414920BA137700F36963 /* LocationItems.swift */,
 				14A8414720BA136E00F36963 /* LocationMonsters.swift */,
 			);
@@ -923,6 +926,7 @@
 				1495C57B24E8E56600A56ECA /* ImageValueString.swift in Sources */,
 				1450DA6320A95915000085C5 /* ItemLocation.swift in Sources */,
 				1450DA6520A95927000085C5 /* ItemMonster.swift in Sources */,
+				14AD5F9124F0B4B80042421F /* LocationCamp.swift in Sources */,
 				147D663024EA02CD0079FA8E /* MonsterAilments.swift in Sources */,
 				1480482624D4FCF8001E407E /* ArmorSetDetailView.swift in Sources */,
 				1450DA6120A95900000085C5 /* ItemQuest.swift in Sources */,

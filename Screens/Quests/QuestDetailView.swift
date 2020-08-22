@@ -26,7 +26,7 @@ struct QuestDetailView: View {
                     ].compactMap({ $0 }).joined(separator: " "))
                 quest.objective.map { Text($0) }
                 ItemDetailCell(
-                    imageName: quest.location.icon,
+                    imageName: quest.location.iconName,
                     titleText: quest.location.name,
                     destination: LocationDetailView(id: quest.location.id)
                 )

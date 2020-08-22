@@ -9,24 +9,33 @@
 import Foundation
 import GRDB
 
-class LocationItem: FetchableRecord, Decodable {
+class LocationItem: FetchableRecord, Decodable, Identifiable, IconRepresentable {
+    var id: Int { return itemId }
     var itemId: Int
-    var name: String?
-    var icon: String?
-    var rank: String?
+    var area: Int
+    var nodes: Int
     var percentage: Int?
+    var rank: Quest.Rank?
     var stack: Int?
+
+    var name: String
+    var iconName: String?
+    var iconColor: IconColor?
 
     var nodeName: String { return "" } // Need to specify node when we get more data
 }
 
 extension Database {
-    func locationItems(locationId: Int, rank: Quest.Rank) -> [LocationItem] {
+    func locationItems(locationId: Int, rank: Quest.Rank? = nil) -> [LocationItem] {
         let query = Query(table: "location_item")
-            .column("item_id", as: "itemId")
-            .join(table: "item_text", on: "item_id", equals: "id")
+            .join(table: "item", on: "item_id")
+            .join(table: "item_text", on: "item_id")
             .filter("location_id", equals: locationId)
-            .filter("rank", equals: rank.rawValue)
+
+        if let rank = rank {
+            query.filter("rank", equals: rank.rawValue)
+        }
+
         return fetch(query)
     }
 }

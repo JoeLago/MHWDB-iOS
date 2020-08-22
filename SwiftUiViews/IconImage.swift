@@ -43,6 +43,7 @@ extension IconRepresentable {
 struct Icon {
     let name: String
     let color: UIColor?
+    // enum class IconType like Android?
 
     init(name: String, rarity: Int) {
         self.name = name
