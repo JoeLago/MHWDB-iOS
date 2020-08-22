@@ -19,7 +19,7 @@ extension Database {
     func preloadImages() {
         let start = Date().timeIntervalSince1970
         let imageNames = getImageNames(table: "item")
-            + getImageNames(table: "monsters", columnName: "id")
+            + getImageNames(table: "monster", columnName: "id")
             + WeaponType.allValues.compactMap({ $0.imageName })
             + MonsterHitzone.images
 

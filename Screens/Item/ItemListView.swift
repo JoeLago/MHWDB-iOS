@@ -21,9 +21,10 @@ struct ItemListView: View {
                     destination: ItemDetailView(id: $0.id)
                 )
             }
+            .id(UUID())
         }
-        .keyboardObserving()
         .navigationBarTitle("Items")
+        .keyboardObserving()
     }
 }
 

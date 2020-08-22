@@ -19,23 +19,28 @@ private func string(for value: Int?, shouldShowZero: Bool = false) -> String? {
 struct ValueView: View {
     var name: String
     var value: String?
+    var icon: Icon?
 
-    init(name: String, value: Int?, shouldShowZero: Bool = false) {
+    init(name: String, value: Int?, icon: Icon? = nil, shouldShowZero: Bool = false) {
         self.name = name
         self.value = string(for: value, shouldShowZero: shouldShowZero)
+        self.icon = icon
     }
 
-    init(name: String, value: String?) {
+    init(name: String, value: String?, icon: Icon? = nil) {
         self.name = name
         self.value = value
+        self.icon = icon
     }
 
     var body: some View {
         guard let value = value else { return AnyView(EmptyView()) }
 
-        return AnyView(HStack(spacing: 8) {
-            Text(name).font(.body)
-            Text(value).font(.body).foregroundColor(.secondary)
+        return AnyView(HStack(spacing: 4) {
+            Text(name).font(.subheadline)
+            Spacer().frame(width: 6)
+            Text(value).font(.subheadline).foregroundColor(.secondary)
+            icon.map { IconImage($0, iconSize: 20) }
         })
     }
 }

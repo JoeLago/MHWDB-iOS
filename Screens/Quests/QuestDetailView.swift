@@ -25,15 +25,12 @@ struct QuestDetailView: View {
                         quest.questType?.capitalized
                     ].compactMap({ $0 }).joined(separator: " "))
                 quest.objective.map { Text($0) }
+                quest.description.map { ItemCell(titleText: "Description", subtitleText: $0) }
                 ItemDetailCell(
                     imageName: quest.location.iconName,
                     titleText: quest.location.name,
                     destination: LocationDetailView(id: quest.location.id)
                 )
-            }
-
-            StaticCollapsableSection(title: "Description", isCollapsed: true) {
-                quest.description.map { Text($0).font(.subheadline) }
             }
 
             CollapsableSection(title: "Monsters", data: quest.monsters) {
@@ -51,13 +48,13 @@ struct QuestDetailView: View {
 
             CollapsableSection(title: "Rewards", data: quest.rewards) {
                 ItemDetailCell(
-                    icon: $0.icon,
-                    titleText: "\($0.name)\($0.stack > 1 ? " x\($0.stack)" : "")",
+                    icon: $0.item.icon,
+                    titleText: "\($0.item.name)\($0.stack > 1 ? " x\($0.stack)" : "")",
                     detailText: "\($0.percentage)%",
                     destination: ItemDetailView(id: $0.itemId)
                 )
             }
         }
-        .navigationBarTitle(quest.name ?? "Quest")
+        .navigationBarTitle(quest.name)
     }
 }

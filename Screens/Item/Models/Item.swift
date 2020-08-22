@@ -21,7 +21,7 @@ class Item: Decodable, FetchableRecord, IconRepresentable {
         case id, name, description, iconName, iconColor, stack = "carryLimit", buy = "buyPrice", sell = "sellPrice", rarity
     }
 
-    lazy var quests: [ItemQuest] = { return Database.shared.rewards(itemId: self.id) }()
+    lazy var quests: [QuestReward] = { return Database.shared.itemQuests(itemId: self.id) }()
     lazy var combinations: [Combination] = { return Database.shared.combinations(itemId: self.id) }()
     lazy var locations: [ItemLocation] = { return Database.shared.locations(itemId: self.id) }()
     lazy var monsters: [ItemMonster] = { return Database.shared.itemMonster(itemId: self.id) }()

@@ -8,23 +8,21 @@
 
 import GRDB
 
-class QuestReward: Decodable, FetchableRecord, Identifiable, IconRepresentable {
-    // Can have same item with different % for same quest, think they should have different groups but don't always seem to
-    var id: (Int, Int) { return (itemId, percentage) }
+class QuestReward: Decodable, FetchableRecord, Identifiable {
+    let id: Int
+    let percentage: Int
+    let stack: Int
+    let group: String
+
     let itemId: Int
-    var name: String
-    var iconName: String?
-    var iconColor: IconColor?
-    var percentage: Int
-    var stack: Int
-    var group: String
+    lazy var item: Item = { Database.shared.item(id: itemId) }()
+    let questId: Int
+    lazy var quest: Quest = { Database.shared.quest(id: questId) }()
 }
 
 extension Database {
     func questRewards(questId: Int) -> [QuestReward] {
         let query = Query(table: "quest_reward", addLanguageFilter: false)
-            .join(table: "item", on: "item_id")
-            .join(origin: "item", table: "item_text", addLanguageFilter: true)
             .filter("quest_id", equals: questId)
             .order(by: "percentage", direction: .dec)
         return fetch(query)

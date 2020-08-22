@@ -24,7 +24,7 @@ struct SkillDetailView: View {
 
     var body: some View {
         List {
-            skilltree.description.map { Text($0).font(.subheadline) }
+            skilltree.description.map { ItemCell(titleText: "Description", subtitleText: $0) }
 
             CollapsableSection(title: "Skills", data: skilltree.skills) { skill in
                 HStack(spacing: 16) {

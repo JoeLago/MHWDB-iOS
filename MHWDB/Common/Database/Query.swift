@@ -42,7 +42,7 @@ class Query {
         let filters: [Filter]
 
         var query: String {
-            return filters.map({ $0.query }).joined(separator: " OR ")
+            return "(\(filters.map({ $0.query }).joined(separator: " OR ")))"
         }
     }
 

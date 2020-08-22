@@ -18,25 +18,30 @@ struct ItemDetailView: View {
     var body: some View {
         List {
             Section {
-                HStack(spacing: 16) {
-                    // Probably need a different view for these
-                    item.stack.map { ItemCell(titleText: "Stack", detailText: "\($0)") }
-                    item.buy.map { ItemCell(titleText: "Buy", detailText: "\($0)") }
-                    item.sell.map { ItemCell(titleText: "Sell", detailText: "\($0)") }
-                }
                 ItemCell(titleText: "Description", subtitleText: item.description)
+                HStack(spacing: 16) {
+                    ValueView(name: "Stack", value: item.stack, icon: Icon(name: "item_box"))
+                    Spacer()
+                    ValueView(name: "Buy", value: item.buy, icon: Icon(name: "zenny"))
+                    Spacer()
+                    ValueView(name: "Sell", value: item.sell, icon: Icon(name: "zenny"))
+                }
+            }
+
+            CollapsableSection(title: "Craft", data: item.combinations) {
+                CombinationView(combination: $0)
             }
 
             CollapsableSection(title: "Locations", data: item.locations) {
                 ItemDetailCell(
                     titleText: [$0.rank, $0.name].compactMap({ $0 }).joined(separator: " "),
-                    subtitleText: $0.nodeName,
+                    subtitleText: $0.area.map { "Area \($0)" },
                     detailText: "\($0.stack ?? 0 > 1 ? "x\($0.stack ?? 0) ": "")\($0.percentage ?? 0)%",
                     destination: LocationDetailView(id: $0.id)
                 )
             }
 
-            CollapsableSection(title: "Rewards", data: item.monsters) {
+            CollapsableSection(title: "Monster Rewards", data: item.monsters) {
                 ItemDetailCell(
                     imageName: $0.icon,
                     titleText: "\($0.rank.rawValue) \($0.name)",
@@ -46,30 +51,40 @@ struct ItemDetailView: View {
                 )
             }
 
+            CollapsableSection(title: "Quest Rewards", data: item.quests) {
+                ItemDetailCell(
+                    icon: $0.quest.icon,
+                    titleText: "\($0.quest.name)\($0.stack > 1 ? " (x\($0.stack))" : "")",
+                    subtitleText: "\($0.quest.rank.rawValue) \($0.quest.stars)\(String.star) \($0.quest.questType?.capitalized ?? "")",
+                    detailText: "\($0.percentage)%",
+                    destination: QuestDetailView(id: $0.itemId)
+                )
+            }
+
             CollapsableSection(title: "Armor", data: item.armor) {
                 ItemDetailCell(
-                    imageName: $0.icon,
+                    icon: $0.icon,
                     titleText: $0.name,
-                    detailText: "x \($0.quantity)",
+                    detailText: "\($0.quantity)",
                     destination: ArmorDetailView(id: $0.id)
                 )
             }
 
             CollapsableSection(title: "Weapons", data: item.weapons) {
                 ItemDetailCell(
-                    imageName: $0.icon,
+                    icon: $0.icon,
                     titleText: $0.name,
-                    detailText: "x \($0.quantity)",
+                    detailText: "\($0.quantity)",
                     destination: WeaponDetailView(id: $0.id)
                 )
             }
 
             CollapsableSection(title: "Charms", data: item.charms) {
                 ItemDetailCell(
-                    imageName: $0.icon,
+                    icon: $0.icon,
                     titleText: $0.name,
-                    detailText: "x \($0.quantity)",
-                    destination: DecorationDetailView(id: $0.id)
+                    detailText: "\($0.quantity)",
+                    destination: CharmDetailView(id: $0.id)
                 )
             }
         }

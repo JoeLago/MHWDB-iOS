@@ -6,7 +6,7 @@
 import Foundation
 import GRDB
 
-class Combination: FetchableRecord, Decodable {
+class Combination: FetchableRecord, Decodable, Identifiable {
     var id: Int
     var quantity: Int
 

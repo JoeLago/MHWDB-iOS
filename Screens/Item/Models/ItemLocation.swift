@@ -13,6 +13,7 @@ class ItemLocation: FetchableRecord, Decodable, Identifiable {
     var name: String?
     var icon: String?
     var rank: String?
+    var area: Int?
     var percentage: Int?
     var stack: Int?
 

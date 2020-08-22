@@ -8,7 +8,7 @@ import GRDB
 
 class Quest: Decodable, FetchableRecord, Identifiable {
     var id: Int
-    var name: String?
+    var name: String
     var description: String?
     var objective: String?
     var category: String?
