@@ -97,6 +97,7 @@
 		14AD5F8F24EFB3440042421F /* SkilltreeDecoration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AD5F8E24EFB3440042421F /* SkilltreeDecoration.swift */; };
 		14AD5F9124F0B4B80042421F /* LocationCamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AD5F9024F0B4B80042421F /* LocationCamp.swift */; };
 		14AD5F9324F0C1130042421F /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AD5F9224F0C1130042421F /* SearchBar.swift */; };
+		14AD5F9524F0E98D0042421F /* ImagePreloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AD5F9424F0E98D0042421F /* ImagePreloader.swift */; };
 		14C4BE3A1F9D2DB6000DB8EC /* DataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C4BE381F9D2DA0000DB8EC /* DataTests.swift */; };
 		14C885A324D6838B00CF9465 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C885A224D6838B00CF9465 /* AppDelegate.swift */; };
 		14C885A924D80A3000CF9465 /* QuestListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C885A824D80A3000CF9465 /* QuestListView.swift */; };
@@ -221,6 +222,7 @@
 		14AD5F8E24EFB3440042421F /* SkilltreeDecoration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkilltreeDecoration.swift; sourceTree = "<group>"; };
 		14AD5F9024F0B4B80042421F /* LocationCamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCamp.swift; sourceTree = "<group>"; };
 		14AD5F9224F0C1130042421F /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		14AD5F9424F0E98D0042421F /* ImagePreloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreloader.swift; sourceTree = "<group>"; };
 		14C4BE381F9D2DA0000DB8EC /* DataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTests.swift; sourceTree = "<group>"; };
 		14C885A224D6838B00CF9465 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		14C885A824D80A3000CF9465 /* QuestListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestListView.swift; sourceTree = "<group>"; };
@@ -541,6 +543,7 @@
 			isa = PBXGroup;
 			children = (
 				14A24D251EA9D05400755F6A /* Color.swift */,
+				14AD5F9424F0E98D0042421F /* ImagePreloader.swift */,
 				1495C57A24E8E56600A56ECA /* ImageValueString.swift */,
 				14E2B5121EB1041D002A2A89 /* Logging.swift */,
 				145FEA761F78A6C100BF9237 /* ReviewManager.swift */,
@@ -920,6 +923,7 @@
 				14C885AB24D80A8B00CF9465 /* QuestDetailView.swift in Sources */,
 				1437A71323597C0B00910125 /* MonsterListView.swift in Sources */,
 				142443BF24CE1B6800301E57 /* CombinationListView.swift in Sources */,
+				14AD5F9524F0E98D0042421F /* ImagePreloader.swift in Sources */,
 				14A250FD1EA9D05400755F6A /* Int+NullString.swift in Sources */,
 				1452DB201F7108F8006A11D7 /* Int+TimeInterval.swift in Sources */,
 				14A251211EA9D05400755F6A /* Item.swift in Sources */,

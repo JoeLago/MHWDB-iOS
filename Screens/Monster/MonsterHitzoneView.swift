@@ -8,9 +8,19 @@
 
 import SwiftUI
 
-private extension MonsterHitzone {
+extension MonsterHitzone {
     static var images: [String] {
-        return ["icon_great_sword", "icon_hammer", "icon_heavy_bowgun", "Fire", "Water", "Ice", "Thunder", "Dragon", "Stun"]
+        return [
+            "equipment_greatsword",
+            "equipment_hammer",
+            "equipment_heavy_bowgun",
+            "element_fire",
+            "element_water",
+            "element_ice",
+            "element_thunder",
+            "element_dragon",
+            "status_stun"
+        ]
     }
 
     var hitzones: [Int] {
