@@ -80,35 +80,59 @@ class Query {
         }
     }
 
+    struct Group {
+        enum Agggregate: String {
+            case min, max, sum, count, avg
+        }
+
+        let column: String
+        let function: Agggregate?
+        let asColumn: String
+    }
+
     var table: String
     var columns = [Column]()
     var joins = [Join]()
     var orders = [Order]()
     var filters = [Filter]()
     var orFilters = [OrFilter]()
+    var groupings = [Group]()
 
     var query: String {
 
         var columnQuery = "*"
-        if columns.count > 0 {
-            columnQuery = "*, " + columns.map({ $0.query }).joined(separator: ", ")
+        if groupings.count > 0 {
+            columnQuery = "*, " + groupings.map { grouping in
+                grouping.function.map({ "\($0.rawValue.uppercased())(\(grouping.column))" })
+                ?? "\(grouping.column)"
+                    + " AS \(grouping.asColumn)"
+            }.joined(separator: ", ")
+        } else {
+            if columns.count > 0 {
+                columnQuery = "*, " + columns.map({ $0.query }).joined(separator: ", ")
+            }
         }
 
         let action = "SELECT \(columnQuery) FROM \(table)"
         let join = joins.map({ $0.query }).joined(separator: " ")
 
-        var filter = ""
+        var filter: String?
         if filters.count > 0 || orFilters.count > 0 {
             let allFitlers = filters.map({ $0.query }) + orFilters.map({ $0.query })
             filter = "WHERE " + allFitlers.joined(separator: " AND ")
         }
 
-        var order = "" // nil?
+        var group: String?
+        if groupings.count > 0 {
+            group = "GROUP BY " + groupings.map({ $0.column }).joined(separator: ", ")
+        }
+
+        var order: String?
         if orders.count > 0 {
             order = "ORDER BY " + orders.map({ $0.query }).joined(separator: ", ")
         }
 
-        let parts = [action, join, filter, order]
+        let parts = [action, join, filter, group, order].compactMap { $0 }
         let query = parts.joined(separator: " ")
         return query
     }
@@ -190,6 +214,12 @@ class Query {
     @discardableResult
     func order(by attribute: String, direction: Order.Direction = .asc) -> Query {
         orders.append(Order(attribute: attribute, direction: direction))
+        return self
+    }
+
+    @discardableResult
+    func group(by attribute: String, function: Group.Agggregate? = nil, as asColumn: String) -> Query {
+        groupings.append(Group(column: attribute, function: function, asColumn: asColumn))
         return self
     }
 }

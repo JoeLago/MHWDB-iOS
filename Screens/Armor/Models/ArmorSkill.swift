@@ -14,6 +14,8 @@ class ArmorSkill: FetchableRecord, Decodable, Identifiable {
     var name: String
     var description: String
     var level: Int
+    var iconColor: IconColor?
+    var icon: Icon { return Icon(name: "armor_skill", color: iconColor) }
 }
 
 extension Database {

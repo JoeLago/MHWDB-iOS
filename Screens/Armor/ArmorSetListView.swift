@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ArmorSetListView: View {
 
-    @State private var rankSelection = 0
+    @State private var rankSelection = 2
     private var rank: Quest.Rank? {
         switch rankSelection {
         case 0: return .low

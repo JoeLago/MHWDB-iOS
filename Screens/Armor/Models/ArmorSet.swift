@@ -18,6 +18,45 @@ class ArmorSet: FetchableRecord, Decodable, Identifiable {
     }
 
     lazy var armor: [Armor] = { return Database.shared.armorSetPieces(armorSetId: id) }()
+
+    lazy var defenseBase: Int = { armor.map({ $0.defenseBase }).reduce(0, +) }()
+    lazy var defenseMax: Int = { armor.map({ $0.defenseMax }).reduce(0, +) }()
+    lazy var defenseAugmentMax: Int = { armor.map({ $0.defenseAugmentMax }).reduce(0, +) }()
+    lazy var fire: Int = { armor.map({ $0.fire }).reduce(0, +) }()
+    lazy var water: Int = { armor.map({ $0.water }).reduce(0, +) }()
+    lazy var thunder: Int = { armor.map({ $0.thunder }).reduce(0, +) }()
+    lazy var ice: Int = { armor.map({ $0.ice }).reduce(0, +) }()
+    lazy var dragon: Int = { armor.map({ $0.dragon }).reduce(0, +) }()
+
+    // Must be a better way to write this
+    // We could at least write a generic combine function passing the key path
+    lazy var components: [RecipeComponent] = {
+        let allComponents = armor.map({ $0.components }).reduce([], +)
+        var components = [RecipeComponent]()
+        for component in allComponents {
+            if let existing = components.first(where: { $0.id == component.id }) {
+                existing.quantity = (existing.quantity ?? 0) + (component.quantity ?? 0)
+            } else {
+                components.append(component)
+            }
+        }
+        return components.sorted(by: { $0.quantity ?? 0 > $1.quantity ?? 0 })
+    }()
+
+    lazy var skills: [ArmorSkill] = {
+        let allComponents = armor.map({ $0.skills }).reduce([], +)
+        var components = [ArmorSkill]()
+        for component in allComponents {
+            if let existing = components.first(where: { $0.id == component.id }) {
+                existing.level += component.level
+            } else {
+                components.append(component)
+            }
+        }
+        return components.sorted(by: { $0.level > $1.level })
+    }()
+
+    var defenseText: String { return "\(defenseBase) - \(defenseMax) (\(defenseAugmentMax))" }
 }
 
 extension Database {
@@ -46,6 +85,17 @@ extension Database {
             }
         }
 
+        return fetch(query)
+    }
+
+    // need to grab recipes for all pieces, grouping also won't return all columns
+    // lots of work here, just going to do it in code
+    func armorSetRecipeComponents(id recipeId: Int) -> [RecipeComponent] {
+        let query = Query(table: "recipe_item")
+            .join(table: "item", on: "item_id")
+            .join(origin: "item", table: "item_text")
+            .filter("recipe_id", equals: recipeId)
+            .group(by: "quantity", function: .sum, as: "quantity")
         return fetch(query)
     }
 }

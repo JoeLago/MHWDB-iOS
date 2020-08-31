@@ -6,7 +6,33 @@
 import GRDB
 
 class Armor: FetchableRecord, Decodable, Identifiable {
+    let id: Int
+    let name: String
+    let defenseBase: Int
+    let defenseMax: Int
+    let defenseAugmentMax: Int
+    let rarity: Int
+    let armorType: Slot?
+    let slot1: SocketLevel
+    let slot2: SocketLevel
+    let slot3: SocketLevel
+    let female: Bool
+    let male: Bool
+    var fire: Int
+    var water: Int
+    var thunder: Int
+    var ice: Int
+    var dragon: Int
+    var recipeId: Int
 
+    var defenseText: String { return "\(defenseBase) - \(defenseMax) (\(defenseAugmentMax))" }
+    var icon: Icon { return Icon(name: armorType?.iconName ?? "", rarity: rarity) }
+
+    lazy var skills: [ArmorSkill] = { return Database.shared.armorSkills(armorId: id) }()
+    lazy var components: [RecipeComponent] = { return Database.shared.recipeComponents(id: self.recipeId) }()
+}
+
+extension Armor {
     enum Slot: String, Decodable, CaseIterable {
         case head, chest, arms, waist, legs
 
@@ -26,44 +52,13 @@ class Armor: FetchableRecord, Decodable, Identifiable {
 
         var iconName: String? {
             switch self {
-            case .none: return nil
-            case .one: return "DecorationLevelOne"
-            case .two: return "DecorationLevelTwo"
-            case .three: return "DecorationLevelThree"
-            case .four: return "DecorationLevelFour"
+            case .none: return "slot_none"
+            case .one: return "slot_1_empty"
+            case .two: return "slot_2_empty"
+            case .three: return "slot_3_empty"
+            case .four: return "slot_4_empty"
             }
         }
-    }
-
-    let id: Int
-    let name: String
-    let defense: Int
-    let defenseMax: Int
-    let defenseAugment: Int
-    //let buy: Int
-    //let sell: Int
-    //let slots: Int
-    let rarity: Int
-    let slot: Slot?
-    let socketOne: SocketLevel
-    let socketTwo: SocketLevel
-    let socketThree: SocketLevel
-    let isFemale: Bool
-    let isMale: Bool
-    var fireResistance: Int
-    var waterResistance: Int
-    var thunderResistance: Int
-    var iceResistance: Int
-    var dragonResistance: Int
-    var recipeId: Int
-
-    var icon: Icon { return Icon(name: slot?.iconName ?? "", rarity: rarity) }
-
-    lazy var skills: [ArmorSkill] = { return Database.shared.armorSkills(armorId: id) }()
-    lazy var components: [RecipeComponent] = { return Database.shared.recipeComponents(id: self.recipeId) }()
-
-    enum CodingKeys: String, CodingKey {
-        case id, name, defense="defenseBase", defenseMax, defenseAugment="defenseAugmentMax", rarity, slot="armorType", socketOne="slot1", socketTwo="slot2", socketThree="slot3", isFemale="female", isMale="male", fireResistance="fire", waterResistance="water", thunderResistance="thunder", iceResistance="ice", dragonResistance="dragon", recipeId
     }
 }
 
