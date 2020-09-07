@@ -80,6 +80,6 @@ struct CustomeHeader: View {
         }
         .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
         .padding()
-        .background(Color.Background.header)
+        .background(Color.headerBackground)
     }
 }

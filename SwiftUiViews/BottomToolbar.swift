@@ -26,7 +26,7 @@ struct BottomToolBarView<Content>: View where Content: View {
             //.background(Color.Background.light)
         }
         .background(
-            Color.Background.bar
+            Color.barBackground
                 .opacity(0.98)
                 //.blur(radius: 5) // ends up having rounded edges, not the translucent look of navigation bar
                 .edgesIgnoringSafeArea(.all)

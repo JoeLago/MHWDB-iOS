@@ -7,16 +7,10 @@ import SwiftUI
 import UIKit
 
 extension Color {
-    struct Background {
-        static let bar = Color("background_bar")
-        static let header = Color("background_header")
-    }
-
-    struct Text {
-        static let secondary = Color("text_secondary")
-    }
-
-    static let muted = Text.secondary
+    static let barBackground = Color("background_bar")
+    static let headerBackground = Color("background_header")
+    static let secondary = Color("text_secondary")
+    static let muted = secondary
 }
 
 struct DepracatedColor {
