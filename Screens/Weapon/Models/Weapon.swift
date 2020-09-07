@@ -15,12 +15,14 @@ class Weapon: Decodable, FetchableRecord, Identifiable {
     var weaponType: WeaponType
     var depths: [Bool]?
     var attack: Int?
+    var attackTrue: Int?
     var element1: Element?
     var element1Attack: Int?
     var element2: Element?
     var element2Attack: Int?
     var elementHidden: Bool
     var awakenAttack: Int?
+    var elderseal: String?
     var defense: Int?
     var numSlots: Int?
     var creationCost: Int?
@@ -54,13 +56,28 @@ class Weapon: Decodable, FetchableRecord, Identifiable {
     // Made this optional just to be lazy and not list out all the properties as keys
     var children: [Weapon]? = [Weapon]()
 
-    var components: [RecipeComponent]? {
+    var sockets: [SocketLevel]? {
+        [slot1, slot2, slot3].compactMap({ $0 == SocketLevel.none ? nil : $0 }).nonEmpty
+    }
+
+    static func maxDamage(base: Int?) -> Int {
+        return Int(CGFloat(base ?? 0) / 10 * 1.3) * 10
+//        BigDecimal(elementVal / 10 * 1.3)
+//        .setScale(0, RoundingMode.HALF_DOWN)
+//        .toInt() * 10
+    }
+
+    var createComponents: [RecipeComponent]? {
+        return createRecipeId.map { Database.shared.recipeComponents(id: $0) }
+    }
+
+    var upgradeComponents: [RecipeComponent]? {
         return upgradeRecipeId.map { Database.shared.recipeComponents(id: $0) }
     }
 
     var sharpnesses: [Sharpness]? {
         guard let sharpnessValues = sharpness, !sharpnessValues.isEmpty else { return nil }
-        return [Sharpness(string: sharpnessValues, subtracting: 50), Sharpness(string: sharpnessValues)]
+        return Sharpness.Level.allCases.map { Sharpness(string: sharpnessValues, level: $0) }
     }
 
     var coatingImageNames: [String]? {
@@ -195,5 +212,11 @@ extension Database {
         let tree = Tree<Weapon>()
         tree.roots.append(topNode)
         return (weaponNode, tree)
+    }
+}
+
+extension Array {
+    var nonEmpty: Array? {
+        return isEmpty ? nil : self
     }
 }

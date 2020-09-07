@@ -17,70 +17,53 @@ struct WeaponDetailView: View {
 
     var body: some View {
         List {
-
-            Section {
-                // TODO: Do we have these values?
-                MultiValueView(values: [
-                    ("Create Cost", weapon.creationCost),
-                    ("Upgrade Cost", weapon.upgradeCost)
-                ])
-
-                // TODO: Do we have these values?
-                MultiValueView(values: [
-                    ("Recoil", weapon.recoil),
-                    ("Reload Speed", weapon.reloadSpeed),
-                    ("Deviation", weapon.deviation),
-                    ("Shelling Type", weapon.shelling)
-                ])
-
-                weapon.phial.map {
-                    ItemCell(
-                        titleText: "Phial",
-                        detailText: "\($0.capitalized)\(weapon.phialAttack.map({" \($0)"}) ?? "")"
-                    )
-                }
-
-                // TODO: Charges are not a thing in MHW?
-                weapon.charges.map {
-                    ItemCell(
-                        titleText: "Charges",
-                        detailText: $0.components(separatedBy: "|").joined(separator: ", ")
-                    )
-                }
-
-                weapon.noteImageNames.map { imageNames in
-                    HStack(spacing: 8) {
-                        Text("Notes").font(.body)
-                        Spacer()
-                        ForEach(imageNames, id: \.self) { imageName in
-                            Image(imageName).resizable().frame(width: 40, height: 40)
-                        }
+            StaticCollapsableSection(title: "Details") {
+                SingleDetailView(iconName: "attack", label: "Attack", value: weapon.attack)
+                SingleDetailView(iconName: "attack", label: "Attack (True)", value: weapon.attackTrue)
+                SingleDetailView(iconName: "affinity", label: "Affinity", value: weapon.affinity, wrap: ({ "\($0)%" }))
+                weapon.element1Attack.map { attack in
+                    SingleDetailView(iconName: "element", label: "Element") {
+                        ImageLabelView(
+                            icon: weapon.element1?.icon,
+                            iconSize: .defaultSmallIconSize,
+                            text: (weapon.element1?.rawValue ?? "")
+                                + (weapon.elementHidden ? "  (\(attack))" : "  \(attack)")
+                                + " (\(Weapon.maxDamage(base: attack)) max)",
+                            font: .singleDetail,
+                            color: weapon.elementHidden ? .muted : .primary
+                        )
                     }
                 }
-
-                // TODO: Songs
-
-                // TODO: Coatings need to be loaded differently in DB
-                weapon.coatingImageNames.map { coatings in
-                    HStack(spacing: 8) {
-                        Text("Coatings").font(.body)
-                        Spacer()
-                        ForEach(coatings, id: \.self) { imageName in
-                            Image(imageName).resizable().frame(width: 40, height: 40)
-                        }
-                    }
+                SingleDetailView(iconName: "element", label: "Element 2", value: weapon.element2Attack)
+                weapon.sockets.map { sockets in
+                    SingleDetailView(iconName: "slots_blue", label: "Slots") { SocketsView(sockets: sockets) }
+                }
+                SingleDetailView(iconName: "elderseal", label: "Elderseal", value: weapon.elderseal?.capitalizingFirstLetter() ?? "None")
+                SingleDetailView(iconName: "defense", label: "Defense", value: weapon.defense)
+                weapon.sharpnesses.map { sharpnesses in
+                    SingleDetailView(iconName: "whetstone", label: "Sharpness") { SharpnessesView(sharpnesses: sharpnesses) }
                 }
             }
 
-            CollapsableSection(title: "Recipe", data: weapon.components ?? []) {
-                ItemDetailCell(
-                    icon: $0.icon,
-                    titleText: $0.name,
-                    detailText: $0.quantity.map { "x \($0)" },
-                    destination: ItemDetailView(id: $0.id)
-                )
+            // TODO: Melodies
+            // TODO: Ammo
+
+            ForEach([
+                ("Create Materials", weapon.createComponents),
+                ("Upgrade Materials", weapon.upgradeComponents)
+            ], id: \.0) {
+                CollapsableSection(title: $0.0, data: $0.1 ?? []) {
+                    ItemDetailCell(
+                        icon: $0.icon,
+                        titleText: $0.name,
+                        detailText: $0.quantity.map { "x \($0)" },
+                        destination: ItemDetailView(id: $0.id)
+                    )
+                }
             }
         }
+        // Would like if we could set the min row height on the detail section only
+        .environment(\.defaultMinListRowHeight, 22)
         .navigationBarTitle("\(weapon.name)")
     }
 }

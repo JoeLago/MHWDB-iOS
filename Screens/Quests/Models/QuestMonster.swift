@@ -18,7 +18,7 @@ class QuestMonster: Decodable, FetchableRecord, Identifiable {
     let moveArea: String?
     let restArea: String?
     var locations: String? {
-      let locations = [startArea, moveArea, restArea].compactMap { $0 }.joined(separator: " > ")
+        let locations = [startArea, moveArea, restArea].compactMap { $0 }.joined(separator: " > ")
         return locations.count > 0 ? locations : nil
     }
     var icon: Icon? { return Icon(name: "\(id)") }

@@ -15,6 +15,8 @@ extension Color {
     struct Text {
         static let secondary = Color("text_secondary")
     }
+
+    static let muted = Text.secondary
 }
 
 struct DepracatedColor {

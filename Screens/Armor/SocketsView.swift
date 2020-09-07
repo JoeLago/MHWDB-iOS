@@ -16,15 +16,14 @@ struct SocketsView: View {
         _sockets = .init(initialValue: sockets)
     }
 
-    init(weapon: Weapon) {
-        let sockets = [weapon.slot1, weapon.slot2, weapon.slot3].compactMap { $0 == SocketLevel.none ? nil : $0 }
+    init(sockets: [SocketLevel]) {
         _sockets = .init(initialValue: sockets)
     }
 
     var body: some View {
         HStack(spacing: 2) {
             ForEach(Array(sockets.enumerated()), id: \.offset) {
-                IconImage(Icon(name: $0.element.iconName), iconSize: defaultSmallIconSize)
+                IconImage(Icon(name: $0.element.iconName), iconSize: .defaultSmallIconSize)
             }
         }
     }

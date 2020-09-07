@@ -5,9 +5,15 @@
 
 import Foundation
 
-class Sharpness {
+class Sharpness: Identifiable {
     static let maxValue = 400.0
 
+    enum Level: Int, CaseIterable {
+        case zero = -50, one = -40, two = -30, three = -20, four = -10, five = 0
+    }
+
+    var id: Level { return level }
+    var level: Level
     var red = 0
     var orange = 0
     var yellow = 0
@@ -17,6 +23,7 @@ class Sharpness {
     var purple = 0
 
     init(palicoSharpness: Int) {
+        self.level = .zero
         switch palicoSharpness {
         case 0: orange = 1
         case 1: yellow = 1
@@ -27,11 +34,12 @@ class Sharpness {
         }
     }
 
-    init(string: String, subtracting: Int = 0) {
+    init(string: String, level: Level) {
+        self.level = level
         var components = string.components(separatedBy: ",")
         guard components.count >= 6  else { return }
 
-        var remaining = subtracting
+        var remaining = -level.rawValue
         for i in (0 ... components.count - 1).reversed() {
             guard remaining > 0 else { break }
             let value = Int(components[i]) ?? 0

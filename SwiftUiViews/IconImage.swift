@@ -8,7 +8,9 @@
 
 import SwiftUI
 
-let defaultSmallIconSize: CGFloat = 24
+extension CGFloat {
+    static let defaultSmallIconSize: CGFloat = 24
+}
 
 struct IconImage: View {
     var icon: Icon
@@ -40,12 +42,10 @@ extension IconRepresentable {
     }
 }
 
-// TODO: Used default svg conversion to png makes many icons have black color in the wront parts.
-
 struct Icon {
     let name: String
     let color: UIColor?
-    // enum class IconType like Android?
+    // enum class IconType to make different Icon backgrounds like Android?
 
     init(name: String, rarity: Int) {
         self.name = name

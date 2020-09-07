@@ -25,10 +25,13 @@ struct WeaponCellView: View {
 
             Spacer()
 
+            // Using layout priority we can probably shrink this section to make room for the above section
+            // We need to make it so sharpness draws based on it's width instead of a static width
             VStack(alignment: .leading, spacing: 2) {
-                weapon.sharpnesses.map { SharpnessesView(sharpnesses: $0) }
+                weapon.sharpnesses.map { SharpnessesView(sharpnesses: [$0.first, $0.last].compactMap({ $0 })) }
                 HStack {
-                    SocketsView(weapon: weapon)
+                    SocketsView(sockets: weapon.sockets ?? [])
+                    // Want a spacer here but it stretches to fill space between this section and left section
                     WeaponValueView(iconNamed: "defense", value: weapon.defense, doColor: true)
                 }
             }
@@ -66,7 +69,7 @@ struct WeaponValueView: View {
 
     var body: some View {
         HStack(spacing: 0) {
-            icon.map { IconImage($0, iconSize: defaultSmallIconSize) }
+            icon.map { IconImage($0, iconSize: .defaultSmallIconSize) }
             Text(text).font(.subheadline).foregroundColor(color)
         }
     }

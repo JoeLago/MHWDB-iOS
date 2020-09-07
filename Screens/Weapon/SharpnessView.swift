@@ -10,8 +10,8 @@ struct SharpnessesView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 2) {
-            ForEach(sharpnesses.indices) { i in
-                SharpnessView(sharpness: self.sharpnesses[i])
+            ForEach(sharpnesses) {
+                SharpnessView(sharpness: $0)
             }
         }
         .padding(3)

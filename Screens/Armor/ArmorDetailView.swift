@@ -18,13 +18,13 @@ struct ArmorDetailView: View {
     var body: some View {
         List {
             StaticCollapsableSection(title: "Details") {
-                ArmorDetailCellView(iconName: "defense", label: "Defense", value: armor.defenseText)
-                ArmorDetailCellView(iconName: "slots_blue", label: "Slots", value: "", view: SocketsView(armor: armor))
-                ArmorDetailCellView(iconName: "element_fire", label: "Vs. Fire", value: "\(armor.fire)")
-                ArmorDetailCellView(iconName: "element_water", label: "Vs. Water", value: "\(armor.water)")
-                ArmorDetailCellView(iconName: "element_thunder", label: "Vs. Thunder", value: "\(armor.thunder)")
-                ArmorDetailCellView(iconName: "element_ice", label: "Vs. Ice", value: "\(armor.ice)")
-                ArmorDetailCellView(iconName: "element_dragon", label: "Vs. Dragon", value: "\(armor.dragon)")
+                SingleDetailView(iconName: "defense", label: "Defense", value: armor.defenseText)
+                SingleDetailView(iconName: "slots_blue", label: "Slots") { SocketsView(armor: armor) }
+                SingleDetailView(iconName: "element_fire", label: "Vs. Fire", value: "\(armor.fire)")
+                SingleDetailView(iconName: "element_water", label: "Vs. Water", value: "\(armor.water)")
+                SingleDetailView(iconName: "element_thunder", label: "Vs. Thunder", value: "\(armor.thunder)")
+                SingleDetailView(iconName: "element_ice", label: "Vs. Ice", value: "\(armor.ice)")
+                SingleDetailView(iconName: "element_dragon", label: "Vs. Dragon", value: "\(armor.dragon)")
             }
 
             CollapsableSection(title: "Skills", data: armor.skills) {
@@ -46,7 +46,8 @@ struct ArmorDetailView: View {
                 )
             }
         }
-        .environment(\.defaultMinListRowHeight, 18) // Not sure if this will hurt the non-detail sections
+        // Would like if we could set the min row height on the detail section only
+        .environment(\.defaultMinListRowHeight, 22)
         .navigationBarTitle("\(armor.name)")
     }
 }

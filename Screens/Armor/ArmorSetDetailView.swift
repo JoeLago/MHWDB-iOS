@@ -33,11 +33,11 @@ struct ArmorSetDetailView: View {
                             // Kind of weird way to get label icons left and the values to stick right
                             HStack {
                                 VStack(alignment: .leading, spacing: 0) {
-                                    IconImage(Icon(name: "defense"), iconSize: defaultSmallIconSize)
-                                    IconImage(Icon(name: "slots_blue"), iconSize: defaultSmallIconSize)
+                                    IconImage(Icon(name: "defense"), iconSize: .defaultSmallIconSize)
+                                    IconImage(Icon(name: "slots_blue"), iconSize: .defaultSmallIconSize)
                                 }
                                 VStack(alignment: .trailing, spacing: 0) {
-                                    Text(armor.defenseText).font(.caption).frame(height: defaultSmallIconSize)
+                                    Text(armor.defenseText).font(.caption).frame(height: .defaultSmallIconSize)
                                     SocketsView(armor: armor)
                                 }
                             }
@@ -47,12 +47,12 @@ struct ArmorSetDetailView: View {
             }
 
             StaticCollapsableSection(title: "Details") {
-                ArmorDetailCellView(iconName: "defense", label: "Defense", value: armorSet.defenseText)
-                ArmorDetailCellView(iconName: "element_fire", label: "Vs. Fire", value: "\(armorSet.fire)")
-                ArmorDetailCellView(iconName: "element_water", label: "Vs. Water", value: "\(armorSet.water)")
-                ArmorDetailCellView(iconName: "element_thunder", label: "Vs. Thunder", value: "\(armorSet.thunder)")
-                ArmorDetailCellView(iconName: "element_ice", label: "Vs. Ice", value: "\(armorSet.ice)")
-                ArmorDetailCellView(iconName: "element_dragon", label: "Vs. Dragon", value: "\(armorSet.dragon)")
+                SingleDetailView(iconName: "defense", label: "Defense", value: armorSet.defenseText)
+                SingleDetailView(iconName: "element_fire", label: "Vs. Fire", value: "\(armorSet.fire)")
+                SingleDetailView(iconName: "element_water", label: "Vs. Water", value: "\(armorSet.water)")
+                SingleDetailView(iconName: "element_thunder", label: "Vs. Thunder", value: "\(armorSet.thunder)")
+                SingleDetailView(iconName: "element_ice", label: "Vs. Ice", value: "\(armorSet.ice)")
+                SingleDetailView(iconName: "element_dragon", label: "Vs. Dragon", value: "\(armorSet.dragon)")
             }
 
             CollapsableSection(title: "Skills", data: armorSet.skills) {
@@ -74,6 +74,8 @@ struct ArmorSetDetailView: View {
                 )
             }
         }
+        // Would like if we could set the min row height on the detail section only
+        .environment(\.defaultMinListRowHeight, 22)
         .navigationBarTitle("\(armorSet.displayName)")
     }
 }
