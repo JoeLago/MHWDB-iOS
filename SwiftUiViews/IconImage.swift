@@ -8,6 +8,8 @@
 
 import SwiftUI
 
+let defaultSmallIconSize: CGFloat = 24
+
 struct IconImage: View {
     var icon: Icon
     var iconSize: CGFloat

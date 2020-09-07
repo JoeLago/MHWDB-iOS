@@ -30,7 +30,7 @@ struct WeaponDetailView: View {
                     ("Recoil", weapon.recoil),
                     ("Reload Speed", weapon.reloadSpeed),
                     ("Deviation", weapon.deviation),
-                    ("Shelling Type", weapon.shellingType)
+                    ("Shelling Type", weapon.shelling)
                 ])
 
                 weapon.phial.map {

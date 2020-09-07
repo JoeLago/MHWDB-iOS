@@ -20,12 +20,10 @@ struct WeaponTreeView: View {
     var body: some View {
         List {
             weapons.map { weapons in
-                TreeSectionView(tree: weapons) {
-                    ItemDetailCell(
-                        icon: $0.icon,
-                        titleText: $0.name,
-                        destination: WeaponDetailView(id: $0.id)
-                    )
+                TreeSectionView(tree: weapons) { weapon in
+                    NavigationLink(destination: NavigationLazyView({ WeaponDetailView(id: weapon.id) })) {
+                        WeaponCellView(weapon: weapon)
+                    }
                 }
             }
         }

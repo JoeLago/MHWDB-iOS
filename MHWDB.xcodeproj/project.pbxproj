@@ -10,6 +10,7 @@
 		14012DE324E912BB00AE1909 /* MonsterHitzoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14012DE224E912BB00AE1909 /* MonsterHitzoneView.swift */; };
 		14014BD123D6AED300D9F7EB /* Image+Tinting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14014BD023D6AED300D9F7EB /* Image+Tinting.swift */; };
 		1405268B207EF640001A5E96 /* mhw.db in Resources */ = {isa = PBXBuildFile; fileRef = 1405268A207EF640001A5E96 /* mhw.db */; };
+		1409C2A124FE1D7400ACD110 /* WeaponCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409C2A024FE1D7400ACD110 /* WeaponCellView.swift */; };
 		140A133C1EDB57B9002FD025 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140A133B1EDB57B9002FD025 /* Search.swift */; };
 		142443BA24CD6C9B00301E57 /* SkillDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142443B924CD6C9B00301E57 /* SkillDetailsView.swift */; };
 		142443BC24CD6D2800301E57 /* MonsterRewardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142443BB24CD6D2800301E57 /* MonsterRewardView.swift */; };
@@ -53,6 +54,9 @@
 		147408E024E13EE9006BC15E /* QuestMonster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147408DF24E13EE9006BC15E /* QuestMonster.swift */; };
 		147408E224E14D6B006BC15E /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147408E124E14D6B006BC15E /* BlurView.swift */; };
 		147408E424E15208006BC15E /* View+Hidden.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147408E324E15208006BC15E /* View+Hidden.swift */; };
+		1475BDDE2504E03A003534A7 /* ArmorDetailCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1475BDDD2504E03A003534A7 /* ArmorDetailCellView.swift */; };
+		1475BDE02504E083003534A7 /* SocketsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1475BDDF2504E083003534A7 /* SocketsView.swift */; };
+		1475BDE22504E16D003534A7 /* SocketLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1475BDE12504E16D003534A7 /* SocketLevel.swift */; };
 		147D663024EA02CD0079FA8E /* MonsterAilments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147D662F24EA02CD0079FA8E /* MonsterAilments.swift */; };
 		1480482424D4D355001E407E /* ArmorSetListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480482324D4D355001E407E /* ArmorSetListView.swift */; };
 		1480482624D4FCF8001E407E /* ArmorSetDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480482524D4FCF8001E407E /* ArmorSetDetailView.swift */; };
@@ -132,6 +136,7 @@
 		14012DE224E912BB00AE1909 /* MonsterHitzoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterHitzoneView.swift; sourceTree = "<group>"; };
 		14014BD023D6AED300D9F7EB /* Image+Tinting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Tinting.swift"; sourceTree = "<group>"; };
 		1405268A207EF640001A5E96 /* mhw.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = mhw.db; sourceTree = "<group>"; };
+		1409C2A024FE1D7400ACD110 /* WeaponCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponCellView.swift; sourceTree = "<group>"; };
 		140A133B1EDB57B9002FD025 /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		142443B924CD6C9B00301E57 /* SkillDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillDetailsView.swift; sourceTree = "<group>"; };
 		142443BB24CD6D2800301E57 /* MonsterRewardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterRewardView.swift; sourceTree = "<group>"; };
@@ -177,6 +182,9 @@
 		147408DF24E13EE9006BC15E /* QuestMonster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestMonster.swift; sourceTree = "<group>"; };
 		147408E124E14D6B006BC15E /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		147408E324E15208006BC15E /* View+Hidden.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Hidden.swift"; sourceTree = "<group>"; };
+		1475BDDD2504E03A003534A7 /* ArmorDetailCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArmorDetailCellView.swift; sourceTree = "<group>"; };
+		1475BDDF2504E083003534A7 /* SocketsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketsView.swift; sourceTree = "<group>"; };
+		1475BDE12504E16D003534A7 /* SocketLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketLevel.swift; sourceTree = "<group>"; };
 		147D662F24EA02CD0079FA8E /* MonsterAilments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterAilments.swift; sourceTree = "<group>"; };
 		1480482324D4D355001E407E /* ArmorSetListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArmorSetListView.swift; sourceTree = "<group>"; };
 		1480482524D4FCF8001E407E /* ArmorSetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArmorSetDetailView.swift; sourceTree = "<group>"; };
@@ -419,6 +427,7 @@
 				14A24D351EA9D05400755F6A /* Armor.swift */,
 				1450DA6820A963FC000085C5 /* ArmorSet.swift */,
 				1450DA6A20A96405000085C5 /* ArmorSkill.swift */,
+				1475BDE12504E16D003534A7 /* SocketLevel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -479,9 +488,11 @@
 		1480482224D4D302001E407E /* Armor */ = {
 			isa = PBXGroup;
 			children = (
+				1475BDDD2504E03A003534A7 /* ArmorDetailCellView.swift */,
 				1480482724D4FD06001E407E /* ArmorDetailView.swift */,
 				1480482524D4FCF8001E407E /* ArmorSetDetailView.swift */,
 				1480482324D4D355001E407E /* ArmorSetListView.swift */,
+				1475BDDF2504E083003534A7 /* SocketsView.swift */,
 				144306EB209FB4A100D60A5A /* Models */,
 			);
 			path = Armor;
@@ -501,6 +512,7 @@
 			isa = PBXGroup;
 			children = (
 				14E2B4FF1EAD2229002A2A89 /* SharpnessView.swift */,
+				1409C2A024FE1D7400ACD110 /* WeaponCellView.swift */,
 				1483AC1B24D550BE00D6BB65 /* WeaponDetailView.swift */,
 				1483AC1924D550A500D6BB65 /* WeaponTreeView.swift */,
 				1480482B24D54E0A001E407E /* WeaponTypeListView.swift */,
@@ -912,6 +924,7 @@
 				14A251091EA9D05400755F6A /* Database.swift in Sources */,
 				14A2511E1EA9D05400755F6A /* Decoration.swift in Sources */,
 				147408E424E15208006BC15E /* View+Hidden.swift in Sources */,
+				1475BDDE2504E03A003534A7 /* ArmorDetailCellView.swift in Sources */,
 				14580B6A23BDD2B50018B89B /* CollapsableSection.swift in Sources */,
 				1483AC1C24D550BE00D6BB65 /* WeaponDetailView.swift in Sources */,
 				14A2511F1EA9D05400755F6A /* Element.swift in Sources */,
@@ -933,6 +946,7 @@
 				1495C57B24E8E56600A56ECA /* ImageValueString.swift in Sources */,
 				1450DA6320A95915000085C5 /* ItemLocation.swift in Sources */,
 				1450DA6520A95927000085C5 /* ItemMonster.swift in Sources */,
+				1475BDE22504E16D003534A7 /* SocketLevel.swift in Sources */,
 				14AD5F9124F0B4B80042421F /* LocationCamp.swift in Sources */,
 				147D663024EA02CD0079FA8E /* MonsterAilments.swift in Sources */,
 				1480482624D4FCF8001E407E /* ArmorSetDetailView.swift in Sources */,
@@ -944,6 +958,7 @@
 				14AD5F9324F0C1130042421F /* SearchBar.swift in Sources */,
 				1495C57D24E8E5D600A56ECA /* MonsterWeaknessString.swift in Sources */,
 				14AD5F8D24EFAA490042421F /* SkilltreeArmor.swift in Sources */,
+				1475BDE02504E083003534A7 /* SocketsView.swift in Sources */,
 				143587C024D4B8FB00C3C4A5 /* DecorationDetailView.swift in Sources */,
 				14A8414820BA136E00F36963 /* LocationMonsters.swift in Sources */,
 				14E2B5131EB1041D002A2A89 /* Logging.swift in Sources */,
@@ -963,6 +978,7 @@
 				148812FD20A2C3AE006B91EF /* Notes.swift in Sources */,
 				14A250FE1EA9D05400755F6A /* NSAttributedString+Swift.swift in Sources */,
 				14E704141EB8E9FC00EA2E71 /* PalicoWeapon.swift in Sources */,
+				1409C2A124FE1D7400ACD110 /* WeaponCellView.swift in Sources */,
 				142443D224D4B1E200301E57 /* DecorationListView.swift in Sources */,
 				14E82E8C23696B1F008B3B70 /* HiddenWhenKeyboardVisibleView.swift in Sources */,
 				1495C57924E89FE000A56ECA /* GridView.swift in Sources */,

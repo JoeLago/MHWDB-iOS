@@ -3,71 +3,52 @@
 // Copyright (c) Gathering Hall Studios
 //
 
-import UIKit
+import SwiftUI
 
-class SharpnessView: UIView {
-    var sharpness: Sharpness? {
-        didSet {
-            var count = 0
-            if let sharpness = sharpness {
-                if sharpness.red > 0 { count += 1 }
-                if sharpness.orange > 0 { count += 1 }
-                if sharpness.yellow > 0 { count += 1 }
-                if sharpness.green > 0 { count += 1 }
-                if sharpness.blue > 0 { count += 1 }
-                if sharpness.white > 0 { count += 1 }
-                if sharpness.purple > 0 { count += 1 }
+struct SharpnessesView: View {
+    @State var sharpnesses: [Sharpness]
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 2) {
+            ForEach(sharpnesses.indices) { i in
+                SharpnessView(sharpness: self.sharpnesses[i])
             }
-
-            if count == 1 {
-                oneValue = true
-            }
-
-            setNeedsDisplay()
         }
+        .padding(3)
+        .border(Color("background_header"))
+        .background(Color("background_header"))
     }
+}
 
-    var sharpnessHeight = 0
-    var paddingTop = 2
-    var paddingBottom = 2
-    var y = 0
-    var height = 0
-    var ratio = 0.0
-    var start = 0
-    var end = 0 // width?
-    var oneValue = false
+struct SharpnessView: View {
+    @State var sharpness: Sharpness
 
-    override func draw(_ rect: CGRect) {
-        super.draw(rect)
+    static let width: CGFloat = 120
+    static let height: CGFloat = 8
 
-        if sharpness == nil {
-            DepracatedColor.Background.light.setFill()
-            UIRectFill(frame)
-            return
+    var body: some View {
+        HStack(spacing: 0) {
+            SharpnessRectangle(value: sharpness.red, color: DepracatedColor.Sharpness.red)
+            SharpnessRectangle(value: sharpness.orange, color: DepracatedColor.Sharpness.orange)
+            SharpnessRectangle(value: sharpness.yellow, color: DepracatedColor.Sharpness.yellow)
+            SharpnessRectangle(value: sharpness.green, color: DepracatedColor.Sharpness.green)
+            SharpnessRectangle(value: sharpness.blue, color: DepracatedColor.Sharpness.blue)
+            SharpnessRectangle(value: sharpness.white, color: DepracatedColor.Sharpness.white)
+            SharpnessRectangle(value: sharpness.purple, color: DepracatedColor.Sharpness.purple)
+            Spacer(minLength: 0)
         }
-
-        y = paddingTop
-        start = 0
-        end = 2
-        height = Int(rect.size.height) - paddingTop - paddingBottom
-        let width = Double(rect.size.width) - Double(end) * 2.0
-        ratio = oneValue ? width : width / Sharpness.maxValue
-        DepracatedColor.Background.dark.setFill()
-        UIRectFill(rect)
-
-        addColor(color: DepracatedColor.Sharpness.red, amount: sharpness?.red)
-        addColor(color: DepracatedColor.Sharpness.orange, amount: sharpness?.orange)
-        addColor(color: DepracatedColor.Sharpness.yellow, amount: sharpness?.yellow)
-        addColor(color: DepracatedColor.Sharpness.green, amount: sharpness?.green)
-        addColor(color: DepracatedColor.Sharpness.blue, amount: sharpness?.blue)
-        addColor(color: DepracatedColor.Sharpness.white, amount: sharpness?.white)
-        addColor(color: DepracatedColor.Sharpness.purple, amount: sharpness?.purple)
+        .frame(width: Self.width, height: Self.height)
     }
+}
 
-    func addColor(color: UIColor, amount: Int?) {
-        start += end
-        end = Int(Double(amount ?? 0) * ratio)
-        color.setFill()
-        UIRectFill(CGRect(x: start, y: y, width: end, height: height))
+struct SharpnessRectangle: View {
+    var value: Int
+    var color: UIColor
+    var width: CGFloat { CGFloat(value) * (SharpnessView.width / CGFloat(Sharpness.maxValue)) }
+
+    var body: some View {
+        Rectangle()
+            .frame(width: width, height: SharpnessView.height)
+            .foregroundColor(Color(color))
     }
 }

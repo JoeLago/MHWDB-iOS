@@ -9,28 +9,28 @@ import GRDB
 class Weapon: Decodable, FetchableRecord, Identifiable {
 
     var id: Int
-    var parentId: Int?
+    var previousWeaponId: Int?
     var name: String
-    var icon: Icon? { return Icon(name: type.imageName, rarity: rarity) }
-    var type: WeaponType
+    var icon: Icon? { return Icon(name: weaponType.imageName, rarity: rarity) }
+    var weaponType: WeaponType
     var depths: [Bool]?
-    var children = [Weapon]()
     var attack: Int?
-    var element: Element?
-    var elementAttack: Int?
-    var awakenElement: Element?
+    var element1: Element?
+    var element1Attack: Int?
+    var element2: Element?
+    var element2Attack: Int?
+    var elementHidden: Bool
     var awakenAttack: Int?
     var defense: Int?
-    //var sharpnesses: [Sharpness]?
     var numSlots: Int?
     var creationCost: Int?
     var upgradeCost: Int?
     var sell: Int?
     var affinity: Int?
     var rarity: Int
-    var slotOne: Bool?
-    var slotTwo: Bool?
-    var slotThree: Bool?
+    var slot1: SocketLevel?
+    var slot2: SocketLevel?
+    var slot3: SocketLevel?
 
     // specific to weapon type
     var recoil: String?
@@ -44,22 +44,22 @@ class Weapon: Decodable, FetchableRecord, Identifiable {
     var charges: String?
     var phial: String?
     var phialAttack: Int?
-    var shellingType: String?
+    var shelling: String?
     var notes: String?
-    var sharpnessValues: String?
+    var sharpness: String?
+    var craftable: Bool
     var createRecipeId: Int?
     var upgradeRecipeId: Int?
 
-    enum CodingKeys: String, CodingKey {
-        case id, parentId = "previousWeaponId", name, type = "weaponType", depths, attack, element = "elementType", elementAttack = "elementDamage", awakenElement, awakenAttack, defense, numSlots, creationCost, upgradeCost, sell, affinity, rarity, slotOne = "slot1", slotTwo = "slot2", slotThree = "slot3", recoil, reloadSpeed, rapidFire, deviation, ammoString, specialAmmo, coatings, charges, phial, phialAttack, shellingType = "shelling", notes, sharpnessValues="sharpness", createRecipeId, upgradeRecipeId
-    }
+    // Made this optional just to be lazy and not list out all the properties as keys
+    var children: [Weapon]? = [Weapon]()
 
     var components: [RecipeComponent]? {
         return upgradeRecipeId.map { Database.shared.recipeComponents(id: $0) }
     }
 
-    var sharpness: [Sharpness]? {
-        guard let sharpnessValues = sharpnessValues, !sharpnessValues.isEmpty else { return nil }
+    var sharpnesses: [Sharpness]? {
+        guard let sharpnessValues = sharpness, !sharpnessValues.isEmpty else { return nil }
         return [Sharpness(string: sharpnessValues, subtracting: 50), Sharpness(string: sharpnessValues)]
     }
 
@@ -82,10 +82,11 @@ class Weapon: Decodable, FetchableRecord, Identifiable {
     }
 
     var totalChildren: Int {
-        return children.map({ 1 + $0.totalChildren }).reduce(0, +)
+        return children?.map({ 1 + $0.totalChildren }).reduce(0, +) ?? 0
     }
 
     func allChildren() -> [Weapon] {
+        guard let children = children else { return [] }
         var allChildren = [Weapon]()
         for child in children {
             allChildren.append(child)
@@ -142,7 +143,7 @@ extension Database {
         let query = weaponQuery(type: type)
         let weapons = fetch(query) as [Weapon]
         for weapon in weapons {
-            let parentId = weapon.parentId ?? 0
+            let parentId = weapon.previousWeaponId ?? 0
             var children = weaponsByParent[parentId] ?? [Weapon]()
             children.append(weapon)
             weaponsByParent[parentId] = children
@@ -180,7 +181,7 @@ extension Database {
 
         let weaponNode = Node(baseWeapon)
         var topNode = weaponNode
-        while let parentId = topNode.object.parentId, parentId > 0 {
+        while let parentId = topNode.object.previousWeaponId, parentId > 0 {
             let parentWeapon = weapon(id: parentId)
             let parent = Node(parentWeapon)
             parent.children.append(topNode)
@@ -188,7 +189,7 @@ extension Database {
             topNode = parent
         }
 
-        let weapons = weaponsByParent(type: baseWeapon.type)
+        let weapons = weaponsByParent(type: baseWeapon.weaponType)
         populateNode(node: weaponNode, weaponsByParent: weapons)
 
         let tree = Tree<Weapon>()

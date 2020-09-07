@@ -6,7 +6,7 @@
 import Foundation
 
 class Sharpness {
-    static let maxValue = 390.0
+    static let maxValue = 400.0
 
     var red = 0
     var orange = 0

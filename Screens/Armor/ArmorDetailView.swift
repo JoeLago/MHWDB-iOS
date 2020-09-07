@@ -19,7 +19,7 @@ struct ArmorDetailView: View {
         List {
             StaticCollapsableSection(title: "Details") {
                 ArmorDetailCellView(iconName: "defense", label: "Defense", value: armor.defenseText)
-                ArmorDetailCellView(iconName: "slots_blue", label: "Slots", value: "", view: ArmorSlotsView(armor: armor))
+                ArmorDetailCellView(iconName: "slots_blue", label: "Slots", value: "", view: SocketsView(armor: armor))
                 ArmorDetailCellView(iconName: "element_fire", label: "Vs. Fire", value: "\(armor.fire)")
                 ArmorDetailCellView(iconName: "element_water", label: "Vs. Water", value: "\(armor.water)")
                 ArmorDetailCellView(iconName: "element_thunder", label: "Vs. Thunder", value: "\(armor.thunder)")
@@ -48,22 +48,5 @@ struct ArmorDetailView: View {
         }
         .environment(\.defaultMinListRowHeight, 18) // Not sure if this will hurt the non-detail sections
         .navigationBarTitle("\(armor.name)")
-    }
-}
-
-struct ArmorDetailCellView: View {
-    var iconName: String
-    var label: String
-    var value: String
-    var view: ArmorSlotsView?
-
-    var body: some View {
-        HStack {
-            IconImage(Icon(name: iconName), iconSize: 20)
-            Text(label).font(.subheadline)
-            Spacer()
-            Text(value).font(.subheadline)
-            view.map { $0 }
-        }.frame(height: 18)
     }
 }

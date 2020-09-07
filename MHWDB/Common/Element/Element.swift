@@ -18,19 +18,23 @@ enum Element: String, Decodable {
     case blastblight = "Blastblight"
     case blast = "Blast"
 
+    var icon: Icon {
+        return Icon(name: imageName)
+    }
+
     var imageName: String {
         switch self {
-        case .fire: return "Fire"
-        case .water: return "Water.png"
-        case .ice: return "Ice.png"
-        case .thunder: return "Thunder.png"
-        case .dragon: return "Dragon.png"
-        case .paralysis: return "Paralysis.png"
-        case .poison: return "Poison.png"
-        case .sleep: return "Sleep.png"
-        case .slime: return "Slime.png"
-        case .blastblight: return "Blastblight.png"
-        case .blast: return "Blastblight.png"
+        case .fire: return "element_fire"
+        case .water: return "element_water"
+        case .ice: return "element_ice"
+        case .thunder: return "element_thunder"
+        case .dragon: return "element_dragon"
+        case .paralysis: return "status_paralysis"
+        case .poison: return "status_poison"
+        case .sleep: return "status_sleep"
+        case .slime: return "status_slime"
+        case .blastblight: return "status_blastblight"
+        case .blast: return "status_blast"
         }
     }
 }

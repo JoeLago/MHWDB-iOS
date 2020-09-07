@@ -8,8 +8,6 @@
 
 import SwiftUI
 
-private let iconSize: CGFloat = 24
-
 struct ArmorSetDetailView: View {
     var armorSet: ArmorSet
 
@@ -35,12 +33,12 @@ struct ArmorSetDetailView: View {
                             // Kind of weird way to get label icons left and the values to stick right
                             HStack {
                                 VStack(alignment: .leading, spacing: 0) {
-                                    IconImage(Icon(name: "defense"), iconSize: iconSize)
-                                    IconImage(Icon(name: "slots_blue"), iconSize: iconSize)
+                                    IconImage(Icon(name: "defense"), iconSize: defaultSmallIconSize)
+                                    IconImage(Icon(name: "slots_blue"), iconSize: defaultSmallIconSize)
                                 }
                                 VStack(alignment: .trailing, spacing: 0) {
-                                    Text(armor.defenseText).font(.caption).frame(height: iconSize)
-                                    ArmorSlotsView(armor: armor)
+                                    Text(armor.defenseText).font(.caption).frame(height: defaultSmallIconSize)
+                                    SocketsView(armor: armor)
                                 }
                             }
 
@@ -77,17 +75,5 @@ struct ArmorSetDetailView: View {
             }
         }
         .navigationBarTitle("\(armorSet.displayName)")
-    }
-}
-
-struct ArmorSlotsView: View {
-    var armor: Armor
-
-    var body: some View {
-        HStack(spacing: 2) {
-            IconImage(Icon(name: armor.slot1.iconName), iconSize: iconSize)
-            IconImage(Icon(name: armor.slot2.iconName), iconSize: iconSize)
-            IconImage(Icon(name: armor.slot3.iconName), iconSize: iconSize)
-        }
     }
 }
