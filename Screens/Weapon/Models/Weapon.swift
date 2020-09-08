@@ -65,6 +65,7 @@ class Weapon: Decodable, FetchableRecord, Identifiable {
         return Sharpness.Level.allCases.map { Sharpness(string: sharpnessValues, level: $0) }
     }()
 
+    lazy var skills: [WeaponSkill] = { Database.shared.weaponSkills(weaponId: id) }()
     lazy var createComponents: [RecipeComponent]? = { return createRecipeId.map { Database.shared.recipeComponents(id: $0) } }()
     lazy var upgradeComponents: [RecipeComponent]? = { return upgradeRecipeId.map { Database.shared.recipeComponents(id: $0) } }()
     lazy var melodies: [Melody] = { notes.map({ Database.shared.melodies(weaponNotes: $0) }) ?? [] }()

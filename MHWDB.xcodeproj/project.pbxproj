@@ -52,6 +52,7 @@
 		146B6EAB25063D44008184FD /* SingleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146B6EAA25063D44008184FD /* SingleDetailView.swift */; };
 		146B6EAD25074F25008184FD /* Melody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146B6EAC25074F25008184FD /* Melody.swift */; };
 		146B6EAF25077BCF008184FD /* MelodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146B6EAE25077BCF008184FD /* MelodyView.swift */; };
+		146B6EB125079004008184FD /* WeaponSkill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146B6EB025079004008184FD /* WeaponSkill.swift */; };
 		147408DC24E11455006BC15E /* IconImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147408DB24E11455006BC15E /* IconImage.swift */; };
 		147408DE24E13ECD006BC15E /* QuestReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147408DD24E13ECD006BC15E /* QuestReward.swift */; };
 		147408E024E13EE9006BC15E /* QuestMonster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147408DF24E13EE9006BC15E /* QuestMonster.swift */; };
@@ -182,6 +183,7 @@
 		146B6EAA25063D44008184FD /* SingleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDetailView.swift; sourceTree = "<group>"; };
 		146B6EAC25074F25008184FD /* Melody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Melody.swift; sourceTree = "<group>"; };
 		146B6EAE25077BCF008184FD /* MelodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MelodyView.swift; sourceTree = "<group>"; };
+		146B6EB025079004008184FD /* WeaponSkill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponSkill.swift; sourceTree = "<group>"; };
 		147408DB24E11455006BC15E /* IconImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconImage.swift; sourceTree = "<group>"; };
 		147408DD24E13ECD006BC15E /* QuestReward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestReward.swift; sourceTree = "<group>"; };
 		147408DF24E13EE9006BC15E /* QuestMonster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestMonster.swift; sourceTree = "<group>"; };
@@ -388,12 +390,13 @@
 		144306E3209FB37100D60A5A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				146B6EAC25074F25008184FD /* Melody.swift */,
 				148812FC20A2C3AE006B91EF /* Notes.swift */,
 				14A24D3F1EA9D05400755F6A /* Sharpness.swift */,
 				14A24D411EA9D05400755F6A /* Weapon.swift */,
 				148812FA20A2C378006B91EF /* WeaponAmmo.swift */,
+				146B6EB025079004008184FD /* WeaponSkill.swift */,
 				148812F820A2C31E006B91EF /* WeaponType.swift */,
-				146B6EAC25074F25008184FD /* Melody.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -999,6 +1002,7 @@
 				140A133C1EDB57B9002FD025 /* Search.swift in Sources */,
 				142443C524D3FEFA00301E57 /* InternalLink.swift in Sources */,
 				14A251251EA9D05400755F6A /* Sharpness.swift in Sources */,
+				146B6EB125079004008184FD /* WeaponSkill.swift in Sources */,
 				14E2B5041EAD2229002A2A89 /* SharpnessView.swift in Sources */,
 				1437A717235996F200910125 /* ListMenuView.swift in Sources */,
 				14A251261EA9D05400755F6A /* SkillTree.swift in Sources */,

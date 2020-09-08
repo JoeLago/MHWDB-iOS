@@ -55,7 +55,16 @@ struct WeaponDetailView: View {
             }
 
             // TODO: Ammo
-            // TODO: Skills
+
+            CollapsableSection(title: "Skills", data: weapon.skills) {
+                ItemDetailCell(
+                    icon: $0.icon,
+                    titleText: $0.name,
+                    subtitleText: $0.description,
+                    detailText: "+ \($0.level)",
+                    destination: SkillDetailView(id: $0.id)
+                )
+            }
 
             CollapsableSection(title: "Melodies", data: weapon.melodies) {
                 MelodyView(melody: $0)
