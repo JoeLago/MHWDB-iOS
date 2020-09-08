@@ -60,25 +60,14 @@ class Weapon: Decodable, FetchableRecord, Identifiable {
         [slot1, slot2, slot3].compactMap({ $0 == SocketLevel.none ? nil : $0 }).nonEmpty
     }
 
-    static func maxDamage(base: Int?) -> Int {
-        return Int(CGFloat(base ?? 0) / 10 * 1.3) * 10
-//        BigDecimal(elementVal / 10 * 1.3)
-//        .setScale(0, RoundingMode.HALF_DOWN)
-//        .toInt() * 10
-    }
-
-    var createComponents: [RecipeComponent]? {
-        return createRecipeId.map { Database.shared.recipeComponents(id: $0) }
-    }
-
-    var upgradeComponents: [RecipeComponent]? {
-        return upgradeRecipeId.map { Database.shared.recipeComponents(id: $0) }
-    }
-
-    var sharpnesses: [Sharpness]? {
+    lazy var sharpnesses: [Sharpness]? = {
         guard let sharpnessValues = sharpness, !sharpnessValues.isEmpty else { return nil }
         return Sharpness.Level.allCases.map { Sharpness(string: sharpnessValues, level: $0) }
-    }
+    }()
+
+    lazy var createComponents: [RecipeComponent]? = { return createRecipeId.map { Database.shared.recipeComponents(id: $0) } }()
+    lazy var upgradeComponents: [RecipeComponent]? = { return upgradeRecipeId.map { Database.shared.recipeComponents(id: $0) } }()
+    lazy var melodies: [Melody] = { notes.map({ Database.shared.melodies(weaponNotes: $0) }) ?? [] }()
 
     var coatingImageNames: [String]? {
         if let coatings = Int(coatings) {
@@ -114,20 +103,13 @@ class Weapon: Decodable, FetchableRecord, Identifiable {
     }
 }
 
-extension Weapon: CustomDebugStringConvertible {
-    var debugDescription: String {
-        return name
-    }
-}
-
-extension Weapon: CustomStringConvertible {
-    var description: String {
-        return name
+extension Weapon {
+    static func maxDamage(base: Int?) -> Int {
+        return Int(CGFloat(base ?? 0) / 10 * 1.3) * 10
     }
 }
 
 extension Database {
-
     func weapon(id: Int) -> Weapon {
         let query = Query(table: "weapon")
             .join(table: "weapon_text")

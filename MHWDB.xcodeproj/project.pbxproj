@@ -50,6 +50,8 @@
 		145FEA771F78A6C100BF9237 /* ReviewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145FEA761F78A6C100BF9237 /* ReviewManager.swift */; };
 		145FEA7A1F78A85200BF9237 /* ReviewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145FEA781F78A82400BF9237 /* ReviewTests.swift */; };
 		146B6EAB25063D44008184FD /* SingleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146B6EAA25063D44008184FD /* SingleDetailView.swift */; };
+		146B6EAD25074F25008184FD /* Melody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146B6EAC25074F25008184FD /* Melody.swift */; };
+		146B6EAF25077BCF008184FD /* MelodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146B6EAE25077BCF008184FD /* MelodyView.swift */; };
 		147408DC24E11455006BC15E /* IconImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147408DB24E11455006BC15E /* IconImage.swift */; };
 		147408DE24E13ECD006BC15E /* QuestReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147408DD24E13ECD006BC15E /* QuestReward.swift */; };
 		147408E024E13EE9006BC15E /* QuestMonster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147408DF24E13EE9006BC15E /* QuestMonster.swift */; };
@@ -178,6 +180,8 @@
 		145FEA761F78A6C100BF9237 /* ReviewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewManager.swift; sourceTree = "<group>"; };
 		145FEA781F78A82400BF9237 /* ReviewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTests.swift; sourceTree = "<group>"; };
 		146B6EAA25063D44008184FD /* SingleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDetailView.swift; sourceTree = "<group>"; };
+		146B6EAC25074F25008184FD /* Melody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Melody.swift; sourceTree = "<group>"; };
+		146B6EAE25077BCF008184FD /* MelodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MelodyView.swift; sourceTree = "<group>"; };
 		147408DB24E11455006BC15E /* IconImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconImage.swift; sourceTree = "<group>"; };
 		147408DD24E13ECD006BC15E /* QuestReward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestReward.swift; sourceTree = "<group>"; };
 		147408DF24E13EE9006BC15E /* QuestMonster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestMonster.swift; sourceTree = "<group>"; };
@@ -389,6 +393,7 @@
 				14A24D411EA9D05400755F6A /* Weapon.swift */,
 				148812FA20A2C378006B91EF /* WeaponAmmo.swift */,
 				148812F820A2C31E006B91EF /* WeaponType.swift */,
+				146B6EAC25074F25008184FD /* Melody.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -511,6 +516,7 @@
 		1480482A24D54D56001E407E /* Weapon */ = {
 			isa = PBXGroup;
 			children = (
+				146B6EAE25077BCF008184FD /* MelodyView.swift */,
 				14E2B4FF1EAD2229002A2A89 /* SharpnessView.swift */,
 				1409C2A024FE1D7400ACD110 /* WeaponCellView.swift */,
 				1483AC1B24D550BE00D6BB65 /* WeaponDetailView.swift */,
@@ -970,6 +976,7 @@
 				142443CD24D4AA0C00301E57 /* CharmDetailView.swift in Sources */,
 				14C885A924D80A3000CF9465 /* QuestListView.swift in Sources */,
 				144306DE209FA95C00D60A5A /* MonsterRewards.swift in Sources */,
+				146B6EAD25074F25008184FD /* Melody.swift in Sources */,
 				1480482424D4D355001E407E /* ArmorSetListView.swift in Sources */,
 				14F9698024CD10E700BF0BDC /* PlaceholderView.swift in Sources */,
 				1480482C24D54E0B001E407E /* WeaponTypeListView.swift in Sources */,
@@ -984,6 +991,7 @@
 				1495C57924E89FE000A56ECA /* GridView.swift in Sources */,
 				14AD5F8F24EFB3440042421F /* SkilltreeDecoration.swift in Sources */,
 				144306D7209EEFFF00D60A5A /* Query.swift in Sources */,
+				146B6EAF25077BCF008184FD /* MelodyView.swift in Sources */,
 				14A251241EA9D05400755F6A /* Quest.swift in Sources */,
 				142443BA24CD6C9B00301E57 /* SkillDetailsView.swift in Sources */,
 				14E82E8D23696B1F008B3B70 /* Keyboard.swift in Sources */,

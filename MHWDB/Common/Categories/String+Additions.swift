@@ -31,6 +31,12 @@ extension NSAttributedString {
 }
 
 extension String {
+  func indexInt(of char: Character) -> Int? {
+    return firstIndex(of: char)?.utf16Offset(in: self)
+  }
+}
+
+extension String {
     var attributedImage: NSAttributedString {
         return NSAttributedString(imageName: self)
     }

@@ -42,7 +42,8 @@ extension IconRepresentable {
     }
 }
 
-struct Icon {
+struct Icon: Identifiable {
+    var id: String { return name + (color?.description ?? "") }
     let name: String
     let color: UIColor?
     // enum class IconType to make different Icon backgrounds like Android?

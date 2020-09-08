@@ -45,8 +45,12 @@ struct WeaponDetailView: View {
                 }
             }
 
-            // TODO: Melodies
             // TODO: Ammo
+            // TODO: Skills
+
+            CollapsableSection(title: "Melodies", data: weapon.melodies) {
+                MelodyView(melody: $0)
+            }
 
             ForEach([
                 ("Create Materials", weapon.createComponents),

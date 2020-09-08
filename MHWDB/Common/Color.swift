@@ -11,6 +11,9 @@ extension Color {
     static let headerBackground = Color("background_header")
     static let secondary = Color("text_secondary")
     static let muted = secondary
+
+    static let negative = Color(IconColor.red.color)
+    static let positive = Color(IconColor.green.color)
 }
 
 struct DepracatedColor {
