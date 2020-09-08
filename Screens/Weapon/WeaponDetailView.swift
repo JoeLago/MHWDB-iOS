@@ -40,6 +40,15 @@ struct WeaponDetailView: View {
                 }
                 SingleDetailView(iconName: "elderseal", label: "Elderseal", value: weapon.elderseal?.capitalizingFirstLetter() ?? "None")
                 SingleDetailView(iconName: "defense", label: "Defense", value: weapon.defense)
+                weapon.notes.map { notes in
+                    SingleDetailView(iconName: "notes", label: "Notes") {
+                        HStack {
+                            ForEach(Array(notes), id: \.self) {
+                                IconImage(Icon(note: $0, weaponNotes: notes), iconSize: .defaultSmallIconSize)
+                            }
+                        }
+                    }
+                }
                 weapon.sharpnesses.map { sharpnesses in
                     SingleDetailView(iconName: "whetstone", label: "Sharpness") { SharpnessesView(sharpnesses: sharpnesses) }
                 }

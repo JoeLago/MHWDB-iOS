@@ -38,13 +38,19 @@ struct Melody: Decodable, FetchableRecord, Identifiable {
     }
 
     var icons: [Icon] {
-        notes.map {
-            Icon(name: $0 == "E" ? "note_echo"
-                : "note_\((weaponNotes.indexInt(of: $0) ?? 0) + 1)", color: Self.color(for: $0))
-        }
+        notes.map { Icon(note: $0, weaponNotes: weaponNotes) }
+    }
+}
+
+extension Icon {
+    init(note: Character, weaponNotes: String) {
+        self.init(
+            name: note == "E" ? "note_echo" : "note_\((weaponNotes.indexInt(of: note) ?? 0) + 1)",
+            color: Self.color(note: note)
+        )
     }
 
-    static func color(for note: Character) -> IconColor {
+    static func color(note: Character) -> IconColor {
         switch note {
         case "W": return .white
         case "R": return .red
