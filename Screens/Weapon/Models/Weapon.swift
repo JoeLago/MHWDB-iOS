@@ -52,6 +52,7 @@ class Weapon: Decodable, FetchableRecord, Identifiable {
     var craftable: Bool
     var createRecipeId: Int?
     var upgradeRecipeId: Int?
+    var ammoId: Int?
 
     // Made this optional just to be lazy and not list out all the properties as keys
     var children: [Weapon]? = [Weapon]()
@@ -69,6 +70,7 @@ class Weapon: Decodable, FetchableRecord, Identifiable {
     lazy var createComponents: [RecipeComponent]? = { return createRecipeId.map { Database.shared.recipeComponents(id: $0) } }()
     lazy var upgradeComponents: [RecipeComponent]? = { return upgradeRecipeId.map { Database.shared.recipeComponents(id: $0) } }()
     lazy var melodies: [Melody] = { notes.map({ Database.shared.melodies(weaponNotes: $0) }) ?? [] }()
+    lazy var ammo: [AmmoValues] = { ammoId.flatMap({ Database.shared.ammo(ammoId: $0)?.allValues }) ?? [] }()
 
     var coatingImageNames: [String]? {
         if let coatings = Int(coatings) {

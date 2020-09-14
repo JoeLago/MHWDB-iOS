@@ -49,12 +49,41 @@ struct WeaponDetailView: View {
                         }
                     }
                 }
+
+                // TODO: Coatings
+                // TODO: Shelling
+                // TODO: Phial
+                // TODO: Kinsect
+
                 weapon.sharpnesses.map { sharpnesses in
                     SingleDetailView(iconName: "whetstone", label: "Sharpness") { SharpnessesView(sharpnesses: sharpnesses) }
                 }
             }
 
-            // TODO: Ammo
+            // TODO: Header needs to have table row titles
+            CollapsableSection(
+                headerView: { _ in
+                    HStack {
+                        Text("Ammo")
+                        Spacer()
+                        Text("CAP").frame(width: 30).font(.singleDetail)
+                        Text("Type+Recoil").frame(width: 100).font(.singleDetail)
+                        Text("Reload").frame(width: 60).font(.singleDetail)
+                    }
+                    .padding(.vertical)
+                },
+                data: weapon.ammo,
+                dataContent: { ammo in
+                    HStack {
+                        IconImage(ammo.icon, iconSize: .defaultSmallIconSize)
+                        Text(ammo.name).font(.singleDetail)
+                        Spacer()
+                        Text("\(ammo.clip)").font(.singleDetail).foregroundColor(.secondary).frame(width: 30)
+                        Text("\(ammo.shotType)\(ammo.recoilString ?? "")").font(.singleDetail).foregroundColor(.secondary).frame(width: 100)
+                        Text(ammo.reload?.capitalized ?? "").font(.singleDetail).foregroundColor(.secondary).frame(width: 60)
+                    }
+                }
+            )
 
             CollapsableSection(title: "Skills", data: weapon.skills) {
                 ItemDetailCell(

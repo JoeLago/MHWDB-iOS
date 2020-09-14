@@ -9,29 +9,24 @@
 import SwiftUI
 
 // TODO: would be nice if we could pass in the id path instead of requiring Identifiable
-struct CollapsableSection<Data, Content>: View where Data: RandomAccessCollection, Data.Element: Identifiable, Content: View {
+struct CollapsableSection<Data, Header, Content>: View where
+        Data: RandomAccessCollection,
+        Data.Element: Identifiable,
+        Header: View,
+        Content: View {
 
-    let title: String
-    let titleColor: UIColor?
+    let headerView: (Bool) -> Header
     @State var isCollapsed = false
     let data: Data
     let dataContent: (Data.Element) -> Content
-
-    public init(title: String, titleColor: UIColor? = nil, isCollapsed: Bool = false, data: Data, dataContent: @escaping (Data.Element) -> Content) {
-        self.title = title
-        self.titleColor = titleColor
-        _isCollapsed = .init(initialValue: isCollapsed)
-        self.data = data
-        self.dataContent = dataContent
-    }
 
     // Seems like there should be able to do this without anyview?
     var body: some View {
         guard data.count > 0 else { return AnyView(EmptyView()) }
 
         return AnyView(Section(header:
-            CustomeHeader(title: title, titleColor: titleColor, isCollapsed: isCollapsed)
-            .onTapGesture { self.isCollapsed.toggle() }
+            headerView(isCollapsed)
+                .onTapGesture { self.isCollapsed.toggle() }
         ) {
             if !isCollapsed {
                 ForEach(data) {
@@ -39,6 +34,17 @@ struct CollapsableSection<Data, Content>: View where Data: RandomAccessCollectio
                 }
             }
         })
+    }
+}
+
+extension CollapsableSection where Header == CustomeHeader {
+    init(title: String, titleColor: UIColor? = nil, isCollapsed: Bool = false, data: Data, dataContent: @escaping (Data.Element) -> Content) {
+        self.init(
+            headerView: { isCollapsed in CustomeHeader(title: title, titleColor: titleColor, isCollapsed: isCollapsed) },
+            isCollapsed: isCollapsed,
+            data: data,
+            dataContent: dataContent
+        )
     }
 }
 
@@ -57,13 +63,12 @@ struct StaticCollapsableSection<Content>: View where Content: View {
     var body: some View {
         Section(header:
             CustomeHeader(title: title, titleColor: nil, isCollapsed: isCollapsed)
-            .onTapGesture {
-                self.isCollapsed.toggle()
-            }) {
-                if !isCollapsed {
-                    content
-                }
+                .onTapGesture { self.isCollapsed.toggle() }
+        ) {
+            if !isCollapsed {
+                content
             }
+        }
     }
 }
 
@@ -80,6 +85,5 @@ struct CustomeHeader: View {
         }
         .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
         .padding()
-        .background(Color.headerBackground)
     }
 }

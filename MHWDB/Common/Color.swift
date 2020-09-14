@@ -8,7 +8,6 @@ import UIKit
 
 extension Color {
     static let barBackground = Color("background_bar")
-    static let headerBackground = Color("background_header")
     static let secondary = Color("text_secondary")
     static let muted = secondary
 

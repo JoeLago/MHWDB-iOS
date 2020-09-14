@@ -11,3 +11,15 @@ extension Int {
         self.init(string)
     }
 }
+
+extension Int {
+    var stringWithSymbol: String? {
+        if self == 0 {
+            return nil
+        } else if self > 0 {
+            return "+\(self)"
+        } else {
+            return "\(self)"
+        }
+    }
+}
