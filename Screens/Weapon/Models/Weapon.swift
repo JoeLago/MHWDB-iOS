@@ -34,19 +34,27 @@ class Weapon: Decodable, FetchableRecord, Identifiable {
     var slot2: SocketLevel?
     var slot3: SocketLevel?
 
+    var coatingBlast: Bool?
+    var coatingClose: Bool?
+    var coatingParalysis: Bool?
+    var coatingPoison: Bool?
+    var coatingPower: Bool?
+    var coatingSleep: Bool?
+
     // specific to weapon type
     var recoil: String?
     var reloadSpeed: String?
     var rapidFire: String?
     var deviation: String?
     var ammoString: String?
-    //var ammo: Ammo?
     var specialAmmo: String?
     var coatings: String?
     var charges: String?
     var phial: String?
-    var phialAttack: Int?
+    var phialPower: Int?
     var shelling: String?
+    var shellingLevel: Int?
+    var kinsectBonus: String?
     var notes: String?
     var sharpness: String?
     var craftable: Bool
@@ -70,24 +78,21 @@ class Weapon: Decodable, FetchableRecord, Identifiable {
     lazy var createComponents: [RecipeComponent]? = { return createRecipeId.map { Database.shared.recipeComponents(id: $0) } }()
     lazy var upgradeComponents: [RecipeComponent]? = { return upgradeRecipeId.map { Database.shared.recipeComponents(id: $0) } }()
     lazy var melodies: [Melody] = { notes.map({ Database.shared.melodies(weaponNotes: $0) }) ?? [] }()
-    lazy var ammo: [AmmoValues] = { ammoId.flatMap({ Database.shared.ammo(ammoId: $0)?.allValues }) ?? [] }()
+    lazy var ammo: Ammo? = { ammoId.flatMap({ Database.shared.ammo(ammoId: $0) }) }()
 
-    var coatingImageNames: [String]? {
-        if let coatings = Int(coatings) {
-            var coatingImageNames = [String]()
-
-            if (coatings & 0x0400) > 0 || (coatings & 0x0200) > 0 { coatingImageNames.append("Bottle-Red") }
-            if (coatings & 0x20) > 0 { coatingImageNames.append("Bottle-Purple") }
-            if (coatings & 0x10) > 0 { coatingImageNames.append("Bottle-Yellow") }
-            if (coatings & 0x08) > 0 { coatingImageNames.append("Bottle-Cyan") }
-            if (coatings & 0x40) > 0 { coatingImageNames.append("Bottle-White") }
-            if (coatings & 0x04) > 0 { coatingImageNames.append("Bottle-Blue") }
-            if (coatings & 0x02) > 0 { coatingImageNames.append("Bottle-Orange") }
-
-            return coatingImageNames
-        } else {
-            return nil
+    var coatingIcons: [Coating]? {
+        func icon(_ value: Bool?, _ coating: Coating) -> Coating? {
+            (value ?? false) ? coating : nil
         }
+
+        return [
+            icon(coatingBlast, .blast),
+            icon(coatingClose, .close),
+            icon(coatingParalysis, .paralysis),
+            icon(coatingPoison, .poison),
+            icon(coatingPower, .power),
+            icon(coatingSleep, .sleep)
+        ].compactMap({ $0 }).nonEmpty
     }
 
     var totalChildren: Int {
@@ -110,6 +115,23 @@ extension Weapon {
     static func maxDamage(base: Int?) -> Int {
         return Int(CGFloat(base ?? 0) / 10 * 1.3) * 10
     }
+}
+
+enum Coating: String {
+    case blast, close, paralysis, poison, power, sleep
+
+    var iconColor: IconColor {
+        switch self {
+        case .blast: return .green
+        case .close: return .white
+        case .paralysis: return .yellow
+        case .poison: return .darkPurple
+        case .power: return .red
+        case .sleep: return .cyan
+        }
+    }
+
+    var icon: Icon { return Icon(name: "items_bottle", color: iconColor) }
 }
 
 extension Database {
