@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import MHGDB
+@testable import MHWDB
 
 class DataTests: XCTestCase {
 
@@ -24,14 +24,14 @@ class DataTests: XCTestCase {
     func testQuerySerialization() {
         _ = Database.shared.armor()
         _ = Database.shared.combinations()
-        _ = Database.shared.components(itemId: 2)
+        //_ = Database.shared.components(itemId: 2)
         _ = Database.shared.decorations()
         _ = Database.shared.items()
         _ = Database.shared.locations()
         _ = Database.shared.monsters()
         _ = Database.shared.palicoWeapons()
         _ = Database.shared.quests()
-        _ = Database.shared.skillTrees()
+        //_ = Database.shared.skillTrees()
         _ = Database.shared.weapons("")
     }
 
