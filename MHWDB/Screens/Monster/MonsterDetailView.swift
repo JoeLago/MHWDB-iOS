@@ -39,9 +39,15 @@ struct MonsterDetailView: View {
                 }
             }
 
-            if monster.hitzones.count > 0 {
+            monster.hitzones.nonEmpty.map { hitzones in
                 StaticCollapsableSection(title: "Damage") {
-                    MonsterHitzoneView(hitzones: monster.hitzones)
+                    MonsterHitzoneView(hitzones: hitzones)
+                }
+            }
+
+            monster.breaks.nonEmpty.map { breaks in
+                StaticCollapsableSection(title: "Breaks") {
+                    MonsterHitzoneView(breaks: breaks)
                 }
             }
 

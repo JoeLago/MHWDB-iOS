@@ -63,6 +63,7 @@
 		1475BDE02504E083003534A7 /* SocketsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1475BDDF2504E083003534A7 /* SocketsView.swift */; };
 		1475BDE22504E16D003534A7 /* SocketLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1475BDE12504E16D003534A7 /* SocketLevel.swift */; };
 		147D663024EA02CD0079FA8E /* MonsterAilments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147D662F24EA02CD0079FA8E /* MonsterAilments.swift */; };
+		147E1E46251087EC00CEC9AF /* MonsterBreak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147E1E45251087EC00CEC9AF /* MonsterBreak.swift */; };
 		1480482424D4D355001E407E /* ArmorSetListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480482324D4D355001E407E /* ArmorSetListView.swift */; };
 		1480482624D4FCF8001E407E /* ArmorSetDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480482524D4FCF8001E407E /* ArmorSetDetailView.swift */; };
 		1480482824D4FD06001E407E /* ArmorDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480482724D4FD06001E407E /* ArmorDetailView.swift */; };
@@ -192,6 +193,7 @@
 		1475BDDF2504E083003534A7 /* SocketsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketsView.swift; sourceTree = "<group>"; };
 		1475BDE12504E16D003534A7 /* SocketLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketLevel.swift; sourceTree = "<group>"; };
 		147D662F24EA02CD0079FA8E /* MonsterAilments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterAilments.swift; sourceTree = "<group>"; };
+		147E1E45251087EC00CEC9AF /* MonsterBreak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterBreak.swift; sourceTree = "<group>"; };
 		1480482324D4D355001E407E /* ArmorSetListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArmorSetListView.swift; sourceTree = "<group>"; };
 		1480482524D4FCF8001E407E /* ArmorSetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArmorSetDetailView.swift; sourceTree = "<group>"; };
 		1480482724D4FD06001E407E /* ArmorDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArmorDetailView.swift; sourceTree = "<group>"; };
@@ -341,6 +343,7 @@
 			isa = PBXGroup;
 			children = (
 				144306D4209EDC7600D60A5A /* Monster.swift */,
+				147E1E45251087EC00CEC9AF /* MonsterBreak.swift */,
 				144306DB209F72C800D60A5A /* MonsterHitzone.swift */,
 				144306D9209F5BD300D60A5A /* MonsterHabitat.swift */,
 				144306DD209FA95C00D60A5A /* MonsterRewards.swift */,
@@ -925,6 +928,7 @@
 				14A251021EA9D05400755F6A /* UIImage+Scale.swift in Sources */,
 				142443C824D4032400301E57 /* ItemDetailView.swift in Sources */,
 				142443D024D4B05500301E57 /* ItemListView.swift in Sources */,
+				147E1E46251087EC00CEC9AF /* MonsterBreak.swift in Sources */,
 				1452DB1E1F71061F006A11D7 /* UserDefaults.swift in Sources */,
 				14A251271EA9D05400755F6A /* Weapon.swift in Sources */,
 				148812FB20A2C378006B91EF /* WeaponAmmo.swift in Sources */,

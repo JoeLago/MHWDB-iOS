@@ -21,7 +21,6 @@ extension Database {
         let imageNames = getImageNames(table: "item")
             + getImageNames(table: "monster", columnName: "id")
             + WeaponType.allValues.compactMap({ $0.imageName })
-            + MonsterHitzone.images
 
         for imageName in imageNames {
             //_ = UIImage(named: imageName) // This takes 4x as long!

@@ -19,6 +19,10 @@ struct MonsterHitzone: FetchableRecord, Decodable {
     var shot: Int
     var thunder: Int
     var water: Int
+
+    var allValues: [Int] {
+        return [cut, dragon, fire, ice, impact, ko, shot, thunder, water]
+    }
 }
 
 extension Database {

@@ -73,6 +73,7 @@ class Monster: Decodable, FetchableRecord, Identifiable {
 
     lazy var habitats: [MonsterHabitat] = { return Database.shared.habitats(monsterId: id) }()
     lazy var hitzones: [MonsterHitzone] = { return Database.shared.hitzones(monsterId: id) }()
+    lazy var breaks: [MonsterBreak] = { return Database.shared.monsterBreaks(monsterId: id) }()
     func rewards(rank: Quest.Rank) -> [MonsterReward] { return Database.shared.rewards(monsterId: id, rank: rank) }
     func rewardsByCondition(rank: Quest.Rank) -> [String: [MonsterReward]] { return Database.shared.rewardsByCondition(monsterId: id, rank: rank)}
     func rewardsByReward(rank: Quest.Rank) -> [RewardConditions] { return Database.shared.rewardsByReward(monsterId: id, rank: rank) }
