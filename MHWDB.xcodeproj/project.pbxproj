@@ -121,8 +121,6 @@
 		14F9697B24CD05B400BF0BDC /* LocationDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F9697A24CD05B400BF0BDC /* LocationDetailsView.swift */; };
 		14F9697E24CD0ECD00BF0BDC /* SkillListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F9697D24CD0ECD00BF0BDC /* SkillListView.swift */; };
 		14F9698024CD10E700BF0BDC /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F9697F24CD10E700BF0BDC /* PlaceholderView.swift */; };
-		613A51D7ED0F8DD41DD8F38D /* Pods_MHWDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28A362D7A0E8494F3767C6D0 /* Pods_MHWDB.framework */; };
-		F78D3235AA09D8152D4C51CF /* Pods_MHWDBTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F77642DEAA528D99A1B9B18 /* Pods_MHWDBTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -253,17 +251,6 @@
 		14F9697A24CD05B400BF0BDC /* LocationDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailsView.swift; sourceTree = "<group>"; };
 		14F9697D24CD0ECD00BF0BDC /* SkillListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillListView.swift; sourceTree = "<group>"; };
 		14F9697F24CD10E700BF0BDC /* PlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
-		28A362D7A0E8494F3767C6D0 /* Pods_MHWDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MHWDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		36731F1082DA965761955EA5 /* Pods-MHGDBTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHGDBTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MHGDBTests/Pods-MHGDBTests.release.xcconfig"; sourceTree = "<group>"; };
-		3F77642DEAA528D99A1B9B18 /* Pods_MHWDBTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MHWDBTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4A5CD697F0BFB53B42D1FEE7 /* Pods-MHWDBTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHWDBTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MHWDBTests/Pods-MHWDBTests.debug.xcconfig"; sourceTree = "<group>"; };
-		4E369C8999E79E1AFE19F085 /* Pods-MHWDB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHWDB.release.xcconfig"; path = "Pods/Target Support Files/Pods-MHWDB/Pods-MHWDB.release.xcconfig"; sourceTree = "<group>"; };
-		8304EA6FD5EE66F4AEA5BCBD /* Pods-MHGDB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHGDB.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MHGDB/Pods-MHGDB.debug.xcconfig"; sourceTree = "<group>"; };
-		89CC4F71A6B6123E1AD0393B /* Pods-MHWDBTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHWDBTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MHWDBTests/Pods-MHWDBTests.release.xcconfig"; sourceTree = "<group>"; };
-		9DC8FEAA00F92625E1C49D7B /* Pods_MHGDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MHGDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A1F779AA8AA898125FD4B1A5 /* Pods-MHGDBTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHGDBTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MHGDBTests/Pods-MHGDBTests.debug.xcconfig"; sourceTree = "<group>"; };
-		BC142E68CE1D130ADF025186 /* Pods-MHWDB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHWDB.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MHWDB/Pods-MHWDB.debug.xcconfig"; sourceTree = "<group>"; };
-		F481373F95A51309BFE3C1FD /* Pods-MHGDB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MHGDB.release.xcconfig"; path = "Pods/Target Support Files/Pods-MHGDB/Pods-MHGDB.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -271,7 +258,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				613A51D7ED0F8DD41DD8F38D /* Pods_MHWDB.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,28 +265,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F78D3235AA09D8152D4C51CF /* Pods_MHWDBTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0C0B1E0D96052783936243B6 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				8304EA6FD5EE66F4AEA5BCBD /* Pods-MHGDB.debug.xcconfig */,
-				F481373F95A51309BFE3C1FD /* Pods-MHGDB.release.xcconfig */,
-				A1F779AA8AA898125FD4B1A5 /* Pods-MHGDBTests.debug.xcconfig */,
-				36731F1082DA965761955EA5 /* Pods-MHGDBTests.release.xcconfig */,
-				BC142E68CE1D130ADF025186 /* Pods-MHWDB.debug.xcconfig */,
-				4E369C8999E79E1AFE19F085 /* Pods-MHWDB.release.xcconfig */,
-				4A5CD697F0BFB53B42D1FEE7 /* Pods-MHWDBTests.debug.xcconfig */,
-				89CC4F71A6B6123E1AD0393B /* Pods-MHWDBTests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		142443BD24CE1B3800301E57 /* Combination */ = {
 			isa = PBXGroup;
 			children = (
@@ -477,8 +447,6 @@
 				14A2496D1EA9D05300755F6A /* App */,
 				14A2496F1EA9D05300755F6A /* Assets */,
 				14A24D0D1EA9D05400755F6A /* Common */,
-				CBCF59F9BE521D8FDE547F73 /* Frameworks */,
-				0C0B1E0D96052783936243B6 /* Pods */,
 				145495651EA9CEC5004FA5FA /* Products */,
 				14F9696A24CCFCC400BF0BDC /* Screens */,
 				1437A71A235D7A7800910125 /* SwiftUiViews */,
@@ -720,16 +688,6 @@
 			path = Skill;
 			sourceTree = "<group>";
 		};
-		CBCF59F9BE521D8FDE547F73 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				9DC8FEAA00F92625E1C49D7B /* Pods_MHGDB.framework */,
-				28A362D7A0E8494F3767C6D0 /* Pods_MHWDB.framework */,
-				3F77642DEAA528D99A1B9B18 /* Pods_MHWDBTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -737,11 +695,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 145495811EA9CEC5004FA5FA /* Build configuration list for PBXNativeTarget "MHWDB" */;
 			buildPhases = (
-				21FFFFDD3DDD35778ADED495 /* [CP] Check Pods Manifest.lock */,
 				145495601EA9CEC5004FA5FA /* Sources */,
 				145495611EA9CEC5004FA5FA /* Frameworks */,
 				145495621EA9CEC5004FA5FA /* Resources */,
-				ACA9E2710F7866E5627A84A2 /* [CP] Embed Pods Frameworks */,
 				149CFE5D20B93D940004A57D /* ShellScript */,
 			);
 			buildRules = (
@@ -749,6 +705,8 @@
 			dependencies = (
 			);
 			name = MHWDB;
+			packageProductDependencies = (
+			);
 			productName = MHGDB;
 			productReference = 145495641EA9CEC5004FA5FA /* MHWDB.app */;
 			productType = "com.apple.product-type.application";
@@ -757,7 +715,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 145495841EA9CEC5004FA5FA /* Build configuration list for PBXNativeTarget "MHWDBTests" */;
 			buildPhases = (
-				9B23B679CB901212E20737DD /* [CP] Check Pods Manifest.lock */,
 				145495741EA9CEC5004FA5FA /* Sources */,
 				145495751EA9CEC5004FA5FA /* Frameworks */,
 				145495761EA9CEC5004FA5FA /* Resources */,
@@ -805,6 +762,8 @@
 				Base,
 			);
 			mainGroup = 1454955B1EA9CEC5004FA5FA;
+			packageReferences = (
+			);
 			productRefGroup = 145495651EA9CEC5004FA5FA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -848,66 +807,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
-		};
-		21FFFFDD3DDD35778ADED495 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MHWDB-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9B23B679CB901212E20737DD /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MHWDBTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		ACA9E2710F7866E5627A84A2 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MHWDB/Pods-MHWDB-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
-				"${BUILT_PRODUCTS_DIR}/GRDB.swift/GRDB.framework",
-				"${BUILT_PRODUCTS_DIR}/SVGKit/SVGKit.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyUserDefaults/SwiftyUserDefaults.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRDB.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVGKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyUserDefaults.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MHWDB/Pods-MHWDB-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1174,7 +1073,6 @@
 		};
 		145495821EA9CEC5004FA5FA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BC142E68CE1D130ADF025186 /* Pods-MHWDB.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = YNK39UG84R;
@@ -1190,7 +1088,6 @@
 		};
 		145495831EA9CEC5004FA5FA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4E369C8999E79E1AFE19F085 /* Pods-MHWDB.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = YNK39UG84R;
@@ -1206,7 +1103,6 @@
 		};
 		145495851EA9CEC5004FA5FA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4A5CD697F0BFB53B42D1FEE7 /* Pods-MHWDBTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1222,7 +1118,6 @@
 		};
 		145495861EA9CEC5004FA5FA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89CC4F71A6B6123E1AD0393B /* Pods-MHWDBTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
