@@ -35,6 +35,8 @@ struct WeaponCellView: View {
                     WeaponValueView(iconNamed: "defense", value: weapon.defense, doColor: true)
                 }
             }
+
+            // TODO: Important weapon specific details like coatings/notes/ammo
         }
     }
 }

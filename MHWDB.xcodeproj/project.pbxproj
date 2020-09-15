@@ -359,7 +359,8 @@
 				14AD5F9224F0C1130042421F /* SearchBar.swift */,
 				146B6EAA25063D44008184FD /* SingleDetailView.swift */,
 			);
-			path = SwiftUiViews;
+			name = SwiftUiViews;
+			path = MHWDB/SwiftUiViews;
 			sourceTree = "<group>";
 		};
 		144306D8209F5A5400D60A5A /* Models */ = {
@@ -683,7 +684,8 @@
 				1480482A24D54D56001E407E /* Weapon */,
 				1480482924D5083E001E407E /* Quests */,
 			);
-			path = Screens;
+			name = Screens;
+			path = MHWDB/Screens;
 			sourceTree = "<group>";
 		};
 		14F9696C24CCFF6500BF0BDC /* Monster */ = {
