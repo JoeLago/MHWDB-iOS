@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -53,6 +53,8 @@
 		146B6EAD25074F25008184FD /* Melody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146B6EAC25074F25008184FD /* Melody.swift */; };
 		146B6EAF25077BCF008184FD /* MelodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146B6EAE25077BCF008184FD /* MelodyView.swift */; };
 		146B6EB125079004008184FD /* WeaponSkill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146B6EB025079004008184FD /* WeaponSkill.swift */; };
+		146B6EB725104D4D008184FD /* SwiftyUserDefaults in Frameworks */ = {isa = PBXBuildFile; productRef = 146B6EB625104D4D008184FD /* SwiftyUserDefaults */; };
+		146B6EBE25105759008184FD /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 146B6EBD25105759008184FD /* GRDB */; };
 		147408DC24E11455006BC15E /* IconImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147408DB24E11455006BC15E /* IconImage.swift */; };
 		147408DE24E13ECD006BC15E /* QuestReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147408DD24E13ECD006BC15E /* QuestReward.swift */; };
 		147408E024E13EE9006BC15E /* QuestMonster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147408DF24E13EE9006BC15E /* QuestMonster.swift */; };
@@ -258,6 +260,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				146B6EB725104D4D008184FD /* SwiftyUserDefaults in Frameworks */,
+				146B6EBE25105759008184FD /* GRDB in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -706,6 +710,8 @@
 			);
 			name = MHWDB;
 			packageProductDependencies = (
+				146B6EB625104D4D008184FD /* SwiftyUserDefaults */,
+				146B6EBD25105759008184FD /* GRDB */,
 			);
 			productName = MHGDB;
 			productReference = 145495641EA9CEC5004FA5FA /* MHWDB.app */;
@@ -763,6 +769,8 @@
 			);
 			mainGroup = 1454955B1EA9CEC5004FA5FA;
 			packageReferences = (
+				146B6EB525104D4D008184FD /* XCRemoteSwiftPackageReference "SwiftyUserDefaults" */,
+				146B6EBC25105759008184FD /* XCRemoteSwiftPackageReference "GRDB.swift" */,
 			);
 			productRefGroup = 145495651EA9CEC5004FA5FA /* Products */;
 			projectDirPath = "";
@@ -806,7 +814,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1065,7 +1073,8 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1078,7 +1087,10 @@
 				DEVELOPMENT_TEAM = YNK39UG84R;
 				INFOPLIST_FILE = MHWDB/Assets/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ghstudios.MHWDB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1093,7 +1105,10 @@
 				DEVELOPMENT_TEAM = YNK39UG84R;
 				INFOPLIST_FILE = MHWDB/Assets/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ghstudios.MHWDB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -1108,7 +1123,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = P3987TZ3DB;
 				INFOPLIST_FILE = MHWDB/Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ghstudios.MHWDBTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -1123,7 +1142,11 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = P3987TZ3DB;
 				INFOPLIST_FILE = MHWDB/Tests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ghstudios.MHWDBTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -1162,6 +1185,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		146B6EB525104D4D008184FD /* XCRemoteSwiftPackageReference "SwiftyUserDefaults" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sunshinejr/SwiftyUserDefaults";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		146B6EBC25105759008184FD /* XCRemoteSwiftPackageReference "GRDB.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JoeLago/GRDB.swift.git";
+			requirement = {
+				branch = decoding_strategy;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		146B6EB625104D4D008184FD /* SwiftyUserDefaults */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 146B6EB525104D4D008184FD /* XCRemoteSwiftPackageReference "SwiftyUserDefaults" */;
+			productName = SwiftyUserDefaults;
+		};
+		146B6EBD25105759008184FD /* GRDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 146B6EBC25105759008184FD /* XCRemoteSwiftPackageReference "GRDB.swift" */;
+			productName = GRDB;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 1454955C1EA9CEC5004FA5FA /* Project object */;
 }

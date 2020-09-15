@@ -22,18 +22,18 @@ class ReviewManager {
     static func presentReviewControllerIfElligible() {
         if ReviewManager.isElligibleForReview {
             SKStoreReviewController.requestReview()
-            Defaults[.lastReviewRequestDate] = Date()
-            Defaults[.lastReviewRequestLaunchCount] = Defaults[.launchCount]
+            Defaults[\.lastReviewRequestDate] = Date()
+            Defaults[\.lastReviewRequestLaunchCount] = Defaults[\.launchCount]
         }
     }
 
     static var isElligibleForReview: Bool {
         return isElligibleForReview(
             currDate: Date(),
-            firstLaunchDate: Defaults[.firstLaunchDate],
-            launchCount: Defaults[.launchCount],
-            lastReviewRequestDate: Defaults[.lastReviewRequestDate],
-            lastReviewRequestLaunchCount: Defaults[.lastReviewRequestLaunchCount])
+            firstLaunchDate: Defaults[\.firstLaunchDate],
+            launchCount: Defaults[\.launchCount],
+            lastReviewRequestDate: Defaults[\.lastReviewRequestDate],
+            lastReviewRequestLaunchCount: Defaults[\.lastReviewRequestLaunchCount])
     }
 
     static func isElligibleForReview(currDate: Date, firstLaunchDate: Date?, launchCount: Int, lastReviewRequestDate: Date?, lastReviewRequestLaunchCount: Int) -> Bool {

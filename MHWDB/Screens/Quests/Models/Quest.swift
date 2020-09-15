@@ -5,6 +5,7 @@
 
 import Foundation
 import GRDB
+import UIKit
 
 class Quest: Decodable, FetchableRecord, Identifiable {
     var id: Int
@@ -43,7 +44,7 @@ class Quest: Decodable, FetchableRecord, Identifiable {
             }
         }
 
-        var color: UIColor {
+        var color: UIColor { // TODO: Just return IconColor
             switch self {
             case .low: return IconColor.blue.color
             case .high: return IconColor.red.color

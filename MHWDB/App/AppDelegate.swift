@@ -5,7 +5,6 @@
 
 import SwiftUI
 import UIKit
-import SwiftyUserDefaults
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

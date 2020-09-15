@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "GRDB",
+        "repositoryURL": "https://github.com/JoeLago/GRDB.swift.git",
+        "state": {
+          "branch": "decoding_strategy",
+          "revision": "e1eec55995d43370a19550bbf499391d547e1000",
+          "version": null
+        }
+      },
+      {
+        "package": "SwiftyUserDefaults",
+        "repositoryURL": "https://github.com/sunshinejr/SwiftyUserDefaults",
+        "state": {
+          "branch": null,
+          "revision": "1930a81a299b074fd72eee09e88e452ad37dc34d",
+          "version": "5.0.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

@@ -113,7 +113,7 @@ class Weapon: Decodable, FetchableRecord, Identifiable {
 
 extension Weapon {
     static func maxDamage(base: Int?) -> Int {
-        return Int(CGFloat(base ?? 0) / 10 * 1.3) * 10
+        return Int(Float(base ?? 0) / 10 * 1.3) * 10
     }
 }
 

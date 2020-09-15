@@ -10,8 +10,8 @@ import Foundation
 import SwiftyUserDefaults
 
 extension DefaultsKeys {
-    static let firstLaunchDate = DefaultsKey<Date?>("firstLaunchDate")
-    static let launchCount = DefaultsKey<Int>("launchCount", defaultValue: 0)
-    static let lastReviewRequestDate = DefaultsKey<Date?>("lastReviewRequestDate")
-    static let lastReviewRequestLaunchCount = DefaultsKey<Int>("lastReviewRequestLaunchCount", defaultValue: 0)
+    var firstLaunchDate: DefaultsKey<Date?> { .init("firstLaunchDate") }
+    var launchCount: DefaultsKey<Int> { .init("launchCount", defaultValue: 0) }
+    var lastReviewRequestDate: DefaultsKey<Date?> { .init("lastReviewRequestDate") }
+    var lastReviewRequestLaunchCount: DefaultsKey<Int> { .init("lastReviewRequestLaunchCount", defaultValue: 0) }
 }
