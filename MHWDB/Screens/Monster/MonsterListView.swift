@@ -25,7 +25,7 @@ struct MonsterListView: View {
         VStack(spacing: 0) {
             List(monsters) { monster in
                 ItemDetailCell(
-                    imageName: monster.icon,
+                    icon: monster.icon,
                     titleText: monster.name,
                     destination: MonsterDetailView(id: monster.id)
                 )

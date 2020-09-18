@@ -6,9 +6,11 @@
 import Foundation
 import GRDB
 
-class Location: FetchableRecord, Decodable {
+class Location: FetchableRecord, Decodable, Identifiable {
     var id: Int
     var name: String
+
+    var icon: Icon { Icon(name: iconName) }
 
     var iconName: String {
         switch id {
@@ -58,7 +60,9 @@ extension Database {
     }
 
     func locations(_ search: String? = nil) -> [Location] {
-        let query = Query(table: "location_text").order(by: "order_id")
+        let query = Query(table: "location_text")
+            .order(by: "order_id")
+        if let search = search { query.filter("name", contains: search) }
         return fetch(query)
     }
 }

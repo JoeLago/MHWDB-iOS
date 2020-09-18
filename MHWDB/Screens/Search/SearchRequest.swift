@@ -16,7 +16,6 @@ struct SearchResponse {
     var quests: [Quest] = []
     var locations: [Location] = []
     var skills: [Skilltree] = []
-    var palico: [PalicoWeapon] = []
 }
 
 class SearchRequest {
@@ -59,8 +58,6 @@ class SearchRequest {
         if self.isCanceled { return nil }
         let skills = Database.shared.skilltrees(searchText)
         if self.isCanceled { return nil }
-        let palico = Database.shared.palicoWeapons(searchText)
-        if self.isCanceled { return nil }
 
         return SearchResponse(
             monsters: monsters,
@@ -69,8 +66,7 @@ class SearchRequest {
             armor: armor,
             quests: quests.map({ $0.quests }).reduce([], +),
             locations: locations,
-            skills: skills,
-            palico: palico
+            skills: skills
         )
     }
 

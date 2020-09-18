@@ -11,7 +11,7 @@
 		14014BD123D6AED300D9F7EB /* Image+Tinting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14014BD023D6AED300D9F7EB /* Image+Tinting.swift */; };
 		1405268B207EF640001A5E96 /* mhw.db in Resources */ = {isa = PBXBuildFile; fileRef = 1405268A207EF640001A5E96 /* mhw.db */; };
 		1409C2A124FE1D7400ACD110 /* WeaponCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409C2A024FE1D7400ACD110 /* WeaponCellView.swift */; };
-		140A133C1EDB57B9002FD025 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140A133B1EDB57B9002FD025 /* Search.swift */; };
+		140A133C1EDB57B9002FD025 /* SearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140A133B1EDB57B9002FD025 /* SearchRequest.swift */; };
 		142443BA24CD6C9B00301E57 /* SkillDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142443B924CD6C9B00301E57 /* SkillDetailsView.swift */; };
 		142443BC24CD6D2800301E57 /* MonsterRewardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142443BB24CD6D2800301E57 /* MonsterRewardView.swift */; };
 		142443BF24CE1B6800301E57 /* CombinationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142443BE24CE1B6800301E57 /* CombinationListView.swift */; };
@@ -62,6 +62,7 @@
 		147408E424E15208006BC15E /* View+Hidden.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147408E324E15208006BC15E /* View+Hidden.swift */; };
 		1475BDE02504E083003534A7 /* SocketsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1475BDDF2504E083003534A7 /* SocketsView.swift */; };
 		1475BDE22504E16D003534A7 /* SocketLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1475BDE12504E16D003534A7 /* SocketLevel.swift */; };
+		1478DFB12511AB1E004318E7 /* SearchSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1478DFB02511AB1E004318E7 /* SearchSection.swift */; };
 		147D663024EA02CD0079FA8E /* MonsterAilments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147D662F24EA02CD0079FA8E /* MonsterAilments.swift */; };
 		147E1E46251087EC00CEC9AF /* MonsterBreak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147E1E45251087EC00CEC9AF /* MonsterBreak.swift */; };
 		1480482424D4D355001E407E /* ArmorSetListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480482324D4D355001E407E /* ArmorSetListView.swift */; };
@@ -106,7 +107,6 @@
 		14AD5F8D24EFAA490042421F /* SkilltreeArmor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AD5F8C24EFAA490042421F /* SkilltreeArmor.swift */; };
 		14AD5F8F24EFB3440042421F /* SkilltreeDecoration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AD5F8E24EFB3440042421F /* SkilltreeDecoration.swift */; };
 		14AD5F9124F0B4B80042421F /* LocationCamp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AD5F9024F0B4B80042421F /* LocationCamp.swift */; };
-		14AD5F9324F0C1130042421F /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AD5F9224F0C1130042421F /* SearchBar.swift */; };
 		14AD5F9524F0E98D0042421F /* ImagePreloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14AD5F9424F0E98D0042421F /* ImagePreloader.swift */; };
 		14C4BE3A1F9D2DB6000DB8EC /* DataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C4BE381F9D2DA0000DB8EC /* DataTests.swift */; };
 		14C885A324D6838B00CF9465 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14C885A224D6838B00CF9465 /* AppDelegate.swift */; };
@@ -124,6 +124,7 @@
 		14F9697B24CD05B400BF0BDC /* LocationDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F9697A24CD05B400BF0BDC /* LocationDetailsView.swift */; };
 		14F9697E24CD0ECD00BF0BDC /* SkillListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F9697D24CD0ECD00BF0BDC /* SkillListView.swift */; };
 		14F9698024CD10E700BF0BDC /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F9697F24CD10E700BF0BDC /* PlaceholderView.swift */; };
+		14FCBCBC2514BD7F00FFD411 /* SwiftlySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FCBCBB2514BD7F00FFD411 /* SwiftlySearch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,7 +142,7 @@
 		14014BD023D6AED300D9F7EB /* Image+Tinting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Tinting.swift"; sourceTree = "<group>"; };
 		1405268A207EF640001A5E96 /* mhw.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = mhw.db; sourceTree = "<group>"; };
 		1409C2A024FE1D7400ACD110 /* WeaponCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponCellView.swift; sourceTree = "<group>"; };
-		140A133B1EDB57B9002FD025 /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		140A133B1EDB57B9002FD025 /* SearchRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchRequest.swift; sourceTree = "<group>"; };
 		142443B924CD6C9B00301E57 /* SkillDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillDetailsView.swift; sourceTree = "<group>"; };
 		142443BB24CD6D2800301E57 /* MonsterRewardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterRewardView.swift; sourceTree = "<group>"; };
 		142443BE24CE1B6800301E57 /* CombinationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CombinationListView.swift; sourceTree = "<group>"; };
@@ -192,6 +193,7 @@
 		147408E324E15208006BC15E /* View+Hidden.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Hidden.swift"; sourceTree = "<group>"; };
 		1475BDDF2504E083003534A7 /* SocketsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketsView.swift; sourceTree = "<group>"; };
 		1475BDE12504E16D003534A7 /* SocketLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketLevel.swift; sourceTree = "<group>"; };
+		1478DFB02511AB1E004318E7 /* SearchSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSection.swift; sourceTree = "<group>"; };
 		147D662F24EA02CD0079FA8E /* MonsterAilments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterAilments.swift; sourceTree = "<group>"; };
 		147E1E45251087EC00CEC9AF /* MonsterBreak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterBreak.swift; sourceTree = "<group>"; };
 		1480482324D4D355001E407E /* ArmorSetListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArmorSetListView.swift; sourceTree = "<group>"; };
@@ -237,7 +239,6 @@
 		14AD5F8C24EFAA490042421F /* SkilltreeArmor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkilltreeArmor.swift; sourceTree = "<group>"; };
 		14AD5F8E24EFB3440042421F /* SkilltreeDecoration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkilltreeDecoration.swift; sourceTree = "<group>"; };
 		14AD5F9024F0B4B80042421F /* LocationCamp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCamp.swift; sourceTree = "<group>"; };
-		14AD5F9224F0C1130042421F /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 		14AD5F9424F0E98D0042421F /* ImagePreloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePreloader.swift; sourceTree = "<group>"; };
 		14C4BE381F9D2DA0000DB8EC /* DataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataTests.swift; sourceTree = "<group>"; };
 		14C885A224D6838B00CF9465 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -255,6 +256,7 @@
 		14F9697A24CD05B400BF0BDC /* LocationDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailsView.swift; sourceTree = "<group>"; };
 		14F9697D24CD0ECD00BF0BDC /* SkillListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillListView.swift; sourceTree = "<group>"; };
 		14F9697F24CD10E700BF0BDC /* PlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
+		14FCBCBB2514BD7F00FFD411 /* SwiftlySearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftlySearch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -332,8 +334,8 @@
 				14506EDA24D61ED4001BD9FF /* TreeSectionView.swift */,
 				14506ED824D60157001BD9FF /* ValueView.swift */,
 				147408E324E15208006BC15E /* View+Hidden.swift */,
-				14AD5F9224F0C1130042421F /* SearchBar.swift */,
 				146B6EAA25063D44008184FD /* SingleDetailView.swift */,
+				14FCBCBB2514BD7F00FFD411 /* SwiftlySearch.swift */,
 			);
 			name = SwiftUiViews;
 			path = MHWDB/SwiftUiViews;
@@ -470,6 +472,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		1478DFAF2511A991004318E7 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				140A133B1EDB57B9002FD025 /* SearchRequest.swift */,
+				1478DFB02511AB1E004318E7 /* SearchSection.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		1480482224D4D302001E407E /* Armor */ = {
 			isa = PBXGroup;
 			children = (
@@ -544,7 +555,6 @@
 				1495C57A24E8E56600A56ECA /* ImageValueString.swift */,
 				14E2B5121EB1041D002A2A89 /* Logging.swift */,
 				145FEA761F78A6C100BF9237 /* ReviewManager.swift */,
-				140A133B1EDB57B9002FD025 /* Search.swift */,
 				1452DB1D1F71061F006A11D7 /* UserDefaults.swift */,
 				14A24D0E1EA9D05400755F6A /* Categories */,
 				14C885A424D6865F00CF9465 /* Database */,
@@ -655,6 +665,7 @@
 				14F9696E24CD00B700BF0BDC /* Location */,
 				14F9696C24CCFF6500BF0BDC /* Monster */,
 				14C885A124D6828200CF9465 /* Palico */,
+				1478DFAF2511A991004318E7 /* Search */,
 				14F9697C24CD0EA200BF0BDC /* Skill */,
 				1480482A24D54D56001E407E /* Weapon */,
 				1480482924D5083E001E407E /* Quests */,
@@ -848,10 +859,12 @@
 				146B6EAB25063D44008184FD /* SingleDetailView.swift in Sources */,
 				14580B6A23BDD2B50018B89B /* CollapsableSection.swift in Sources */,
 				1483AC1C24D550BE00D6BB65 /* WeaponDetailView.swift in Sources */,
+				14FCBCBC2514BD7F00FFD411 /* SwiftlySearch.swift in Sources */,
 				14A2511F1EA9D05400755F6A /* Element.swift in Sources */,
 				14A251201EA9D05400755F6A /* ElementStats.swift in Sources */,
 				147408DE24E13ECD006BC15E /* QuestReward.swift in Sources */,
 				144E526E23D67D6A00E919C5 /* AttributedText.swift in Sources */,
+				1478DFB12511AB1E004318E7 /* SearchSection.swift in Sources */,
 				147408DC24E11455006BC15E /* IconImage.swift in Sources */,
 				147408E224E14D6B006BC15E /* BlurView.swift in Sources */,
 				14C885AB24D80A8B00CF9465 /* QuestDetailView.swift in Sources */,
@@ -876,7 +889,6 @@
 				14012DE324E912BB00AE1909 /* MonsterHitzoneView.swift in Sources */,
 				14C885A324D6838B00CF9465 /* AppDelegate.swift in Sources */,
 				14A8414A20BA137700F36963 /* LocationItems.swift in Sources */,
-				14AD5F9324F0C1130042421F /* SearchBar.swift in Sources */,
 				1495C57D24E8E5D600A56ECA /* MonsterWeaknessString.swift in Sources */,
 				14AD5F8D24EFAA490042421F /* SkilltreeArmor.swift in Sources */,
 				1475BDE02504E083003534A7 /* SocketsView.swift in Sources */,
@@ -911,7 +923,7 @@
 				142443BA24CD6C9B00301E57 /* SkillDetailsView.swift in Sources */,
 				14E82E8D23696B1F008B3B70 /* Keyboard.swift in Sources */,
 				145FEA771F78A6C100BF9237 /* ReviewManager.swift in Sources */,
-				140A133C1EDB57B9002FD025 /* Search.swift in Sources */,
+				140A133C1EDB57B9002FD025 /* SearchRequest.swift in Sources */,
 				142443C524D3FEFA00301E57 /* InternalLink.swift in Sources */,
 				14A251251EA9D05400755F6A /* Sharpness.swift in Sources */,
 				146B6EB125079004008184FD /* WeaponSkill.swift in Sources */,

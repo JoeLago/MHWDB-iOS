@@ -60,6 +60,11 @@ extension Database {
     func armor(_ search: String? = nil, slot: Armor.Slot? = nil) -> [Armor] {
         let query = Query(table: "armor")
             .join(table: "armor_text")
+
+        if let search = search {
+            query.filter("name", contains: search)
+        }
+
         return fetch(query)
     }
 

@@ -27,7 +27,7 @@ struct CollapsableSection<Data, Header, Content>: View where
                 header: headerView(isCollapsed)
                     .contentShape(Rectangle())
                     .onTapGesture { withAnimation { self.isCollapsed.toggle() } }
-                    .modifier(NoCaps14())
+                    .modifier(CompatibleTextCaseModifier())
             ) {
                 if !isCollapsed {
                     ForEach(data) {
@@ -67,7 +67,7 @@ struct StaticCollapsableSection<Content>: View where Content: View {
             header: CustomeHeader(title: title, titleColor: nil, isCollapsed: isCollapsed)
                 .contentShape(Rectangle())
                 .onTapGesture { withAnimation { self.isCollapsed.toggle() } }
-                .modifier(NoCaps14())
+                .modifier(CompatibleTextCaseModifier())
         ) {
             if !isCollapsed {
                 content
@@ -92,13 +92,13 @@ struct CustomeHeader: View {
     }
 }
 
-// is there a better way to do this?
-struct NoCaps14: ViewModifier {
+struct CompatibleTextCaseModifier: ViewModifier {
+    @ViewBuilder
     func body(content: Content) -> some View {
-        if #available(iOS 14, *) {
-            return AnyView(content.textCase(.none))
+        if #available(iOS 14.0, *) {
+            content.textCase(.none)
         } else {
-            return AnyView(content)
+            content
         }
     }
 }

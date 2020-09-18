@@ -14,9 +14,8 @@ struct ListMenuView: View {
 
     var body: some View {
         NavigationView {
-            VStack {
-                SearchBar(text: $search.searchText)
-                List {
+            List {
+                if search.searchText.isEmpty {
                     ItemDetailCell(imageName: "17", titleText: "Monsters", destination: MonsterListView())
                     ItemDetailCell(icon: Icon(name: "quest_assignment"), titleText: "Quests", destination: QuestListView())
                     ItemDetailCell(icon: Icon(name: "equipment_greatsword", color: .cyan), titleText: "Weapons", destination: WeaponTypeListView())
@@ -27,26 +26,16 @@ struct ListMenuView: View {
                     ItemDetailCell(icon: Icon(name: "equipment_charm", color: .orange), titleText: "Charms", destination: CharmListView())
                     ItemDetailCell(icon: Icon(name: "decoration_3", color: .cyan), titleText: "Decorations", destination: DecorationListView())
                     ItemDetailCell(icon: Icon(name: "armor_skill", color: .violet), titleText: "Skills", destination: SkillListView())
+                } else {
+                    SearchSectionView(search: search)
                 }
             }
+            .navigationBarSearch(.init(get: { search.searchText }, set: { search.searchText = $0 }))
             .keyboardObserving()
             .navigationBarTitle("MHWDB")
-        }.onAppear {
-            ReviewManager.presentReviewControllerIfElligible()
         }
-    }
-}
-
-final class AllSearchObservable: ObservableObject {
-    var searchText: String = "" { didSet { performSearch() }}
-    @Published var items = Database.shared.items()
-    var searchRequest: SearchRequest?
-
-    func performSearch() {
-        searchRequest?.cancel()
-        searchRequest = SearchRequest(searchText, itemsOnly: true).then {
-            self.searchRequest = nil
-            self.items = $0.items
+        .onAppear {
+            ReviewManager.presentReviewControllerIfElligible()
         }
     }
 }

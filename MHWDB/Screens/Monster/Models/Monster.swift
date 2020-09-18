@@ -17,7 +17,7 @@ class Monster: Decodable, FetchableRecord, Identifiable {
     var id: Int
     var name: String
     var description: String?
-    var icon: String? { return "\(id)" }
+    var icon: Icon { return Icon(name: "\(id)") }
     var size: Size?
 
     var hasWeakness: Bool

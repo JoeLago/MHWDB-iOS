@@ -12,17 +12,15 @@ struct ItemListView: View {
     @ObservedObject var search = ItemSearchObservable()
 
     var body: some View {
-        VStack {
-            SearchBar(text: $search.searchText)
-            List(search.items, id: \.id) {
-                ItemDetailCell(
-                    icon: $0.icon,
-                    titleText: $0.name,
-                    destination: ItemDetailView(id: $0.id)
-                )
-            }
-            .id(UUID())
+        List(search.items, id: \.id) {
+            ItemDetailCell(
+                icon: $0.icon,
+                titleText: $0.name,
+                destination: ItemDetailView(id: $0.id)
+            )
         }
+        .id(UUID())
+        .navigationBarSearch(.init(get: { search.searchText }, set: { search.searchText = $0 }))
         .navigationBarTitle("Items")
         .keyboardObserving()
     }

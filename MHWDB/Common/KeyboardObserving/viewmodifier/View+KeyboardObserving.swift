@@ -6,6 +6,7 @@
 
 import SwiftUI
 
+// Only nessecary for iOS 13
 extension View {
   public func keyboardObserving() -> some View {
     self.modifier(KeyboardObserving())
