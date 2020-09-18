@@ -22,18 +22,20 @@ struct CollapsableSection<Data, Header, Content>: View where
 
     // Seems like there should be able to do this without anyview?
     var body: some View {
-        guard data.count > 0 else { return AnyView(EmptyView()) }
-
-        return AnyView(Section(header:
-            headerView(isCollapsed)
-                .onTapGesture { self.isCollapsed.toggle() }
-        ) {
-            if !isCollapsed {
-                ForEach(data) {
-                    self.dataContent($0)
+        if !data.isEmpty {
+            Section(
+                header: headerView(isCollapsed)
+                    .contentShape(Rectangle())
+                    .onTapGesture { withAnimation { self.isCollapsed.toggle() } }
+                    .modifier(NoCaps14())
+            ) {
+                if !isCollapsed {
+                    ForEach(data) {
+                        self.dataContent($0)
+                    }
                 }
             }
-        })
+        }
     }
 }
 
@@ -61,9 +63,11 @@ struct StaticCollapsableSection<Content>: View where Content: View {
     }
 
     var body: some View {
-        Section(header:
-            CustomeHeader(title: title, titleColor: nil, isCollapsed: isCollapsed)
-                .onTapGesture { self.isCollapsed.toggle() }
+        Section(
+            header: CustomeHeader(title: title, titleColor: nil, isCollapsed: isCollapsed)
+                .contentShape(Rectangle())
+                .onTapGesture { withAnimation { self.isCollapsed.toggle() } }
+                .modifier(NoCaps14())
         ) {
             if !isCollapsed {
                 content
@@ -85,5 +89,16 @@ struct CustomeHeader: View {
         }
         .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
         .padding()
+    }
+}
+
+// is there a better way to do this?
+struct NoCaps14: ViewModifier {
+    func body(content: Content) -> some View {
+        if #available(iOS 14, *) {
+            return AnyView(content.textCase(.none))
+        } else {
+            return AnyView(content)
+        }
     }
 }
