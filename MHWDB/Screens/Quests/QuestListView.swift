@@ -18,6 +18,16 @@ struct QuestListView: View {
     }
     private var hubs: [String]
 
+    @State var showActionSheet: Bool = false
+    var actionSheet: ActionSheet {
+        ActionSheet(
+            title: Text("Quest Type"),
+            buttons: hubs.map { hub in
+                .default(Text(hub)) { self.hub = hub }
+            }
+        )
+    }
+
     init() {
         hubs = Database.shared.questCategories().map { $0.capitalizingFirstLetter() }
     }
@@ -45,44 +55,13 @@ struct QuestListView: View {
                 BottomToolBarView() {
                     Spacer()
                     Button(
-                        action: {
-                            withAnimation {
-                                self.showMenu = true
-                            }
-                        }, label: { Text(self.hub) })
+                        action: { self.showActionSheet.toggle() },
+                        label: { Text(self.hub) }
+                    )
                     Spacer()
                 }
+                .actionSheet(isPresented: $showActionSheet, content: { self.actionSheet })
             }
-
-            // This is bad, can probably do better, replace with Menu in iOS 14
-            ZStack {
-                BlurView(style: .light)
-                .edgesIgnoringSafeArea(.all)
-                HStack {
-                    Spacer()
-                    VStack {
-                        Spacer()
-                        ForEach(hubs, id: \.self) { hub in
-                            Button(
-                                action: {
-                                    self.hub = hub
-                                    withAnimation {
-                                        self.showMenu = false
-                                    }
-                                },
-                                label: { Text(hub) }
-                            )
-                            .padding()
-                            .background(Color.secondary)
-                            .cornerRadius(25)
-                            .padding()
-                        }
-                        Spacer()
-                    }
-                    Spacer()
-                }
-            }
-            .isHidden(!showMenu)
         }
         .navigationBarTitle("Quests")
     }
