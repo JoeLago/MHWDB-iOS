@@ -46,8 +46,8 @@ struct ItemDetailView: View {
                     imageName: $0.icon,
                     titleText: "\($0.rank.rawValue) \($0.name)",
                     subtitleText: "\($0.condition)",
-                    detailText: "\($0.stack > 1 ? "x\($0.stack) ": "")\($0.chance)%",
-                    destination: MonsterDetailView(id: $0.id)
+                    detailText: "\($0.stack > 1 ? "x\($0.stack) ": "")\($0.percentage)%",
+                    destination: MonsterDetailView(id: $0.monsterId)
                 )
             }
 

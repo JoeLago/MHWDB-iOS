@@ -9,18 +9,14 @@
 import GRDB
 
 class ItemMonster: FetchableRecord, Decodable, Identifiable {
-    var id: Int { return monsterId }
+    var id: Int
     let monsterId: Int
     let name: String
     let icon: String?
     let condition: String
     let rank: Quest.Rank
     let stack: Int
-    let chance: Int
-
-    enum CodingKeys: String, CodingKey {
-        case monsterId, name, icon, condition, rank, stack, chance = "percentage"
-    }
+    let percentage: Int
 }
 
 extension Database {
