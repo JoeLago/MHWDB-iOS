@@ -41,7 +41,8 @@ struct SearchSectionView: View {
             CollapsableSection(title: "Skills", data: results.skills) {
                 ItemDetailCell(icon: $0.icon, titleText: $0.name, destination: SkillDetailView(id: $0.id))
             }
-        }.id(UUID())
+        }
+        .id(UUID())
         }
     }
 }
@@ -51,9 +52,10 @@ final class AllSearchObservable: ObservableObject {
     var searchRequest: SearchRequest?
 
     var searchText: String = "" { didSet { update(searchText: searchText) } }
-    var currentSearch: String?
+    var currentSearch: String = ""
 
     func update(searchText: String) {
+        guard searchText != currentSearch else { return }
         guard !searchText.isEmpty else {
             results = nil
             return

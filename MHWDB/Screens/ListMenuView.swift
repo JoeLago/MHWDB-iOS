@@ -8,6 +8,7 @@
 
 import SwiftUI
 import UIKit
+import SwiftlySearch
 
 struct ListMenuView: View {
     @ObservedObject var search = AllSearchObservable()

@@ -11,6 +11,15 @@
         }
       },
       {
+        "package": "SwiftlySearch",
+        "repositoryURL": "https://github.com/thislooksfun/SwiftlySearch",
+        "state": {
+          "branch": null,
+          "revision": "a9a9101e1d04ba965eb38188b5d0809a4c745fcd",
+          "version": "1.2.1"
+        }
+      },
+      {
         "package": "SwiftyUserDefaults",
         "repositoryURL": "https://github.com/sunshinejr/SwiftyUserDefaults",
         "state": {

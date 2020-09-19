@@ -74,6 +74,7 @@
 		148812F920A2C31E006B91EF /* WeaponType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148812F820A2C31E006B91EF /* WeaponType.swift */; };
 		148812FB20A2C378006B91EF /* WeaponAmmo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148812FA20A2C378006B91EF /* WeaponAmmo.swift */; };
 		148812FD20A2C3AE006B91EF /* Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148812FC20A2C3AE006B91EF /* Notes.swift */; };
+		148E02FF2515F39700839D90 /* SwiftlySearch in Frameworks */ = {isa = PBXBuildFile; productRef = 148E02FE2515F39700839D90 /* SwiftlySearch */; };
 		1495C57924E89FE000A56ECA /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1495C57824E89FE000A56ECA /* GridView.swift */; };
 		1495C57B24E8E56600A56ECA /* ImageValueString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1495C57A24E8E56600A56ECA /* ImageValueString.swift */; };
 		1495C57D24E8E5D600A56ECA /* MonsterWeaknessString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1495C57C24E8E5D600A56ECA /* MonsterWeaknessString.swift */; };
@@ -124,7 +125,6 @@
 		14F9697B24CD05B400BF0BDC /* LocationDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F9697A24CD05B400BF0BDC /* LocationDetailsView.swift */; };
 		14F9697E24CD0ECD00BF0BDC /* SkillListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F9697D24CD0ECD00BF0BDC /* SkillListView.swift */; };
 		14F9698024CD10E700BF0BDC /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F9697F24CD10E700BF0BDC /* PlaceholderView.swift */; };
-		14FCBCBC2514BD7F00FFD411 /* SwiftlySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FCBCBB2514BD7F00FFD411 /* SwiftlySearch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -256,7 +256,6 @@
 		14F9697A24CD05B400BF0BDC /* LocationDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailsView.swift; sourceTree = "<group>"; };
 		14F9697D24CD0ECD00BF0BDC /* SkillListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillListView.swift; sourceTree = "<group>"; };
 		14F9697F24CD10E700BF0BDC /* PlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
-		14FCBCBB2514BD7F00FFD411 /* SwiftlySearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftlySearch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,6 +263,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				148E02FF2515F39700839D90 /* SwiftlySearch in Frameworks */,
 				146B6EB725104D4D008184FD /* SwiftyUserDefaults in Frameworks */,
 				146B6EBE25105759008184FD /* GRDB in Frameworks */,
 			);
@@ -335,7 +335,6 @@
 				14506ED824D60157001BD9FF /* ValueView.swift */,
 				147408E324E15208006BC15E /* View+Hidden.swift */,
 				146B6EAA25063D44008184FD /* SingleDetailView.swift */,
-				14FCBCBB2514BD7F00FFD411 /* SwiftlySearch.swift */,
 			);
 			name = SwiftUiViews;
 			path = MHWDB/SwiftUiViews;
@@ -726,6 +725,7 @@
 			packageProductDependencies = (
 				146B6EB625104D4D008184FD /* SwiftyUserDefaults */,
 				146B6EBD25105759008184FD /* GRDB */,
+				148E02FE2515F39700839D90 /* SwiftlySearch */,
 			);
 			productName = MHGDB;
 			productReference = 145495641EA9CEC5004FA5FA /* MHWDB.app */;
@@ -756,7 +756,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 1110;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Gathering Hall Studios";
 				TargetAttributes = {
 					145495631EA9CEC5004FA5FA = {
@@ -785,6 +785,7 @@
 			packageReferences = (
 				146B6EB525104D4D008184FD /* XCRemoteSwiftPackageReference "SwiftyUserDefaults" */,
 				146B6EBC25105759008184FD /* XCRemoteSwiftPackageReference "GRDB.swift" */,
+				148E02FD2515F39700839D90 /* XCRemoteSwiftPackageReference "SwiftlySearch" */,
 			);
 			productRefGroup = 145495651EA9CEC5004FA5FA /* Products */;
 			projectDirPath = "";
@@ -859,7 +860,6 @@
 				146B6EAB25063D44008184FD /* SingleDetailView.swift in Sources */,
 				14580B6A23BDD2B50018B89B /* CollapsableSection.swift in Sources */,
 				1483AC1C24D550BE00D6BB65 /* WeaponDetailView.swift in Sources */,
-				14FCBCBC2514BD7F00FFD411 /* SwiftlySearch.swift in Sources */,
 				14A2511F1EA9D05400755F6A /* Element.swift in Sources */,
 				14A251201EA9D05400755F6A /* ElementStats.swift in Sources */,
 				147408DE24E13ECD006BC15E /* QuestReward.swift in Sources */,
@@ -1008,6 +1008,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1068,6 +1069,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1219,6 +1221,14 @@
 				kind = branch;
 			};
 		};
+		148E02FD2515F39700839D90 /* XCRemoteSwiftPackageReference "SwiftlySearch" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/thislooksfun/SwiftlySearch";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1231,6 +1241,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 146B6EBC25105759008184FD /* XCRemoteSwiftPackageReference "GRDB.swift" */;
 			productName = GRDB;
+		};
+		148E02FE2515F39700839D90 /* SwiftlySearch */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 148E02FD2515F39700839D90 /* XCRemoteSwiftPackageReference "SwiftlySearch" */;
+			productName = SwiftlySearch;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

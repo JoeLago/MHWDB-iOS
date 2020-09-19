@@ -57,7 +57,7 @@ struct ItemDetailView: View {
                     titleText: "\($0.quest.name)\($0.stack > 1 ? " (x\($0.stack))" : "")",
                     subtitleText: "\($0.quest.rank.rawValue) \($0.quest.stars)\(String.star) \($0.quest.questType?.capitalized ?? "")",
                     detailText: "\($0.percentage)%",
-                    destination: QuestDetailView(id: $0.itemId)
+                    destination: QuestDetailView(id: $0.questId)
                 )
             }
 
