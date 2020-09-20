@@ -9,10 +9,11 @@
 import SwiftUI
 
 struct ItemListView: View {
-    @ObservedObject var search = ItemSearchObservable()
+    @ObservedObject var search = AllSearchObservable(itemsOnly: true)
+    private var allItems = Database.shared.items()
 
     var body: some View {
-        List(search.items, id: \.id) {
+        List(search.results?.items ?? allItems) {
             ItemDetailCell(
                 icon: $0.icon,
                 titleText: $0.name,
@@ -23,19 +24,5 @@ struct ItemListView: View {
         .navigationBarSearch(.init(get: { search.searchText }, set: { search.searchText = $0 }))
         .navigationBarTitle("Items")
         .keyboardObserving()
-    }
-}
-
-final class ItemSearchObservable: ObservableObject {
-    var searchText: String = "" { didSet { performSearch() }}
-    @Published var items = Database.shared.items()
-    var searchRequest: SearchRequest?
-
-    func performSearch() {
-        searchRequest?.cancel()
-        searchRequest = SearchRequest(searchText, itemsOnly: true).then {
-            self.searchRequest = nil
-            self.items = $0.items
-        }
     }
 }

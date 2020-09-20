@@ -47,5 +47,6 @@ struct CharmDetailView: View {
             }
         }
         .navigationBarTitle("\(charm.name)")
+        .modifier(DetailButtonsModifier())
     }
 }

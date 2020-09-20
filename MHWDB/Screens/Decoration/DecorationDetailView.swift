@@ -41,5 +41,6 @@ struct DecorationDetailView: View {
             }
         }
         .navigationBarTitle(decoration.name)
+        .modifier(DetailButtonsModifier())
     }
 }

@@ -65,5 +65,6 @@ struct SkillDetailView: View {
             // TODO: Set bonuses
         }
         .navigationBarTitle(skilltree.name)
+        .modifier(DetailButtonsModifier())
     }
 }

@@ -56,5 +56,6 @@ struct QuestDetailView: View {
             }
         }
         .navigationBarTitle(quest.name)
+        .modifier(DetailButtonsModifier())
     }
 }

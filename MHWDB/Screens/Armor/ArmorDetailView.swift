@@ -49,5 +49,6 @@ struct ArmorDetailView: View {
         // Would like if we could set the min row height on the detail section only
         .environment(\.defaultMinListRowHeight, 22)
         .navigationBarTitle("\(armor.name)")
+        .modifier(DetailButtonsModifier())
     }
 }

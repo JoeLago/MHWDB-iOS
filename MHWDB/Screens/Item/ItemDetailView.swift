@@ -89,5 +89,6 @@ struct ItemDetailView: View {
             }
         }
         .navigationBarTitle(item.name)
+        .modifier(DetailButtonsModifier())
     }
 }

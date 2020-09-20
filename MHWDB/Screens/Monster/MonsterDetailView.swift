@@ -68,5 +68,6 @@ struct MonsterDetailView: View {
             }
         }
         .navigationBarTitle(monster.name)
+        .modifier(DetailButtonsModifier())
     }
 }

@@ -51,12 +51,18 @@ final class AllSearchObservable: ObservableObject {
     @Published var results: SearchResponse?
     var searchRequest: SearchRequest?
 
+    var itemsOnly: Bool
     var searchText: String = "" { didSet { update(searchText: searchText) } }
     var currentSearch: String = ""
+
+    init(itemsOnly: Bool = false) {
+        self.itemsOnly = itemsOnly
+    }
 
     func update(searchText: String) {
         guard searchText != currentSearch else { return }
         guard !searchText.isEmpty else {
+            self.currentSearch = searchText
             results = nil
             return
         }
@@ -64,12 +70,16 @@ final class AllSearchObservable: ObservableObject {
 
         currentSearch = searchText
         searchRequest?.cancel()
-        results = SearchResponse()
+        withAnimation(.none) {
+            results = SearchResponse()
+        }
 
-        searchRequest = SearchRequest(searchText)
-        .then {
+        searchRequest = SearchRequest(searchText, itemsOnly: itemsOnly)
+        .then { results in
             self.searchRequest = nil
-            self.results = $0
+            withAnimation(.none) {
+                self.results = results
+            }
             // TODO: if results are empty we should let user know
         }
     }
