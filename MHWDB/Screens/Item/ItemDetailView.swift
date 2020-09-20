@@ -43,7 +43,7 @@ struct ItemDetailView: View {
 
             CollapsableSection(title: "Monster Rewards", data: item.monsters) {
                 ItemDetailCell(
-                    imageName: $0.icon,
+                    icon: $0.icon,
                     titleText: "\($0.rank.rawValue) \($0.name)",
                     subtitleText: "\($0.condition)",
                     detailText: "\($0.stack > 1 ? "x\($0.stack) ": "")\($0.percentage)%",

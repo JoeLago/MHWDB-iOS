@@ -14,14 +14,14 @@ class Location: FetchableRecord, Decodable, Identifiable {
 
     var iconName: String {
         switch id {
-        //case 1: return "location_ancient_forest" // missing atm
+        case 1: return "location_ancient_forest"
         case 2: return "locations_wildspire_waste"
         case 3: return "locations_coral_highlands"
         case 4: return "locations_rotten_vale"
         case 5: return "locations_elders_recess"
         case 12: return "locations_hoarfrost_reach"
         case 14: return "locations_the_guiding_lands"
-        default: return "question_mark_paper"
+        default: return "question_mark"
         }
     }
 

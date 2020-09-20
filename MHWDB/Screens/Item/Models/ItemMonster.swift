@@ -12,11 +12,12 @@ class ItemMonster: FetchableRecord, Decodable, Identifiable {
     var id: Int
     let monsterId: Int
     let name: String
-    let icon: String?
     let condition: String
     let rank: Quest.Rank
     let stack: Int
     let percentage: Int
+
+    var icon: Icon { return Icon(name: "\(monsterId)") }
 }
 
 extension Database {
