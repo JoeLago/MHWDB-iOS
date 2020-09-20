@@ -12,12 +12,12 @@ extension Font {
     static let singleDetail: Font = .subheadline
 }
 
-struct SingleDetailView<Content: View>: View {
+struct SingleDetailView<ValueContent: View>: View {
     var iconName: String
     var label: String
-    let value: Content
+    let value: ValueContent
 
-    init(iconName: String, label: String, @ViewBuilder content: () -> Content) {
+    init(iconName: String, label: String, @ViewBuilder content: () -> ValueContent) {
         self.iconName = iconName
         self.label = label
         self.value = content()
@@ -36,7 +36,7 @@ struct SingleDetailView<Content: View>: View {
     }
 }
 
-extension SingleDetailView where Content == Text {
+extension SingleDetailView where ValueContent == Text {
 
     init?(iconName: String, label: String, value: Int?, wrap: ((String) -> String) = { $0 }) {
         guard let value = value, value != 0 else { return nil }

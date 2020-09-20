@@ -58,7 +58,6 @@
 		147408DC24E11455006BC15E /* IconImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147408DB24E11455006BC15E /* IconImage.swift */; };
 		147408DE24E13ECD006BC15E /* QuestReward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147408DD24E13ECD006BC15E /* QuestReward.swift */; };
 		147408E024E13EE9006BC15E /* QuestMonster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147408DF24E13EE9006BC15E /* QuestMonster.swift */; };
-		147408E224E14D6B006BC15E /* BlurView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147408E124E14D6B006BC15E /* BlurView.swift */; };
 		147408E424E15208006BC15E /* View+Hidden.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147408E324E15208006BC15E /* View+Hidden.swift */; };
 		1475BDE02504E083003534A7 /* SocketsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1475BDDF2504E083003534A7 /* SocketsView.swift */; };
 		1475BDE22504E16D003534A7 /* SocketLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1475BDE12504E16D003534A7 /* SocketLevel.swift */; };
@@ -125,7 +124,6 @@
 		14F9697024CD012C00BF0BDC /* LocationListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F9696F24CD012C00BF0BDC /* LocationListView.swift */; };
 		14F9697B24CD05B400BF0BDC /* LocationDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F9697A24CD05B400BF0BDC /* LocationDetailsView.swift */; };
 		14F9697E24CD0ECD00BF0BDC /* SkillListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F9697D24CD0ECD00BF0BDC /* SkillListView.swift */; };
-		14F9698024CD10E700BF0BDC /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14F9697F24CD10E700BF0BDC /* PlaceholderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -190,7 +188,6 @@
 		147408DB24E11455006BC15E /* IconImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconImage.swift; sourceTree = "<group>"; };
 		147408DD24E13ECD006BC15E /* QuestReward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestReward.swift; sourceTree = "<group>"; };
 		147408DF24E13EE9006BC15E /* QuestMonster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestMonster.swift; sourceTree = "<group>"; };
-		147408E124E14D6B006BC15E /* BlurView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurView.swift; sourceTree = "<group>"; };
 		147408E324E15208006BC15E /* View+Hidden.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Hidden.swift"; sourceTree = "<group>"; };
 		1475BDDF2504E083003534A7 /* SocketsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketsView.swift; sourceTree = "<group>"; };
 		1475BDE12504E16D003534A7 /* SocketLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketLevel.swift; sourceTree = "<group>"; };
@@ -257,7 +254,6 @@
 		14F9696F24CD012C00BF0BDC /* LocationListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationListView.swift; sourceTree = "<group>"; };
 		14F9697A24CD05B400BF0BDC /* LocationDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailsView.swift; sourceTree = "<group>"; };
 		14F9697D24CD0ECD00BF0BDC /* SkillListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillListView.swift; sourceTree = "<group>"; };
-		14F9697F24CD10E700BF0BDC /* PlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -324,7 +320,6 @@
 			isa = PBXGroup;
 			children = (
 				144E526D23D67D6A00E919C5 /* AttributedText.swift */,
-				147408E124E14D6B006BC15E /* BlurView.swift */,
 				1437A71B235D7AC500910125 /* BottomToolbar.swift */,
 				14580B6923BDD2B50018B89B /* CollapsableSection.swift */,
 				1495C57824E89FE000A56ECA /* GridView.swift */,
@@ -332,7 +327,6 @@
 				142443C224CE1DC000301E57 /* ImageLabelView.swift */,
 				142443C424D3FEFA00301E57 /* InternalLink.swift */,
 				1437A718235D2A7000910125 /* ItemDetailCell.swift */,
-				14F9697F24CD10E700BF0BDC /* PlaceholderView.swift */,
 				14506EDA24D61ED4001BD9FF /* TreeSectionView.swift */,
 				14506ED824D60157001BD9FF /* ValueView.swift */,
 				147408E324E15208006BC15E /* View+Hidden.swift */,
@@ -869,7 +863,6 @@
 				144E526E23D67D6A00E919C5 /* AttributedText.swift in Sources */,
 				1478DFB12511AB1E004318E7 /* SearchSection.swift in Sources */,
 				147408DC24E11455006BC15E /* IconImage.swift in Sources */,
-				147408E224E14D6B006BC15E /* BlurView.swift in Sources */,
 				14C885AB24D80A8B00CF9465 /* QuestDetailView.swift in Sources */,
 				1437A71323597C0B00910125 /* MonsterListView.swift in Sources */,
 				142443BF24CE1B6800301E57 /* CombinationListView.swift in Sources */,
@@ -909,7 +902,6 @@
 				144306DE209FA95C00D60A5A /* MonsterRewards.swift in Sources */,
 				146B6EAD25074F25008184FD /* Melody.swift in Sources */,
 				1480482424D4D355001E407E /* ArmorSetListView.swift in Sources */,
-				14F9698024CD10E700BF0BDC /* PlaceholderView.swift in Sources */,
 				1480482C24D54E0B001E407E /* WeaponTypeListView.swift in Sources */,
 				142443BC24CD6D2800301E57 /* MonsterRewardView.swift in Sources */,
 				14A251161EA9D05400755F6A /* Node.swift in Sources */,

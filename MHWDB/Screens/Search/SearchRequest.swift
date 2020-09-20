@@ -41,7 +41,9 @@ class SearchRequest {
         let searchText = self.searchText
 
         if itemsOnly {
-            return SearchResponse(items: Database.shared.items(searchText))
+            let items = Database.shared.items(searchText)
+            if self.isCanceled { return nil }
+            return SearchResponse(items: items)
         }
 
         let monsters = Database.shared.monsters(searchText)

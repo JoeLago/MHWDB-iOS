@@ -13,14 +13,13 @@ struct DetailButtonsModifier: ViewModifier {
     @ViewBuilder
     func body(content: Content) -> some View {
         content
-            .navigationBarItems(
-                trailing:
-                    HStack(spacing: 26) {
-                        Button(
-                            action: { (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.popToRoot() },
-                            label: { Image(systemName: "house.fill") }
-                        )
-                    }
-            )
+        .navigationBarItems(trailing:
+            HStack(spacing: 26) {
+                Button(
+                    action: { (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.popToRoot() },
+                    label: { Image(systemName: "house.fill") }
+                )
+            }
+        )
     }
 }

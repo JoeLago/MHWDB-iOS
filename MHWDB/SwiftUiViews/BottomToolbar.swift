@@ -23,7 +23,6 @@ struct BottomToolBarView<Content>: View where Content: View {
                 content
             }
             .padding()
-            //.background(Color.Background.light)
         }
         .background(
             Color.barBackground

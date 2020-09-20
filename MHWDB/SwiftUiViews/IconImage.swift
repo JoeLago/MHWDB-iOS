@@ -46,7 +46,7 @@ struct Icon: Identifiable {
     var id: String { return name + (color?.description ?? "") }
     let name: String
     let color: UIColor?
-    // enum class IconType to make different Icon backgrounds like Android?
+    // maybe an enum class IconType to make different Icon backgrounds like Android?
 
     init(name: String, rarity: Int) {
         self.name = name
