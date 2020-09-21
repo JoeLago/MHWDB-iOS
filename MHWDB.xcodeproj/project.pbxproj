@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		14012DE324E912BB00AE1909 /* MonsterHitzoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14012DE224E912BB00AE1909 /* MonsterHitzoneView.swift */; };
-		14014BD123D6AED300D9F7EB /* Image+Tinting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14014BD023D6AED300D9F7EB /* Image+Tinting.swift */; };
 		1405268B207EF640001A5E96 /* mhw.db in Resources */ = {isa = PBXBuildFile; fileRef = 1405268A207EF640001A5E96 /* mhw.db */; };
 		1409C2A124FE1D7400ACD110 /* WeaponCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409C2A024FE1D7400ACD110 /* WeaponCellView.swift */; };
 		140A133C1EDB57B9002FD025 /* SearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140A133B1EDB57B9002FD025 /* SearchRequest.swift */; };
@@ -75,14 +74,12 @@
 		148812FD20A2C3AE006B91EF /* Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148812FC20A2C3AE006B91EF /* Notes.swift */; };
 		148E02FF2515F39700839D90 /* SwiftlySearch in Frameworks */ = {isa = PBXBuildFile; productRef = 148E02FE2515F39700839D90 /* SwiftlySearch */; };
 		148E03532516D44200839D90 /* DetailButtonsModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148E03522516D44200839D90 /* DetailButtonsModifier.swift */; };
+		148E036B25186EBA00839D90 /* CollapsableSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148E036A25186EBA00839D90 /* CollapsableSectionHeader.swift */; };
 		1495C57924E89FE000A56ECA /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1495C57824E89FE000A56ECA /* GridView.swift */; };
-		1495C57B24E8E56600A56ECA /* ImageValueString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1495C57A24E8E56600A56ECA /* ImageValueString.swift */; };
 		1495C57D24E8E5D600A56ECA /* MonsterWeaknessString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1495C57C24E8E5D600A56ECA /* MonsterWeaknessString.swift */; };
 		14A24D791EA9D05400755F6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14A249701EA9D05300755F6A /* Assets.xcassets */; };
 		14A24D7A1EA9D05400755F6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14A249711EA9D05300755F6A /* LaunchScreen.storyboard */; };
 		14A250FD1EA9D05400755F6A /* Int+NullString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A24D111EA9D05400755F6A /* Int+NullString.swift */; };
-		14A250FE1EA9D05400755F6A /* NSAttributedString+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A24D121EA9D05400755F6A /* NSAttributedString+Swift.swift */; };
-		14A251021EA9D05400755F6A /* UIImage+Scale.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A24D161EA9D05400755F6A /* UIImage+Scale.swift */; };
 		14A251091EA9D05400755F6A /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A24D1E1EA9D05400755F6A /* Database.swift */; };
 		14A2510F1EA9D05400755F6A /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A24D251EA9D05400755F6A /* Color.swift */; };
 		14A251161EA9D05400755F6A /* Node.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A24D2F1EA9D05400755F6A /* Node.swift */; };
@@ -138,7 +135,6 @@
 
 /* Begin PBXFileReference section */
 		14012DE224E912BB00AE1909 /* MonsterHitzoneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterHitzoneView.swift; sourceTree = "<group>"; };
-		14014BD023D6AED300D9F7EB /* Image+Tinting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Tinting.swift"; sourceTree = "<group>"; };
 		1405268A207EF640001A5E96 /* mhw.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = mhw.db; sourceTree = "<group>"; };
 		1409C2A024FE1D7400ACD110 /* WeaponCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponCellView.swift; sourceTree = "<group>"; };
 		140A133B1EDB57B9002FD025 /* SearchRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchRequest.swift; sourceTree = "<group>"; };
@@ -204,15 +200,13 @@
 		148812FA20A2C378006B91EF /* WeaponAmmo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponAmmo.swift; sourceTree = "<group>"; };
 		148812FC20A2C3AE006B91EF /* Notes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notes.swift; sourceTree = "<group>"; };
 		148E03522516D44200839D90 /* DetailButtonsModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailButtonsModifier.swift; sourceTree = "<group>"; };
+		148E036A25186EBA00839D90 /* CollapsableSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsableSectionHeader.swift; sourceTree = "<group>"; };
 		1495C57824E89FE000A56ECA /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
-		1495C57A24E8E56600A56ECA /* ImageValueString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageValueString.swift; sourceTree = "<group>"; };
 		1495C57C24E8E5D600A56ECA /* MonsterWeaknessString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterWeaknessString.swift; sourceTree = "<group>"; };
 		14A249701EA9D05300755F6A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14A249721EA9D05300755F6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		14A24D0C1EA9D05400755F6A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		14A24D111EA9D05400755F6A /* Int+NullString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+NullString.swift"; sourceTree = "<group>"; };
-		14A24D121EA9D05400755F6A /* NSAttributedString+Swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+Swift.swift"; sourceTree = "<group>"; };
-		14A24D161EA9D05400755F6A /* UIImage+Scale.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Scale.swift"; sourceTree = "<group>"; };
 		14A24D1E1EA9D05400755F6A /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		14A24D251EA9D05400755F6A /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		14A24D2F1EA9D05400755F6A /* Node.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Node.swift; sourceTree = "<group>"; };
@@ -322,16 +316,17 @@
 				144E526D23D67D6A00E919C5 /* AttributedText.swift */,
 				1437A71B235D7AC500910125 /* BottomToolbar.swift */,
 				14580B6923BDD2B50018B89B /* CollapsableSection.swift */,
+				148E036A25186EBA00839D90 /* CollapsableSectionHeader.swift */,
+				148E03522516D44200839D90 /* DetailButtonsModifier.swift */,
 				1495C57824E89FE000A56ECA /* GridView.swift */,
 				147408DB24E11455006BC15E /* IconImage.swift */,
 				142443C224CE1DC000301E57 /* ImageLabelView.swift */,
 				142443C424D3FEFA00301E57 /* InternalLink.swift */,
 				1437A718235D2A7000910125 /* ItemDetailCell.swift */,
+				146B6EAA25063D44008184FD /* SingleDetailView.swift */,
 				14506EDA24D61ED4001BD9FF /* TreeSectionView.swift */,
 				14506ED824D60157001BD9FF /* ValueView.swift */,
 				147408E324E15208006BC15E /* View+Hidden.swift */,
-				146B6EAA25063D44008184FD /* SingleDetailView.swift */,
-				148E03522516D44200839D90 /* DetailButtonsModifier.swift */,
 			);
 			name = SwiftUiViews;
 			path = MHWDB/SwiftUiViews;
@@ -548,14 +543,13 @@
 			children = (
 				14A24D251EA9D05400755F6A /* Color.swift */,
 				14AD5F9424F0E98D0042421F /* ImagePreloader.swift */,
-				1495C57A24E8E56600A56ECA /* ImageValueString.swift */,
 				14E2B5121EB1041D002A2A89 /* Logging.swift */,
 				145FEA761F78A6C100BF9237 /* ReviewManager.swift */,
 				1452DB1D1F71061F006A11D7 /* UserDefaults.swift */,
 				14A24D0E1EA9D05400755F6A /* Categories */,
 				14C885A424D6865F00CF9465 /* Database */,
 				14A24D341EA9D05400755F6A /* Element */,
-				14E82E8223696B1F008B3B70 /* KeyboardObserving */,
+				14E82E8223696B1F008B3B70 /* KeyboardObserving (iOS13) */,
 				14A24D2E1EA9D05400755F6A /* Tree */,
 			);
 			name = Common;
@@ -567,10 +561,7 @@
 			children = (
 				14A24D111EA9D05400755F6A /* Int+NullString.swift */,
 				1452DB1F1F7108F8006A11D7 /* Int+TimeInterval.swift */,
-				14A24D121EA9D05400755F6A /* NSAttributedString+Swift.swift */,
 				14A251581EAC41B800755F6A /* String+Additions.swift */,
-				14A24D161EA9D05400755F6A /* UIImage+Scale.swift */,
-				14014BD023D6AED300D9F7EB /* Image+Tinting.swift */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -629,7 +620,7 @@
 			path = Database;
 			sourceTree = "<group>";
 		};
-		14E82E8223696B1F008B3B70 /* KeyboardObserving */ = {
+		14E82E8223696B1F008B3B70 /* KeyboardObserving (iOS13) */ = {
 			isa = PBXGroup;
 			children = (
 				14E82E8423696B1F008B3B70 /* viewmodifier */,
@@ -637,7 +628,7 @@
 				14E82E8723696B1F008B3B70 /* HiddenWhenKeyboardVisibleView.swift */,
 				14E82E8823696B1F008B3B70 /* Keyboard.swift */,
 			);
-			path = KeyboardObserving;
+			path = "KeyboardObserving (iOS13)";
 			sourceTree = "<group>";
 		};
 		14E82E8423696B1F008B3B70 /* viewmodifier */ = {
@@ -848,7 +839,6 @@
 				14A8415020BCDEDF00F36963 /* CharmSkill.swift in Sources */,
 				147408E024E13EE9006BC15E /* QuestMonster.swift in Sources */,
 				14506ED924D60157001BD9FF /* ValueView.swift in Sources */,
-				14014BD123D6AED300D9F7EB /* Image+Tinting.swift in Sources */,
 				14A2511C1EA9D05400755F6A /* Combination.swift in Sources */,
 				14F9697024CD012C00BF0BDC /* LocationListView.swift in Sources */,
 				14A251091EA9D05400755F6A /* Database.swift in Sources */,
@@ -873,7 +863,7 @@
 				1483AC1A24D550A500D6BB65 /* WeaponTreeView.swift in Sources */,
 				1450DA6720A95930000085C5 /* ItemComponent.swift in Sources */,
 				14F9697E24CD0ECD00BF0BDC /* SkillListView.swift in Sources */,
-				1495C57B24E8E56600A56ECA /* ImageValueString.swift in Sources */,
+				148E036B25186EBA00839D90 /* CollapsableSectionHeader.swift in Sources */,
 				1450DA6320A95915000085C5 /* ItemLocation.swift in Sources */,
 				1450DA6520A95927000085C5 /* ItemMonster.swift in Sources */,
 				1475BDE22504E16D003534A7 /* SocketLevel.swift in Sources */,
@@ -906,7 +896,6 @@
 				142443BC24CD6D2800301E57 /* MonsterRewardView.swift in Sources */,
 				14A251161EA9D05400755F6A /* Node.swift in Sources */,
 				148812FD20A2C3AE006B91EF /* Notes.swift in Sources */,
-				14A250FE1EA9D05400755F6A /* NSAttributedString+Swift.swift in Sources */,
 				14E704141EB8E9FC00EA2E71 /* PalicoWeapon.swift in Sources */,
 				1409C2A124FE1D7400ACD110 /* WeaponCellView.swift in Sources */,
 				142443D224D4B1E200301E57 /* DecorationListView.swift in Sources */,
@@ -933,7 +922,6 @@
 				14A251171EA9D05400755F6A /* Tree.swift in Sources */,
 				142443CA24D4A99700301E57 /* CharmListView.swift in Sources */,
 				14E82E8B23696B1F008B3B70 /* View+KeyboardObserving.swift in Sources */,
-				14A251021EA9D05400755F6A /* UIImage+Scale.swift in Sources */,
 				142443C824D4032400301E57 /* ItemDetailView.swift in Sources */,
 				142443D024D4B05500301E57 /* ItemListView.swift in Sources */,
 				147E1E46251087EC00CEC9AF /* MonsterBreak.swift in Sources */,
@@ -1100,7 +1088,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = YNK39UG84R;
 				INFOPLIST_FILE = MHWDB/Assets/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1118,7 +1105,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = YNK39UG84R;
 				INFOPLIST_FILE = MHWDB/Assets/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

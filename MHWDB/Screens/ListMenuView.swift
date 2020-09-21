@@ -17,6 +17,7 @@ struct ListMenuView: View {
         NavigationView {
             List {
                 if search.searchText.isEmpty {
+                    Group {
                     ItemDetailCell(
                         icon: Icon(name: "17"),
                         titleText: "Monsters",
@@ -67,6 +68,14 @@ struct ListMenuView: View {
                         titleText: "Skills",
                         destination: SkillListView()
                     )
+                    }
+                    Group {
+                    ItemDetailCell(
+                        icon: Icon(name: "mascot"),
+                        titleText: "About",
+                        destination: AboutView()
+                    )
+                    }
                 } else {
                     SearchSectionView(search: search)
                 }

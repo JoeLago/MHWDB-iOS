@@ -25,9 +25,7 @@ struct CollapsableSection<Data, Header, Content>: View where
         if !data.isEmpty {
             Section(
                 header: headerView(isCollapsed)
-                    .contentShape(Rectangle())
                     .onTapGesture { withAnimation { self.isCollapsed.toggle() } }
-                    .modifier(CompatibleTextCaseModifier())
             ) {
                 if !isCollapsed {
                     ForEach(data) {
@@ -39,10 +37,10 @@ struct CollapsableSection<Data, Header, Content>: View where
     }
 }
 
-extension CollapsableSection where Header == CustomeHeader {
+extension CollapsableSection where Header == CollapsableSectionHeader {
     init(title: String, titleColor: UIColor? = nil, isCollapsed: Bool = false, data: Data, dataContent: @escaping (Data.Element) -> Content) {
         self.init(
-            headerView: { isCollapsed in CustomeHeader(title: title, titleColor: titleColor, isCollapsed: isCollapsed) },
+            headerView: { isCollapsed in CollapsableSectionHeader(title: title, titleColor: titleColor, isCollapsed: isCollapsed) },
             isCollapsed: isCollapsed,
             data: data,
             dataContent: dataContent
@@ -64,7 +62,7 @@ struct StaticCollapsableSection<Content>: View where Content: View {
 
     var body: some View {
         Section(
-            header: CustomeHeader(title: title, titleColor: nil, isCollapsed: isCollapsed)
+            header: CollapsableSectionHeader(title: title, titleColor: nil, isCollapsed: isCollapsed)
                 .contentShape(Rectangle())
                 .onTapGesture { withAnimation { self.isCollapsed.toggle() } }
                 .modifier(CompatibleTextCaseModifier())
@@ -72,33 +70,6 @@ struct StaticCollapsableSection<Content>: View where Content: View {
             if !isCollapsed {
                 content
             }
-        }
-    }
-}
-
-struct CustomeHeader: View {
-    let title: String
-    let titleColor: UIColor?
-    var isCollapsed = false
-
-    var body: some View {
-        HStack {
-            titleColor.map { Text(title).foregroundColor(Color($0)) } ?? Text(title)
-            Spacer()
-            Text(isCollapsed ? "+" : "-")
-        }
-        .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
-        .padding()
-    }
-}
-
-struct CompatibleTextCaseModifier: ViewModifier {
-    @ViewBuilder
-    func body(content: Content) -> some View {
-        if #available(iOS 14.0, *) {
-            content.textCase(.none)
-        } else {
-            content
         }
     }
 }

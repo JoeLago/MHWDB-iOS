@@ -18,7 +18,6 @@ class ReviewManager {
         static let repeatReviewMinTimeInterval = 10.days
     }
 
-    @available(iOS 10.3, *)
     static func presentReviewControllerIfElligible() {
         if ReviewManager.isElligibleForReview {
             SKStoreReviewController.requestReview()

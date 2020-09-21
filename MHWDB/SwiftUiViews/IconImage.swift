@@ -23,7 +23,7 @@ struct IconImage: View {
 
     var body: some View {
         Image(icon.name).resizable()
-            .colorMultiply((icon.color.map { Color($0) }) ?? .white)
+            .colorMultiply((icon.color.map { $0 }) ?? .white)
             .frame(width: iconSize, height: iconSize)
     }
 }
@@ -45,25 +45,29 @@ extension IconRepresentable {
 struct Icon: Identifiable {
     var id: String { return name + (color?.description ?? "") }
     let name: String
-    let color: UIColor?
+    let color: Color?
     // maybe an enum class IconType to make different Icon backgrounds like Android?
 
     init(name: String, rarity: Int) {
         self.name = name
-        self.color = IconColor(rarity: rarity).color
+        self.color = Color(IconColor(rarity: rarity).color)
     }
 
     init(name: String?, color: IconColor? = nil) {
         self.name = name ?? "question_mark"
-        self.color = (color ?? .white).color
+        self.color = Color((color ?? .white).color)
     }
 
-    var image: UIImage? {
-        guard var image = UIImage(named: name) else { return nil }
-        if let color = color {
-            image = image.tint(color)
-        }
-        return image
+    private init(name: String, color: Color? = .primary) {
+        self.name = name
+        self.color = color
+    }
+}
+
+typealias StyleSafeIcon = Icon
+extension StyleSafeIcon {
+    init(name: String) {
+        self.init(name: name, color: .primary)
     }
 }
 
