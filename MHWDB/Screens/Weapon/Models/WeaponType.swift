@@ -14,7 +14,7 @@ enum WeaponType: String, Decodable {
     case swordAndShield = "sword-and-shield"
     case dualBlades = "dual-blades"
     case hammer = "hammer"
-    case huntingHorm = "hunting-horn"
+    case huntingHorn = "hunting-horn"
     case lance = "lance"
     case gunlance = "gunlance"
     case switchAxe = "switch-axe"
@@ -26,7 +26,7 @@ enum WeaponType: String, Decodable {
     case unknown = "Unknown"
 
     static var allValues: [WeaponType] {
-        return [.greatSword, .longSword, .swordAndShield, .dualBlades, .hammer, .huntingHorm,
+        return [.greatSword, .longSword, .swordAndShield, .dualBlades, .hammer, .huntingHorn,
                 .lance, .gunlance, .switchAxe, .chargeBlade, .insectGlaive, .lightBowgun, .heavyBowgun,
                 .bow]
     }
@@ -38,7 +38,7 @@ enum WeaponType: String, Decodable {
         case .swordAndShield: return "equipment_sword_and_shield"
         case .dualBlades: return "equipment_dual_blades"
         case .hammer: return "equipment_hammer"
-        case .huntingHorm: return "equipment_hunting_horn"
+        case .huntingHorn: return "equipment_hunting_horn"
         case .lance: return "equipment_lance"
         case .gunlance: return "equipment_gunlance"
         case .switchAxe: return "equipment_switch_axe"
@@ -62,7 +62,7 @@ enum WeaponType: String, Decodable {
         case .swordAndShield: return 3
         case .dualBlades: return 4
         case .hammer: return 5
-        case .huntingHorm: return 6
+        case .huntingHorn: return 6
         case .lance: return 7
         case .gunlance: return 8
         case .switchAxe: return 9
@@ -82,7 +82,7 @@ enum WeaponType: String, Decodable {
         case .swordAndShield: return "Sword and Shield"
         case .dualBlades: return "Dual Blades"
         case .hammer: return "Hammer"
-        case .huntingHorm: return "Hunting Horn"
+        case .huntingHorn: return "Hunting Horn"
         case .lance: return "Lance"
         case .gunlance: return "Gunlance"
         case .switchAxe: return "Switch Axe"

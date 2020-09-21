@@ -27,7 +27,7 @@ struct QuestDetailView: View {
                 quest.objective.map { Text($0) }
                 quest.description.map { ItemCell(titleText: "Description", subtitleText: $0) }
                 ItemDetailCell(
-                    imageName: quest.location.iconName,
+                    icon: Icon(name: quest.location.iconName),
                     titleText: quest.location.name,
                     destination: LocationDetailView(id: quest.location.id)
                 )

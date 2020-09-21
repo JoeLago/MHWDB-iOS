@@ -28,7 +28,7 @@ struct LocationDetailView: View {
 
             CollapsableSection(title: "Monsters", data: location.monsters) {
                 ItemDetailCell(
-                    imageName: $0.icon,
+                    icon: Icon(name: $0.icon),
                     titleText: $0.name,
                     subtitleText: $0.areas,
                     destination: MonsterDetailView(id: $0.id)

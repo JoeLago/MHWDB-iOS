@@ -23,7 +23,7 @@ struct IconImage: View {
 
     var body: some View {
         Image(icon.name).resizable()
-            .colorMultiply((icon.color.map { $0 }) ?? .white)
+            .colorMultiply(icon.color ?? Color(UIColor.white))
             .frame(width: iconSize, height: iconSize)
     }
 }
@@ -49,25 +49,17 @@ struct Icon: Identifiable {
     // maybe an enum class IconType to make different Icon backgrounds like Android?
 
     init(name: String, rarity: Int) {
-        self.name = name
-        self.color = Color(IconColor(rarity: rarity).color)
+        self.init(name: name, swiftColor: Color(IconColor(rarity: rarity).color))
     }
 
     init(name: String?, color: IconColor? = nil) {
-        self.name = name ?? "question_mark"
-        self.color = Color((color ?? .white).color)
+        self.init(name: name ?? "question_mark", swiftColor: color.map { Color($0.color) })
     }
 
-    private init(name: String, color: Color? = .primary) {
+    // Only called directly for specific cases
+    init(name: String, swiftColor: Color? = nil) {
         self.name = name
-        self.color = color
-    }
-}
-
-typealias StyleSafeIcon = Icon
-extension StyleSafeIcon {
-    init(name: String) {
-        self.init(name: name, color: .primary)
+        self.color = swiftColor
     }
 }
 

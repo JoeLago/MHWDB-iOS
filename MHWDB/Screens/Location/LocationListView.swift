@@ -14,7 +14,7 @@ struct LocationListView: View {
     var body: some View {
         List(locations, id: \.id) { location in
             ItemDetailCell(
-                imageName: location.iconName,
+                icon: Icon(name: location.iconName),
                 titleText: location.name,
                 destination: LocationDetailView(id: location.id)
             )
