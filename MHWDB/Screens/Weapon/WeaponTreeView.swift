@@ -27,6 +27,6 @@ struct WeaponTreeView: View {
                 }
             }
         }
-        .navigationBarTitle(weaponType.displayName)
+        .navigationBarTitle(LocalizedStringKey(weaponType.displayName))
     }
 }

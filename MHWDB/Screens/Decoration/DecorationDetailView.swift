@@ -20,7 +20,7 @@ struct DecorationDetailView: View {
     var body: some View {
         List {
             Section {
-                ItemCell(icon: decoration.icon, titleText: "Rarity", detailText: "\(decoration.rarity)")
+                ItemCell(icon: decoration.icon, titleText: Text("Rarity"), detailText: "\(decoration.rarity)")
 
                 ForEach(skillTrees, id: \.tree.id) {
                     ItemDetailCell(
@@ -30,14 +30,14 @@ struct DecorationDetailView: View {
                         destination: SkillDetailView(id: $0.tree.id)
                     )
                 }
+            }
 
-                CollapsableSection(title: "Drop Rates", data: decoration.feystoneRates) {
-                    ItemCell(
-                        icon: Icon(name: "items_feystone", color: $0.color),
-                        titleText: "\($0.title) Feystone",
-                        detailText: "\($0.percentage > 0 ? "\($0.percentage)%" : "-")"
-                    )
-                }
+            CollapsableSection(title: "Drop Rates", data: decoration.feystoneRates) {
+                ItemCell(
+                    icon: Icon(name: "items_feystone", color: $0.color),
+                    titleText: Text("\($0.title) Feystone"),
+                    detailText: "\($0.percentage > 0 ? "\($0.percentage)%" : "-")"
+                )
             }
         }
         .navigationBarTitle(decoration.name)

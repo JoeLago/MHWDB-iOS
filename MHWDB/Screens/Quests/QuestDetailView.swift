@@ -25,7 +25,7 @@ struct QuestDetailView: View {
                         quest.questType?.capitalized
                     ].compactMap({ $0 }).joined(separator: " "))
                 quest.objective.map { Text($0) }
-                quest.description.map { ItemCell(titleText: "Description", subtitleText: $0) }
+                quest.description.map { ItemCell(titleText: Text("Description"), subtitleText: $0) }
                 ItemDetailCell(
                     icon: Icon(name: quest.location.iconName),
                     titleText: quest.location.name,

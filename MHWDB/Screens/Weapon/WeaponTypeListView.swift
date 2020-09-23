@@ -14,7 +14,7 @@ struct WeaponTypeListView: View {
         List(WeaponType.allValues, id: \.self) {
             ItemDetailCell(
                 icon: $0.displayListIcon,
-                titleText: $0.displayName,
+                titleText: Text(LocalizedStringKey($0.displayName)),
                 destination: WeaponTreeView(weaponType: $0)
             )
         }

@@ -29,6 +29,7 @@ struct WeaponDetailView: View {
                                 icon: weapon.element1?.icon,
                                 iconSize: .defaultSmallIconSize,
                                 text: (weapon.element1?.rawValue ?? "")
+                                    // TODO: Need to translate element and "max" which means passing Text() instead
                                     + (weapon.elementHidden ? "  (\(attack))" : "  \(attack)")
                                     + " (\(Weapon.maxDamage(base: attack)) max)",
                                 font: .singleDetail,
@@ -36,6 +37,7 @@ struct WeaponDetailView: View {
                             )
                         }
                     }
+                    // TODO: Need to display like above
                     SingleDetailView(iconName: "element", label: "Element 2", value: weapon.element2Attack)
                     weapon.sockets.map { sockets in
                         SingleDetailView(iconName: "slots_blue", label: "Slots") { SocketsView(sockets: sockets) }
@@ -141,7 +143,7 @@ struct WeaponDetailView: View {
         }
         // Would like if we could set the min row height on the detail section only
         .environment(\.defaultMinListRowHeight, 22)
-        .navigationBarTitle("\(weapon.name)")
+        .navigationBarTitle(weapon.name)
         .modifier(DetailButtonsModifier())
     }
 }

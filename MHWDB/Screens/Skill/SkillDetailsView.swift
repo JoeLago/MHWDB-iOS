@@ -24,7 +24,7 @@ struct SkillDetailView: View {
 
     var body: some View {
         List {
-            skilltree.description.map { ItemCell(titleText: "Description", subtitleText: $0) }
+            skilltree.description.map { ItemCell(titleText: Text("Description"), subtitleText: $0) }
 
             CollapsableSection(title: "Skills", data: skilltree.skills) { skill in
                 HStack(spacing: 16) {
@@ -38,7 +38,7 @@ struct SkillDetailView: View {
                     icon: $0.icon,
                     titleText: $0.name,
                     detailText: "+ \($0.skilltreeLevel)",
-                    destination: CharmDetailView(id: $0.id)
+                    destination: DecorationDetailView(id: $0.id)
                 )
             }
 

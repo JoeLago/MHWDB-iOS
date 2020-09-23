@@ -76,6 +76,7 @@
 		148E03532516D44200839D90 /* DetailButtonsModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148E03522516D44200839D90 /* DetailButtonsModifier.swift */; };
 		148E036325171AE400839D90 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148E036225171AE400839D90 /* AboutView.swift */; };
 		148E036B25186EBA00839D90 /* CollapsableSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148E036A25186EBA00839D90 /* CollapsableSectionHeader.swift */; };
+		148E0381251B359F00839D90 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148E0380251B359F00839D90 /* ItemCell.swift */; };
 		1495C57924E89FE000A56ECA /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1495C57824E89FE000A56ECA /* GridView.swift */; };
 		1495C57D24E8E5D600A56ECA /* MonsterWeaknessString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1495C57C24E8E5D600A56ECA /* MonsterWeaknessString.swift */; };
 		14A24D791EA9D05400755F6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14A249701EA9D05300755F6A /* Assets.xcassets */; };
@@ -203,6 +204,7 @@
 		148E03522516D44200839D90 /* DetailButtonsModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailButtonsModifier.swift; sourceTree = "<group>"; };
 		148E036225171AE400839D90 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		148E036A25186EBA00839D90 /* CollapsableSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsableSectionHeader.swift; sourceTree = "<group>"; };
+		148E0380251B359F00839D90 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		1495C57824E89FE000A56ECA /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
 		1495C57C24E8E5D600A56ECA /* MonsterWeaknessString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterWeaknessString.swift; sourceTree = "<group>"; };
 		14A249701EA9D05300755F6A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 				147408DB24E11455006BC15E /* IconImage.swift */,
 				142443C224CE1DC000301E57 /* ImageLabelView.swift */,
 				142443C424D3FEFA00301E57 /* InternalLink.swift */,
+				148E0380251B359F00839D90 /* ItemCell.swift */,
 				1437A718235D2A7000910125 /* ItemDetailCell.swift */,
 				146B6EAA25063D44008184FD /* SingleDetailView.swift */,
 				14506EDA24D61ED4001BD9FF /* TreeSectionView.swift */,
@@ -885,6 +888,7 @@
 				1475BDE02504E083003534A7 /* SocketsView.swift in Sources */,
 				143587C024D4B8FB00C3C4A5 /* DecorationDetailView.swift in Sources */,
 				14A8414820BA136E00F36963 /* LocationMonsters.swift in Sources */,
+				148E0381251B359F00839D90 /* ItemCell.swift in Sources */,
 				14E2B5131EB1041D002A2A89 /* Logging.swift in Sources */,
 				14E82E8923696B1F008B3B70 /* KeyboardObservingView.swift in Sources */,
 				14506EDB24D61ED4001BD9FF /* TreeSectionView.swift in Sources */,

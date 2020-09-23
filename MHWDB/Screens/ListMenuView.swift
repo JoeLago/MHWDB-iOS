@@ -20,59 +20,59 @@ struct ListMenuView: View {
                     Group {
                     ItemDetailCell(
                         icon: Icon(name: "17"),
-                        titleText: "Monsters",
+                        titleText: Text("Monsters"),
                         destination: MonsterListView()
                     )
                     ItemDetailCell(
                         icon: Icon(name: "quest_assignment"),
-                        titleText: "Quests",
+                        titleText: Text("Quests"),
                         destination: QuestListView()
                     )
                     ItemDetailCell(
                         icon: Icon(name: "equipment_greatsword", color: .cyan),
-                        titleText: "Weapons",
+                        titleText: Text("Weapons"),
                         destination: WeaponTypeListView()
                     )
                     ItemDetailCell(
                         icon: Icon(name: "equipment_armor_set", color: .pink),
-                        titleText: "Armor",
+                        titleText: Text("Armor"),
                         destination: ArmorSetListView()
                     )
                     ItemDetailCell(
                         icon: Icon(name: "items_ore", color: .darkBlue),
-                        titleText: "Items",
+                        titleText: Text("Items"),
                         destination: ItemListView()
                     )
                     ItemDetailCell(
                         icon: Icon(name: "items_liquid", color: .green),
-                        titleText: "Combinations",
+                        titleText: Text("Combinations"),
                         destination: CombinationListView()
                     )
                     ItemDetailCell(
                         icon: Icon(name: "map", color: .white),
-                        titleText: "Locations",
+                        titleText: Text("Locations"),
                         destination: LocationListView()
                     )
                     ItemDetailCell(
                         icon: Icon(name: "equipment_charm", color: .orange),
-                        titleText: "Charms",
+                        titleText: Text("Charms"),
                         destination: CharmListView()
                     )
                     ItemDetailCell(
                         icon: Icon(name: "decoration_3", color: .cyan),
-                        titleText: "Decorations",
+                        titleText: Text("Decorations"),
                         destination: DecorationListView()
                     )
                     ItemDetailCell(
                         icon: Icon(name: "armor_skill", color: .violet),
-                        titleText: "Skills",
+                        titleText: Text("Skills"),
                         destination: SkillListView()
                     )
                     }
                     Group {
                     ItemDetailCell(
                         icon: Icon(name: "mascot"),
-                        titleText: "About",
+                        titleText: Text("About"),
                         destination: AboutView()
                     )
                     }

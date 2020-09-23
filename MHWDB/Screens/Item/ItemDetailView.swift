@@ -18,7 +18,7 @@ struct ItemDetailView: View {
     var body: some View {
         List {
             Section {
-                ItemCell(titleText: "Description", subtitleText: item.description)
+                ItemCell(titleText: Text("Description"), subtitleText: item.description)
                 HStack(spacing: 16) {
                     ValueView(name: "Stack", value: item.stack, icon: Icon(name: "item_box"))
                     Spacer()

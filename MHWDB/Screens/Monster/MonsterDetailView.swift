@@ -17,7 +17,7 @@ struct MonsterDetailView: View {
 
     var body: some View {
         List {
-            monster.description.map { ItemCell(titleText: "Description", subtitleText: $0) }
+            monster.description.map { ItemCell(titleText: Text("Description"), subtitleText: $0) }
 
             CollapsableSection(title: "Habitats", data: monster.habitats) {
                 ItemDetailCell(

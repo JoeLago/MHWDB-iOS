@@ -9,10 +9,9 @@
 import SwiftUI
 
 struct ItemDetailCell<Destination>: View where Destination: View {
-
     @State var iconSize: CGFloat
     @State var icon: Icon?
-    @State var titleText: LocalizedStringKey?
+    @State var titleText: Text?
     @State var subtitleText: String?
     @State var detailText: String?
     var destination: () -> Destination
@@ -28,7 +27,7 @@ struct ItemDetailCell<Destination>: View where Destination: View {
         self.init(
             iconSize: iconSize,
             icon: icon,
-            titleText: titleText.map { LocalizedStringKey($0) },
+            titleText: titleText.map { Text($0) },
             subtitleText: subtitleText,
             detailText: detailText,
             destination: destination
@@ -38,7 +37,7 @@ struct ItemDetailCell<Destination>: View where Destination: View {
     init(
         iconSize: CGFloat = 40,
         icon: Icon? = nil,
-        titleText: LocalizedStringKey? = nil,
+        titleText: Text? = nil,
         subtitleText: String? = nil,
         detailText: String? = nil,
         destination: @autoclosure @escaping () -> Destination
@@ -56,34 +55,12 @@ struct ItemDetailCell<Destination>: View where Destination: View {
             HStack(spacing: 16) {
                 icon.map { IconImage($0, iconSize: iconSize) }
                 VStack(alignment: .leading) {
-                    titleText.map { Text($0).font(.body) }
+                    titleText.map { $0.font(.body) }
                     subtitleText.map { Text($0).font(.caption).foregroundColor(.secondary) }
                 }
                 Spacer()
                 detailText.map { Text($0).font(.body).foregroundColor(.secondary) }
             }
-        }
-    }
-}
-
-// TODO: Need to dedup code in this + above class, is it possible to leave out destination with the generic type?
-struct ItemCell: View {
-
-    @State var iconSize: CGFloat = 40
-    @State var icon: Icon?
-    @State var titleText: String?
-    @State var subtitleText: String?
-    @State var detailText: String?
-
-    var body: some View {
-        HStack {
-            icon.map { IconImage($0, iconSize: iconSize) }
-            VStack(alignment: .leading) {
-                titleText.map { Text($0).font(.body) }
-                subtitleText.map { Text($0).font(.caption).foregroundColor(.secondary) }
-            }
-            Spacer()
-            detailText.map { Text($0).font(.body).foregroundColor(.secondary) }
         }
     }
 }

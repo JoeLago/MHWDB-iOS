@@ -14,10 +14,10 @@ extension Font {
 
 struct SingleDetailView<ValueContent: View>: View {
     var iconName: String
-    var label: String
+    var label: LocalizedStringKey
     let value: ValueContent
 
-    init(iconName: String, label: String, @ViewBuilder content: () -> ValueContent) {
+    init(iconName: String, label: LocalizedStringKey, @ViewBuilder content: () -> ValueContent) {
         self.iconName = iconName
         self.label = label
         self.value = content()
@@ -38,12 +38,12 @@ struct SingleDetailView<ValueContent: View>: View {
 
 extension SingleDetailView where ValueContent == Text {
 
-    init?(iconName: String, label: String, value: Int?, wrap: ((String) -> String) = { $0 }) {
+    init?(iconName: String, label: LocalizedStringKey, value: Int?, wrap: ((String) -> String) = { $0 }) {
         guard let value = value, value != 0 else { return nil }
         self.init(iconName: iconName, label: label, value: wrap("\(value)"))
     }
 
-    init?(iconName: String, label: String, value: String?) {
+    init?(iconName: String, label: LocalizedStringKey, value: String?) {
         guard let value = value else { return nil }
         self.init(iconName: iconName, label: label) { Text(value).font(.singleDetail) }
     }
