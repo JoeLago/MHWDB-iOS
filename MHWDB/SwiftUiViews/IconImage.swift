@@ -22,7 +22,9 @@ struct IconImage: View {
     }
 
     var body: some View {
-        Image(icon.name).resizable()
+        Image(icon.name)
+            .resizable()
+            .renderingMode(.original)
             .colorMultiply(icon.color ?? Color(UIColor.white))
             .frame(width: iconSize, height: iconSize)
     }

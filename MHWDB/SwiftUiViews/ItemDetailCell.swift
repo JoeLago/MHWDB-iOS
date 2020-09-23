@@ -12,14 +12,14 @@ struct ItemDetailCell<Destination>: View where Destination: View {
 
     @State var iconSize: CGFloat
     @State var icon: Icon?
-    @State var titleText: String?
+    @State var titleText: LocalizedStringKey?
     @State var subtitleText: String?
     @State var detailText: String?
     var destination: () -> Destination
 
     init(
         iconSize: CGFloat = 40,
-        imageName: String?,
+        icon: Icon? = nil,
         titleText: String? = nil,
         subtitleText: String? = nil,
         detailText: String? = nil,
@@ -27,8 +27,8 @@ struct ItemDetailCell<Destination>: View where Destination: View {
     ) {
         self.init(
             iconSize: iconSize,
-            icon: Icon(name: imageName),
-            titleText: titleText,
+            icon: icon,
+            titleText: titleText.map { LocalizedStringKey($0) },
             subtitleText: subtitleText,
             detailText: detailText,
             destination: destination
@@ -38,7 +38,7 @@ struct ItemDetailCell<Destination>: View where Destination: View {
     init(
         iconSize: CGFloat = 40,
         icon: Icon? = nil,
-        titleText: String? = nil,
+        titleText: LocalizedStringKey? = nil,
         subtitleText: String? = nil,
         detailText: String? = nil,
         destination: @autoclosure @escaping () -> Destination
@@ -54,7 +54,7 @@ struct ItemDetailCell<Destination>: View where Destination: View {
     var body: some View {
         NavigationLink(destination: NavigationLazyView(destination)) {
             HStack(spacing: 16) {
-                icon.map { IconImage($0) }
+                icon.map { IconImage($0, iconSize: iconSize) }
                 VStack(alignment: .leading) {
                     titleText.map { Text($0).font(.body) }
                     subtitleText.map { Text($0).font(.caption).foregroundColor(.secondary) }
@@ -70,7 +70,6 @@ struct ItemDetailCell<Destination>: View where Destination: View {
 struct ItemCell: View {
 
     @State var iconSize: CGFloat = 40
-    @State var imageName: String?
     @State var icon: Icon?
     @State var titleText: String?
     @State var subtitleText: String?
@@ -78,11 +77,7 @@ struct ItemCell: View {
 
     var body: some View {
         HStack {
-            imageName.map {
-                Image($0).resizable()
-                    .frame(width: iconSize, height: iconSize)
-            }
-            icon.map { IconImage($0) }
+            icon.map { IconImage($0, iconSize: iconSize) }
             VStack(alignment: .leading) {
                 titleText.map { Text($0).font(.body) }
                 subtitleText.map { Text($0).font(.caption).foregroundColor(.secondary) }

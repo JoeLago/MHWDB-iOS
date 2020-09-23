@@ -9,9 +9,15 @@
 import SwiftUI
 
 struct CollapsableSectionHeader: View {
-    let title: String
+    let title: LocalizedStringKey
     let titleColor: UIColor?
     var isCollapsed = false
+
+    init(title: String, titleColor: UIColor?, isCollapsed: Bool = false) {
+        self.title = LocalizedStringKey(title)
+        self.titleColor = titleColor
+        self.isCollapsed = isCollapsed
+    }
 
     var body: some View {
         HStack {

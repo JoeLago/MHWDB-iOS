@@ -28,13 +28,13 @@ struct SharpnessView: View {
 
     var body: some View {
         HStack(spacing: 0) {
-            SharpnessRectangle(value: sharpness.red, color: DepracatedColor.Sharpness.red)
-            SharpnessRectangle(value: sharpness.orange, color: DepracatedColor.Sharpness.orange)
-            SharpnessRectangle(value: sharpness.yellow, color: DepracatedColor.Sharpness.yellow)
-            SharpnessRectangle(value: sharpness.green, color: DepracatedColor.Sharpness.green)
-            SharpnessRectangle(value: sharpness.blue, color: DepracatedColor.Sharpness.blue)
-            SharpnessRectangle(value: sharpness.white, color: DepracatedColor.Sharpness.white)
-            SharpnessRectangle(value: sharpness.purple, color: DepracatedColor.Sharpness.purple)
+            SharpnessRectangle(value: sharpness.red, color: SharpnessColor.red)
+            SharpnessRectangle(value: sharpness.orange, color: SharpnessColor.orange)
+            SharpnessRectangle(value: sharpness.yellow, color: SharpnessColor.yellow)
+            SharpnessRectangle(value: sharpness.green, color: SharpnessColor.green)
+            SharpnessRectangle(value: sharpness.blue, color: SharpnessColor.blue)
+            SharpnessRectangle(value: sharpness.white, color: SharpnessColor.white)
+            SharpnessRectangle(value: sharpness.purple, color: SharpnessColor.purple)
             Spacer(minLength: 0)
         }
         .frame(width: Self.width, height: Self.height)

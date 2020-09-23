@@ -13,7 +13,6 @@ struct AboutView: View {
     var body: some View {
         List {
             ItemCell(
-                iconSize: 100,
                 icon: Icon(name: "mascot"),
                 titleText: Bundle.main.infoDictionary?[kCFBundleNameKey as String] as? String,
                 subtitleText: Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
@@ -22,13 +21,13 @@ struct AboutView: View {
             Section(header: Text("Links").modifier(HeaderPadding())) {
                 ItemCell(
                     // TODO: Should add a way to deal with images that stretch to edges unlike most of them
-                    icon: Icon(name: "github", swiftColor: .primary),
+                    icon: .github,
                     titleText: "Github",
                     subtitleText: "This app is open source. Feel free to check out the code and contribute if you'd like!"
                 ).modifier(LinkModifier(url: "https://github.com/JoeLago/MHWDB-iOS"))
 
                 ItemCell(
-                    icon: Icon(name: "github", swiftColor: .primary),
+                    icon: .github,
                     titleText: "MHWorld Data",
                     detailText: "Core Data Project"
                 ).modifier(LinkModifier(url: "https://github.com/gatheringhallstudios/MHWorldData"))
@@ -147,23 +146,27 @@ struct AboutView: View {
 
             Section(header: Text("Open Source Licenses").modifier(HeaderPadding())) {
                 ItemCell(
-                    icon: Icon(name: "github", swiftColor: .primary),
+                    icon: .github,
                     titleText: "GRDB.swift"
                 ).modifier(LinkModifier(url: "https://github.com/groue/GRDB.swift"))
 
                 ItemCell(
-                    icon: Icon(name: "github", swiftColor: .primary),
+                    icon: .github,
                     titleText: "SwiftyUserDefaults"
                 ).modifier(LinkModifier(url: "https://github.com/sunshinejr/SwiftyUserDefaults"))
 
                 ItemCell(
-                    icon: Icon(name: "github", swiftColor: .primary),
+                    icon: .github,
                     titleText: "SwiftlySearch"
                 ).modifier(LinkModifier(url: "https://github.com/thislooksfun/SwiftlySearch"))
             }
         }
         .navigationBarTitle("About")
     }
+}
+
+extension Icon {
+    static let github = Icon(name: "github", swiftColor: .primary)
 }
 
 struct LinkModifier: ViewModifier {

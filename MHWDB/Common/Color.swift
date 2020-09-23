@@ -15,34 +15,14 @@ extension Color {
     static let positive = Color(IconColor.green.color)
 }
 
-struct DepracatedColor {
-    struct Text {
-        static let primary = UIColor(hex: 0x292E37)
-        static let secondary = UIColor(hex: 0x555555)
-        static let subHeader = UIColor(hex: 0x5C8D92)
-    }
-
-    struct Background {
-        static let light = UIColor(hex: 0xF7F9FE)
-        static let dark = UIColor(hex: 0x292E37)
-        static let branch = UIColor(hex: 0xA9A9A9)
-        static let header = UIColor(hex: 0xF7F7F7)
-        static let seperator = UIColor(hex: 0xE9E9E9)
-    }
-
-    struct Sharpness {
-        static let red = UIColor.red
-        static let orange = UIColor.orange
-        static let yellow = UIColor.yellow
-        static let green = UIColor.green
-        static let blue = UIColor.blue
-        static let white = UIColor.white
-        static let purple = UIColor.purple
-    }
-
-    static func setDefaults() {
-        //UIView.appearance().backgroundColor = lightBackground
-    }
+struct SharpnessColor {
+    static let red = UIColor.red
+    static let orange = UIColor.orange
+    static let yellow = UIColor.yellow
+    static let green = UIColor.green
+    static let blue = UIColor.blue
+    static let white = UIColor.white
+    static let purple = UIColor.purple
 }
 
 enum IconColor: String, Decodable {
