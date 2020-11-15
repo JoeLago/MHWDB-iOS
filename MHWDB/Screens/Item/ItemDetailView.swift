@@ -37,7 +37,7 @@ struct ItemDetailView: View {
                     titleText: [$0.rank, $0.name].compactMap({ $0 }).joined(separator: " "),
                     subtitleText: $0.area.map { "Area \($0)" },
                     detailText: "\($0.stack ?? 0 > 1 ? "x\($0.stack ?? 0) ": "")\($0.percentage ?? 0)%",
-                    destination: LocationDetailView(id: $0.id)
+                    destination: LocationDetailView(id: $0.locationId)
                 )
             }
 

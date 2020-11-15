@@ -61,7 +61,7 @@
 		1475BDE02504E083003534A7 /* SocketsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1475BDDF2504E083003534A7 /* SocketsView.swift */; };
 		1475BDE22504E16D003534A7 /* SocketLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1475BDE12504E16D003534A7 /* SocketLevel.swift */; };
 		1478DFB12511AB1E004318E7 /* SearchSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1478DFB02511AB1E004318E7 /* SearchSection.swift */; };
-		147D663024EA02CD0079FA8E /* MonsterAilments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147D662F24EA02CD0079FA8E /* MonsterAilments.swift */; };
+		147D663024EA02CD0079FA8E /* Monster+Ailments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147D662F24EA02CD0079FA8E /* Monster+Ailments.swift */; };
 		147E1E46251087EC00CEC9AF /* MonsterBreak.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147E1E45251087EC00CEC9AF /* MonsterBreak.swift */; };
 		1480482424D4D355001E407E /* ArmorSetListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480482324D4D355001E407E /* ArmorSetListView.swift */; };
 		1480482624D4FCF8001E407E /* ArmorSetDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1480482524D4FCF8001E407E /* ArmorSetDetailView.swift */; };
@@ -77,8 +77,10 @@
 		148E036325171AE400839D90 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148E036225171AE400839D90 /* AboutView.swift */; };
 		148E036B25186EBA00839D90 /* CollapsableSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148E036A25186EBA00839D90 /* CollapsableSectionHeader.swift */; };
 		148E0381251B359F00839D90 /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148E0380251B359F00839D90 /* ItemCell.swift */; };
+		148E0387251FEB1D00839D90 /* MonsterWeaknessesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148E0386251FEB1D00839D90 /* MonsterWeaknessesView.swift */; };
+		148E0390251FEE5900839D90 /* SettingsMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148E038F251FEE5900839D90 /* SettingsMenuView.swift */; };
+		148E0396251FEE6F00839D90 /* Language.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148E0395251FEE6F00839D90 /* Language.swift */; };
 		1495C57924E89FE000A56ECA /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1495C57824E89FE000A56ECA /* GridView.swift */; };
-		1495C57D24E8E5D600A56ECA /* MonsterWeaknessString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1495C57C24E8E5D600A56ECA /* MonsterWeaknessString.swift */; };
 		14A24D791EA9D05400755F6A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14A249701EA9D05300755F6A /* Assets.xcassets */; };
 		14A24D7A1EA9D05400755F6A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 14A249711EA9D05300755F6A /* LaunchScreen.storyboard */; };
 		14A250FD1EA9D05400755F6A /* Int+NullString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14A24D111EA9D05400755F6A /* Int+NullString.swift */; };
@@ -190,7 +192,7 @@
 		1475BDDF2504E083003534A7 /* SocketsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketsView.swift; sourceTree = "<group>"; };
 		1475BDE12504E16D003534A7 /* SocketLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketLevel.swift; sourceTree = "<group>"; };
 		1478DFB02511AB1E004318E7 /* SearchSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchSection.swift; sourceTree = "<group>"; };
-		147D662F24EA02CD0079FA8E /* MonsterAilments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterAilments.swift; sourceTree = "<group>"; };
+		147D662F24EA02CD0079FA8E /* Monster+Ailments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Monster+Ailments.swift"; sourceTree = "<group>"; };
 		147E1E45251087EC00CEC9AF /* MonsterBreak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterBreak.swift; sourceTree = "<group>"; };
 		1480482324D4D355001E407E /* ArmorSetListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArmorSetListView.swift; sourceTree = "<group>"; };
 		1480482524D4FCF8001E407E /* ArmorSetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArmorSetDetailView.swift; sourceTree = "<group>"; };
@@ -205,8 +207,10 @@
 		148E036225171AE400839D90 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		148E036A25186EBA00839D90 /* CollapsableSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollapsableSectionHeader.swift; sourceTree = "<group>"; };
 		148E0380251B359F00839D90 /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		148E0386251FEB1D00839D90 /* MonsterWeaknessesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterWeaknessesView.swift; sourceTree = "<group>"; };
+		148E038F251FEE5900839D90 /* SettingsMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsMenuView.swift; sourceTree = "<group>"; };
+		148E0395251FEE6F00839D90 /* Language.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Language.swift; sourceTree = "<group>"; };
 		1495C57824E89FE000A56ECA /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
-		1495C57C24E8E5D600A56ECA /* MonsterWeaknessString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterWeaknessString.swift; sourceTree = "<group>"; };
 		14A249701EA9D05300755F6A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14A249721EA9D05300755F6A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		14A24D0C1EA9D05400755F6A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -345,8 +349,7 @@
 				144306DB209F72C800D60A5A /* MonsterHitzone.swift */,
 				144306D9209F5BD300D60A5A /* MonsterHabitat.swift */,
 				144306DD209FA95C00D60A5A /* MonsterRewards.swift */,
-				1495C57C24E8E5D600A56ECA /* MonsterWeaknessString.swift */,
-				147D662F24EA02CD0079FA8E /* MonsterAilments.swift */,
+				147D662F24EA02CD0079FA8E /* Monster+Ailments.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -513,6 +516,23 @@
 			path = Weapon;
 			sourceTree = "<group>";
 		};
+		148E038E251FEE2800839D90 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				148E038F251FEE5900839D90 /* SettingsMenuView.swift */,
+				148E0399251FEE7B00839D90 /* Model */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		148E0399251FEE7B00839D90 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				148E0395251FEE6F00839D90 /* Language.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		14A2496D1EA9D05300755F6A /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -659,6 +679,7 @@
 				14F9696C24CCFF6500BF0BDC /* Monster */,
 				14C885A124D6828200CF9465 /* Palico */,
 				1478DFAF2511A991004318E7 /* Search */,
+				148E038E251FEE2800839D90 /* Settings */,
 				14F9697C24CD0EA200BF0BDC /* Skill */,
 				1480482A24D54D56001E407E /* Weapon */,
 				1480482924D5083E001E407E /* Quests */,
@@ -674,6 +695,7 @@
 				14012DE224E912BB00AE1909 /* MonsterHitzoneView.swift */,
 				1437A71223597C0B00910125 /* MonsterListView.swift */,
 				142443BB24CD6D2800301E57 /* MonsterRewardView.swift */,
+				148E0386251FEB1D00839D90 /* MonsterWeaknessesView.swift */,
 				144306D8209F5A5400D60A5A /* Models */,
 			);
 			path = Monster;
@@ -838,6 +860,7 @@
 				14E82E8A23696B1F008B3B70 /* KeyboardObserving.swift in Sources */,
 				1480482824D4FD06001E407E /* ArmorDetailView.swift in Sources */,
 				142443C324CE1DC000301E57 /* ImageLabelView.swift in Sources */,
+				148E0390251FEE5900839D90 /* SettingsMenuView.swift in Sources */,
 				1450DA6B20A96405000085C5 /* ArmorSkill.swift in Sources */,
 				14A8414E20BCDEAB00F36963 /* Charm.swift in Sources */,
 				1437A720235D9F7500910125 /* MonsterDetailView.swift in Sources */,
@@ -875,14 +898,13 @@
 				1450DA6520A95927000085C5 /* ItemMonster.swift in Sources */,
 				1475BDE22504E16D003534A7 /* SocketLevel.swift in Sources */,
 				14AD5F9124F0B4B80042421F /* LocationCamp.swift in Sources */,
-				147D663024EA02CD0079FA8E /* MonsterAilments.swift in Sources */,
+				147D663024EA02CD0079FA8E /* Monster+Ailments.swift in Sources */,
 				1480482624D4FCF8001E407E /* ArmorSetDetailView.swift in Sources */,
 				1450DA6120A95900000085C5 /* ItemQuest.swift in Sources */,
 				14A251221EA9D05400755F6A /* Location.swift in Sources */,
 				14012DE324E912BB00AE1909 /* MonsterHitzoneView.swift in Sources */,
 				14C885A324D6838B00CF9465 /* AppDelegate.swift in Sources */,
 				14A8414A20BA137700F36963 /* LocationItems.swift in Sources */,
-				1495C57D24E8E5D600A56ECA /* MonsterWeaknessString.swift in Sources */,
 				14AD5F8D24EFAA490042421F /* SkilltreeArmor.swift in Sources */,
 				148E03532516D44200839D90 /* DetailButtonsModifier.swift in Sources */,
 				1475BDE02504E083003534A7 /* SocketsView.swift in Sources */,
@@ -908,6 +930,7 @@
 				1409C2A124FE1D7400ACD110 /* WeaponCellView.swift in Sources */,
 				142443D224D4B1E200301E57 /* DecorationListView.swift in Sources */,
 				14E82E8C23696B1F008B3B70 /* HiddenWhenKeyboardVisibleView.swift in Sources */,
+				148E0387251FEB1D00839D90 /* MonsterWeaknessesView.swift in Sources */,
 				1495C57924E89FE000A56ECA /* GridView.swift in Sources */,
 				14AD5F8F24EFB3440042421F /* SkilltreeDecoration.swift in Sources */,
 				144306D7209EEFFF00D60A5A /* Query.swift in Sources */,
@@ -929,6 +952,7 @@
 				14A2510F1EA9D05400755F6A /* Color.swift in Sources */,
 				14A251171EA9D05400755F6A /* Tree.swift in Sources */,
 				142443CA24D4A99700301E57 /* CharmListView.swift in Sources */,
+				148E0396251FEE6F00839D90 /* Language.swift in Sources */,
 				14E82E8B23696B1F008B3B70 /* View+KeyboardObserving.swift in Sources */,
 				142443C824D4032400301E57 /* ItemDetailView.swift in Sources */,
 				142443D024D4B05500301E57 /* ItemListView.swift in Sources */,

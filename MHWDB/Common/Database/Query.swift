@@ -11,6 +11,8 @@ import Foundation
 // Not very intuitive, could use some thought
 
 class Query {
+    static var languageId = "en"
+
     struct Join {
         let originTable: String
         let originAttribute: String
@@ -136,8 +138,6 @@ class Query {
         let query = parts.joined(separator: " ")
         return query
     }
-
-    static var languageId = "en"
 
     init(table: String, language: Filter? = nil) {
         self.table = table

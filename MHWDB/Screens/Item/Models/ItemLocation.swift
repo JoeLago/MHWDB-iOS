@@ -10,6 +10,7 @@ import GRDB
 
 class ItemLocation: FetchableRecord, Decodable, Identifiable {
     var id: Int
+    var locationId: Int
     var name: String?
     var icon: String?
     var rank: String?
