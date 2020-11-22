@@ -80,7 +80,10 @@ struct ListMenuView: View {
                     SearchSectionView(search: search)
                 }
             }
-            .navigationBarSearch(.init(get: { search.searchText }, set: { search.searchText = $0 }))
+            .navigationBarSearch(
+                .init(get: { search.searchText }, set: { search.searchText = $0 }),
+                cancelClicked: { search.searchText = "" }
+            )
             .keyboardObserving()
             .navigationBarTitle("MHWDB")
         }
