@@ -27,8 +27,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func popToRoot() {
-        window?.rootViewController = UIHostingController(rootView: ListMenuView())
+        guard let rootViewController = self.window?.rootViewController,
+              let navigationController = self.findNavigationController(withinController: rootViewController)
+            else { return }
+        navigationController.popToRootViewController(animated: true)
     }
+
+    // There's no great solution to popping to root so we use a hack
+    // https://www.cocoacheerleaders.com/missing_popToRootViewController
+    private func findNavigationController(withinController controller: UIViewController) -> UINavigationController? {
+       for child in controller.children {
+           if child is UINavigationController {
+               return child as? UINavigationController
+           } else {
+               return findNavigationController(withinController: child)
+           }
+       }
+       return nil
+   }
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
