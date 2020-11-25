@@ -14,6 +14,12 @@ struct SearchSectionView: View {
     var body: some View {
         search.results.map { results in
         Group {
+            if search.isLoading {
+                HStack {
+                    ActivityIndicator(isAnimating: true)
+                    Text("Searching...")
+                }
+            }
             CollapsableSection(title: "Monsters", data: results.monsters) {
                 ItemDetailCell(icon: $0.icon, titleText: $0.name, destination: MonsterDetailView(id: $0.id))
             }
@@ -42,45 +48,19 @@ struct SearchSectionView: View {
                 ItemDetailCell(icon: $0.icon, titleText: $0.name, destination: SkillDetailView(id: $0.id))
             }
         }
-        .id(UUID())
         }
     }
 }
 
-final class AllSearchObservable: ObservableObject {
-    @Published var results: SearchResponse?
-    var searchRequest: SearchRequest?
+// Delete for iOS 14
+struct ActivityIndicator: UIViewRepresentable {
+    typealias UIView = UIActivityIndicatorView
+    var isAnimating: Bool
+    fileprivate var configuration = { (indicator: UIView) in }
 
-    var itemsOnly: Bool
-    var searchText: String = "" { didSet { update(searchText: searchText) } }
-    var currentSearch: String = ""
-
-    init(itemsOnly: Bool = false) {
-        self.itemsOnly = itemsOnly
-    }
-
-    func update(searchText: String) {
-        guard searchText != currentSearch else { return }
-        guard !searchText.isEmpty else {
-            self.currentSearch = searchText
-            results = nil
-            return
-        }
-        guard searchText != currentSearch else { return }
-
-        currentSearch = searchText
-        searchRequest?.cancel()
-        withAnimation(.none) {
-            results = SearchResponse()
-        }
-
-        searchRequest = SearchRequest(searchText, itemsOnly: itemsOnly)
-        .then { results in
-            self.searchRequest = nil
-            withAnimation(.none) {
-                self.results = results
-            }
-            // TODO: if results are empty we should let user know
-        }
+    func makeUIView(context: UIViewRepresentableContext<Self>) -> UIView { UIView() }
+    func updateUIView(_ uiView: UIView, context: UIViewRepresentableContext<Self>) {
+        isAnimating ? uiView.startAnimating() : uiView.stopAnimating()
+        configuration(uiView)
     }
 }

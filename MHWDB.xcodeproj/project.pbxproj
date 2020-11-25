@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		14012DE324E912BB00AE1909 /* MonsterHitzoneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14012DE224E912BB00AE1909 /* MonsterHitzoneView.swift */; };
 		1405268B207EF640001A5E96 /* mhw.db in Resources */ = {isa = PBXBuildFile; fileRef = 1405268A207EF640001A5E96 /* mhw.db */; };
+		14087AB4256E757C00DFFC7B /* SwiftlySearch in Frameworks */ = {isa = PBXBuildFile; productRef = 14087AB3256E757C00DFFC7B /* SwiftlySearch */; };
 		1409C2A124FE1D7400ACD110 /* WeaponCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1409C2A024FE1D7400ACD110 /* WeaponCellView.swift */; };
 		140A133C1EDB57B9002FD025 /* SearchRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140A133B1EDB57B9002FD025 /* SearchRequest.swift */; };
 		142443BA24CD6C9B00301E57 /* SkillDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 142443B924CD6C9B00301E57 /* SkillDetailsView.swift */; };
@@ -72,7 +73,6 @@
 		148812F920A2C31E006B91EF /* WeaponType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148812F820A2C31E006B91EF /* WeaponType.swift */; };
 		148812FB20A2C378006B91EF /* WeaponAmmo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148812FA20A2C378006B91EF /* WeaponAmmo.swift */; };
 		148812FD20A2C3AE006B91EF /* Notes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148812FC20A2C3AE006B91EF /* Notes.swift */; };
-		148E02FF2515F39700839D90 /* SwiftlySearch in Frameworks */ = {isa = PBXBuildFile; productRef = 148E02FE2515F39700839D90 /* SwiftlySearch */; };
 		148E03532516D44200839D90 /* DetailButtonsModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148E03522516D44200839D90 /* DetailButtonsModifier.swift */; };
 		148E036325171AE400839D90 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148E036225171AE400839D90 /* AboutView.swift */; };
 		148E036B25186EBA00839D90 /* CollapsableSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148E036A25186EBA00839D90 /* CollapsableSectionHeader.swift */; };
@@ -263,7 +263,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				148E02FF2515F39700839D90 /* SwiftlySearch in Frameworks */,
+				14087AB4256E757C00DFFC7B /* SwiftlySearch in Frameworks */,
 				146B6EB725104D4D008184FD /* SwiftyUserDefaults in Frameworks */,
 				146B6EBE25105759008184FD /* GRDB in Frameworks */,
 			);
@@ -741,7 +741,7 @@
 			packageProductDependencies = (
 				146B6EB625104D4D008184FD /* SwiftyUserDefaults */,
 				146B6EBD25105759008184FD /* GRDB */,
-				148E02FE2515F39700839D90 /* SwiftlySearch */,
+				14087AB3256E757C00DFFC7B /* SwiftlySearch */,
 			);
 			productName = MHGDB;
 			productReference = 145495641EA9CEC5004FA5FA /* MHWDB.app */;
@@ -801,7 +801,7 @@
 			packageReferences = (
 				146B6EB525104D4D008184FD /* XCRemoteSwiftPackageReference "SwiftyUserDefaults" */,
 				146B6EBC25105759008184FD /* XCRemoteSwiftPackageReference "GRDB.swift" */,
-				148E02FD2515F39700839D90 /* XCRemoteSwiftPackageReference "SwiftlySearch" */,
+				14087AB2256E757C00DFFC7B /* XCRemoteSwiftPackageReference "SwiftlySearch" */,
 			);
 			productRefGroup = 145495651EA9CEC5004FA5FA /* Products */;
 			projectDirPath = "";
@@ -1219,6 +1219,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		14087AB2256E757C00DFFC7B /* XCRemoteSwiftPackageReference "SwiftlySearch" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/JoeLago/SwiftlySearch";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.3;
+			};
+		};
 		146B6EB525104D4D008184FD /* XCRemoteSwiftPackageReference "SwiftyUserDefaults" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sunshinejr/SwiftyUserDefaults";
@@ -1235,17 +1243,14 @@
 				kind = branch;
 			};
 		};
-		148E02FD2515F39700839D90 /* XCRemoteSwiftPackageReference "SwiftlySearch" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/thislooksfun/SwiftlySearch";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.2.1;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		14087AB3256E757C00DFFC7B /* SwiftlySearch */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 14087AB2256E757C00DFFC7B /* XCRemoteSwiftPackageReference "SwiftlySearch" */;
+			productName = SwiftlySearch;
+		};
 		146B6EB625104D4D008184FD /* SwiftyUserDefaults */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 146B6EB525104D4D008184FD /* XCRemoteSwiftPackageReference "SwiftyUserDefaults" */;
@@ -1255,11 +1260,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 146B6EBC25105759008184FD /* XCRemoteSwiftPackageReference "GRDB.swift" */;
 			productName = GRDB;
-		};
-		148E02FE2515F39700839D90 /* SwiftlySearch */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 148E02FD2515F39700839D90 /* XCRemoteSwiftPackageReference "SwiftlySearch" */;
-			productName = SwiftlySearch;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

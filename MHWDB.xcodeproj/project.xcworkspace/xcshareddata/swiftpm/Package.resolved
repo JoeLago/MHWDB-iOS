@@ -12,11 +12,11 @@
       },
       {
         "package": "SwiftlySearch",
-        "repositoryURL": "https://github.com/thislooksfun/SwiftlySearch",
+        "repositoryURL": "https://github.com/JoeLago/SwiftlySearch",
         "state": {
           "branch": null,
-          "revision": "a9a9101e1d04ba965eb38188b5d0809a4c745fcd",
-          "version": "1.2.1"
+          "revision": "241ec1ae9e72db5f9d735f8f8afef7aee447e207",
+          "version": "1.2.4"
         }
       },
       {

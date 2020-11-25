@@ -6,9 +6,11 @@
 //  Copyright © 2017 Gathering Hall Studios. All rights reserved.
 //
 
+import Combine
 import Foundation
 
 struct SearchResponse {
+    var searchText: String
     var monsters: [Monster] = []
     var items: [Item] = []
     var weapons: [Weapon] = []
@@ -18,22 +20,51 @@ struct SearchResponse {
     var skills: [Skilltree] = []
 }
 
+extension SearchResponse: Equatable {
+    static func == (lhs: SearchResponse, rhs: SearchResponse) -> Bool {
+        return lhs.searchText == rhs.searchText
+    }
+}
+
+final class AllSearchObservable: ObservableObject {
+    @Published var searchText = ""
+    private var cancellable: Cancellable?
+
+    @Published var isLoading = false // Haven't figured out a great way to set this correctly yet
+    @Published var results: SearchResponse?
+    var searchRequest: SearchRequest?
+    var itemsOnly: Bool
+
+    private var searchPublisher: AnyPublisher<SearchResponse?, Never> {
+      $searchText
+        .filter { !$0.isEmpty }
+        .debounce(for: .seconds(0.8), scheduler: RunLoop.main)
+        .removeDuplicates()
+        .receive(on: DispatchQueue.global(qos: .background))
+        .map { SearchRequest($0, itemsOnly: self.itemsOnly).search() }
+        .eraseToAnyPublisher()
+    }
+
+    init(itemsOnly: Bool = false) {
+        self.itemsOnly = itemsOnly
+        self.cancellable = searchPublisher
+            .receive(on: RunLoop.main)
+            .assign(to: \.results, on: self)
+    }
+
+    func cancel() {
+        searchText = ""
+        results = nil
+    }
+}
+
 class SearchRequest {
     let searchText: String
     var itemsOnly: Bool
-    var isCanceled = false
-    var cancelBlock: (() -> Void)?
 
     init(_ text: String, itemsOnly: Bool = false) {
         self.searchText = text
         self.itemsOnly = itemsOnly
-    }
-
-    func cancel() {
-        isCanceled = true
-        DispatchQueue.main.async {
-            self.cancelBlock?()
-        }
     }
 
     // TODO: Have a better way to pick sets of data to search
@@ -42,26 +73,20 @@ class SearchRequest {
 
         if itemsOnly {
             let items = Database.shared.items(searchText)
-            if self.isCanceled { return nil }
-            return SearchResponse(items: items)
+            return SearchResponse(searchText: searchText, items: items)
         }
 
+        // Each of these should be a publisher that we combine, should probably make promises out of all db calls in app
         let monsters = Database.shared.monsters(searchText)
-        if self.isCanceled { return nil }
         let items = Database.shared.items(searchText)
-        if self.isCanceled { return nil }
         let weapons = Database.shared.weapons(searchText)
-        if self.isCanceled { return nil }
         let armor = Database.shared.armor(searchText)
-        if self.isCanceled { return nil }
         let quests = Database.shared.quests(searchText)
-        if self.isCanceled { return nil }
         let locations = Database.shared.locations(searchText)
-        if self.isCanceled { return nil }
         let skills = Database.shared.skilltrees(searchText)
-        if self.isCanceled { return nil }
 
         return SearchResponse(
+            searchText: searchText,
             monsters: monsters,
             items: items,
             weapons: weapons,
@@ -70,26 +95,5 @@ class SearchRequest {
             locations: locations,
             skills: skills
         )
-    }
-
-    @discardableResult
-    func then(_ completed: @escaping (SearchResponse) -> Void) -> SearchRequest {
-        DispatchQueue.global(qos: .background).async {
-            guard let response = self.search() else {
-                return
-            }
-
-            DispatchQueue.main.async {
-                completed(response)
-            }
-        }
-
-        return self
-    }
-
-    @discardableResult
-    func canceled(_ cancelBlock: @escaping () -> Void) -> SearchRequest {
-        self.cancelBlock = cancelBlock
-        return self
     }
 }

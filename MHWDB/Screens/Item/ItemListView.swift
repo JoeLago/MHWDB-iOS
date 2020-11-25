@@ -20,8 +20,10 @@ struct ItemListView: View {
                 destination: ItemDetailView(id: $0.id)
             )
         }
-        .id(UUID())
-        .navigationBarSearch(.init(get: { search.searchText }, set: { search.searchText = $0 }))
+        .navigationBarSearch(
+            $search.searchText,
+            cancelClicked: { search.cancel() }
+        )
         .navigationBarTitle("Items")
         .keyboardObserving()
     }
