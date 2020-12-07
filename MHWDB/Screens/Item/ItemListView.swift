@@ -22,6 +22,7 @@ struct ItemListView: View {
         }
         .navigationBarSearch(
             $search.searchText,
+            placeholder: "Search",
             cancelClicked: { search.cancel() }
         )
         .navigationBarTitle("Items")

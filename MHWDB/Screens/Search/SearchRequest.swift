@@ -35,26 +35,23 @@ final class AllSearchObservable: ObservableObject {
     var searchRequest: SearchRequest?
     var itemsOnly: Bool
 
-    private var searchPublisher: AnyPublisher<SearchResponse?, Never> {
-      $searchText
-        .filter { !$0.isEmpty }
-        .debounce(for: .seconds(0.8), scheduler: RunLoop.main)
-        .removeDuplicates()
-        .receive(on: DispatchQueue.global(qos: .background))
-        .map { SearchRequest($0, itemsOnly: self.itemsOnly).search() }
-        .eraseToAnyPublisher()
-    }
-
     init(itemsOnly: Bool = false) {
         self.itemsOnly = itemsOnly
-        self.cancellable = searchPublisher
+        self.cancellable = $searchText
+            .filter { [weak self] in
+                if $0.isEmpty { self?.results = nil }
+                return !$0.isEmpty
+            }
+            .removeDuplicates()
+            .debounce(for: .seconds(0.8), scheduler: DispatchQueue.global(qos: .background))
+            .map { SearchRequest($0, itemsOnly: self.itemsOnly).search() }
+            .filter { $0?.searchText == self.searchText }
             .receive(on: RunLoop.main)
             .assign(to: \.results, on: self)
     }
 
     func cancel() {
         searchText = ""
-        results = nil
     }
 }
 
