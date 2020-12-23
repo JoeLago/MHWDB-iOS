@@ -93,6 +93,7 @@ class Query {
     }
 
     var table: String
+    var baseColumns: String = "*"
     var columns = [Column]()
     var joins = [Join]()
     var orders = [Order]()
@@ -102,16 +103,16 @@ class Query {
 
     var query: String {
 
-        var columnQuery = "*"
+        var columnQuery = baseColumns
         if groupings.count > 0 {
-            columnQuery = "*, " + groupings.map { grouping in
+            columnQuery += ", " + groupings.map { grouping in
                 grouping.function.map({ "\($0.rawValue.uppercased())(\(grouping.column))" })
                 ?? "\(grouping.column)"
                     + " AS \(grouping.asColumn)"
             }.joined(separator: ", ")
         } else {
             if columns.count > 0 {
-                columnQuery = "*, " + columns.map({ $0.query }).joined(separator: ", ")
+                columnQuery += ", " + columns.map({ $0.query }).joined(separator: ", ")
             }
         }
 
@@ -153,6 +154,12 @@ class Query {
         if addLanguageFilter == true {
             filter("lang_id", equals: Query.languageId)
         }
+    }
+
+    @discardableResult
+    func columns(_ columns: [String]) -> Query {
+        baseColumns = columns.joined(separator: ", ")
+        return self
     }
 
     @discardableResult

@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ItemListView: View {
     @ObservedObject var search = AllSearchObservable(itemsOnly: true)
-    private var allItems = Database.shared.items()
+    private var allItems = Database.shared.items(search: "")
 
     var body: some View {
         List(search.results?.items ?? allItems) {

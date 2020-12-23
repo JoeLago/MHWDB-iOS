@@ -49,6 +49,10 @@
 		14580B6A23BDD2B50018B89B /* CollapsableSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14580B6923BDD2B50018B89B /* CollapsableSection.swift */; };
 		145FEA771F78A6C100BF9237 /* ReviewManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145FEA761F78A6C100BF9237 /* ReviewManager.swift */; };
 		145FEA7A1F78A85200BF9237 /* ReviewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145FEA781F78A82400BF9237 /* ReviewTests.swift */; };
+		14605D1F257E202F00656DC1 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14605D1E257E202F00656DC1 /* SearchResult.swift */; };
+		14605D2B258500DC00656DC1 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14605D2A258500DC00656DC1 /* SearchBar.swift */; };
+		14605D2F2585017000656DC1 /* MenuSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14605D2E2585017000656DC1 /* MenuSection.swift */; };
+		14605D35258502B700656DC1 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14605D34258502B700656DC1 /* ActivityIndicator.swift */; };
 		146B6EAB25063D44008184FD /* SingleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146B6EAA25063D44008184FD /* SingleDetailView.swift */; };
 		146B6EAD25074F25008184FD /* Melody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146B6EAC25074F25008184FD /* Melody.swift */; };
 		146B6EAF25077BCF008184FD /* MelodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146B6EAE25077BCF008184FD /* MelodyView.swift */; };
@@ -181,6 +185,10 @@
 		14580B6923BDD2B50018B89B /* CollapsableSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollapsableSection.swift; sourceTree = "<group>"; };
 		145FEA761F78A6C100BF9237 /* ReviewManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewManager.swift; sourceTree = "<group>"; };
 		145FEA781F78A82400BF9237 /* ReviewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTests.swift; sourceTree = "<group>"; };
+		14605D1E257E202F00656DC1 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		14605D2A258500DC00656DC1 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		14605D2E2585017000656DC1 /* MenuSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSection.swift; sourceTree = "<group>"; };
+		14605D34258502B700656DC1 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		146B6EAA25063D44008184FD /* SingleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleDetailView.swift; sourceTree = "<group>"; };
 		146B6EAC25074F25008184FD /* Melody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Melody.swift; sourceTree = "<group>"; };
 		146B6EAE25077BCF008184FD /* MelodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MelodyView.swift; sourceTree = "<group>"; };
@@ -321,6 +329,7 @@
 		1437A71A235D7A7800910125 /* SwiftUiViews */ = {
 			isa = PBXGroup;
 			children = (
+				14605D34258502B700656DC1 /* ActivityIndicator.swift */,
 				144E526D23D67D6A00E919C5 /* AttributedText.swift */,
 				1437A71B235D7AC500910125 /* BottomToolbar.swift */,
 				14580B6923BDD2B50018B89B /* CollapsableSection.swift */,
@@ -332,6 +341,7 @@
 				142443C424D3FEFA00301E57 /* InternalLink.swift */,
 				148E0380251B359F00839D90 /* ItemCell.swift */,
 				1437A718235D2A7000910125 /* ItemDetailCell.swift */,
+				14605D2A258500DC00656DC1 /* SearchBar.swift */,
 				146B6EAA25063D44008184FD /* SingleDetailView.swift */,
 				14506EDA24D61ED4001BD9FF /* TreeSectionView.swift */,
 				14506ED824D60157001BD9FF /* ValueView.swift */,
@@ -474,6 +484,7 @@
 		1478DFAF2511A991004318E7 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				14605D1E257E202F00656DC1 /* SearchResult.swift */,
 				140A133B1EDB57B9002FD025 /* SearchRequest.swift */,
 				1478DFB02511AB1E004318E7 /* SearchSection.swift */,
 			);
@@ -670,6 +681,7 @@
 			children = (
 				148E036225171AE400839D90 /* AboutView.swift */,
 				1437A716235996F200910125 /* ListMenuView.swift */,
+				14605D2E2585017000656DC1 /* MenuSection.swift */,
 				1480482224D4D302001E407E /* Armor */,
 				142443CB24D4A9D600301E57 /* Charm */,
 				142443BD24CE1B3800301E57 /* Combination */,
@@ -875,6 +887,7 @@
 				147408E424E15208006BC15E /* View+Hidden.swift in Sources */,
 				146B6EAB25063D44008184FD /* SingleDetailView.swift in Sources */,
 				14580B6A23BDD2B50018B89B /* CollapsableSection.swift in Sources */,
+				14605D2B258500DC00656DC1 /* SearchBar.swift in Sources */,
 				1483AC1C24D550BE00D6BB65 /* WeaponDetailView.swift in Sources */,
 				14A2511F1EA9D05400755F6A /* Element.swift in Sources */,
 				14A251201EA9D05400755F6A /* ElementStats.swift in Sources */,
@@ -893,6 +906,7 @@
 				1483AC1A24D550A500D6BB65 /* WeaponTreeView.swift in Sources */,
 				1450DA6720A95930000085C5 /* ItemComponent.swift in Sources */,
 				14F9697E24CD0ECD00BF0BDC /* SkillListView.swift in Sources */,
+				14605D35258502B700656DC1 /* ActivityIndicator.swift in Sources */,
 				148E036B25186EBA00839D90 /* CollapsableSectionHeader.swift in Sources */,
 				1450DA6320A95915000085C5 /* ItemLocation.swift in Sources */,
 				1450DA6520A95927000085C5 /* ItemMonster.swift in Sources */,
@@ -912,6 +926,7 @@
 				14A8414820BA136E00F36963 /* LocationMonsters.swift in Sources */,
 				148E0381251B359F00839D90 /* ItemCell.swift in Sources */,
 				14E2B5131EB1041D002A2A89 /* Logging.swift in Sources */,
+				14605D2F2585017000656DC1 /* MenuSection.swift in Sources */,
 				14E82E8923696B1F008B3B70 /* KeyboardObservingView.swift in Sources */,
 				14506EDB24D61ED4001BD9FF /* TreeSectionView.swift in Sources */,
 				144306D5209EDC7600D60A5A /* Monster.swift in Sources */,
@@ -933,6 +948,7 @@
 				148E0387251FEB1D00839D90 /* MonsterWeaknessesView.swift in Sources */,
 				1495C57924E89FE000A56ECA /* GridView.swift in Sources */,
 				14AD5F8F24EFB3440042421F /* SkilltreeDecoration.swift in Sources */,
+				14605D1F257E202F00656DC1 /* SearchResult.swift in Sources */,
 				144306D7209EEFFF00D60A5A /* Query.swift in Sources */,
 				146B6EAF25077BCF008184FD /* MelodyView.swift in Sources */,
 				14A251241EA9D05400755F6A /* Quest.swift in Sources */,
